@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/base.astro';
+
+const {
+  title,
+  pubDate,
+  author,
+  description,
+  image,
+  tags
+} = Astro.props.frontmatter;
+
+---
+<BaseLayout pageTitle={ title }>
+  <div>pubDate: {pubDate}</div>
+  <p><em>{description}</em></p>
+  <p>Written by: {author}</p>
+  <img src={image.url} width="300" alt={image.alt} />
+  <div class="class">
+    {tags.map((tag) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+  <slot />
+</BaseLayout>
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
