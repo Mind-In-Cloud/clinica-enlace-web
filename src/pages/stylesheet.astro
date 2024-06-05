@@ -1,0 +1,179 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import Favicon from "@utils/favicon.astro";
+
+import Link  from "@elements/Link.astro";
+
+import '@styles/global.css';
+import '@styles/typography.css';
+
+const { pageTitle } = Astro.props ;
+
+const headerTitle =  `Astro | ${pageTitle || 'Style Guide'}`
+const Title = pageTitle || headerTitle;
+---
+
+<html lang="en">
+	<head>
+		<Favicon/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{headerTitle}</title>
+	</head>
+	<body>
+		<Header />
+		<h1 class="mx-8 lg:mx-36">{Title}</h1>
+		<h3 class="mx-8 lg:mx-36">Buttons:</h3>
+		<div class="mx-8 lg:mx-36 grid grid-cols-3 lg:grid-cols-6  place-content-around">
+			<div class="bg-cyan-soft flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					color="metal"
+				>
+					Metal
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					color="blue"
+				>
+					Blue
+				</Link>
+			</div>
+			<div class="bg-metal flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					text="white"
+					color="white"
+				>
+					White
+				</Link>
+			</div>
+			<div class="bg-cyan-soft flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					color="invert"
+				>
+					Invert
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					color="yellow"
+				>
+					Yellow
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					color="red"
+				>
+					Red
+				</Link>
+			</div>
+		</div>
+		<div class="mx-8 lg:mx-36 grid grid-cols-3 lg:grid-cols-6 place-content-around">
+			<div class="bg-cyan-soft flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					color="metal"
+				>
+					Metal
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					color="blue"
+				>
+					Blue
+				</Link>
+			</div>
+			<div class="bg-metal flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					text="white"
+					color="white"
+				>
+					White
+				</Link>
+			</div>
+			<div class="bg-cyan-soft flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					color="invert"
+				>
+					Invert
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					color="yellow"
+				>
+					Yellow
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					rounded
+					url="https://www.google.com"
+					color="red"
+				>
+					Red
+				</Link>
+			</div>
+		</div>
+		<h3  class="mx-8 lg:mx-36">Links:</h3>
+		<div class="mx-8 lg:mx-36 grid grid-cols-2 place-content-around">
+			<div class="bg-metal flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					link
+				>
+					Testimonios de otros pacientes >
+				</Link>
+			</div>
+			<div class="bg-cyan-soft flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					nav
+				>
+					Nav
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					header
+				>
+					header
+				</Link>
+			</div>
+			<div class="flex flex-auto place-content-center p-8">
+				<Link
+					url="https://www.google.com"
+					header
+					active
+				>
+					active page
+				</Link>
+			</div>
+		</div>
+		<Footer />
+		<script>
+			import "../scripts/menu.js"
+		</script>
+	</body>
+</html>

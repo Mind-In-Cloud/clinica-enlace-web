@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-typo-header-xxl, h1 {
+.typo-header-xxl, h1 {
   font-family: Poppins, sans-serif;
   font-size: 56px;
   font-weight: 700;
@@ -13,7 +13,7 @@ typo-header-xxl, h1 {
   text-align: left;
 }
 
-typo-header-xl, h2 {
+.typo-header-xl, h2 {
   font-family: Poppins, sans-serif;
   font-size: 48px;
   font-weight: 700;
@@ -22,7 +22,7 @@ typo-header-xl, h2 {
   text-align: left;
 }
 
-typo-header-l, h3 {
+.typo-header-l, h3 {
   font-family: Poppins, sans-serif;
   font-size: 40px;
   font-weight: 700;
@@ -31,7 +31,7 @@ typo-header-l, h3 {
   text-align: left;
 }
 
-typo-header-m, h4 {
+.typo-header-m, h4 {
   font-family: Poppins, sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -39,7 +39,7 @@ typo-header-m, h4 {
   text-align: left;
 }
 
-typo-header-s, h5 {
+.typo-header-s, h5 {
   font-family: Poppins, sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -47,7 +47,7 @@ typo-header-s, h5 {
   text-align: left;
 }
 
-typo-header-xs {
+.typo-header-xs {
   font-family: Poppins, sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -55,7 +55,7 @@ typo-header-xs {
   text-align: left;
 }
 
-typo-header-xxs {
+.typo-header-xxs {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -63,7 +63,7 @@ typo-header-xxs {
   text-align: left;
 }
 
-typo-body-xxl {
+.typo-body-xxl {
   font-family: Poppins, sans-serif;
   font-size: 22px;
   font-weight: 400;
@@ -72,7 +72,7 @@ typo-body-xxl {
   text-align: left;
 }
 
-typo-body-xl {
+.typo-body-xl {
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -81,7 +81,7 @@ typo-body-xl {
   text-align: left;
 }
 
-typo-body-l {
+.typo-body-l {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -90,7 +90,7 @@ typo-body-l {
   text-align: left;
 }
 
-typo-body-m {
+.typo-body-m {
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -99,7 +99,7 @@ typo-body-m {
   text-align: left;
 }
 
-typo-body-s {
+.typo-body-s {
   font-family: Poppins, sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -107,7 +107,7 @@ typo-body-s {
   text-align: left;
 }
 
-typo-body-bold-xl {
+.typo-body-bold-xl {
   font-family: Poppins, sans-serif;
   font-size: 22px;
   font-weight: 600;
@@ -115,7 +115,7 @@ typo-body-bold-xl {
   text-align: left;
 }
 
-typo-body-bold-l {
+.typo-body-bold-l {
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -123,7 +123,7 @@ typo-body-bold-l {
   text-align: left;
 }
 
-typo-body-bold-m {
+.typo-body-bold-m {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -131,7 +131,7 @@ typo-body-bold-m {
   text-align: left;
 }
 
-typo-body-bold-s {
+.typo-body-bold-s {
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -140,7 +140,7 @@ typo-body-bold-s {
   text-align: left;
 }
 
-typo-body-bold-xs {
+.typo-body-bold-xs {
   font-family: Poppins, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -148,7 +148,7 @@ typo-body-bold-xs {
   text-align: left;
 }
 
-typo-button-large {
+.typo-button-l {
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -157,7 +157,7 @@ typo-button-large {
   text-align: left;
 }
 
-typo-button-medium {
+.typo-button-m {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -166,7 +166,7 @@ typo-button-medium {
   text-align: left;
 }
 
-typo-button-small {
+.typo-button-s {
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 700;

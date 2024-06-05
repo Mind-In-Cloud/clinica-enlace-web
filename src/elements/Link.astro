@@ -1,0 +1,77 @@
+---
+const {
+  url,
+  color = 'cyan',
+  shadow = true,
+  nav = false,
+  link = false,
+  header = false,
+  active = false,
+  rounded = false
+} = Astro.props
+
+let className = {
+  class : ''
+}
+
+if ( !nav && !link && !header ){
+  className.class += 'btn btn-primary typo-button-l py-3 px-8 '
+} else if ( nav ){
+  className.class += 'text-blue typo-button-s '
+} else if ( link ){
+  className.class += 'text-white typo-button-s '
+} else if ( header ){
+  className.class += 'typo-header-xxs '
+}
+
+if ( shadow && color !== "invert" && !nav && !link && !header){
+  className.class += 'shadow '
+}
+
+if ( active ) {
+  className.class += 'font-semibold '
+}
+
+if ( rounded ) {
+  className.class += 'rounded-full '
+} else {
+  className.class += 'rounded-sm '
+}
+
+switch (color) {
+  case 'blue':
+    className.class += 'text-white bg-blue'
+    break;
+  case 'invert':
+    className.class += 'text-blue bg-white border-solid border border-blue'
+    break;
+  case 'metal':
+    className.class += 'text-white bg-metal'
+    break;
+  case 'red':
+    className.class += 'text-white bg-red'
+    break;
+  case 'white':
+    className.class += 'text-metal bg-white'
+    break;
+  case 'yellow':
+    className.class += 'text-white bg-yellow'
+    break;
+  default:
+    break;
+}
+---
+<a href ={ url } {...className}>
+  <slot/>
+</a>
+<style>
+  .btn {
+    &:hover{
+      /* text-decoration: underline;*/
+      /* TODO */
+    }
+    &.shadow {
+      box-shadow: 4px 4px 4px 2px #2D3E4E33;
+    }
+  }
+</style>
