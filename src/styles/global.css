@@ -12,23 +12,6 @@ html.dark {
   color: #fff;
 }
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-}
-
 /* nav styles */
 .hamburger {
   padding-right: 20px;
