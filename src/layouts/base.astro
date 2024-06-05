@@ -1,8 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 
-import '../styles/global.css';
+import Favicon from "@utils/favicon.astro";
+
+import '@styles/global.css';
+import '@styles/typography.css';
 
 const { pageTitle } = Astro.props ;
 
@@ -12,8 +15,8 @@ const Title = pageTitle || headerTitle;
 
 <html lang="en">
 	<head>
+		<Favicon/>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{headerTitle}</title>
