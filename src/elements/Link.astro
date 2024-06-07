@@ -8,7 +8,6 @@ const {
   nav = false,
   link = false,
   header = false,
-  active = false,
   rounded = false
 } = Astro.props
 
@@ -16,9 +15,9 @@ let linkClasses = classy([
   !nav && !link && !header ? 'btn btn-primary typo-button-l py-3 px-8'
   : nav ? 'text-blue typo-button-s'
   : link ? 'text-white typo-button-s'
-  : header && 'typo-header-xxs',
+  : header && 'typo-header-xxs text-neutral-500',
   shadow && color !== "invert" && !nav && !link && !header && 'shadow',
-  active && 'font-semibold',
+  url === Astro.url.pathname && 'font-black',
   rounded ? 'rounded-full' : 'rounded-sm',
   color === 'blue' ? 'text-white bg-blue'
   : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'
