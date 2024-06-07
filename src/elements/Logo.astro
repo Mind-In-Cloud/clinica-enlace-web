@@ -1,0 +1,18 @@
+---
+import Icon from "./Icon.astro"
+
+import classy from "@utils/classy";
+
+import logo from "@icons/fullLogo.svg?raw"
+
+const {
+  class : className = '',
+} = Astro.props
+
+const logoClasses = classy([
+  "size-auto",
+  "max-h-24",
+  className
+])
+---
+<Icon {...logoClasses} icon={logo}/>

@@ -1,12 +1,10 @@
 ---
 import Navigation from "@elements/Navigation.astro"
+import Logo from "@elements/Logo.astro"
 import Hamburguer from "./Hamburguer.astro"
-import logo from "@icons/fullLogo.svg?raw"
 ---
 <header class="grid grid-cols-2 mx-8 lg:mx-36 lg:gap-x-32  py-6">
-  <div class="size-auto max-h-24">
-    <Fragment set:html={logo} />
-  </div>
+  <Logo/>
   <nav>
     <Hamburguer/>
     <Navigation/>

@@ -1,25 +1,31 @@
 ---
 import classy from '@utils/classy'
 
+import footerTriangle from "@icons/footerTriangle.svg?raw"
+
+import Icon from "@elements/Icon.astro"
+
 const {
   url,
   color = '',
   mini = false,
   rounded = false,
+  icon = false,
   header = false,
   nav = false,
   footer = false,
+  class : className = '',
 } = Astro.props
 
 const isNav = footer || header || nav
 
 let linkClasses = classy([
+  'k-link',
   !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-8'
   : nav ? 'text-blue typo-button-s'
-  : mini ? 'typo-button-s'
+  : mini ? 'text-white typo-button-s'
   : header ? 'typo-header-xxs text-neutral-500'
-  : footer && 'typo-body-m text-neutral-100',
-  url === Astro.url.pathname && header && !color && 'font-black',
+  : footer && 'typo-body-m text-neutral-200 flex items-center',
   !isNav && !mini && color !== "invert" && 'shadow',
   !isNav && rounded ? 'rounded-full' : 'rounded-sm',
   !isNav && !mini && color === 'blue' ? 'bg-blue'
@@ -28,20 +34,63 @@ let linkClasses = classy([
   : color === 'red' ? 'bg-red'
   : color === 'white' ? 'text-metal bg-white'
   : color === 'yellow' && 'bg-yellow',
-  !isNav && color !== 'invert' && color !== 'white' && 'text-white'
+  ( isNav || mini ) && 'k-decoration-under',
+  !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
+  url === Astro.url.pathname && header && !color && 'font-black k-active',
+  className,
 ])
+
+
+const linkContentClasses = classy([
+  'link-content-wrapper',
+  footer && 'ml-3.5',
+])
+
+let decoratorBgColor = nav ? '#59CCD9':
+  mini ? '#F8FAFC' :
+  header ? '#3C5368' :
+  footer && '#CBD7E1'
+
+if ( color === 'cyan'){
+  linkClasses = classy([
+    'typo-body-m text-cyan-soft k-decoration-under',
+    className
+  ])
+
+  decoratorBgColor = '#E6F7F9'
+}
+
 ---
 <a href ={ url} {...linkClasses} >
-  <slot/>
+  { nav && <span>{'<'}</span>}
+  { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
+  { !footer && Boolean(icon) && <Icon icon={icon}/>}
+  <span {...linkContentClasses}>
+    <slot/>
+  </span>
+  { mini && <span>{'>'}</span>}
 </a>
-<style>
-  .btn {
-    &:hover{
-      /* text-decoration: underline;*/
-      /* TODO */
+<style define:vars={{decoratorBgColor}}>
+  .k-decoration-under {
+    position: relative;
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--decoratorBgColor);
+      transition: width 200ms ease;
     }
-    &.shadow {
-      box-shadow: 4px 4px 4px 2px #2D3E4E33;
+    &:hover:not(.k-active){
+      &:before {
+        width: 100%;
+      }
     }
+  }
+
+  & .shadow {
+    box-shadow: 4px 4px 4px 2px #2D3E4E33;
   }
 </style>

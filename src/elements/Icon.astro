@@ -1,0 +1,18 @@
+---
+import classy from "@utils/classy";
+
+const {
+  icon = false,
+  class : className = ''
+} = Astro.props;
+
+const iconClasses = classy([
+  'k-icon',
+  className
+])
+---
+{ Boolean(icon) &&
+  <span {...iconClasses}>
+    <Fragment set:html={icon} />
+  </span>
+}
