@@ -12,6 +12,7 @@
       "@utils/*": ["src/utils/*"],
       "@images/*": ["src/assets/images/*"],
       "@icons/*": ["src/assets/icons/*"],
+      "@subcomponents/*": ["src/subcomponents/*"],
       // "@assets/*": ["src/assets/*"]
     }
   }
