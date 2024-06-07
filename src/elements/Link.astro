@@ -3,29 +3,32 @@ import classy from '@utils/classy'
 
 const {
   url,
-  color = false,
-  shadow = true,
-  link = false,
+  color = '',
+  mini = false,
   rounded = false,
   header = false,
   nav = false,
   footer = false,
 } = Astro.props
 
+const isNav = footer || header || nav
+
 let linkClasses = classy([
-  !nav && !link && !header ? 'btn btn-primary typo-button-l py-3 px-8'
+  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-8'
   : nav ? 'text-blue typo-button-s'
-  : link ? 'text-white typo-button-s'
-  : header && 'typo-header-xxs text-neutral-500',
-  shadow && color !== "invert" && !nav && !link && !header && 'shadow',
-  url === Astro.url.pathname && !color && 'font-black',
-  rounded ? 'rounded-full' : 'rounded-sm',
-  color === 'blue' ? 'text-white bg-blue'
+  : mini ? 'typo-button-s'
+  : header ? 'typo-header-xxs text-neutral-500'
+  : footer && 'typo-body-m text-neutral-100',
+  url === Astro.url.pathname && header && !color && 'font-black',
+  !isNav && !mini && color !== "invert" && 'shadow',
+  !isNav && rounded ? 'rounded-full' : 'rounded-sm',
+  !isNav && !mini && color === 'blue' ? 'bg-blue'
   : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'
-  : color === 'metal' ? 'text-white bg-metal'
-  : color === 'red' ? 'text-white bg-red'
+  : color === 'metal' ? 'bg-metal'
+  : color === 'red' ? 'bg-red'
   : color === 'white' ? 'text-metal bg-white'
-  : color === 'yellow' && 'text-white bg-yellow'
+  : color === 'yellow' && 'bg-yellow',
+  !isNav && color !== 'invert' && color !== 'white' && 'text-white'
 ])
 ---
 <a href ={ url} {...linkClasses} >
