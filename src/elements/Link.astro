@@ -3,12 +3,13 @@ import classy from '@utils/classy'
 
 const {
   url,
-  color = 'cyan',
+  color = false,
   shadow = true,
-  nav = false,
   link = false,
+  rounded = false,
   header = false,
-  rounded = false
+  nav = false,
+  footer = false,
 } = Astro.props
 
 let linkClasses = classy([
@@ -17,7 +18,7 @@ let linkClasses = classy([
   : link ? 'text-white typo-button-s'
   : header && 'typo-header-xxs text-neutral-500',
   shadow && color !== "invert" && !nav && !link && !header && 'shadow',
-  url === Astro.url.pathname && 'font-black',
+  url === Astro.url.pathname && !color && 'font-black',
   rounded ? 'rounded-full' : 'rounded-sm',
   color === 'blue' ? 'text-white bg-blue'
   : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'

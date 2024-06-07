@@ -17,9 +17,6 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.9.2(typescript@5.4.5))(tailwindcss@3.4.3)
-      '@fontsource/poppins':
-        specifier: ^5.0.14
-        version: 5.0.14
       astro:
         specifier: ^4.9.2
         version: 4.9.2(typescript@5.4.5)
@@ -551,9 +548,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource/poppins@5.0.14':
-    resolution: {integrity: sha512-nmM1zpPo3Uh4JcGAVSQuWaZNYh2FbbwWhZ5t6hRaynmJaNTBW85d3nEh9zMmzI0HX7X5xqQVdRHeDatKpOGsnA==}
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -2963,8 +2957,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.3':
     optional: true
-
-  '@fontsource/poppins@5.0.14': {}
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
