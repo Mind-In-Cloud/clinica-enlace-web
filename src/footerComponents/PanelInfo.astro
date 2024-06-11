@@ -1,0 +1,32 @@
+---
+import Icon from "@elements/Icon.astro";
+
+import location from "@icons/location_white.svg?raw";
+import phone from "@icons/phone_white.svg?raw";
+import email from "@icons/email_white.svg?raw";
+import classy from "@utils/classy";
+import Socials from "./Socials.astro";
+
+const textClasses = classy([
+  "col-span-5",
+  "text-body-xl",
+  "text-white",
+  "font-light"
+]);
+---
+<div class="col-span-3 xl:col-span-2 grid grid-cols-6 gap-x-5 gap-y-5">
+  <Icon icon={location} class="col-span-1 content-center"/>
+  <div {...textClasses}>
+    Jesús Solis 1626, La Nogalera 2do Sector, 66417, San Nicolás de los Garza, N.L.
+  </div>
+  <Icon icon={phone} class="col-span-1 content-center"/>
+  <div {...textClasses}
+    <p>+52 674 233 32 42</p>
+    <p>+52 674 456 74 32</p>
+  </div>
+  <Icon icon={email} class="col-span-1 content-center"/>
+  <div {...textClasses}>
+    correoenlace@correo.com
+  </div>
+  <Socials/>
+</div>

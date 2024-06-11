@@ -1,0 +1,33 @@
+---
+import Link from '@elements/Link.astro'
+import classy from '@utils/classy'
+
+const links = [
+  { url : '/' , text : 'Procedimientos intervencionistas' },
+  { url : '/' , text : 'Estudios de laboratorio' },
+  { url : '/' , text : 'Electrocardiograma y ecocardiograma' },
+  { url : '/' , text : 'Procedimientos mayores' },
+  { url : '/', text : 'Centros de especialidad' },
+  { url : '/' , text : 'Procedimientos ambulatorios' },
+  { url : '/' , text : 'Consulta con especialidades' },
+  { url : '/' , text : 'Procedimientos quirúrgicos' },
+  { url : '/', text : 'Ultrasonido Doppler y convencional' },
+  { url : '/' , text : 'Diagnóstico clínico' },
+]
+
+const linkClasses = classy([
+  "col-span-2",
+  "md:col-span-1",
+  "content-center"
+])
+---
+<div class="col-span-3 md:col-span-6 xl:col-span-3">
+  <div class="typo-header-xs text-white font-bold mb-3"> Servicios </div>
+  <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+      { links.map((link, index) => (
+        <div {...linkClasses} >
+          <Link url={link.url} footer> {link.text} </Link>
+        </div>
+      )) }
+  </div>
+</div>
