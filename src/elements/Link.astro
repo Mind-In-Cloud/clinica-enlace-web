@@ -14,6 +14,7 @@ const {
   header = false,
   nav = false,
   footer = false,
+  wrapClasses = '',
   class : className = '',
 } = Astro.props
 
@@ -21,7 +22,7 @@ const isNav = footer || header || nav
 
 let linkClasses = classy([
   'k-link',
-  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-8'
+  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-4'
   : nav ? 'text-blue typo-button-s'
   : mini ? 'text-white typo-button-s'
   : header ? 'typo-header-xxs text-neutral-500'
@@ -44,6 +45,7 @@ const linkContentClasses = classy([
   'k-link-content-wrapper',
   ( isNav || mini ) && 'k-decoration-under',
   footer && 'ml-3.5',
+  wrapClasses
 ])
 
 let decoratorBgColor = nav ? '#59CCD9':
