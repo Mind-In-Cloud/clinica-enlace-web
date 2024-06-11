@@ -1,0 +1,54 @@
+---
+import Link from "@elements/Link.astro"
+import classy from "@utils/classy"
+
+const linkClasses = classy([
+  'col-auto',
+  'content-center',
+])
+---
+<div class="k-desktop-nav grid grid-cols-6 gap-x-4">
+  <Link
+  url="/"
+  header
+  { ...linkClasses }
+  >
+  Inicio
+  </Link>
+  <Link
+  url="https://www.google.com"
+  header
+  { ...linkClasses }
+  >
+  Long header
+  </Link>
+  <Link
+  url="https://www.google.com"
+  header
+  { ...linkClasses }
+  >
+  header
+  </Link>
+  <Link
+  url="https://www.google.com"
+  header
+  { ...linkClasses }
+  >
+  header
+  </Link>
+  <Link
+  url="https://www.google.com"
+  header
+  { ...linkClasses }
+  >
+  header
+  </Link>
+  <Link
+  url="https://www.google.com"
+  header
+  { ...linkClasses }
+  >
+  header
+  </Link>
+
+</div>
