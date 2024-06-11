@@ -40,7 +40,6 @@ let linkClasses = classy([
   className,
 ])
 
-
 const linkContentClasses = classy([
   'k-link-content-wrapper',
   ( isNav || mini ) && 'k-decoration-under',
@@ -88,7 +87,7 @@ if ( color === 'cyan'){
   }
 
   :not(.k-active){
-     & .k-decoration-under:hover{
+      & .k-decoration-under:hover{
       &:before {
         width: 100%;
       }
