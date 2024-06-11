@@ -1,14 +1,12 @@
 ---
 import BaseLayout from '@layouts/base.astro';
 
-import Greeting from '@components/Greeting';
-import BigHero from '@components/bigHero.astro';
+import BigHero from '@components/BigHero.astro';
+import Testimonials from '@components/Testimonials.astro';
 
 const pageTitle = "Inicio";
 ---
 <BaseLayout pageTitle={pageTitle}>
   <BigHero/>
-  <h2>En construccion</h2>
-  <!-- <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]}/> -->
-
+  <Testimonials/>
 </BaseLayout>

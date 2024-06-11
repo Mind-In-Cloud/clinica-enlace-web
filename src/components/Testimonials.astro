@@ -1,0 +1,84 @@
+---
+import classy from "@utils/classy"
+
+const testimonials=[
+  {
+    review: "“Excelente Clínica, cuenta con todo lo necesario: Muy buenas instalaciones, Excelentes médicos. (Tratamos con diferentes especialistas y cada uno de ellos muy profesionales y acertados), el personal administrativo muy amable y atento. En general una Clínica Calificada que recomiendo ampliamente. Felicidades a todo el equipo por la labor que realizan.”",
+    date: "23 de marzo de 2024",
+    pacient: null
+  },
+  {
+    review: "“Excelente atención, especialistas muy capacitados te explican a detalle los procedimientos a realizar, y cuentan con tecnología de primer nivel para los diferentes procedimientos que practican, instalaciones de primer nivel y muy buena ubicación.”",
+    date: "14 de octubre de 2023 "
+  },
+  {
+    review: "“Excelente servicio, personal muy amable y capacitado, excelentes instalaciones todo muy limpio, cuentan con la tecnología necesaria para atender cualquier complicación inmediatamente, los doctores te explican Muy bien cualquier duda que tengas, lo recomiendo ampliamente!”",
+    date: "5 de agosto de 2023 "
+  },
+  {
+    review: "“Muy agradecida con todo el equipo por su profesionalismo y calidad humana, gracias al Dr. Dino Renzo Viacava excelente ginecólogo, al Dr. Germán excelente cirujano, a todas las enfermeras, recepcionistas y personas de intendencia, muy agradecidos por todas sus atenciones y ampliamente recomendados”",
+    date: "28 de junio de 2023 "
+  },
+  {
+    review: "“Personal amable y altamente capacitado, instalaciones limpias y funcionales, recomendado ampliamente”",
+    date: "1 de julio de 2023"
+  },
+  {
+    review: "“Muy buena clínica, excelente equipo de médicos, con mucha amabilidad y certeza, te atienden de forma integral evaluando de manera global tu caso, con diagnóstico certero y muy buenas instalaciones preparados para cualquier situación que se pueda presentar, siempre tranquilizando al paciente como a la familia, 💯 % recomendable”",
+    date: "23 de mayo de 2023"
+  }
+
+]
+
+const testClasses= classy([
+  'px-8 pb-9 lg:px-36 pt-16 lg:pt-10', // Padding classes for all components!
+])
+---
+<div {...testClasses}>
+  <h2 class="typo-header-m md:typo-header-xxl text-center text-neutral-500 mb-8">
+    Nuestros <strong>Pacientes</strong>
+  </h2>
+  <div class="lg:mr-32 lg:ml-40">
+    <div class="scroller flex snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain px-[var(--scroll-padding)] [--scroll-padding:max(var(--spacing-28),calc((100vw-var(--width-7xl))/2))]">
+      {
+        testimonials.map((testimonial) => (
+          <div class="item w-10/12 shrink-0 snap-start scroll-ml-[var(--scroll-padding)] last:mr-[calc(100%-var(--spacing-48))] content-center">
+            <div class="grid grid-cols-8 gap-4 md:mx-10">
+              <div class="col-span-2 hidden lg:block">
+                avatar
+              </div>
+              <div class="grid grid-cols-8 col-span-8 lg:col-span-6">
+                <p class="col-span-8 typo-body-l md:typo-body-xxl text-neutral-500 text-center italic">
+                  {testimonial.review}
+                </p>
+                <hr class="bg-neutral-500 col-span-8 my-4 text-neutral-500 border-none h-0.5">
+                <div class="col-span-5 typo-body-m md:typo-header-xs text-neutral-500 font-bold">
+                  {testimonial?.pacient || 'Paciente del centro de especialidades' }
+                </div>
+                <div class="col-span-3 typo-body-s md:typo-body-l text-neutral-500 text-right content-center">
+                  {testimonial.date}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+</div>
+<style>
+.scroller {
+  scroll-padding-inline: var(--scroll-padding);
+}
+
+.item {
+  animation: linear in-and-out both;
+  animation-timeline: view(inline);
+}
+
+@keyframes in-and-out {
+  entry 0%, exit 100% { opacity: 0 }
+  entry 100%, exit 0% { opacity: 1 }
+}
+</style>
