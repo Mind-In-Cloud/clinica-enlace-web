@@ -34,7 +34,6 @@ let linkClasses = classy([
   : color === 'red' ? 'bg-red'
   : color === 'white' ? 'text-metal bg-white'
   : color === 'yellow' && 'bg-yellow',
-  ( isNav || mini ) && 'k-decoration-under',
   !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
   url === Astro.url.pathname && header && !color && 'font-black k-active',
   className,
@@ -42,7 +41,8 @@ let linkClasses = classy([
 
 
 const linkContentClasses = classy([
-  'link-content-wrapper',
+  'k-link-content-wrapper',
+  ( isNav || mini ) && 'k-decoration-under',
   footer && 'ml-3.5',
 ])
 
@@ -71,7 +71,7 @@ if ( color === 'cyan'){
   { mini && <span>{'>'}</span>}
 </a>
 <style define:vars={{decoratorBgColor}}>
-  .k-decoration-under {
+  .k-link-content-wrapper.k-decoration-under {
     position: relative;
     &:before {
       position: absolute;
@@ -83,7 +83,10 @@ if ( color === 'cyan'){
       background: var(--decoratorBgColor);
       transition: width 200ms ease;
     }
-    &:hover:not(.k-active){
+  }
+
+  :not(.k-active){
+     & .k-decoration-under:hover{
       &:before {
         width: 100%;
       }

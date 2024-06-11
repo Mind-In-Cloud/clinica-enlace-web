@@ -1,13 +1,19 @@
 ---
+import classy from "@utils/classy";
+
 import SubFooter from "@subcomponents/subFooter.astro";
-import Bottom from "@elements/Bottom.astro";
+import Bottom from "@subcomponents/Bottom.astro";
+
+const footerClasses = classy([
+  "k-footer",
+  "grid grid-cols-1 md:grid-cols-6",
+  "gap-y-8 md:gap-y-8 md:gap-x-10",
+  "px-8 pb-9 lg:px-36 pt-16 lg:pt-10",
+  "bg-neutral-700",
+]);
 ---
 <footer
-  class="k-footer
-  grid grid-cols-1 lg:grid-cols-3
-  gap-y-9 gap-x-20
-  px-8 pb-9 lg:px-36 pt-16 lg:pt-10
-  bg-neutral-700"
+  {...footerClasses}
 >
   <SubFooter/>
   <Bottom />
