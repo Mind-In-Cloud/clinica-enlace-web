@@ -7,6 +7,7 @@ import Icon from '@elements/Icon.astro'
 import desktopImg from '@images/mainPhotoBig.jpg'
 import mobileImg from '@images/mobileMain.jpg'
 import phone from '@icons/phone_white.svg?raw'
+import liver from '@icons/liver_white.svg?raw'
 
 const bigContentClasses = classy([
   'k-hero-content',
@@ -39,18 +40,16 @@ const bigContentClasses = classy([
         <span class="col-span-6 typo-body-l hidden md:block">Asistencia inmediata</span>
         </Link>
       </div>
-      <div class="col-span-12 md:col-span-6">
-        <Link
-          url="/"
-          color="yellow"
-          rounded
-          class="justify-center flex w-auto"
-          wrapClasses="grid gap-x-2 grid-cols-8 items-center"
-        >
-          <Icon icon={phone} class="col-span-1 flex"/>
-          <span class="col-span-7 typo-body-l">Centro de Hígado y Sistema Biliar</span>
-        </Link>
-      </div>
+      <Link
+        url="/"
+        color="yellow"
+        rounded
+        class="justify-center flex col-span-12 md:col-span-6 "
+        wrapClasses="w-full flex items-center justify-around"
+      >
+        <Icon icon={liver} class="col-span-1 flex"/>
+        <span class="col-auto typo-body-l">Centro de Hígado y Sistema Biliar</span>
+      </Link>
       <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center">
 				<Link
 					url="https://www.google.com"

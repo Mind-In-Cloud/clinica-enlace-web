@@ -8,25 +8,32 @@ import classy from "@utils/classy";
 import Socials from "./Socials.astro";
 
 const textClasses = classy([
+  "md:col-start-2 md:col-span-4 md:col-end-6",
   "col-span-5",
-  "text-body-xl",
+  "md:typo-body-l",
+  "typo-body-s",
   "text-white",
   "font-light"
 ]);
+const iconClasses = classy([
+  "col-start-1 col-span-1 col-end-2",
+  "content-center",
+  "justify-self-center"
+]);
 ---
-<div class="col-span-3 xl:col-span-2 grid grid-cols-6 gap-x-5 gap-y-5">
-  <Icon icon={location} class="col-span-1 content-center"/>
+<div class="col-span-3 xl:col-span-2 grid grid-cols-6 gap-x-5 gap-y-8">
+  <Icon icon={location} { ...iconClasses }/>
   <div {...textClasses}>
     Jesús Solis 1626, La Nogalera 2do Sector, 66417, San Nicolás de los Garza, N.L.
   </div>
-  <Icon icon={phone} class="col-span-1 content-center"/>
+  <Icon icon={phone} { ...iconClasses }/>
   <div {...textClasses}
-    <p>+52 674 233 32 42</p>
-    <p>+52 674 456 74 32</p>
+    <p>+52 81 4089 9924</p>
+    <p>+52 81 4089 9924</p>
   </div>
-  <Icon icon={email} class="col-span-1 content-center"/>
+  <Icon icon={email} { ...iconClasses }/>
   <div {...textClasses}>
-    correoenlace@correo.com
+    admision@clinicaenlace.mx
   </div>
   <Socials/>
 </div>

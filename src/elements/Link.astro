@@ -21,7 +21,7 @@ const {
 const isNav = footer || header || nav
 
 let linkClasses = classy([
-  'k-link',
+  'k-link subpixel-antialiased',
   !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-4'
   : nav ? 'text-blue typo-button-s'
   : mini ? 'text-white typo-button-s'
@@ -54,7 +54,7 @@ let decoratorBgColor = nav ? '#59CCD9':
 
 if ( color === 'cyan'){
   linkClasses = classy([
-    'typo-body-m text-cyan-soft k-decoration-under',
+    'typo-body-m text-cyan-soft k-decoration-under subpixel-antialiased',
     className
   ])
 
