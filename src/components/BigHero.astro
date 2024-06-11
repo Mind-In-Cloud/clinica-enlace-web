@@ -39,8 +39,27 @@ const bigContentClasses = classy([
         <span class="col-span-6 typo-body-l hidden md:block">Asistencia inmediata</span>
         </Link>
       </div>
-      <div class="col-span-8">1</div>
-      <div class="col-span-4">1</div>
+      <div class="col-span-12 md:col-span-6">
+        <Link
+          url="/"
+          color="yellow"
+          rounded
+          class="justify-center flex w-auto"
+          wrapClasses="grid gap-x-2 grid-cols-8 items-center"
+        >
+          <Icon icon={phone} class="col-span-1 flex"/>
+          <span class="col-span-7 typo-body-l">Centro de Hígado y Sistema Biliar</span>
+        </Link>
+      </div>
+      <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center">
+				<Link
+					url="https://www.google.com"
+					mini
+          wrapClasses="text-center md:text-left"
+				>
+					Testimonios de otros pacientes
+        </Link>
+      </div>
     </div>
   </div>
 </div>
