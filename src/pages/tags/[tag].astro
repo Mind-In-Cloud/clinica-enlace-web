@@ -4,28 +4,6 @@ import BaseLayout from '@layouts/base.astro';
 import BlogPost from '@elements/BlogPost.astro';
 import { getCollection } from 'astro:content';
 
-// typings
-export interface Post {
-    frontmatter: Frontmatter;
-    file:        string;
-    url:         string;
-}
-
-export interface Frontmatter {
-    layout:      string;
-    title:       string;
-    pubDate:     Date;
-    description: string;
-    author:      string;
-    image:       Image;
-    tags:        string[];
-}
-
-export interface Image {
-    url: string;
-    alt: string;
-}
-
 export async function getStaticPaths() {
   // const allPosts = await Astro.glob('../posts/*.md'); //old
   const allPosts = await getCollection('posts');
@@ -42,13 +20,13 @@ export async function getStaticPaths() {
 }
 
 const { tag } : { tag : string }= Astro.params;
-const { posts } : { posts : Post[] }= Astro.props;
+const { posts } : { posts : any[] }= Astro.props;
 
 ---
 <BaseLayout pageTitle={tag}>
   <p>Posts tagged with {tag}</p>
   <ul>
-    {posts.map((post: Post) =>
+    {posts.map((post) =>
       // <BlogPost url={post.url} title={post.frontmatter.title}/> old
       <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
     )}
