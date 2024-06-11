@@ -1,7 +1,7 @@
 ---
-layout: ../../layouts/markdown.astro
+# layout: ../../layouts/markdown.astro
 title: 'First'
-pubDate: '2024-06-03'
+pubDate: 2024-06-03
 description: 'This is the first post of astro'
 author: 'me'
 image:

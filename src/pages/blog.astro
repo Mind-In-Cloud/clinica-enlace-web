@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/base.astro';
 
 import BlogPost from '@elements/BlogPost.astro';
 
-const allPosts = await Astro.glob('../pages/posts/*.md');
+// const allPosts = await Astro.glob('../pages/posts/*.md'); // old
+const allPosts = await getCollection('posts');
 const pageTitle = "Blog";
 // for second part of proyect : https://docs.astro.build/en/tutorials/add-content-collections/
 ---
@@ -11,7 +13,8 @@ const pageTitle = "Blog";
   <h2>My awesome blog subtitle</h2>
 	<ul>
 		{ allPosts.map( post =>
-			<BlogPost url={post.url} title={post.frontmatter.title} />
+			// <BlogPost url={post.url} title={post.frontmatter.title} />
+			<BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
 		)}
 	</ul>
 </BaseLayout>

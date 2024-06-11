@@ -12,7 +12,7 @@ const {
 
 ---
 <BaseLayout pageTitle={ title }>
-  <div>pubDate: {pubDate}</div>
+  <div>pubDate: {pubDate.toString().slice(0,15)}</div>
   <p><em>{description}</em></p>
   <p>Written by: {author}</p>
   <img src={image.url} width="300" alt={image.alt} />
