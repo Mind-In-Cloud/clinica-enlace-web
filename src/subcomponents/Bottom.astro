@@ -1,0 +1,17 @@
+---
+import dayjs from 'dayjs'
+import Link from '../elements/Link.astro'
+const year = dayjs().year()
+---
+<div class="
+  col-span-3 lg:col-span-2
+  typo-body-m
+  self-center
+  text-white text-center lg:text-left">
+  Copyright© {year} Clínica Enlace
+</div>
+<div class="col-span-3 lg:col-span-2 flex justify-center lg:justify-normal">
+  <Link url='/' class="text-center lg:text-left" color="cyan">
+    Preguntas frecuentes
+  </Link>
+</div>
