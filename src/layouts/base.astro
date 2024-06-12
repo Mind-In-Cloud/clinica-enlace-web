@@ -4,17 +4,16 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 import Favicon from "@utils/favicon.astro";
+import seoDefault from "@images/mobileMain.jpg"
 
 import '@styles/global.css';
 import '@styles/typography.css';
 
 const { seo } = Astro.props ;
 
-// const headerTitle =  `${pageTitle || 'Missing Title'} | Clínica Enlace`
-// const Title = pageTitle || headerTitle;
 const {
-	title,
-	description,
+	title = 'Missing Title',
+	description = 'Missing Description',
 	image : {
 		src,
 		width,

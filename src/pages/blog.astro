@@ -8,8 +8,20 @@ import BlogPost from '@elements/BlogPost.astro';
 const allPosts = await getCollection('posts');
 const pageTitle = "Blog";
 // for second part of proyect : https://docs.astro.build/en/tutorials/add-content-collections/
+
+import seoImage from '@images/mainPhotoBig.jpg'
+
+// const pageTitle = "Inicio";
+const seo = {
+  title: 'Inicio',
+  description: 'Clínica Enlace, centro de salud de intervencionismo y corta estancia',
+  image: seoImage,
+  // image: '@assets/images/her.jpg',
+  // url: '/',
+}
+
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout {seo}>
   <h2>My awesome blog subtitle</h2>
 	<ul>
 		{ allPosts.map( post =>
