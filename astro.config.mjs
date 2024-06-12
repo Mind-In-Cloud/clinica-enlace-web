@@ -6,6 +6,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'clinicaenlace.mx',
+  site: 'https://clinicaenlace.mx',
   integrations: [preact(), tailwind(), sitemap()]
 });
