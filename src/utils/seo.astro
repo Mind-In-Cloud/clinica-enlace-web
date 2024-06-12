@@ -1,0 +1,18 @@
+---
+// test : Testing and Validation: Once you've added Schema Markup code to your page, it's important to test its validity using the Google Structured Data Testing Tool. This tool will help identify possible implementation errors and ensure that your data is correctly recognized by search engines
+// source https://betterize.pl/seo/seo-fields-on-website/
+---
+<link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
+<meta name="description" content="{{ page.excerpt }}"/>
+<!-- OG properties -->
+<meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+<meta property="og:locale" content="es"/>
+<!-- except for blogarticles! -->
+<meta property="og:type" content="website"/>
+<!-- then: -->
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="{{ image_url }}"/>
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:description" content="{{ page.excerpt }}"/>
+<meta property="og:image:width" content="1980">
+<meta property="og:image:height" content="1080">

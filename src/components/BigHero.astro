@@ -8,6 +8,8 @@ import desktopImg from '@images/mainPhotoBig.jpg'
 import mobileImg from '@images/mobileMain.jpg'
 import phone from '@icons/phone_white.svg?raw'
 import liver from '@icons/liver_white.svg?raw'
+import search from '@icons/search_white.svg?raw'
+import location from '@icons/location_metal.svg?raw'
 
 const bigContentClasses = classy([
   'k-hero-content',
@@ -27,12 +29,17 @@ const bigContentClasses = classy([
       Tranquilidad, dignidad, respeto a la <strong>vida</strong>.
     </h1>
     <div class="grid grid-cols-12 gap-x-4 gap-y-8 md:mt-8">
-      <a href="" class="col-span-4 md:col-span-3 border-metal border flex justify-around text-metal">
-        <Icon icon={phone} class="content-center"/>
-        <span class="content-center antialiased">Buscar</span>
+      <!-- TODO: Update link -->
+      <a href="" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center">
+        <Icon icon={search} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
+        <span class="content-center antialiased typo-body-l md:typo-body-xl">Buscar</span>
       </a>
-      <div class="col-span-4 md:col-span-3">1</div>
+      <button class="col-span-4 md:col-span-3 border-metal border flex justify-start text-metal items-center bg-white">
+        <Icon icon={location} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
+        <span class="content-center antialiased typo-body-l md:typo-body-xl">Dirección</span>
+      </button>
       <div class="col-span-4 md:col-span-6">
+      <!-- TODO: Update link tel: -->
         <Link
           url="/"
           color="red"
@@ -43,6 +50,7 @@ const bigContentClasses = classy([
         <span class="col-span-6 typo-body-l hidden md:block">Asistencia inmediata</span>
         </Link>
       </div>
+      <!-- TODO: Update link -->
       <Link
         url="/"
         color="yellow"
@@ -55,7 +63,7 @@ const bigContentClasses = classy([
       </Link>
       <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center">
 				<Link
-					url="https://www.google.com"
+					url="https://www.facebook.com/ClinicaEnlace/reviews"
 					mini
           wrapClasses="text-center md:text-left"
 				>
