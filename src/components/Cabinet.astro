@@ -1,0 +1,63 @@
+---
+import classy from "@utils/classy"
+
+import Icon from "@elements/Icon.astro"
+import Link from "@elements/Link.astro"
+
+const {
+  style = '',
+  title = 'title',
+  subtitle = 'subtitle',
+  items = [],
+  cta = {
+    text: 'cta',
+    url: '#',
+  },
+} = Astro.props
+
+const cabinetClasses = classy([
+  'px-8 pb-9 lg:px-36 pt-16 lg:pt-10', // Padding classes for all components!
+  style === 'blue' && 'bg-gray',
+])
+
+const titleClasses = classy([
+  'text-center typo-header-xxl font-bold antialiased',
+  style === 'blue' && 'text-cyan',
+])
+
+const subtitleClasses = classy([
+  'text-center typo-body-xl antialiased',
+  style === 'blue' && 'text-cyan',
+])
+
+const itemTextClasses = classy([
+  'text-center typo-body-l font-semibold antialiased',
+  'mt-4',
+  style === 'blue' && 'text-white',
+])
+
+const ctaProps = {
+  color : style === 'blue' ? 'white' : 'cyan',
+  url : cta.url,
+  class: 'col-span-2 md:col-span-5 w-fit place-self-center',
+}
+---
+<div {...cabinetClasses}>
+  <h2 {...titleClasses}>{title}</h2>
+  <p {...subtitleClasses}>{subtitle}</p>
+  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 mt-8">
+    {items.map((item: any, index : number) => {
+      let isFinal
+      if ( (items.length/2) % 2 !==0 && index === items.length - 1) {
+        isFinal = true
+      }
+      return (
+        <div class={`flex-col items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
+          <Icon icon={item.icon} class="max-w-32 max-h-32 lg:w-24"/>
+          <div {...itemTextClasses}>{item.title}</div>
+        </div>
+      )
+    })}
+    <Link {...ctaProps}>{cta.text}</Link>
+  </div>
+</div>
