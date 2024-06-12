@@ -4,6 +4,8 @@ import BaseLayout from '@layouts/base.astro';
 import BlogPost from '@elements/BlogPost.astro';
 import { getCollection } from 'astro:content';
 
+import seoImage from '@images/mainPhotoBig.jpg'
+
 export async function getStaticPaths() {
   // const allPosts = await Astro.glob('../posts/*.md'); //old
   const allPosts = await getCollection('posts');
@@ -22,8 +24,14 @@ export async function getStaticPaths() {
 const { tag } : { tag : string }= Astro.params;
 const { posts } : { posts : any[] }= Astro.props;
 
+const seo  = {
+  title: tag,
+  description : 'temp tag description',
+  image: seoImage,
+};
+
 ---
-<BaseLayout pageTitle={tag}>
+<BaseLayout {seo}>
   <p>Posts tagged with {tag}</p>
   <ul>
     {posts.map((post) =>

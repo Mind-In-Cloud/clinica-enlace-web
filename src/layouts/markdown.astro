@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '@layouts/base.astro';
 
+import seoImage from '@images/mainPhotoBig.jpg'
+
 const {
   title,
   pubDate,
@@ -10,8 +12,13 @@ const {
   tags
 } = Astro.props.frontmatter;
 
+const seo = {
+  title,
+  description,
+  image: seoImage,
+};
 ---
-<BaseLayout pageTitle={ title }>
+<BaseLayout {seo}>
   <div>pubDate: {pubDate.toString().slice(0,15)}</div>
   <p><em>{description}</em></p>
   <p>Written by: {author}</p>
