@@ -4,9 +4,18 @@ import BaseLayout from '@layouts/base.astro';
 import BigHero from '@components/BigHero.astro';
 import Testimonials from '@components/Testimonials.astro';
 
-const pageTitle = "Inicio";
+import seoImage from '@images/mainPhotoBig.jpg'
+
+// const pageTitle = "Inicio";
+const seo = {
+  title: 'Inicio',
+  description: 'Clínica Enlace, centro de salud de intervencionismo y corta estancia',
+  image: seoImage,
+  // image: '@assets/images/her.jpg',
+  // url: '/',
+}
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout seo={seo}>
   <BigHero/>
   <Testimonials/>
 </BaseLayout>

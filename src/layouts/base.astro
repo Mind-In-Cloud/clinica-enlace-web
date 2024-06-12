@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
@@ -7,19 +8,58 @@ import Favicon from "@utils/favicon.astro";
 import '@styles/global.css';
 import '@styles/typography.css';
 
-const { pageTitle } = Astro.props ;
+const { seo } = Astro.props ;
 
-const headerTitle =  `${pageTitle || 'Missing Title'} | Clínica Enlace`
-const Title = pageTitle || headerTitle;
+// const headerTitle =  `${pageTitle || 'Missing Title'} | Clínica Enlace`
+// const Title = pageTitle || headerTitle;
+const {
+	title,
+	description,
+	image : {
+		src,
+		width,
+		height,
+		// alt, // not used in this, needs to be defined
+		format
+	}
+} = seo
+
+const seoObj = {
+	title : `${title}| Clínica Enlace`,
+	description,
+	openGraph: {
+		basic: {
+			title: `${title}| Clínica Enlace`,
+			type: "website",
+			image: src,
+		},
+		image: {
+			width,
+			height,
+			type: `image/${format}`,
+			// alt
+		}
+	},
+	twitter: {
+		// creator: "@jonasmerlins1"
+		title,
+		description,
+		image: src
+	},
+	// article:{ these options are there for when articles are introduced
+	// 	publishedTime: "2022-01-01T00:00:00Z",
+	// 	modifiedTime: "2022-01-01T00:00:
+	// }
+}
 ---
 
 <html lang="es">
 	<head>
+		<SEO {...seoObj}/>
 		<Favicon/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{Title}</title>
 	</head>
 	<body>
 		<Header />
