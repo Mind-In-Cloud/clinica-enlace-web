@@ -2,8 +2,6 @@
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
-import Algolia from "@utils/algolia.astro";
-
 import Favicon from "@utils/favicon.astro";
 
 import '@styles/global.css';
@@ -15,7 +13,7 @@ const headerTitle =  `${pageTitle || 'Missing Title'} | Clínica Enlace`
 const Title = pageTitle || headerTitle;
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<Favicon/>
 		<meta charset="utf-8" />
@@ -25,7 +23,6 @@ const Title = pageTitle || headerTitle;
 	</head>
 	<body>
 		<Header />
-		<Algolia />
     <slot />
 		<Footer />
 		<script>

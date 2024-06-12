@@ -1,9 +1,16 @@
+---
+const algolia_key = import.meta.env.ALGOLIA_SEARCH_API_KEY;
+// insert this in page for search:
+// <Algolia />
+// 		<div id="search">
+// 		</div>
+---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-<script type="text/javascript">
+<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript" data-algolia_key={algolia_key}>
   algoliasearchNetlify({
     appId: '9KW8PLZJBF',
-    apiKey: '<YOUR_ALGOLIA_SEARCH_API_KEY>',
+    apiKey: '{{algolia_key}}',
     siteId: 'ce080c16-9638-4482-ad69-938032b1629a',
     branch: 'main',
     selector: 'div#search',
