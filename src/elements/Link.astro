@@ -22,7 +22,7 @@ const isNav = footer || header || nav
 
 let linkClasses = classy([
   'k-link antialiased',
-  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-4'
+  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-4 antialiased'
   : nav ? 'text-blue typo-button-s'
   : mini ? 'text-white typo-button-s'
   : header ? 'typo-header-xxs text-neutral-500'
@@ -37,6 +37,7 @@ let linkClasses = classy([
   : color === 'yellow' && 'bg-yellow',
   !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
   url === Astro.url.pathname && header && !color && 'font-black k-active',
+  color !== 'white' ? 'typo-button-l ' : 'typo-button-s font-semibold',
   className,
 ])
 
@@ -62,7 +63,7 @@ if ( color === 'cyan'){
 }
 
 ---
-<a href ={ url} {...linkClasses} >
+<a href ={ url } {...linkClasses} >
   { nav && <span>{'<'}</span>}
   { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
   { !footer && Boolean(icon) && <Icon icon={icon}/>}

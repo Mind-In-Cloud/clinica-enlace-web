@@ -3,7 +3,7 @@ import classy from "@utils/classy";
 
 const {
   icon = false,
-  // url = '',
+  url = '',
   class : className = ''
 } = Astro.props;
 
@@ -13,7 +13,7 @@ const iconClasses = classy([
 ])
 ---
 { Boolean(icon) &&
-  <span {...iconClasses}>
+  <div {...iconClasses}>
     <Fragment set:html={icon} />
-  </span>
+  </div>
 }

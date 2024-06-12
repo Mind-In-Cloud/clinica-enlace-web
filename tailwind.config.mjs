@@ -22,6 +22,7 @@ export default {
 				yellow: '#D9AC4E',
 				'yellow-soft': '#EED9AF',
 				white: '#F8FAFC',
+				gray: '#6A8FA6',
 				neutral : {
 					900: '#070A0D',
 					800: '#0F151A',

@@ -5,6 +5,13 @@ import BigHero from '@components/BigHero.astro';
 import Testimonials from '@components/Testimonials.astro';
 
 import seoImage from '@images/mainPhotoBig.jpg'
+import Cabinet from '@components/Cabinet.astro';
+
+import centers from '@icons/centros_blue_cyan.svg?raw';
+import ultrasound from '@icons/ultrasound_blue_cyan.svg?raw';
+import tools from '@icons/tools_blue_cyan.svg?raw';
+import consult from '@icons/consulta_blue_cyan.svg?raw';
+import heart from '@icons/heart_blue_cyan.svg?raw';
 
 // const pageTitle = "Inicio";
 const seo = {
@@ -17,5 +24,36 @@ const seo = {
 ---
 <BaseLayout {seo}>
   <BigHero/>
+  <Cabinet
+    style = "blue"
+    title = 'Conoce lo que ofrecemos para ti'
+    subtitle = 'Una amplia gama de servicios médicos para cuidar de tu salud en todo momento. Desde ultrasonidos hasta procedimientos mayores, cada especialista está aquí para atenderte con el máximo cuidado y profesionalismo.'
+    items = {[
+      {
+        title: 'Centros de especialidad',
+        icon: heart
+      },
+      {
+        title: 'Ultrasonido convencional y Doppler',
+        icon: heart
+      },
+      {
+        title: 'Procedimientos intervencionistas',
+        icon: heart
+      },
+      {
+        title: 'Consulta con especialidades',
+        icon: heart
+      },
+      {
+        title: 'Electrocardiograma y ecocardiograma',
+        icon: heart
+      }
+    ]}
+    cta = {{
+      text: 'Ver más',
+      url: '/servicios',
+    }}
+  />
   <Testimonials/>
 </BaseLayout>
