@@ -2,15 +2,12 @@
 import BaseLayout from '@layouts/base.astro';
 
 import BigHero from '@components/BigHero.astro';
+import Cabinet from '@components/Cabinet.astro';
+import MediaPanel from '@components/MediaPanel.astro';
 import Testimonials from '@components/Testimonials.astro';
 
-import seoImage from '@images/mainPhotoBig.jpg'
-import Cabinet from '@components/Cabinet.astro';
+import seoImage from '@images/mainPhotoDesktop.png'
 
-import centers from '@icons/centros_blue_cyan.svg?raw';
-import ultrasound from '@icons/ultrasound_blue_cyan.svg?raw';
-import tools from '@icons/tools_blue_cyan.svg?raw';
-import consult from '@icons/consulta_blue_cyan.svg?raw';
 import heart from '@icons/heart_blue_cyan.svg?raw';
 
 // const pageTitle = "Inicio";
@@ -18,8 +15,6 @@ const seo = {
   title: 'Inicio',
   description: 'Clínica Enlace, centro de salud de intervencionismo y corta estancia',
   image: seoImage,
-  // image: '@assets/images/her.jpg',
-  // url: '/',
 }
 ---
 <BaseLayout {seo}>
@@ -31,7 +26,8 @@ const seo = {
     items = {[
       {
         title: 'Centros de especialidad',
-        icon: heart
+        icon: heart,
+        url : '/buscar'
       },
       {
         title: 'Ultrasonido convencional y Doppler',
@@ -55,5 +51,19 @@ const seo = {
       url: '/servicios',
     }}
   />
+  <MediaPanel
+    cta = {{
+      text: 'Ver más',
+      url: '/servicios',
+    }}
+  >
+    <Fragment slot="title">
+      Centro del <strong>Hígado</strong>
+      y <strong>Sistema Biliar</strong>
+    </Fragment>
+    <Fragment slot="subtitle">
+      El Centro Hepatobiliar es un centro especializado que cuenta con los recursos y la experiencia necesarios para abordar las enfermedades del <strong>hígado</strong> y <strong>sistema biliar</strong> de manera integral. Consulta los servicios que el Centro Hepatobiliar de Clínica Enlace tiene para atenderte
+    </Fragment>
+  </MediaPanel>
   <Testimonials/>
 </BaseLayout>

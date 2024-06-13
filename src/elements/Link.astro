@@ -8,6 +8,7 @@ import Icon from "@elements/Icon.astro"
 const {
   url,
   color = '',
+  big = false,
   mini = false,
   rounded = false,
   icon = false,
@@ -16,15 +17,15 @@ const {
   footer = false,
   wrapClasses = '',
   class : className = '',
-} = Astro.props
+  } = Astro.props
 
 const isNav = footer || header || nav
 
 let linkClasses = classy([
   'k-link antialiased',
-  !isNav && !mini ? 'btn btn-primary typo-button-l py-3 px-4 antialiased'
-  : nav ? 'text-blue typo-button-s'
-  : mini ? 'text-white typo-button-s'
+  !isNav && !mini ? 'btn btn-primary font-semibold antialiased'
+  : nav ? 'text-blue'
+  : mini || nav ? 'typo-button-s'
   : header ? 'typo-header-xxs text-neutral-500'
   : footer && 'typo-body-m text-neutral-200 flex items-center',
   !isNav && !mini && color !== "invert" && 'shadow',
@@ -37,7 +38,11 @@ let linkClasses = classy([
   : color === 'yellow' && 'bg-yellow',
   !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
   url === Astro.url.pathname && header && !color && 'font-black k-active',
-  color !== 'white' ? 'typo-button-l ' : 'typo-button-s font-semibold',
+  big ? 'typo-button-l ' : 'typo-button-s',
+  big ? 'py-3 px-4' : 'py-2 px-3',
+  mini && 'flex items-center',
+  mini && !color && 'text-white',
+  mini && color && `text-${color}`,
   className,
 ])
 
@@ -70,7 +75,7 @@ if ( color === 'cyan'){
   <span {...linkContentClasses}>
     <slot/>
   </span>
-  { mini && <span>{'>'}</span>}
+  { mini && <span class="ml-2">{'>'}</span>}
 </a>
 <style define:vars={{decoratorBgColor}}>
   .k-link-content-wrapper.k-decoration-under {

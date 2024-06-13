@@ -4,7 +4,8 @@ import classy from "@utils/classy"
 import Link from '@elements/Link.astro'
 import Icon from '@elements/Icon.astro'
 
-import desktopImg from '@images/mainPhotoBig.jpg'
+import extraImg from '@images/mainPhotoBig.jpg'
+import desktopImg from '@images/mainPhotoDesktop.png'
 import mobileImg from '@images/mobileMain.jpg'
 import phone from '@icons/phone_white.svg?raw'
 import liver from '@icons/liver_white.svg?raw'
@@ -21,7 +22,8 @@ const bigContentClasses = classy([
 <div class="k-hero relative">
   <picture class="k-hero-image">
     <source media="(max-width: 768px)" srcset={mobileImg.src} />
-    <source media="(min-width: 769px)" srcset={desktopImg.src} />
+    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={desktopImg.src} />
+    <source media="(min-width: 1280px)" srcset={extraImg.src} />
     <img src={desktopImg.src} alt='' />
   </picture>
   <div {...bigContentClasses}>
@@ -29,8 +31,7 @@ const bigContentClasses = classy([
       Tranquilidad, dignidad, respeto a la <strong>vida</strong>.
     </h1>
     <div class="grid grid-cols-12 gap-x-4 gap-y-8 md:mt-8">
-      <!-- TODO: Update link -->
-      <a href="" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center">
+      <a href="/buscar" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center">
         <Icon icon={search} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
         <span class="content-center antialiased typo-body-l md:typo-body-xl">Buscar</span>
       </a>
@@ -41,6 +42,7 @@ const bigContentClasses = classy([
       <div class="col-span-4 md:col-span-6">
       <!-- TODO: Update link tel: -->
         <Link
+          big
           url="/"
           color="red"
           class="md:w-fit justify-center flex"
@@ -52,6 +54,7 @@ const bigContentClasses = classy([
       </div>
       <!-- TODO: Update link -->
       <Link
+        big
         url="/"
         color="yellow"
         rounded
@@ -79,5 +82,4 @@ const bigContentClasses = classy([
       min-width: 100%;
     }
     }
-  /* background-image: url('assets/images/mainPhotoBig.jpg'); */
 </style>

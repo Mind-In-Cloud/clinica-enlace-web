@@ -125,144 +125,142 @@
 }
 
 @tailwind utilities;
+@tailwind components;
 
+
+@layer components {
+  .header-l {
+    @apply typo-header-l md:typo-header-xxxl text-center antialiased mb-8;
+  }
+
+  .header-m {
+    @apply typo-header-m md:typo-header-xxl text-center antialiased mb-8;
+  }
+
+  .header-s{
+    @apply typo-header-xs md:typo-header-m text-center antialiased mb-8;
+  }
+
+  .k-subtitle {
+    @apply typo-body-m md:typo-body-xl text-center antialiased mb-6
+  }
+}
 
 @layer utilities{
 .typo-header-xxxl {
   font-size: 64px;
-  /* font-weight: 700; use font-bold */
   line-height: 64px;
   letter-spacing: 0.01em;
 }
 
 .typo-header-xxl {
   font-size: 56px;
-  /* font-weight: 700; use font-bold */
   line-height: 67px;
   letter-spacing: 0.01em;
 }
 
 .typo-header-xl, h2 {
   font-size: 48px;
-  /* font-weight: 700; use font-bold */
   line-height: 58px;
   letter-spacing: 0.01em;
 }
 
 .typo-header-l, h3 {
   font-size: 40px;
-  /* font-weight: 700; use font-bold */
   line-height: 48px;
   letter-spacing: 0.01em;
 }
 
 .typo-header-m, h4 {
   font-size: 32px;
-  /* font-weight: 700; use font-bold */
   line-height: 42px;
 }
 
 .typo-header-s, h5 {
   font-size: 24px;
-  /* font-weight: 700; use font-bold */
   line-height: 34px;
 }
 
 .typo-header-xs {
   font-size: 20px;
-  /* font-weight: 700; use font-bold */
   line-height: 28px;
 }
 
 .typo-header-xxs {
   font-size: 16px;
-  /* font-weight: 400; use font-normal */
   line-height: 22px;
 }
 
 .typo-body-xxl {
   font-size: 22px;
-  /* font-weight: 400; use font-normal */
   line-height: 24px;
   letter-spacing: 0.01em;
 }
 
 .typo-body-xl {
   font-size: 18px;
-  /* font-weight: 400; use font-normal */
   line-height: 28px;
   letter-spacing: 0.01em;
 }
 
 .typo-body-l {
   font-size: 16px;
-  /* font-weight: 400; use font-normal */
   line-height: 18px;
   letter-spacing: -0.01em;
 }
 
 .typo-body-m {
   font-size: 14px;
-  /* font-weight: 400; use font-normal */
   line-height: 21px;
   letter-spacing: -0.01em;
 }
 
 .typo-body-s {
   font-size: 12px;
-  /* font-weight: 400; use font-normal */
   line-height: 18px;
 }
 
 .typo-body-bold-xl {
   font-family: Poppins, sans-serif;
   font-size: 22px;
-  /* font-weight: 600; use font-semibold */
   line-height: 35px;
 }
 
 .typo-body-bold-l {
   font-size: 18px;
-  /* font-weight: 600; use font-semibold */
   line-height: 27px;
 }
 
 .typo-body-bold-m {
   font-size: 16px;
-  /* font-weight: 600; use font-semibold */
   line-height: 24px;
 }
 
 .typo-body-bold-s {
   font-size: 14px;
-  /* font-weight: 600; use font-semibold */
   line-height: 21px;
   letter-spacing: -0.01em;
 }
 
 .typo-body-bold-xs {
   font-size: 12px;
-  /* font-weight: 600; use font-semibold */
   line-height: 18px;
 }
 
 .typo-button-l {
   font-size: 18px;
-  /* font-weight: 700; use font-bold */
   line-height: 24px;
   letter-spacing: -0.01em;
 }
 
 .typo-button-m {
   font-size: 16px;
-  /* font-weight: 700; use font-bold */
   line-height: 24px;
   letter-spacing: -0.01em;
 }
 
 .typo-button-s {
   font-size: 14px;
-  /* font-weight: 700; use font-bold */
   line-height: 24px;
   letter-spacing: -0.01em;
 }

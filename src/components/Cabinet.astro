@@ -16,28 +16,29 @@ const {
 } = Astro.props
 
 const cabinetClasses = classy([
-  'px-8 pb-9 lg:px-36 pt-16 lg:pt-10', // Padding classes for all components!
+  'k-section', // Padding classes for all components!
   style === 'blue' && 'bg-gray',
 ])
 
 const titleClasses = classy([
-  'text-center typo-header-xxl font-bold antialiased',
-  style === 'blue' && 'text-cyan',
+  'header-l',
+  'font-bold',
+  style === 'blue' ? 'text-cyan' : 'text-gray',
 ])
 
 const subtitleClasses = classy([
-  'text-center typo-body-xl antialiased',
-  style === 'blue' && 'text-cyan',
+  'k-subtitle',
+  style === 'blue' ? 'text-cyan' : 'text-neutral-700',
 ])
 
 const itemTextClasses = classy([
-  'text-center typo-body-l font-semibold antialiased',
+  'text-center typo-body-m font-semibold antialiased',
   'mt-4',
-  style === 'blue' && 'text-white',
+  style === 'blue' ? 'text-white' : 'text-gray',
 ])
 
 const ctaProps = {
-  color : style === 'blue' ? 'white' : 'cyan',
+  color : style === 'blue' ? 'white' : 'blue',
   url : cta.url,
   class: 'col-span-2 md:col-span-5 w-fit place-self-center',
 }
@@ -45,16 +46,24 @@ const ctaProps = {
 <div {...cabinetClasses}>
   <h2 {...titleClasses}>{title}</h2>
   <p {...subtitleClasses}>{subtitle}</p>
-  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 mt-8">
+  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40">
     {items.map((item: any, index : number) => {
       let isFinal
+
       if ( (items.length/2) % 2 !==0 && index === items.length - 1) {
         isFinal = true
       }
+
       return (
         <div class={`flex-col items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
           <Icon icon={item.icon} class="max-w-32 max-h-32 lg:w-24"/>
-          <div {...itemTextClasses}>{item.title}</div>
+          { item.url ?
+            <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold">
+              {item.title}
+            </Link>
+            :
+            <div {...itemTextClasses}>{item.title}</div>
+          }
         </div>
       )
     })}

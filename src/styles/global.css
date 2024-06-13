@@ -68,3 +68,11 @@
 body {
   background-color: #F8FAFC;
 }
+
+@tailwind components;
+
+@layer components {
+  .k-section{
+    @apply px-8 pb-9 lg:px-36 pt-16 lg:pt-10;
+  }
+}
