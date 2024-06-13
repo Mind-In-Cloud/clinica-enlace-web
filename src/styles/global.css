@@ -73,6 +73,6 @@ body {
 
 @layer components {
   .k-section{
-    @apply px-8 py-12 lg:px-36 lg:py-16;
+    @apply mx-8 my-12 lg:mx-36 lg:my-16;
   }
 }

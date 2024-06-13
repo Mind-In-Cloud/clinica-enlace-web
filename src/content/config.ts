@@ -15,7 +15,22 @@ const postsCollection = defineCollection({
       tags: z.array(z.string())
     })
 });
+
+const medicosCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    seoImage: z.string(),
+    info: z.string(),
+    photo: z.string(),
+    especialidad: z.string(),
+    tags: z.array(z.string())
+  })
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
+  medicos: medicosCollection
 };

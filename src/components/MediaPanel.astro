@@ -15,9 +15,10 @@ const {
   icon = '',
   cta = {
     text: 'cta',
-    url: '#',
+    url: '',
   },
-  class: className = ''
+  class: className = '',
+  classTitle = ''
 } = Astro.props
 
 const mediaPanelClasses = classy([
@@ -32,7 +33,8 @@ const mediaTitleClasses = classy([
   medium && 'header-m',
   small && 'header-s',
   `text-${style}`,
-  'col-span-4'
+  'col-span-4',
+  classTitle
 ])
 
 const mediaSubtitleClasses = classy([
