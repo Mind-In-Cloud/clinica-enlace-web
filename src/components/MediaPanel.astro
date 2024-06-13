@@ -1,0 +1,71 @@
+---
+import Link from "@elements/Link.astro"
+import Linebreak from "@elements/Linebreak.astro"
+import classy from "@utils/classy"
+
+const {
+  style = 'gray',
+  main = false,
+  title = '',
+  subtitle = '',
+  small = false,
+  medium = false,
+  line = false,
+  image = '',
+  cta = {
+    text: 'cta',
+    url: '#',
+  },
+  class: className = ''
+} = Astro.props
+
+const mediaPanelClasses = classy([
+  'k-section',
+  'k-media-panel',
+  'grid grid-cols-4',
+  className,
+])
+
+const mediaTitleClasses = classy([
+  !small && !medium && 'header-l',
+  medium && 'header-m',
+  small && 'header-s',
+  `text-${style}`,
+  'col-span-4'
+])
+
+const mediaSubtitleClasses = classy([
+  'k-subtitle',
+  'col-span-4',
+  style === 'gray' ? 'text-neutral-700' : '',
+])
+
+const ctaProps = {
+  url: cta.url,
+  class: 'w-fit col-span-4 flex justify-self-center',
+  color: style === 'gray' ? 'blue':
+  style === 'green' ? 'metal' : style,
+}
+---
+<div {...mediaPanelClasses}>
+  { main ?
+    <h1 {...mediaTitleClasses}>
+      { title ? title : <slot name="title"/> }
+    </h1>
+  :
+    <h2 {...mediaTitleClasses}>
+      { title ? title : <slot name="title"/> }
+    </h2>
+  }
+  {
+    line && <Linebreak class="col-span-4" color={style} element={false} />
+  }
+  <p {...mediaSubtitleClasses}>
+    { subtitle ? subtitle : <slot name="subtitle"/> }
+  </p>
+  { ctaProps.url &&
+    <Link {...ctaProps}>
+      {cta.text}
+    </Link>
+  }
+</div>
