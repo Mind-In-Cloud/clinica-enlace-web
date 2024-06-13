@@ -31,14 +31,14 @@ const bigContentClasses = classy([
       Tranquilidad, dignidad, respeto a la <strong>vida</strong>.
     </h1>
     <div class="grid grid-cols-12 gap-x-4 gap-y-8 md:mt-8">
-      <a href="/buscar" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center">
+      <a href="/buscar" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center k-decoration-under">
         <Icon icon={search} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
-        <span class="content-center antialiased typo-body-l md:typo-body-xl">Buscar</span>
+        <span class="content-center antialiased typo-body-l md:typo-body-xl k-decor">Buscar</span>
       </a>
-      <button class="col-span-4 md:col-span-3 border-metal border flex justify-start text-metal items-center bg-white">
-        <Icon icon={location} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
-        <span class="content-center antialiased typo-body-l md:typo-body-xl">Dirección</span>
-      </button>
+      <a target="_blank" href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6" class="col-span-4 md:col-span-3 border-metal border flex justify-start text-metal items-center bg-white k-decoration-under">
+        <Icon icon={location} class="content-center max-h-6 max-w-6 mr-1 md:mr-2 md:mx-4"/>
+        <span class="content-center antialiased typo-body-l md:typo-body-xl k-decor">Dirección</span>
+      </a href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6">
       <div class="col-span-4 md:col-span-6">
       <!-- TODO: Update link tel: -->
         <Link
@@ -81,5 +81,38 @@ const bigContentClasses = classy([
     img {
       min-width: 100%;
     }
+  }
+
+  .k-decoration-under.text-cyan {
+    .k-decor:before {
+        background: #C9EEF2;
     }
+  }
+
+  .k-decoration-under.text-metal {
+    .k-decor:before {
+        background: #7191AD;;
+    }
+  }
+
+  .k-decoration-under {
+    .k-decor {
+        position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        transition: width 200ms ease;
+      }
+    }
+  }
+
+  .k-decoration-under:hover {
+    .k-decor:before {
+      width: 100%;
+    }
+  }
 </style>

@@ -2,6 +2,7 @@
 import Link from "@elements/Link.astro"
 import Linebreak from "@elements/Linebreak.astro"
 import classy from "@utils/classy"
+import Icon from "@elements/Icon.astro"
 
 const {
   style = 'gray',
@@ -11,7 +12,7 @@ const {
   small = false,
   medium = false,
   line = false,
-  image = '',
+  icon = '',
   cta = {
     text: 'cta',
     url: '#',
@@ -37,7 +38,7 @@ const mediaTitleClasses = classy([
 const mediaSubtitleClasses = classy([
   'k-subtitle',
   'col-span-4',
-  style === 'gray' ? 'text-neutral-700' : '',
+  'text-neutral-700'
 ])
 
 const ctaProps = {
@@ -48,6 +49,9 @@ const ctaProps = {
 }
 ---
 <div {...mediaPanelClasses}>
+  { icon &&
+    <Icon icon={icon} class="col-span-4 w-1/2 md:w-1/4 justify-self-center mb-8"/>
+  }
   { main ?
     <h1 {...mediaTitleClasses}>
       { title ? title : <slot name="title"/> }

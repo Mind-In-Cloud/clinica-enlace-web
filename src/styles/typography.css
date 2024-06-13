@@ -130,11 +130,11 @@
 
 @layer components {
   .header-l {
-    @apply typo-header-l md:typo-header-xxxl text-center antialiased mb-8;
+    @apply typo-header-m md:typo-header-xxxl text-center antialiased mb-8;
   }
 
   .header-m {
-    @apply typo-header-m md:typo-header-xxl text-center antialiased mb-8;
+    @apply typo-header-s md:typo-header-xxl text-center antialiased mb-8;
   }
 
   .header-s{

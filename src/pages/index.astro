@@ -7,7 +7,7 @@ import MediaPanel from '@components/MediaPanel.astro';
 import Testimonials from '@components/Testimonials.astro';
 
 import seoImage from '@images/mainPhotoDesktop.png'
-
+import liverYellow from '@icons/liver_yellow.svg?raw';
 import heart from '@icons/heart_blue_cyan.svg?raw';
 
 // const pageTitle = "Inicio";
@@ -52,9 +52,10 @@ const seo = {
     }}
   />
   <MediaPanel
+    icon = {liverYellow}
     cta = {{
-      text: 'Ver más',
-      url: '/servicios',
+      text: 'Conoce más',
+      url: '/centro-de-higado-y-sistema-biliar',
     }}
   >
     <Fragment slot="title">
