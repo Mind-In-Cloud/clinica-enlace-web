@@ -1,0 +1,48 @@
+---
+import { loadImage } from '@utils/ImageDynamic';
+import ImageDynamic from '@elements/ImageDynamic.astro'
+import Link from '@elements/Link.astro'
+
+import classy from '@utils/classy'
+import { Image } from 'astro:assets'
+import Linebreak from './Linebreak.astro';
+
+const {
+  slug = '',
+  data : {
+    title = '',
+    photo = '',
+    especialidad = ''
+  },
+  class : className = '',
+  loading = 'lazy'
+} = Astro.props
+
+const cardClasses = classy([
+  "k-doctor-card",
+  className
+])
+
+// const image = await loadImage(photo)
+// const images = import.meta.glob("../assets/*");
+// const image = await images[photo]()
+---
+<div {...cardClasses}>
+  <!-- <Image src={image} alt="" class="mb-6 md:mb-8 xl:mb-12" {loading}/> -->
+  <!-- <ImageDynamic altText='' imagePath={photo} {loading}/> -->
+  <div class="flex place-content-between">
+    <div>
+      <div class="typo-header-xs md:typo-header-s xl:typo-header-m antialiased font-semibold text-neutral-600">{title}</div>
+      <div class="typo-body-m md:typo-body-l xl:typo-body-xxl text-neutral-600 antialiased mt-2 md:mt-4 xl:mt-6">Especialidad: { especialidad }</div>
+    </div>
+    <Link
+      class=""
+      color="metal"
+      url=`/medicos/${slug}`
+      class="w-max h-fit self-center"
+    >
+      VER MÁS
+    </Link>
+  </div>
+  <Linebreak element={false} color="blue" class="mt-4" />
+</div>

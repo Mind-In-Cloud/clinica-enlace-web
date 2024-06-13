@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@layouts/base.astro"
+
+import Map from "@components/Map.astro";
+
+import seoImage from '@images/mainPhotoBig.jpg'
+import MediaPanel from "@components/MediaPanel.astro";
+import DoctorCabinet from "@components/doctorCabinet.astro";
+
+const seo = {
+  title : "Médicos especialistas",
+  description: "Directorio de cardiólogos, cirujanos generales, algólogos intervencionistas, radiólogos, nefrólogos y urólogos en clínica de corta estancia.",
+  image : seoImage
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    title="Médicos especialistas"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+    classTitle="font-bold"
+    main
+  />
+  <DoctorCabinet/>
+  <Map/>
+</BaseLayout>

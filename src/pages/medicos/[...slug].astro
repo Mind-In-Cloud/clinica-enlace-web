@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@layouts/base.astro';
+import { getCollection } from 'astro:content';
+
+import Map from '@components/Map.astro';
+import MediaPanel from '@components/MediaPanel.astro';
+import { loadImage } from '@utils/ImageDynamic';
+
+export async function getStaticPaths() {
+  const allDoctors = await getCollection("medicos");
+
+  return allDoctors.map( doctor => ({
+    params: { slug: doctor.slug },
+    props: {doctor}
+  }))
+}
+const { doctor } = Astro.props;
+
+const {
+  title = '',
+  description = '',
+  seoImage = '',
+  info = '',
+  photo = '',
+} = doctor.data
+
+const imageTemp = await loadImage(seoImage)
+
+const seo = {
+  title : title,
+  description: description,
+  image : imageTemp,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    title="Médicos especialistas"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+    classTitle="font-bold"
+    main
+  />
+
+  <Map/>
+</BaseLayout>
