@@ -1,0 +1,33 @@
+---
+
+const gmaps_key = import.meta.env.GOOGLE_MAPS_API_KEY
+
+const apiLink = `https://maps.googleapis.com/maps/api/js?key=${gmaps_key}&callback=console.debug&libraries=maps,marker&v=beta`
+---
+<script is:inline async src={apiLink}>
+</script>
+<!-- <link rel="stylesheet" href="./style.css"/> -->
+<div>
+  <h2 class="header-m font-semibold text-gray">
+    Ubicación
+  </h2>
+  <p class="k-subtitle">
+    Ubicado en San Nicolás de los Garza, N.L., Jesús Solís 1626, La Nogalera 2do Sector (C.P. 66417) es un punto de referencia en nuestra comunidad.
+  </p>
+  <div class="k-map-wrapper w-full">
+    <gmp-map center="25.766157150268555,-100.27318572998047" zoom="14" map-id="DEMO_MAP_ID">
+      <gmp-advanced-marker position="25.766157150268555,-100.27318572998047" title="Clinica Enlace"></gmp-advanced-marker>
+    </gmp-map>
+  </div>
+</div>
+<style>
+gmp-map {
+  height: 100%;
+}
+.k-map-wrapper {
+  aspect-ratio: 1/1;
+  @media screen and (min-width: 768px){
+    aspect-ratio: 21/7
+  }
+}
+</style>
