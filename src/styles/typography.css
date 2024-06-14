@@ -130,19 +130,19 @@
 
 @layer components {
   .header-l {
-    @apply typo-header-m md:typo-header-xxxl text-center antialiased mb-8;
+    @apply typo-header-m md:typo-header-xxxl antialiased mb-8;
   }
 
   .header-m {
-    @apply typo-header-s md:typo-header-xxl text-center antialiased mb-8;
+    @apply typo-header-s md:typo-header-xxl antialiased mt-2 md:mt-4 xl:mt-6;
   }
 
-  .header-s{
-    @apply typo-header-xs md:typo-header-m text-center antialiased mb-8;
+  .header-s {
+    @apply typo-header-xs md:typo-header-m antialiased mt-2 md:mt-4 xl:mt-6;
   }
 
   .k-subtitle {
-    @apply typo-body-m md:typo-body-xl text-center antialiased mb-6
+    @apply typo-body-m md:typo-body-xl text-center antialiased mt-2 md:mt-4 xl:mt-6
   }
 }
 

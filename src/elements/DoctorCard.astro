@@ -1,10 +1,8 @@
 ---
-import { loadImage } from '@utils/ImageDynamic';
 import ImageDynamic from '@elements/ImageDynamic.astro'
 import Link from '@elements/Link.astro'
 
 import classy from '@utils/classy'
-import { Image } from 'astro:assets'
 import Linebreak from './Linebreak.astro';
 
 const {
@@ -23,13 +21,10 @@ const cardClasses = classy([
   className
 ])
 
-// const image = await loadImage(photo)
-// const images = import.meta.glob("../assets/*");
-// const image = await images[photo]()
 ---
 <div {...cardClasses}>
   <!-- <Image src={image} alt="" class="mb-6 md:mb-8 xl:mb-12" {loading}/> -->
-  <!-- <ImageDynamic altText='' imagePath={photo} {loading}/> -->
+  <ImageDynamic altText='' imagePath={photo} {loading}/>
   <div class="flex place-content-between">
     <div>
       <div class="typo-header-xs md:typo-header-s xl:typo-header-m antialiased font-semibold text-neutral-600">{title}</div>
