@@ -1,0 +1,37 @@
+---
+import ImageDynamic from '@elements/ImageDynamic.astro'
+import Linebreak from '@elements/Linebreak.astro';
+
+import classy from '@utils/classy'
+
+const {
+  title = '',
+  image = '',
+  especialidad = '',
+  description = '',
+  class : className = '',
+  loading = 'eager'
+} = Astro.props
+
+const cardClasses = classy([
+  "k-doctor k-section",
+  "grid grid-cols-8 gap-x-11",
+  className
+])
+
+---
+<div {...cardClasses}>
+  <div class="col-span-3">
+    <ImageDynamic altText='' imagePath={image} {loading}/>
+  </div>
+  <div class="col-span-5">
+    <div>
+      <div class="header-s text-center font-semibold text-neutral-600">{title}</div>
+      <div class="typo-body-m md:typo-body-l xl:typo-body-xxl text-neutral-600 antialiased">Especialidad: { especialidad }</div>
+      <Linebreak element={false} color="blue" class="my-4 xl:my-6" />
+      <div>
+        {description}
+      </div>
+    </div>
+  </div>
+</div>
