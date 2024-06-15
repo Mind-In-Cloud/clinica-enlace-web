@@ -23,6 +23,9 @@ const {
 	} = seoDefault
 } = seo
 
+const seoImageUrl = `${new URL(src, Astro.url)}`
+
+
 const seoObj = {
 	title : `${title} | Clínica Enlace`,
 	description,
@@ -30,7 +33,7 @@ const seoObj = {
 		basic: {
 			title: `${title} | Clínica Enlace`,
 			type: "website",
-			image: src,
+			image: seoImageUrl,
 		},
 		image: {
 			width,
@@ -43,7 +46,7 @@ const seoObj = {
 		// creator: "@jonasmerlins1"
 		title,
 		description,
-		image: src
+		image: seoImageUrl
 	},
 	// article:{ these options are there for when articles are introduced
 	// 	publishedTime: "2022-01-01T00:00:00Z",

@@ -11,4 +11,8 @@ Disallow: /tags
 Disallow: /stylesheet
 Disallow: /stylesheet/
 
+User-agent: Seobility
+Allow: /$
+Disallow: /
+
 Sitemap: https://clinica-enlace.netlify.app/sitemap-index.xml
