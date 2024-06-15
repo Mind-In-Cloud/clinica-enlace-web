@@ -21,12 +21,12 @@ const cardClasses = classy([
 
 ---
 <div {...cardClasses}>
-  <div class="col-span-3">
+  <div class="col-span-8 md:col-span-3">
     <ImageDynamic altText='' imagePath={image} {loading}/>
   </div>
-  <div class="col-span-5">
+  <div class="col-span-8 md:col-span-5">
     <div>
-      <div class="header-s text-center font-semibold text-neutral-600">{title}</div>
+      <div class="header-s font-semibold text-neutral-600">{title}</div>
       <div class="typo-body-m md:typo-body-l xl:typo-body-xxl text-neutral-600 antialiased">Especialidad: { especialidad }</div>
       <Linebreak element={false} color="blue" class="my-4 xl:my-6" />
       <div>

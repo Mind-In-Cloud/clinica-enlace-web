@@ -18,26 +18,48 @@ const {
 
 const cardClasses = classy([
   "k-doctor-card",
+  "flex flex-col ",
   className
 ])
 
 ---
 <div {...cardClasses}>
   <!-- <Image src={image} alt="" class="mb-6 md:mb-8 xl:mb-12" {loading}/> -->
-  <ImageDynamic altText='' imagePath={photo} {loading}/>
-  <div class="flex place-content-between">
-    <div>
-      <div class="typo-header-xs md:typo-header-s xl:typo-header-m antialiased font-semibold text-neutral-600">{title}</div>
-      <div class="typo-body-m md:typo-body-l xl:typo-body-xxl text-neutral-600 antialiased mt-2 md:mt-4 xl:mt-6">Especialidad: { especialidad }</div>
-    </div>
-    <Link
-      class=""
-      color="metal"
-      url=`/medicos/${slug}`
-      class="w-max h-fit self-center"
-    >
-      VER MÁS
-    </Link>
+  <div class="k-doctor-card-image">
+    <ImageDynamic altText='' imagePath={photo} {loading} class="object-cover"/>
   </div>
-  <Linebreak element={false} color="blue" class="mt-4" />
+  <div class="flex flex-col h-full justify-between">
+    <div class="flex place-content-between flex-row mt-2">
+      <div>
+        <div class="typo-header-xs antialiased font-semibold text-neutral-600">
+          {title}
+        </div>
+        <div class="typo-body-m text-neutral-600 antialiased mt-2">
+          Especialidad: { especialidad }
+        </div>
+      </div>
+      <Link
+        class=""
+        color="metal"
+        url=`/medicos/${slug}`
+        class="w-max h-fit self-center k-link"
+      >
+        VER MÁS
+      </Link>
+    </div>
+    <Linebreak element={false} color="blue" class="mt-4" />
+  </div>
 </div>
+<style>
+  .k-doctor-card {
+
+    .k-doctor-card-image {
+      img {
+        aspect-ratio: 6/4;
+      }
+    }
+    .k-link {
+      min-width: 85px;
+    }
+  }
+</style>

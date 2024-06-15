@@ -6,10 +6,18 @@ interface Props {
   imagePath: string;
   altText: string;
   loading: 'lazy' | 'eager';
+  class ?: string;
 }
 
-const { imagePath, altText, loading = 'lazy' } = Astro.props;
+const { imagePath, altText, loading = 'lazy', class: className = '' } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
 ---
-<Image src={images[imagePath]()} alt={altText} {loading} />
+<Image
+  src={images[imagePath]()}
+  alt={altText}
+  {loading}
+  class={className}
+  widths={[240, 540, 720]}
+  sizes = {`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px)`}
+/>
