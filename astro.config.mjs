@@ -8,6 +8,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   trailingSlash: 'never',
   // todo: add your public domain
-  site: 'https://clinicaenlace.mx',
+  // site: 'https://clinicaenlace.mx',
+  site: 'https://clinica-enlace.netlify.app',
   integrations: [preact(), tailwind(), sitemap()]
 });
