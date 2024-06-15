@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  trailingSlash: 'never',
   // todo: add your public domain
   site: 'https://clinicaenlace.mx',
   integrations: [preact(), tailwind(), sitemap()]
