@@ -2,32 +2,43 @@
 import Link from '@elements/Link.astro'
 import classy from '@utils/classy'
 
-const links = [
-  { url : '/' , text : 'Procedimientos intervencionistas' },
-  { url : '/' , text : 'Estudios de laboratorio' },
-  { url : '/' , text : 'Electrocardiograma y ecocardiograma' },
-  { url : '/' , text : 'Procedimientos mayores' },
-  { url : '/', text : 'Centros de especialidad' },
-  { url : '/' , text : 'Procedimientos ambulatorios' },
-  { url : '/' , text : 'Consulta con especialidades' },
-  { url : '/' , text : 'Procedimientos quirúrgicos' },
-  { url : '/', text : 'Ultrasonido Doppler y convencional' },
-  { url : '/' , text : 'Diagnóstico clínico' },
+const links1 = [
+  { url : '/servicios/procedimientos-intervencionistas' , text : 'Procedimientos intervencionistas' },
+  { url : '/servicios/servicios-cardiología' , text : 'Electrocardiograma y ecocardiograma' },
+  { url : '/servicios/centros-de-especialidad', text : 'Centros de especialidad' },
+  { url : '/servicios/consulta-especialidades' , text : 'Consulta con especialidades' },
+  { url : '/servicios/ultrasonidos', text : 'Ultrasonido Doppler y convencional' },
+]
+
+const links2 = [
+  { url : '#' , text : 'Estudios de laboratorio' },
+  { url : '#' , text : 'Procedimientos ambulatorios' },
+  { url : '#' , text : 'Procedimientos mayores' },
+  { url : '#' , text : 'Procedimientos quirúrgicos' },
+  { url : '#' , text : 'Diagnóstico clínico' },
 ]
 
 const linkClasses = classy([
-  "col-span-2",
-  "md:col-span-1",
   "content-center",
+  "mt-2"
 ])
 ---
 <div class="col-span-3 md:col-span-6 xl:col-span-3">
   <div class="typo-header-xs text-white font-bold mb-3"> Servicios </div>
-  <div class="grid grid-cols-2 gap-x-4 gap-y-2">
-      { links.map((link) => (
+  <div class="grid grid-cols-2 gap-x-4">
+    <div class="col-span-2 md:col-span-1">
+      { links1.map((link) => (
         <div {...linkClasses} >
           <Link url={link.url} footer> {link.text} </Link>
         </div>
       )) }
+    </div>
+    <div class="col-span-2 md:col-span-1">
+      { links2.map((link) => (
+        <div {...linkClasses} >
+          <Link url={link.url} footer> {link.text} </Link>
+        </div>
+      )) }
+    </div>
   </div>
 </div>

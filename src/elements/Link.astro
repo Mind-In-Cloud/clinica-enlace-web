@@ -49,7 +49,7 @@ let linkClasses = classy([
 
 const linkContentClasses = classy([
   'k-link-content-wrapper',
-  ( isNav || mini ) && 'k-decoration-under',
+  ( isNav || mini ) && url !== '#' && 'k-decoration-under',
   footer && 'ml-3.5',
   wrapClasses
 ])
@@ -69,15 +69,28 @@ if ( color === 'cyan'){
 }
 
 ---
-<a href ={ url } {...linkClasses} >
+{ url === '#'
+  ?
+  <div {...linkClasses} >
+    { nav && <span>{'<'}</span>}
+    { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
+    { !footer && Boolean(icon) && <Icon icon={icon}/>}
+    <span {...linkContentClasses}>
+      <slot/>
+    </span>
+    { mini && <span class="ml-2">{'>'}</span>}
+  </div>
+  :
+  <a href ={ url } {...linkClasses} >
   { nav && <span>{'<'}</span>}
   { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
   { !footer && Boolean(icon) && <Icon icon={icon}/>}
-  <span {...linkContentClasses}>
-    <slot/>
-  </span>
-  { mini && <span class="ml-2">{'>'}</span>}
-</a>
+    <span {...linkContentClasses}>
+      <slot/>
+    </span>
+    { mini && <span class="ml-2">{'>'}</span>}
+  </a>
+}
 <style define:vars={{decoratorBgColor}}>
   .k-link-content-wrapper.k-decoration-under {
     position: relative;
