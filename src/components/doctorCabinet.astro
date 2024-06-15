@@ -7,7 +7,7 @@ const allDoctors = await getCollection("medicos");
 // const tags = [...new Set(allDoctors.map((doctor) => doctor.data.tags).flat())];
 
 ---
-<div class="k-doctor-cabinet k-section grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 lg:gap-x-12 2xl:gap-x-40 gap-y-4 md:gap-y-5 xl:gap-y-6">
+<div class="k-doctor-cabinet k-section grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 md:gap-x-12 2xl:gap-x-40 gap-y-10 xl:gap-y-6">
   { allDoctors.map((doctor, index) => (
     <DoctorCard {...doctor} class="col-span-1" loading={index > 4 ? 'lazy' : 'eager'}/>
   ))}
