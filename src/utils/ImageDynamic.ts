@@ -1,8 +1,8 @@
 import type { ImageMetadata } from 'astro';
 
-interface Props {
-    imagePath: string;
-}
+// interface Props {
+//     imagePath: string;
+// }
 
 export const loadImage = async (imagePath: string) => {
     const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
