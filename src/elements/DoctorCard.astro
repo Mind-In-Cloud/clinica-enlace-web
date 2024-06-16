@@ -15,7 +15,6 @@ const {
   class : className = '',
   loading = 'lazy'
 } = Astro.props
-
 const cardClasses = classy([
   "k-doctor-card",
   "flex flex-col ",
@@ -24,9 +23,15 @@ const cardClasses = classy([
 
 ---
 <div {...cardClasses}>
-  <!-- <Image src={image} alt="" class="mb-6 md:mb-8 xl:mb-12" {loading}/> -->
   <div class="k-doctor-card-image">
-    <ImageDynamic altText='' imagePath={photo} {loading} class="object-cover"/>
+    <ImageDynamic
+      altText=''
+      imagePath={photo}
+      {loading}
+      class="object-cover"
+      widths = {[720]}
+      sizes = `1080px`
+    />
   </div>
   <div class="flex flex-col h-full justify-between">
     <div class="flex place-content-between flex-row mt-2">
