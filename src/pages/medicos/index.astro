@@ -5,7 +5,9 @@ import Map from "@components/Map.astro";
 
 import seoImage from '@images/colab.jpg'
 import MediaPanel from "@components/MediaPanel.astro";
-import DoctorCabinet from "@components/DoctorCabinet.astro";
+import DoctorCabinet from "@components/DoctorCabinet.jsx";
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos");
 
 const seo = {
   title : "Médicos especialistas",
@@ -20,6 +22,6 @@ const seo = {
     classTitle="font-bold"
     main
   />
-  <DoctorCabinet/>
+  <DoctorCabinet client:load doctors={allDoctors}/>
   <Map/>
 </BaseLayout>
