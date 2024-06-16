@@ -52,23 +52,25 @@ export const DoctorCabinet = ({doctors = []}) => {
   }
 
   const handleTagClick = (tag) => {
-    console.log('handletagclick', tag)
     setActiveTag(tag);
-    if ( tag === 'Especialidad'){
+  }
+
+  useLayoutEffect(() => {
+    if ( activeTag === 'Especialidad'){
       setShownDoctors(doctors);
     } else {
-      setShownDoctors(doctors.filter((doctor) => doctor.data.tags.includes(tag)));
+      setShownDoctors(doctors.filter((doctor) => doctor.data.tags.includes(activeTag)));
     }
     setIsOpen(false);
-  }
+  }, [activeTag]);
+
 
   return (
     <div {...doctorCabClasses} >
       <div {...filterWrapClasses } >
         <button {...filterClasses} id='k-filter' onClick={handleFilterClick}>
           <div>{activeTag}</div>
-          {/* <Icon icon={chevronDown} class='max-w-4 self-center ml-2'/> */}
-          <div class="k-icon max-w-4 self-center ml-2">
+          <div class={`k-icon max-w-4 self-center ml-2${isOpen ? ' rotate-180' : ''}`}>
             <svg width="100%" height="100%" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.88 0.560058L8 6.66672L14.12 0.560059L16 2.44006L8 10.4401L-8.21774e-08 2.44006L1.88 0.560058Z" fill="#8CA6BC"/>
             </svg>
