@@ -8,8 +8,10 @@ pnpm astro dev
 ```
 
 ```sh
-pnpm astro sync
+pnpm astro build
 ```
+
+Per astro docs: both of these run astro sync in the backgroudn
 <!--
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)

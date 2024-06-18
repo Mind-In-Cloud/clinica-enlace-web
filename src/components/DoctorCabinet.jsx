@@ -17,7 +17,7 @@ export const DoctorCabinet = ({doctors = []}) => {
     "k-section",
     "grid",
     "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
-    "gap-x-8 md:gap-x-12 xl:gap-y-6 2xl:gap-x-40",
+    "gap-x-8 md:gap-x-12 xl:gap-y-6 2xl:gap-x-20",
     "gap-y-10"
   ])
 
