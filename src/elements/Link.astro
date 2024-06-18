@@ -31,16 +31,17 @@ let linkClasses = classy([
   mini && `typo-button-s flex items-center`,
   ( mini || header ) && color && `text-${color}`,
   mini && !color && `text-white`,
-  isButton && 'font-semibold typo-button-s',
-  big ? 'typo-button-l py-3 px-4' : 'typo-button-s py-2 px-3',
   rounded ? 'rounded-full' : 'rounded-sm',
   color === 'invert' && 'text-blue bg-white border-solid border border-blue',
-  isButton && color !== 'invert' && 'shadow',
   color === 'metal' && 'bg-metal text-white',
   color === 'red' && 'bg-red text-white',
   color === 'white' && 'bg-white text-metal',
   color === 'yellow' && 'bg-yellow text-white',
   color === 'blue' && 'bg-blue text-white',
+  isButton && color !== 'invert' && 'shadow',
+  isButton && 'font-semibold typo-button-s',
+  !big && isButton &&  'typo-button-s',
+  big ? 'typo-button-l py-3 px-4' : 'py-2 px-3',
   className
 ])
 
