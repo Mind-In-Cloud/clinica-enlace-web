@@ -21,32 +21,67 @@ const {
 
 const isNav = footer || header || nav
 
-let linkClasses = classy([
-  'k-link antialiased',
-  !isNav && !mini ? 'btn btn-primary font-semibold'
-  : nav ? 'text-blue'
-  : mini || nav ? 'typo-button-s'
-  : header ? 'typo-header-xxs'
-  : footer && 'typo-body-m text-neutral-200 flex items-center',
-  !isNav && !mini && color !== "invert" && 'shadow',
-  !isNav && rounded ? 'rounded-full' : 'rounded-sm',
-  !isNav && !mini && color === 'blue' ? 'bg-blue'
-  : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'
-  : color === 'metal' ? 'bg-metal'
-  : color === 'red' ? 'bg-red'
-  : color === 'white' ? 'text-metal bg-white'
-  : color === 'yellow' && 'bg-yellow text-white',
-  !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
-  url === Astro.url.pathname && header && !color && 'font-black k-active',
-  big && !isNav ? 'typo-button-l ' : 'typo-button-s',
-  big ? 'py-3 px-4'
-  : !isNav && 'py-2 px-3',
-  mini && 'flex items-center',
-  mini && !color && 'text-white',
-  mini && color && `text-${color}`,
-  header && !color ? 'text-neutral-500' : `text-${color}`,
-  className,
-])
+let linkClasses = {}
+let linkClassesArr : string[] = ['k-link antialiased']
+// let linkClasses = classy([
+//    && color !== "invert" && 'shadow',
+//    && color === 'blue' ? 'bg-blue'
+//   : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'
+//   : color === 'metal' ? 'bg-metal'
+//   : color === 'red' ? 'bg-red'
+//   : color === 'white' ? 'text-metal bg-white'
+//   : color === 'yellow' && 'bg-yellow text-white',
+//   (color && color !== 'invert' && color !== 'white') && 'text-white',
+//   className,
+// ])
+
+if ( footer ){
+  linkClassesArr.push('typo-body-m text-neutral-200 flex items-center')
+} else if ( header) {
+  linkClassesArr.push('typo-header-xxs')
+  linkClassesArr.push(url === Astro.url.pathname && header && 'font-black k-active')
+  linkClassesArr.push(color ? `text-${color}` : 'text-neutral-500')
+} else if ( nav ) {
+  linkClassesArr.push('text-blue typo-button-s')
+} else if ( mini ) {
+  linkClassesArr.push('typo-button-s')
+  linkClassesArr.push('flex items-center')
+  linkClassesArr.push(color ? `text-${color}` : 'text-white')
+} else {
+  linkClassesArr.push('font-semibold typo-button-s')
+}
+
+if ( big ){
+  linkClassesArr.push('typo-button-l py-3 px-4')
+} else {
+  linkClassesArr.push('py-2 px-3')
+}
+
+if ( rounded ){
+  linkClassesArr.push('rounded-full')
+} else {
+  linkClassesArr.push('rounded-sm')
+}
+
+if ( color === 'invert'){
+  linkClassesArr.push('text-blue bg-white border-solid border border-blue')
+} else if ( color === 'metal'){
+  linkClassesArr.push('bg-metal text-white')
+} else if ( color === 'red'){
+  linkClassesArr.push('bg-red text-white')
+} else if ( color === 'white'){
+  linkClassesArr.push('bg-white text-metal')
+} else if ( color === 'yellow'){
+  linkClassesArr.push('bg-yellow text-white')
+} else if ( color === 'blue'){
+  linkClassesArr.push('bg-blue text-white')
+}
+
+if ( !!color && color !== 'invert'){
+  linkClassesArr.push('shadow')
+}
+
+linkClasses = classy([...linkClassesArr, className])
 
 const linkContentClasses = classy([
   'k-link-content-wrapper',
