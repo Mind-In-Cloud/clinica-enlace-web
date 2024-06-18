@@ -16,7 +16,7 @@ const {
 } = Astro.props
 
 const cabinetClasses = classy([
-  'px-8 py-12 lg:px-36 lg:py-16', //Switched to margin on all but this component
+  'px-8 py-12 lg:px-36 lg:py-16 2xl:px-48', //Switched to margin on all but this component
   style === 'blue' && 'bg-gray',
 ])
 
@@ -46,7 +46,7 @@ const ctaProps = {
 <div {...cabinetClasses}>
   <h2 {...titleClasses}>{title}</h2>
   <p {...subtitleClasses}>{subtitle}</p>
-  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 mt-4">
+  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 2xl:gap-x-16 mt-4">
     {items.map((item: any, index : number) => {
       let isFinal
 
