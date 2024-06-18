@@ -19,73 +19,34 @@ const {
   class : className = '',
   } = Astro.props
 
-const isNav = footer || header || nav
+const isButton = !(footer || header || nav || mini)
 
-let linkClasses = {}
-let linkClassesArr : string[] = ['k-link antialiased']
-// let linkClasses = classy([
-//    && color !== "invert" && 'shadow',
-//    && color === 'blue' ? 'bg-blue'
-//   : color === 'invert' ? 'text-blue bg-white border-solid border border-blue'
-//   : color === 'metal' ? 'bg-metal'
-//   : color === 'red' ? 'bg-red'
-//   : color === 'white' ? 'text-metal bg-white'
-//   : color === 'yellow' && 'bg-yellow text-white',
-//   (color && color !== 'invert' && color !== 'white') && 'text-white',
-//   className,
-// ])
-
-if ( footer ){
-  linkClassesArr.push('typo-body-m text-neutral-200 flex items-center')
-} else if ( header) {
-  linkClassesArr.push('typo-header-xxs')
-  linkClassesArr.push(url === Astro.url.pathname && header && 'font-black k-active')
-  linkClassesArr.push(color ? `text-${color}` : 'text-neutral-500')
-} else if ( nav ) {
-  linkClassesArr.push('text-blue typo-button-s')
-} else if ( mini ) {
-  linkClassesArr.push('typo-button-s')
-  linkClassesArr.push('flex items-center')
-  linkClassesArr.push(color ? `text-${color}` : 'text-white')
-} else {
-  linkClassesArr.push('font-semibold typo-button-s')
-}
-
-if ( big ){
-  linkClassesArr.push('typo-button-l py-3 px-4')
-} else {
-  linkClassesArr.push('py-2 px-3')
-}
-
-if ( rounded ){
-  linkClassesArr.push('rounded-full')
-} else {
-  linkClassesArr.push('rounded-sm')
-}
-
-if ( color === 'invert'){
-  linkClassesArr.push('text-blue bg-white border-solid border border-blue')
-} else if ( color === 'metal'){
-  linkClassesArr.push('bg-metal text-white')
-} else if ( color === 'red'){
-  linkClassesArr.push('bg-red text-white')
-} else if ( color === 'white'){
-  linkClassesArr.push('bg-white text-metal')
-} else if ( color === 'yellow'){
-  linkClassesArr.push('bg-yellow text-white')
-} else if ( color === 'blue'){
-  linkClassesArr.push('bg-blue text-white')
-}
-
-if ( !!color && color !== 'invert'){
-  linkClassesArr.push('shadow')
-}
-
-linkClasses = classy([...linkClassesArr, className])
+let linkClasses = classy([
+  `k-link antialiased`,
+  footer && `typo-body-m text-neutral-200 flex items-center`,
+  header && `typo-header-xxs`,
+  header && url === Astro.url.pathname && `font-black k-active`,
+  header && !color && `text-neutral-500`,
+  nav && `text-blue typo-button-s`,
+  mini && `typo-button-s flex items-center`,
+  ( mini || header ) && color && `text-${color}`,
+  mini && !color && `text-white`,
+  isButton && 'font-semibold typo-button-s',
+  big ? 'typo-button-l py-3 px-4' : 'typo-button-s py-2 px-3',
+  rounded ? 'rounded-full' : 'rounded-sm',
+  color === 'invert' && 'text-blue bg-white border-solid border border-blue',
+  isButton && color !== 'invert' && 'shadow',
+  color === 'metal' && 'bg-metal text-white',
+  color === 'red' && 'bg-red text-white',
+  color === 'white' && 'bg-white text-metal',
+  color === 'yellow' && 'bg-yellow text-white',
+  color === 'blue' && 'bg-blue text-white',
+  className
+])
 
 const linkContentClasses = classy([
   'k-link-content-wrapper',
-  ( isNav || mini ) && url !== '#' && 'k-decoration-under',
+  !isButton && url !== '#' && 'k-decoration-under',
   footer && 'ml-3.5',
   wrapClasses
 ])
