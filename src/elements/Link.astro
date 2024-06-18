@@ -23,10 +23,10 @@ const isNav = footer || header || nav
 
 let linkClasses = classy([
   'k-link antialiased',
-  !isNav && !mini ? 'btn btn-primary font-semibold antialiased'
+  !isNav && !mini ? 'btn btn-primary font-semibold'
   : nav ? 'text-blue'
   : mini || nav ? 'typo-button-s'
-  : header ? 'typo-header-xxs text-neutral-500'
+  : header ? 'typo-header-xxs'
   : footer && 'typo-body-m text-neutral-200 flex items-center',
   !isNav && !mini && color !== "invert" && 'shadow',
   !isNav && rounded ? 'rounded-full' : 'rounded-sm',
@@ -35,15 +35,16 @@ let linkClasses = classy([
   : color === 'metal' ? 'bg-metal'
   : color === 'red' ? 'bg-red'
   : color === 'white' ? 'text-metal bg-white'
-  : color === 'yellow' && 'bg-yellow',
+  : color === 'yellow' && 'bg-yellow text-white',
   !isNav && (color && color !== 'invert' && color !== 'white') && 'text-white',
   url === Astro.url.pathname && header && !color && 'font-black k-active',
-  big ? 'typo-button-l ' : 'typo-button-s',
+  big && !isNav ? 'typo-button-l ' : 'typo-button-s',
   big ? 'py-3 px-4'
   : !isNav && 'py-2 px-3',
   mini && 'flex items-center',
   mini && !color && 'text-white',
   mini && color && `text-${color}`,
+  header && !color ? 'text-neutral-500' : `text-${color}`,
   className,
 ])
 

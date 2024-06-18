@@ -1,25 +1,174 @@
 ---
-import Link from "@elements/Link.astro"
-import classy from "@utils/classy"
+import Link from "@elements/Link.astro";
+import {
+	Astronav,
+	MenuItems,
+	MenuIcon,
+	OpenIcon,
+	CloseIcon,
+	Dropdown,
+	DropdownItems,
+} from "astro-navbar";
+
+import classy from "@utils/classy.js";
+
+const textClasses = classy([
+	"typo-button-s",
+	"text-neutral-500",
+	"antialiased"
+])
 
 const linkClasses = classy([
-  'col-auto',
-  'content-center',
+	"lg:content-center",
+	"font-semibold lg:font-normal",
+	"pt-8 lg:pt-0",
+])
+
+const dropdownClasses = classy([
+	"pt-8 lg:pt-0",
+	"lg:self-center",
+	"hidden lg:block"
+])
+
+const dropdownChildClasses = classy([
+	"lg:absolute",
+	"top-2 lg:bg-cyan lg:shadow flex",
+	"flex-col",
+])
+
+const dropdownLinkClasses = classy([
+	"text-nowrap",
+	"hover:bg-blue",
+	"py-2 px-3",
+	"min-w-40"
+])
+
+const nonDropdownClasses = classy([
+	"lg:hidden",
+	"flex",
+	"lg:content-center",
+	"font-semibold lg:font-normal",
+	"pt-8 lg:pt-0",
+])
+
+const nonDropdownLinkClasses = classy([
+	"text-nowrap",
+	"hover:bg-blue",
+	"pt-5 pl-6",
+	"min-w-40",
+	"lg:hidden",
+	"font-medium"
 ])
 ---
-<div class="k-desktop-nav grid-cols-2 gap-x-4 grid">
-  <Link
-  url="/"
-  header
-  { ...linkClasses }
-  >
-  Inicio
-  </Link>
-  <Link
-  url="/medicos"
-  header
-  { ...linkClasses }
-  >
-  Medicos
-  </Link>
-</div>
+<Astronav closeOnClick>
+	<div class="lg:hidden flex items-center justify-end">
+		<MenuIcon class="w-4 h-4 text-gray-800" >
+			<OpenIcon>
+				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M3.33325 9.99992C3.33325 9.07944 4.07944 8.33325 4.99992 8.33325H34.9999C35.9204 8.33325 36.6666 9.07944 36.6666 9.99992C36.6666 10.9204 35.9204 11.6666 34.9999 11.6666H4.99992C4.07944 11.6666 3.33325 10.9204 3.33325 9.99992Z" fill="#6A8FA6"/>
+					<path d="M3.33325 19.9999C3.33325 19.0794 4.07944 18.3333 4.99992 18.3333H34.9999C35.9204 18.3333 36.6666 19.0794 36.6666 19.9999C36.6666 20.9204 35.9204 21.6666 34.9999 21.6666H4.99992C4.07944 21.6666 3.33325 20.9204 3.33325 19.9999Z" fill="#6A8FA6"/>
+					<path d="M4.99992 28.3333C4.07944 28.3333 3.33325 29.0794 3.33325 29.9999C3.33325 30.9204 4.07944 31.6666 4.99992 31.6666H34.9999C35.9204 31.6666 36.6666 30.9204 36.6666 29.9999C36.6666 29.0794 35.9204 28.3333 34.9999 28.3333H4.99992Z" fill="#6A8FA6"/>
+					</svg>
+			</OpenIcon>
+			<CloseIcon>
+				<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M2 25.7056L25.7051 2.0005" stroke="#D97364" stroke-width="3" stroke-linecap="round"/>
+					<path d="M2 2L25.7051 25.7051" stroke="#D97364" stroke-width="3" stroke-linecap="round"/>
+					</svg>
+			</CloseIcon>
+		</MenuIcon>
+	</div>
+	<MenuItems class="hidden lg:flex h-screen lg:h-auto col-span-2 lg:col-span-1">
+		<div class="flex flex-col lg:flex-row lg:gap-5">
+			<Link header url = "/" {...linkClasses}>
+				Inicio
+			</Link>
+			<Dropdown {...dropdownClasses}>
+				<button class="flex items-center">
+					<span {...textClasses}>Directorios</span>
+					<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="3"
+					stroke="currentColor"
+					class="min-w-3 h-3 ml-2 group-open:rotate-180">
+						<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+						</path>
+					</svg>
+				</button>
+				<DropdownItems class="relative">
+					<div {...dropdownChildClasses}>
+						<Link url="/medicos" header {...dropdownLinkClasses}>
+							Médicos
+						</Link>
+						<Link url="/servicios/centros-de-especialidad" header {...dropdownLinkClasses}>
+							Centros de Especialidad
+						</Link>
+						<Link url="/servicios" header {...dropdownLinkClasses}>
+							Nuestros servicios
+						</Link>
+					</div>
+				</DropdownItems>
+			</Dropdown>
+			<Dropdown {...dropdownClasses}>
+				<button class="flex items-center">
+					<span {...textClasses}>Orientacion a Pacientes</span>
+					<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="3"
+					stroke="currentColor"
+					class="min-w-3 h-3 ml-2 group-open:rotate-180">
+						<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+					</svg>
+				</button>
+				<DropdownItems class="relative">
+					<div {...dropdownChildClasses}>
+						<Link url="/pacientes" header {...dropdownLinkClasses}>
+							Pacientes
+						</Link>
+						<Link url="/visitantes" header {...dropdownLinkClasses}>
+							Visitantes
+						</Link>
+					</div>
+				</DropdownItems>
+			</Dropdown>
+			<Link {...nonDropdownClasses} header url="#">
+				Directorio
+			</Link>
+			<Link url="/medicos" header color="blue" {...nonDropdownLinkClasses}>
+				Médicos
+			</Link>
+			<Link url="/servicios/centros-de-especialidad" header color="blue" {...nonDropdownLinkClasses}>
+				Centros de Especialidad
+			</Link>
+			<Link url="/servicios" header color="blue" {...nonDropdownLinkClasses}>
+				Nuestros servicios
+			</Link>
+			<Link {...nonDropdownClasses} header url="#">
+				Orientacion a Pacientes
+			</Link>
+			<Link url="/pacientes" header color="blue" {...nonDropdownLinkClasses}>
+				Pacientes
+			</Link>
+			<Link url="/visitantes" header color="blue" {...nonDropdownLinkClasses}>
+				Visitantes
+			</Link>
+			<!-- TODO url -->
+			<Link url="#" header {...linkClasses} >
+				Recomienda a un paciente
+			</Link>
+			<Link url="/blog" header {...linkClasses}>
+				Blog
+			</Link>
+		</div>
+	</MenuItems>
+</Astronav>
