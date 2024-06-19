@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
-
 import sitemap from "@astrojs/sitemap";
+
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +11,7 @@ export default defineConfig({
   // todo: add your public domain
   // site: 'https://clinicaenlace.mx',
   site: 'https://clinica-enlace.netlify.app',
-  integrations: [preact(), tailwind(), sitemap()]
+  integrations: [preact(), tailwind(), sitemap()],
+  output: "static",
+  adapter: netlify()
 });

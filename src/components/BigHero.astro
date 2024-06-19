@@ -5,7 +5,6 @@ import Link from '@elements/Link.astro'
 import Icon from '@elements/Icon.astro'
 
 import extraImg from '@images/mainPhotoBig.jpg'
-console.log(`🚀 ~ extraImg:`, extraImg)
 import desktopImg from '@images/mainPhotoDesktop.png'
 import mobileImg from '@images/movilMain.jpg'
 import phone from '@icons/phone_white.svg?raw'
@@ -21,9 +20,9 @@ const bigContentClasses = classy([
 ---
 <div class="k-hero relative" role="main">
   <picture class="k-hero-image">
-    <source media="(max-width: 768px)" srcset={mobileImg.src} />
-    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={desktopImg.src} />
-    <source media="(min-width: 1280px)" srcset={extraImg.src} />
+    <source media="(max-width: 768px)" srcset={`/.netlify/images?url=${encodeURIComponent(mobileImg.src)}`} />
+    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={`/.netlify/images?url=${encodeURIComponent(desktopImg.src)}`} />
+    <source media="(min-width: 1280px)" srcset={`/.netlify/images?url=${encodeURIComponent(extraImg.src)}`} />
     <img src={desktopImg.src} alt='' />
   </picture>
   <div {...bigContentClasses}>
