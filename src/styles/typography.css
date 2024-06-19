@@ -141,6 +141,10 @@
     @apply typo-header-xs md:typo-header-m antialiased mt-2 md:mt-4 xl:mt-6;
   }
 
+  .header-xs {
+    @apply typo-header-xs md:typo-header-s antialiased;
+  }
+
   .k-subtitle {
     @apply typo-body-m md:typo-body-xl text-center antialiased mt-2 md:mt-4 xl:mt-6
   }

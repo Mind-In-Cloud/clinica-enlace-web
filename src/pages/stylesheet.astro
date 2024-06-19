@@ -14,6 +14,7 @@ import '@styles/typography.css';
 import Cabinet from "@components/Cabinet.astro";
 import Linebreak from "@elements/Linebreak.astro";
 import MediaPanel from "@components/MediaPanel.astro";
+import NearbyPlaces from "@components/NearbyPlaces.astro";
 
 const { pageTitle } = Astro.props ;
 
@@ -350,6 +351,7 @@ const Title = pageTitle || headerTitle;
 				El Centro Hepatobiliar es un centro especializado que cuenta con los recursos y la experiencia necesarios para abordar las enfermedades del <strong>hígado</strong> y <strong>sistema biliar</strong> de manera integral. Consulta los servicios que el Centro Hepatobiliar de Clínica Enlace tiene para atenderte
 			</Fragment>
 		</MediaPanel>
+		<NearbyPlaces/>
 		<Footer />
 	</body>
 </html>
