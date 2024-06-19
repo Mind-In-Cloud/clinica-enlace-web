@@ -7,7 +7,12 @@ import MediaPanel from '@components/MediaPanel.astro';
 
 import seoImage from '@images/mainPhotoDesktop.png'
 import liverYellow from '@icons/liver_yellow.svg?raw';
-import heart from '@icons/heart_blue_cyan.svg?raw';
+import first from '@icons/blue/3_2.svg?raw';
+import second from '@icons/blue/5_2.svg?raw';
+import third from '@icons/blue/1_2.svg?raw';
+import fourth from '@icons/blue/4_2.svg?raw';
+import fifth from '@icons/blue/cardio.svg?raw';
+
 import Map from '@components/Map.astro';
 import Testimonials from '@components/Testimonials.astro';
 
@@ -27,23 +32,23 @@ const seo = {
     items = {[
       {
         title: 'Centros de especialidad',
-        icon: heart,
+        icon: first,
       },
       {
         title: 'Ultrasonido convencional y Doppler',
-        icon: heart
+        icon: second
       },
       {
         title: 'Procedimientos intervencionistas',
-        icon: heart
+        icon: third
       },
       {
         title: 'Consulta con especialidades',
-        icon: heart
+        icon: fourth
       },
       {
         title: 'Electrocardiograma y ecocardiograma',
-        icon: heart
+        icon: fifth
       }
     ]}
     cta = {{
@@ -66,7 +71,5 @@ const seo = {
       El Centro Hepatobiliar es un centro especializado que cuenta con los recursos y la experiencia necesarios para abordar las enfermedades del <strong>hígado</strong> y <strong>sistema biliar</strong> de manera integral. Consulta los servicios que el Centro Hepatobiliar de Clínica Enlace tiene para atenderte
     </Fragment>
   </MediaPanel>
-  <!-- <Map/> -->
-   <!-- <Testimonials client:only="preact"/> -->
   <Testimonials/>
 </BaseLayout>

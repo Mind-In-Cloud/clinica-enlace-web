@@ -25,7 +25,6 @@ let linkClasses : { [key: string]: string } = classy([
   `k-link antialiased`,
   footer && `typo-body-m text-neutral-200 flex items-center`,
   header && `typo-header-xxs`,
-  header && Astro.url.pathname === url ? `font-black k-active` : "font-semibold lg:font-normal",
   header && !color && `text-neutral-500`,
   nav && `text-blue typo-button-s`,
   mini && `typo-button-s flex items-center`,
@@ -68,6 +67,7 @@ if ( color === 'cyan'){
 
 if ( Astro.url.pathname === url ){
   linkClasses['aria-current']="page"
+  linkClasses['class'] += ' font-black k-active'
 }
 
 ---
