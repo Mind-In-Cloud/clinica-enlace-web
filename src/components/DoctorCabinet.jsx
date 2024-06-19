@@ -3,6 +3,7 @@ import { useLayoutEffect, useState } from 'preact/hooks';
 import DoctorCard from '@elements/DoctorCard.jsx'
 // import TagFilter from '@elements/TagFilter.astro';
 import classy from '@utils/classy';
+import hash from '@utils/hash';
 
 export const DoctorCabinet = ({doctors = []}) => {
 
@@ -103,7 +104,7 @@ export const DoctorCabinet = ({doctors = []}) => {
         </div>
       </div>
       { shownDoctors.map((doctor, index) => (
-        <DoctorCard {...doctor} class="col-span-1" loading={index > 4 ? 'lazy' : 'eager'} key={`${index} + doctor card`}/>
+        <DoctorCard {...doctor} class="col-span-1" loading={index > 4 ? 'lazy' : 'eager'} key={hash(doctor,index)}/>
       ))}
     </div>
   )

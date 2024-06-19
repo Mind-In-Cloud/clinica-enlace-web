@@ -35,7 +35,6 @@ const serviciosCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     seoImage: z.string(),
-    tags: z.array(z.string())
   })
 });
 

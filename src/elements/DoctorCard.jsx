@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 
 import { loadImage } from '@utils/ImageDynamic'
 import classy from '@utils/classy'
@@ -24,9 +24,18 @@ const DoctorCard = (props) => {
 
   const [image, setImage] = useState(null)
 
-  useLayoutEffect(() => {
-    loadImage(photo).then(setImage)
-  })
+  useEffect(() => {
+    loadImage(photo)
+    .then( photo => {
+      return {
+        src: `/.netlify/images?url=${photo.src}`,
+        alt: photo.alt,
+        width: photo.width,
+        height: photo.height,
+      }
+    })
+    .then(setImage)
+  },[])
 
   return (
     <div {...cardClasses}>
