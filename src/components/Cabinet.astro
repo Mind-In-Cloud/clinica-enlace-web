@@ -11,7 +11,7 @@ const {
   items = [],
   cta = {
     text: 'cta',
-    url: '#',
+    url: '',
   },
 } = Astro.props
 
@@ -67,6 +67,6 @@ const ctaProps = {
         </div>
       )
     })}
-    <Link {...ctaProps}>{cta.text}</Link>
+    { cta.url && <Link {...ctaProps}>{cta.text}</Link>}
   </div>
 </div>

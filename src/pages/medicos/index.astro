@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "@layouts/base.astro"
 
-import Map from "@components/Map.astro";
+// import Map from "@components/Map.astro";
 
 import seoImage from '@images/colab.jpg'
 import MediaPanel from "@components/MediaPanel.astro";
 import DoctorCabinet from "@components/DoctorCabinet.jsx";
 import { getCollection } from 'astro:content';
+import Testimonials from "@components/Testimonials.astro";
 const allDoctors = await getCollection("medicos");
 
 const seo = {
@@ -23,7 +24,5 @@ const seo = {
     main
   />
   <DoctorCabinet client:load doctors={allDoctors}/>
-  <!-- <Map/>
-   TODO Replace with testimonials component
-  -->
+  <Testimonials/>
 </BaseLayout>
