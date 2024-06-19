@@ -21,11 +21,11 @@ const {
 
 const isButton = !(footer || header || nav || mini)
 
-let linkClasses = classy([
+let linkClasses : { [key: string]: string } = classy([
   `k-link antialiased`,
   footer && `typo-body-m text-neutral-200 flex items-center`,
   header && `typo-header-xxs`,
-  header && url === Astro.url.pathname && `font-black k-active`,
+  header && Astro.url.pathname === url ? `font-black k-active` : "font-semibold lg:font-normal",
   header && !color && `text-neutral-500`,
   nav && `text-blue typo-button-s`,
   mini && `typo-button-s flex items-center`,
@@ -48,6 +48,7 @@ let linkClasses = classy([
 const linkContentClasses = classy([
   'k-link-content-wrapper',
   !isButton && url !== '#' && 'k-decoration-under',
+  color === 'cyan' && 'k-decoration-under',
   footer && 'ml-3.5',
   wrapClasses
 ])
@@ -55,15 +56,18 @@ const linkContentClasses = classy([
 let decoratorBgColor = nav ? '#59CCD9':
   mini ? '#F8FAFC' :
   header ? '#3C5368' :
-  footer && '#CBD7E1'
+  footer ? '#CBD7E1' :
+  color === 'cyan' && '#E6F7F9'
 
 if ( color === 'cyan'){
   linkClasses = classy([
     'typo-body-m text-cyan-soft k-decoration-under antialiased',
     className
   ])
+}
 
-  decoratorBgColor = '#E6F7F9'
+if ( Astro.url.pathname === url ){
+  linkClasses['aria-current']="page"
 }
 
 ---

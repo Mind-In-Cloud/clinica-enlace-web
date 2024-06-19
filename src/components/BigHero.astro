@@ -18,7 +18,7 @@ const bigContentClasses = classy([
   'absolute bottom-0 left-0 right-0 md:right-1/3 2xl:right-1/2', // Positioning classes for big hero only
 ])
 ---
-<div class="k-hero relative">
+<div class="k-hero relative" role="main">
   <picture class="k-hero-image">
     <source media="(max-width: 768px)" srcset={mobileImg.src} />
     <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={desktopImg.src} />
@@ -26,18 +26,18 @@ const bigContentClasses = classy([
     <img src={desktopImg.src} alt='' />
   </picture>
   <div {...bigContentClasses}>
-    <h1 class="lg:typo-header-xxxl text-cyan typo-header-m antialiased">
-      <p>Tranquilidad, dignidad,</p>
-      <p>respeto a la <strong>vida</strong>.</p>
+    <h1 class="lg:typo-header-xxxl text-cyan typo-header-m antialiased" >
+      Tranquilidad, dignidad,</br>
+      respeto a la <strong>vida</strong>.
     </h1>
-    <div class="grid grid-cols-12 gap-x-4 gap-y-8 md:mt-8">
+    <div class="grid grid-cols-12 gap-x-4 gap-y-8 mt-4 md:mt-8">
       <a href="/buscar" class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center k-decoration-under">
         <Icon icon={search} class="content-center max-h-6 max-w-6 mx-2 md:mx-4"/>
-        <span class="content-center antialiased typo-body-l md:typo-body-xl k-decor mr-2">Buscar</span>
+        <span class="content-center antialiased typo-body-m md:typo-body-xl k-decor mr-2">Buscar</span>
       </a>
       <a target="_blank" href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6" class="col-span-4 md:col-span-3 border-metal border flex justify-start text-metal items-center bg-white k-decoration-under">
         <Icon icon={location} class="content-center max-h-6 max-w-6 mr-1 ml-0.5 md:mx-2"/>
-        <span class="content-center antialiased typo-body-l md:typo-body-xl k-decor mr-0.5">Dirección</span>
+        <span class="content-center antialiased typo-body-m md:typo-body-xl k-decor mr-0.5">Dirección</span>
       </a href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6">
       <div class="col-span-4 md:col-span-6">
         <Link
@@ -63,7 +63,7 @@ const bigContentClasses = classy([
         <Icon icon={liver} class="col-span-1 flex mr-4 lg:mr-0"/>
         <span class="col-auto typo-body-l">Centro de Hígado y Sistema Biliar</span>
       </Link>
-      <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center">
+      <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center 2xl:col-span-6">
 				<Link
 					url="https://www.facebook.com/ClinicaEnlace/reviews"
 					mini
