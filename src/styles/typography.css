@@ -129,8 +129,13 @@
 
 
 @layer components {
+
+  .header-xxl {
+    @apply typo-header-l lg:typo-header-xl 2xl:typo-header-xxxl antialiased;
+  }
+
   .header-l {
-    @apply typo-header-m md:typo-header-xxxl antialiased mb-8;
+    @apply typo-header-m md:typo-header-xl lg:typo-header-xxxl antialiased mb-8;
   }
 
   .header-m {
