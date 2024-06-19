@@ -15,7 +15,7 @@ import location from '@icons/location_metal.svg?raw'
 const bigContentClasses = classy([
   'k-hero-content',
   'px-8 pb-9 lg:pl-36 pt-16 lg:pt-10', // Padding classes for all components!
-  'absolute bottom-0 left-0 right-0 md:right-1/3 2xl:right-1/2', // Positioning classes for big hero only
+  'absolute bottom-0 left-0 right-0 md:right-[20%] 2xl:right-[45%]', // Positioning classes for big hero only
 ])
 ---
 <div class="k-hero relative" role="main">
@@ -60,10 +60,10 @@ const bigContentClasses = classy([
         class="justify-center flex col-span-12 md:col-span-6"
         wrapClasses="w-full flex items-center justify-around"
       >
-        <Icon icon={liver} class="col-span-1 flex mr-4 lg:mr-0"/>
+        <Icon icon={liver} class="col-span-1 flex mr-4 lg:mr-2"/>
         <span class="col-auto typo-body-l">Centro de Hígado y Sistema Biliar</span>
       </Link>
-      <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center 2xl:col-span-6">
+      <div class="col-span-12 md:col-span-4 justify-self-center md:justify-self-start self-center lg:col-span-6">
 				<Link
 					url="https://www.facebook.com/ClinicaEnlace/reviews"
 					mini
