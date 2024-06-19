@@ -123,7 +123,9 @@ const nonDropdownLinkClasses = classy([
 			</Dropdown>
 			<Dropdown {...dropdownClasses}>
 				<button class="flex items-center">
-					<span {...textOrientationClasses}>Orientacion a Pacientes</span>
+					<div {...textOrientationClasses}>
+						Orientacion <br/>a Pacientes
+					</div>
 					<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -171,7 +173,7 @@ const nonDropdownLinkClasses = classy([
 			</Link>
 			<!-- TODO url -->
 			<Link url="#" header {...linkClasses} >
-				Recomienda a un paciente
+				Recomienda a<br/>un paciente
 			</Link>
 			<Link url="/blog" header {...linkClasses}>
 				Blog

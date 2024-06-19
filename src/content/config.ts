@@ -29,8 +29,19 @@ const medicosCollection = defineCollection({
   })
 });
 
+const serviciosCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    seoImage: z.string(),
+    tags: z.array(z.string())
+  })
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
-  medicos: medicosCollection
+  medicos: medicosCollection,
+  servicios: serviciosCollection,
 };
