@@ -1,0 +1,58 @@
+---
+import classy from "@utils/classy"
+import Linebreak from "./Linebreak.astro"
+
+const {
+  title,
+  address1,
+  address2,
+  distance
+} = Astro.props
+
+const placeClasses = classy([
+  'k-place',
+  'flex flex-col',
+])
+
+---
+<div {...placeClasses}>
+  <div class="header-s font-bold text-blue mb-2">{title}</div>
+  <Linebreak element={false} color="blue"/>
+  <div class="relative">
+    <div class="absolute mt-5">
+      <!-- <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="8" fill="#56748D"/>
+      </svg> -->
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="8" fill="#59CCD9"/>
+      </svg>
+    </div>
+    <div class="absolute mt-6 ml-1">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#C9EEF2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="ml-8 mt-4 text-neutral-700 text-body-m ld:text-body-l list list-blue">
+        <p>{address1}</p>
+        <span>{address2}</span>
+      </div>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="absolute mt-5">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="8" fill="#56748D"/>
+      </svg>
+    </div>
+    <div class="absolute mt-6 ml-1">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#C9EEF2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="ml-8 mt-4 text-neutral-700 text-body-m ld:text-body-l list list-metal">{distance}</div>
+    </div>
+  </div>
+
+</div>

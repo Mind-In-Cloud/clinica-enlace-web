@@ -1,0 +1,123 @@
+---
+import Place from "@elements/Place.astro"
+import classy from "@utils/classy"
+
+
+const places1 = [
+  {
+    title : `OXXO`,
+    address1: `Valle De Las Alamedas Y Del Estudio 310, Av. República Mexicana,`,
+    address2:` Valle de las Alamedas, 66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 170m de la clínica`
+  },
+  {
+    title : `Walmart`,
+    address1: `Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2: `66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 170m de la clínica`
+  },
+  {
+    title: `HEB`,
+    address1: `Ave. Republica Mexicana, Gregorio Zambrano 600 Esq,`,
+    address2: `La Nogalera, 66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 800 metros de la clínica`
+  },
+  {
+    title: `Sam's Club`,
+    address1: `Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2: `66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 700 metros de la clínica`
+  },
+  {
+    title: `The Home Depot`,
+    address1: `Ave. Republica Mexicana, Gregorio Zambrano 600 Esq,`,
+    address2: `La Nogalera, 66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 800 metros de la clínica`
+  },
+  {
+    title: `Plaza Almanares`,
+    address1: `Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2: `66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 550 metros de la clínica`
+  }
+]
+
+const places2 = [
+  {
+    title :`VIPS`,
+    address1 :`Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2 :`66417 San Nicolás de los Garza, N.L.`,
+    distance :`A 550 metros de la clínica`
+  },
+  {
+    title :`IHOP`,
+    address1 :`Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2 :`66417 San Nicolás de los Garza, N.L.`,
+    distance :`A 550 metros de la clínica`
+  },
+  {
+    title :`Starbucks`,
+    address1 :`Valle De Las Alamedas Y Del Estudio 310, Av. República Mexicana,`,
+    address2 :`Valle de las Alamedas, 66417 San Nicolás de los Garza, N.L.`,
+    distance :`A 170 metros de la clínica`
+  },
+  {
+    title :`Andatti Drive`,
+    address1 :`Ave. Republica Mexicana, Gregorio Zambrano 600 Esq,`,
+    address2 :`La Nogalera, 66417 San Nicolás de los Garza, N.L.`,
+    distance :`A 800 metros de la clínica`
+  }
+]
+
+const places3 = [
+  {
+    title :`Banorte`,
+    address1 :`Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2 :`66417 San Nicolás de los Garza, N.L.`,
+    distance :`A 700 metros de la clínica`
+  },
+  {
+    title: `Santander`,
+    address1: `Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2: `66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 700 metros de la clínica`
+  },
+  {
+    title: `Banregio`,
+    address1: `Av. Sendero Divisorio 200-A, Valle de las Alamedas,`,
+    address2: `66417 San Nicolás de los Garza, N.L.`,
+    distance: `A 700 metros de la clínica`
+  }
+]
+const nearbyClasses = classy([
+  `k-section`,
+  `nearby-places`
+])
+
+const titleClasses = classy([
+  `typo-header-s md:typo-header-m`,
+  `text-neutral-600`,
+  `opacity-80`,
+  `mt-12 md:mt-16`
+])
+---
+<div {...nearbyClasses} >
+  <h3 {...titleClasses}>Tiendas y plazas</h3>
+  <div class="grid grid-cols-2 gap-x-12 gap-y-8">
+    {places1.map( place => (
+      <Place {...place} class="col-span-1"/>
+    ))}
+  </div>
+  <h3 {...titleClasses}>Restaurantes y cafeterías</h3>
+  <div class="grid grid-cols-2 gap-x-12 gap-y-8">
+    {places2.map( place => (
+      <Place {...place} class="col-span-1"/>
+    ))}
+  </div>
+  <h3 {...titleClasses}>Bancos</h3>
+  <div class="grid grid-cols-2 gap-x-12 gap-y-8">
+    {places3.map( place => (
+      <Place {...place} class="col-span-1"/>
+    ))}
+  </div>
+</div>
