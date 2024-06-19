@@ -19,3 +19,17 @@ body {
     }
   }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #2D3648!important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #59CCD9!important;
+  opacity: 0.3!important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #59CCD9!important;
+  opacity: 1!important;
+}
