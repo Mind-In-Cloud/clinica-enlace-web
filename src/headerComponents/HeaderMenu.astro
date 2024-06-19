@@ -12,10 +12,18 @@ import {
 
 import classy from "@utils/classy.js";
 
-const textClasses = classy([
+const textDirectoryClasses = classy([
 	"typo-header-xxs",
 	"text-neutral-500",
-	"antialiased"
+	"antialiased",
+	(Astro.url.pathname === "/medicos" || Astro.url.pathname === "/servicios/centros-de-especialidad" || Astro.url.pathname === "/servicios") && "font-bold",
+])
+
+const textOrientationClasses = classy([
+	"typo-header-xxs",
+	"text-neutral-500",
+	"antialiased",
+	(Astro.url.pathname === "/pacientes" || Astro.url.pathname === "/visitantes") && "font-bold",
 ])
 
 const linkClasses = classy([
@@ -84,7 +92,7 @@ const nonDropdownLinkClasses = classy([
 			</Link>
 			<Dropdown {...dropdownClasses}>
 				<button class="flex items-center">
-					<span {...textClasses}>Directorios</span>
+					<span {...textDirectoryClasses}>Directorios</span>
 					<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -115,7 +123,7 @@ const nonDropdownLinkClasses = classy([
 			</Dropdown>
 			<Dropdown {...dropdownClasses}>
 				<button class="flex items-center">
-					<span {...textClasses}>Orientacion a Pacientes</span>
+					<span {...textOrientationClasses}>Orientacion a Pacientes</span>
 					<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
