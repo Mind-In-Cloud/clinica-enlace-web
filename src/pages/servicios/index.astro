@@ -1,0 +1,81 @@
+---
+import BaseLayout from "@layouts/base.astro"
+
+import Map from "@components/Map.astro";
+import Cabinet from '@components/Cabinet.astro';
+
+import seoImage from '@images/servicios.jpg'
+
+import first from '@icons/blue/3_2.svg?raw';
+import second from '@icons/blue/5_2.svg?raw';
+import third from '@icons/blue/1_2.svg?raw';
+import fourth from '@icons/blue/4_2.svg?raw';
+import fifth from '@icons/blue/cardio.svg?raw';
+import sixth from '@icons/blue/6_2.svg?raw';
+import seventh from '@icons/blue/7_2.svg?raw';
+import eighth from '@icons/blue/8_1.svg?raw';
+import ninth from '@icons/blue/9.svg?raw';
+import tenth from '@icons/blue/10.svg?raw';
+
+const seo = {
+  title : "Servicios",
+  description: "Servicios: centros de especialidad, ultrasonidos, laboratorios, ECG, ecocardiograma, cirugías e intervencionismo en clínica de corta estancia.",
+  image : seoImage
+}
+
+---
+<BaseLayout {seo}>
+  <Cabinet
+    style = "blue"
+    title = 'Conoce lo que ofrecemos para ti'
+    subtitle = 'Una amplia gama de servicios médicos para cuidar de tu salud en todo momento. Desde ultrasonidos hasta procedimientos mayores, cada especialista está aquí para atenderte con el máximo cuidado y profesionalismo.'
+    items = {[
+      {
+        title: 'Centros de especialidad',
+        icon: first,
+        url : '/centros-de-especialidad'
+      },
+      {
+        title: 'Ultrasonido convencional y Doppler',
+        icon: second,
+        url: '/servicios/ultrasonidos'
+      },
+      {
+        title: 'Procedimientos intervencionistas',
+        icon: third,
+        url : '/servicios/procedimientos-intervencionistas'
+      },
+      {
+        title: 'Consulta con especialidades',
+        icon: fourth,
+        url : ' /servicios/consulta-especialidades'
+      },
+      {
+        title: 'Electrocardiograma y ecocardiograma',
+        icon: fifth,
+        url: '/servicios/servicios-cardiología'
+      },
+      {
+        title: 'Estudios de laboratorio',
+        icon: sixth,
+      },
+      {
+        title: 'Procedimientos mayores',
+        icon: seventh,
+      },
+      {
+        title: 'Procedimientos ambulatorios',
+        icon: eighth,
+      },
+      {
+        title: 'Procedimientos quirúrgicos',
+        icon: ninth,
+      },
+      {
+        title: 'Diagnóstico clínico',
+        icon: tenth,
+      },
+    ]}
+  />
+  <Map/>
+</BaseLayout>
