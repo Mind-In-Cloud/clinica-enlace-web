@@ -9,6 +9,8 @@ const Accordion = ({ title, content, startsOpen = false }) => {
 
   const accordionClasses = classy([
     'k-accordion mb-2',
+    'rounded',
+    'shadow-md',
     open && 'k-open',
   ])
 
@@ -18,10 +20,9 @@ const Accordion = ({ title, content, startsOpen = false }) => {
     'flex',
     'justify-between',
     'items-center',
-    'rounded',
     'p-4 pl-8',
-    'shadow-md'
   ])
+
   const titleClasses = classy([
     'header-xs font-bold text-neutral-500',
   ])
