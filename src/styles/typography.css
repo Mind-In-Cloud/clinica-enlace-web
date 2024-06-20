@@ -135,11 +135,11 @@
   }
 
   .header-l {
-    @apply typo-header-m md:typo-header-xl lg:typo-header-xxxl antialiased mb-8;
+    @apply typo-header-m md:typo-header-xl lg:typo-header-xxxl antialiased;
   }
 
   .header-m {
-    @apply typo-header-s md:typo-header-xxl antialiased mt-2 md:mt-4 xl:mt-6;
+    @apply typo-header-s md:typo-header-xxl antialiased;
   }
 
   .header-s {
@@ -151,7 +151,7 @@
   }
 
   .k-subtitle {
-    @apply typo-body-m md:typo-body-xl text-center antialiased mt-2 md:mt-4 xl:mt-6
+    @apply typo-body-m md:typo-body-xl text-center antialiased
   }
 }
 

@@ -1,0 +1,57 @@
+---
+title: 'Consulta con expecialidades'
+description: 'Consulta con cardiólogos, cirujanos generales, algólogos intervencionistas, radiólogos, nefrólogos y urólogos en clínica de corta estancia.'
+seoImage: '/src/assets/images/especialidad.jpg'
+---
+
+import Accordions from '@components/Accordions.jsx'
+import MediaPanel from '@components/MediaPanel.astro'
+import headerIcon from '@icons/servicios/consulta_especialidades.svg?raw'
+
+<MediaPanel
+  medium
+  title = 'Consulta con especialidades'
+  icon = {headerIcon}
+  classTitle = 'font-bold'
+  subtitle = 'Ofrecemos consultas con especialistas en una variedad de áreas médicas para abordar tus necesidades de salud de manera integral. Nuestros especialistas están dedicados a proporcionarte la mejor atención médica posible, brindándote diagnósticos precisos y planes de tratamiento efectivos. Puedes confiar en nuestro equipo para cuidar de ti con compasión y profesionalismo en cada consulta, asegurando que recibas la atención médica adecuada y personalizada que mereces. Estamos comprometidos en ayudarte a mantener tu salud y bienestar en óptimas condiciones.'
+  >
+</MediaPanel>
+<Accordions client:load
+  list={[
+    {
+      title: `Algología intervencionista`,
+      content: `La algología intervencionista es una especialidad médica que se enfoca en el tratamiento del dolor crónico mediante procedimientos mínimamente invasivos.
+
+      En lugar de depender solo de medicamentos, utiliza técnicas como bloqueos nerviosos, infiltraciones o radiofrecuencia para aliviar el dolor y mejorar la funcionalidad. Estos procedimientos se realizan con guía de imágenes para mayor precisión y seguridad.`,
+    },
+    {
+      title : `Cardiología`,
+      content: `La cardiología es la rama de la medicina especializada en el corazón y el sistema circulatorio. A través de esta especialidad, es posible prevenir, diagnosticar y tratar diversas enfermedades cardíacas, incluyendo la hipertensión, insuficiencia cardíaca, arritmias, y enfermedades coronarias, mejorando así la calidad de vida y prolongando la longevidad de los pacientes.`
+    },
+    {
+      title: `Nefrología`,
+      content: `La nefrología es la rama de la medicina especializada en el estudio y tratamiento de las enfermedades del riñón y el sistema urinario. A través de esta especialidad, es posible prevenir, diagnosticar y tratar diversas patologías renales, incluyendo insuficiencia renal, infecciones urinarias, cálculos renales, y enfermedades glomerulares, mejorando así la función renal y la calidad de vida de los pacientes.`
+    },
+    {
+      title: `Oncología`,
+      content: `La oncología es la rama de la medicina especializada en el estudio y tratamiento del cáncer. A través de esta especialidad, es posible prevenir, diagnosticar y tratar diversos tipos de cáncer, incluyendo tumores sólidos y hematológicos. La oncología abarca una amplia gama de terapias, como la quimioterapia, radioterapia, inmunoterapia y tratamientos quirúrgicos, con el objetivo de eliminar las células cancerosas, mejorar la calidad de vida y aumentar la supervivencia de los pacientes.`
+    },
+    {
+      title: `Radiología`,
+      content: `La radiología es la rama de la medicina especializada en el diagnóstico y tratamiento de enfermedades mediante el uso de técnicas de imagen avanzada. A través de esta especialidad, es posible obtener imágenes detalladas del interior del cuerpo utilizando radiografías, tomografías computarizadas (TC), resonancias magnéticas (RM), ultrasonidos y otros métodos. Estas imágenes son fundamentales para identificar y monitorear una amplia variedad de condiciones médicas, permitiendo un diagnóstico preciso y una planificación adecuada del tratamiento, lo que mejora la calidad de vida de los pacientes. En Clínica Enlace, realizamos estudios de ultrasonido convencionales y Doppler con radiólogos especializados, garantizando resultados de alta calidad y un enfoque profesional en el cuidado de la salud.`
+    },
+    {
+      title: `Radiología intervencionista`,
+      content: `La radiología intervencionista es la rama de la medicina especializada en el diagnóstico y tratamiento de diversas enfermedades mediante técnicas mínimamente invasivas guiadas por imágenes. A través de esta especialidad, es posible realizar procedimientos como angioplastias, embolizaciones, biopsias, y drenajes, utilizando tecnología avanzada como la fluoroscopia, la tomografía computarizada (TC) y la resonancia magnética (RM). Estas intervenciones permiten tratar condiciones médicas de manera precisa y eficaz, reduciendo el tiempo de recuperación y mejorando la calidad de vida de los pacientes.`
+    },
+    {
+      title: `Traumatología`,
+      content: `La traumatología es la rama de la medicina especializada en el diagnóstico, tratamiento y prevención de lesiones del sistema musculoesquelético. Esto incluye huesos, articulaciones, ligamentos, tendones y músculos. A través de esta especialidad, es posible abordar una amplia gama de lesiones y condiciones, desde fracturas y dislocaciones hasta esguinces y desgarros. Los tratamientos pueden incluir terapias conservadoras, intervenciones quirúrgicas y rehabilitación, con el objetivo de restaurar la función y aliviar el dolor, mejorando la calidad de vida de los pacientes. En Clínica Enlace, contamos con un especialista en columna, brindando atención experta y personalizada para las afecciones de la columna vertebral.`
+    },
+    {
+      title: `Urología`,
+      content: `La urología es la rama de la medicina especializada en el diagnóstico, tratamiento y prevención de enfermedades del sistema urinario y el sistema reproductor masculino. Esto incluye riñones, uréteres, vejiga, uretra y órganos reproductores masculinos como la próstata y los testículos. A través de esta especialidad, es posible abordar una amplia gama de condiciones, desde infecciones urinarias y cálculos renales hasta problemas de incontinencia y disfunción eréctil. Los tratamientos pueden incluir terapias médicas, procedimientos mínimamente invasivos y cirugías, con el objetivo de restaurar la función y mejorar la calidad de vida de los pacientes. En nuestra clínica, contamos con un especialista en urología que ofrece atención experta y personalizada para una variedad de afecciones urológicas.`
+    }
+  ]}
+/>
+```

@@ -27,14 +27,13 @@ const DoctorCard = (props) => {
   useEffect(() => {
     loadImage(photo)
     .then( photo => {
-      return {
+      setImage({
         src: `/.netlify/images?url=${photo.src}`,
-        alt: photo.alt,
+        alt: '',
         width: photo.width,
         height: photo.height,
-      }
+      })
     })
-    .then(setImage)
   },[])
 
   return (

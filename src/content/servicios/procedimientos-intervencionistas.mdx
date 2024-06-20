@@ -1,0 +1,38 @@
+---
+title: 'Procedimientos Intervencionistas'
+description: 'Procedimientos intervencionistas avanzados para diagnósticos y tratamientos mínimamente invasivos en nuestra clínica de corta estancia'
+seoImage: '/src/assets/images/interv.jpg'
+---
+
+import GreatList from '@components/GreatList.astro'
+import MediaPanel from '@components/MediaPanel.astro'
+import headerIcon from '@icons/servicios/procedimientos_intervencionistas.svg?raw'
+
+<MediaPanel
+  medium
+  title = 'Procedimientos intervencionistas'
+  icon = {headerIcon}
+  classTitle = 'font-bold'
+  subtitle = 'Los procedimientos intervencionistas son procedimientos médicos mínimamente invasivos que se realizan utilizando imágenes de guía, como radiografías o ecografías, para tratar diversas condiciones médicas. Cada paciente recibe un tratamiento personalizado, adaptado a sus necesidades específicas. Nos comprometemos a proporcionarte cuidados de alta calidad y resultados óptimos.'
+  >
+</MediaPanel>
+<GreatList
+  list = {[
+    {
+      title: 'Menor Invasividad',
+      subtitle: 'Minimiza el daño a los tejidos circundantes y reduce el riesgo de complicaciones.'
+    },
+    {
+      title: 'Recuperación rápida',
+      subtitle: 'La naturaleza mínimamente invasiva de estos procedimientos generalmente permite una recuperación más rápida en comparación con la cirugía tradicional.'
+    },
+    {
+      title: 'Menor Dolor',
+      subtitle: 'Reducción significativa del dolor postoperatorio.'
+    },
+    {
+      title: 'Alta Precisión',
+      subtitle: 'Utilización de imágenes avanzadas para una mayor precisión en el tratamiento.'
+    }
+  ]}
+/>

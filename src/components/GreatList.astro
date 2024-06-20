@@ -1,0 +1,78 @@
+---
+import classy from "@utils/classy"
+import hash from "@utils/hash"
+
+import one from '@icons/listNumbers/1.svg?raw'
+import two from '@icons/listNumbers/2.svg?raw'
+import three from '@icons/listNumbers/3.svg?raw'
+import four from '@icons/listNumbers/4.svg?raw'
+import five from '@icons/listNumbers/5.svg?raw'
+import six from '@icons/listNumbers/6.svg?raw'
+import seven from '@icons/listNumbers/7.svg?raw'
+import eight from '@icons/listNumbers/8.svg?raw'
+import nine from '@icons/listNumbers/9.svg?raw'
+import ten from '@icons/listNumbers/10.svg?raw'
+import eleven from '@icons/listNumbers/11.svg?raw'
+import Icon from "@elements/Icon.astro"
+
+const icons = [
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven
+]
+
+let {
+  list = []
+} = Astro.props
+
+list = list.map((item : { title: string, subtitle:string, icon: any }, index : number ) => {
+  return {
+    ...item,
+    icon: icons[index]
+  }
+})
+
+const sectionClasses = classy([
+  'k-list',
+  'k-section',
+  'grid grid-cols-2',
+  'md:gap-x-10 2x:gap-x-56',
+  'gap-y-12'
+])
+
+const itemClasses = classy([
+  'col-span-2 md:col-span-1',
+  'grid grid-cols-6'
+])
+
+
+const titleClasses = classy([
+  'font-bold text-gray mb-4'
+])
+
+const subtitleClasses = classy([
+  'typo-body-xl text-neutral-700'
+])
+---
+<div {...sectionClasses}>
+  {
+    list.map((item : { title: string, subtitle:string, icon: any }) => (
+        <div {...itemClasses}>
+          <Icon icon={item.icon} class="col-span-1"/>
+          <div class="col-span-5">
+            <h5 {...titleClasses}>{item.title}</h5>
+            <p {...subtitleClasses}>{item.subtitle}</p>
+          </div>
+        </div>
+      )
+    )
+  }
+</div>
