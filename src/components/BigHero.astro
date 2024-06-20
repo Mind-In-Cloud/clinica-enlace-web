@@ -20,10 +20,10 @@ const bigContentClasses = classy([
 ---
 <div class="k-hero relative" role="main">
   <picture class="k-hero-image">
-    <source media="(max-width: 768px)" srcset={`/.netlify/images?url=${mobileImg.src}`} />
-    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={`/.netlify/images?url=${desktopImg.src}`} />
-    <source media="(min-width: 1280px)" srcset={`/.netlify/images?url=${extraImg.src}`} />
-    <img src={desktopImg.src} alt='' />
+    <source media="(max-width: 768px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
+    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
+    <source media="(min-width: 1280px)" srcset={`/.netlify/images?url=${extraImg.src}&fm=webp`} />
+    <img src={`/.netlify/images?url=${desktopImg.src}&fm=webp`} alt='' />
   </picture>
   <div {...bigContentClasses}>
     <h1 class="header-xxl text-cyan" >
