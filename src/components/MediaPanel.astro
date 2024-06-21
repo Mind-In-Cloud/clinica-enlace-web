@@ -42,7 +42,7 @@ const mediaTitleClasses = classy([
 const mediaSubtitleClasses = classy([
   'k-subtitle',
   'col-span-4',
-  'text-neutral-700'
+  'text-neutral-700 whitespace-pre-line'
 ])
 
 const iconClasses = classy([
@@ -76,9 +76,9 @@ const ctaProps = {
   { subtitle ?
     <p {...mediaSubtitleClasses}>{subtitle}</p>
   :
-    <p {...mediaSubtitleClasses}>
+    <div {...mediaSubtitleClasses}>
       <slot name="subtitle"/>
-    </p>
+    </div>
   }
 
   { ctaProps.url &&

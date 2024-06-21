@@ -13,7 +13,6 @@ const {
 } = Astro.props
 
 const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes(tag)) : allDoctors
-
 ---
 <div class="k-section">
   <MediaPanel
@@ -43,14 +42,18 @@ const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes
     </div>
     )
     :
-    <div class="grid grid-cols-2">
-      {
-        allDoctors.map((doctor) => (
-          <DoctorCard
-            {...doctor}
-            class="col-span-1 md:col-span-2"
-          />
-        ))
+    <div class="grid grid-cols-1 md:grid-cols-12 mt-8 gap-x-12 gap-y-12">
+      {  doctorList[0] &&
+        <DoctorCard
+          {...doctorList[0]}
+          class="col-span-1 md:col-span-5 md:col-start-2 2xl:col-span-4 2xl:col-start-2"
+        />
+      }
+      {  doctorList[1] &&
+        <DoctorCard
+          {...doctorList[1]}
+          class="col-span-1 md:col-span-5 md:col-start-7 2xl:col-span-4 2xl:col-start-8"
+        />
       }
     </div>
   }
