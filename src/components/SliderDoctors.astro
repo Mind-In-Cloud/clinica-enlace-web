@@ -1,67 +1,54 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 import MediaPanel from "./MediaPanel.astro";
 import DoctorCard from "@elements/DoctorCard.astro";
 
 const allDoctors = await getCollection("medicos");
 
-const {
-  title,
-  subtitle,
-  tag = '',
-} = Astro.props
+const { title, subtitle, tag = "" } = Astro.props;
 
-const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes(tag)) : allDoctors
+const doctorList = tag
+  ? allDoctors.filter((doctor) => doctor.data.tags.includes(tag))
+  : allDoctors;
 ---
+
 <div class="k-section">
-  <MediaPanel
-    isElement
-    medium
-    classTitle="font-bold"
-    {title}
-    {subtitle}
-  />
+  <MediaPanel isElement medium classTitle="font-bold" {title} {subtitle} />
   {
-    doctorList.length > 2 ?
-    (
-    <div class="swiper mt-8 !px-10">
-      <div class="swiper-wrapper">
-        {
-          allDoctors.map((doctor) => (
-            <DoctorCard
-              {...doctor}
-              class="swiper-slide"
-            />
-          ))
-        }
+    doctorList.length > 2 ? (
+      <div class="swiper mt-8 !px-10">
+        <div class="swiper-wrapper">
+          {allDoctors.map((doctor) => (
+            <DoctorCard {...doctor} class="swiper-slide" />
+          ))}
+        </div>
+        <div class="swiper-pagination !relative mt-4" />
+        <div class="swiper-button-prev" />
+        <div class="swiper-button-next" />
       </div>
-      <div class="swiper-pagination !relative mt-4"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
+    ) : (
+      <div class="mt-8 grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-12">
+        {doctorList[0] && (
+          <DoctorCard
+            {...doctorList[0]}
+            class="col-span-1 md:col-span-5 md:col-start-2 2xl:col-span-4 2xl:col-start-2"
+          />
+        )}
+        {doctorList[1] && (
+          <DoctorCard
+            {...doctorList[1]}
+            class="col-span-1 md:col-span-5 md:col-start-7 2xl:col-span-4 2xl:col-start-8"
+          />
+        )}
+      </div>
     )
-    :
-    <div class="grid grid-cols-1 md:grid-cols-12 mt-8 gap-x-12 gap-y-12">
-      {  doctorList[0] &&
-        <DoctorCard
-          {...doctorList[0]}
-          class="col-span-1 md:col-span-5 md:col-start-2 2xl:col-span-4 2xl:col-start-2"
-        />
-      }
-      {  doctorList[1] &&
-        <DoctorCard
-          {...doctorList[1]}
-          class="col-span-1 md:col-span-5 md:col-start-7 2xl:col-span-4 2xl:col-start-8"
-        />
-      }
-    </div>
   }
 </div>
 <script>
   // Core de Swiper y estilos
-  import Swiper from 'swiper';
-  import 'swiper/css';
+  import Swiper from "swiper";
+  import "swiper/css";
   // Módulo Navigation de Swiper y estilos
   import { Navigation, Pagination } from "swiper/modules";
   import "swiper/css/navigation";
@@ -70,16 +57,16 @@ const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes
   // Configurar Swiper
   const swiper = new Swiper(".swiper", {
     modules: [Navigation, Pagination], // definir los módulos a usar
-    loop: true,            // definir si los slides estarán en bucle
-    slidesPerView: 1,      // agregar número de slides para la pantalla
+    loop: true, // definir si los slides estarán en bucle
+    slidesPerView: 1, // agregar número de slides para la pantalla
     slidesPerGroup: 1,
-    spaceBetween: 60,      // separación entre slides en px
+    spaceBetween: 60, // separación entre slides en px
     breakpoints: {
-    // when window width is >= 641px
+      // when window width is >= 641px
       641: {
         slidesPerView: 2,
         slidesPerGroup: 2,
-        spaceBetween: 80
+        spaceBetween: 80,
       },
     },
     navigation: {
@@ -88,9 +75,8 @@ const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes
     },
     // If we need pagination
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
-
   });
 </script>

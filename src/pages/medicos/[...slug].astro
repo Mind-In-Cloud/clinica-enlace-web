@@ -27,6 +27,7 @@ const {
 } = doctor.data
 
 const imageTemp = await loadImage(seoImage)
+const imageDoc = await loadImage(photo)
 
 const seo = {
   title : title,
@@ -45,7 +46,7 @@ const seo = {
     title = {title}
     especialidad = {especialidad}
     description = {info}
-    image = {photo}
+    image = {imageDoc}
   />
   <Map/>
 </BaseLayout>

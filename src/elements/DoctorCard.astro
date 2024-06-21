@@ -3,6 +3,7 @@ import Link from '@elements/Link.astro'
 import { Image } from 'astro:assets'
 import classy from '@utils/classy'
 import Linebreak from './Linebreak.astro';
+import { loadImage } from '@utils/ImageDynamic';
 
 const {
   slug = '',
@@ -20,12 +21,13 @@ const cardClasses = classy([
   className
 ])
 
+const imageDate = await loadImage(photo)
 
 ---
 <div {...cardClasses}>
   <div class="k-doctor-card-image">
     <Image
-      src={photo}
+      src={imageDate}
       format='webp'
       alt=`Foto de ${title}`
     />
