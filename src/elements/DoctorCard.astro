@@ -1,5 +1,4 @@
 ---
-import ImageDynamic from '@elements/ImageDynamic.astro'
 import Link from '@elements/Link.astro'
 import { Image } from 'astro:assets'
 import classy from '@utils/classy'
@@ -13,7 +12,7 @@ const {
     especialidad = ''
   },
   class : className = '',
-  loading = 'lazy'
+  // loading = 'lazy'
 } = Astro.props
 const cardClasses = classy([
   "k-doctor-card",
