@@ -23,7 +23,7 @@ const bigContentClasses = classy([
     <source media="(max-width: 768px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
     <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
     <source media="(min-width: 1280px)" srcset={`/.netlify/images?url=${extraImg.src}&fm=webp`} />
-    <img src={`/.netlify/images?url=${desktopImg.src}&fm=webp`} alt='' />
+    <img {...desktopImg} src={`/.netlify/images?url=${desktopImg.src}&fm=webp`} alt='' />
   </picture>
   <div {...bigContentClasses}>
     <h1 class="header-xxl text-cyan" >
