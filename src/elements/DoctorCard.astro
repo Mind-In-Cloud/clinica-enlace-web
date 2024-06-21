@@ -1,7 +1,7 @@
 ---
 import ImageDynamic from '@elements/ImageDynamic.astro'
 import Link from '@elements/Link.astro'
-
+import { Image } from 'astro:assets'
 import classy from '@utils/classy'
 import Linebreak from './Linebreak.astro';
 
@@ -21,16 +21,14 @@ const cardClasses = classy([
   className
 ])
 
+
 ---
 <div {...cardClasses}>
   <div class="k-doctor-card-image">
-    <ImageDynamic
-      altText=''
-      imagePath={photo}
-      {loading}
-      class="object-cover"
-      widths = {[720]}
-      sizes = `1080px`
+    <Image
+      src={photo}
+      format='webp'
+      alt=`Foto de ${title}`
     />
   </div>
   <div class="flex flex-col h-full justify-between">
@@ -52,7 +50,7 @@ const cardClasses = classy([
         VER MÁS
       </Link>
     </div>
-    <Linebreak element={false} color="blue" class="mt-4" />
+    <Linebreak isElement={true} color="blue" class="mt-4" />
   </div>
 </div>
 <style>

@@ -44,6 +44,7 @@ const DoctorCard = (props) => {
             {...image}
             class='object-cover'
             loading = {loading}
+            alt={`Foto de ${title}`}
           />
         </div>
       }

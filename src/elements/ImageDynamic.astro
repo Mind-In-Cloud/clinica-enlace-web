@@ -25,7 +25,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
 ---
 <Picture
-  src={images[imagePath]()}
+  src={`/.netlify/image?url=${images[imagePath]()}&fm=webp`}
   alt={altText}
   {loading}
   format='webp'

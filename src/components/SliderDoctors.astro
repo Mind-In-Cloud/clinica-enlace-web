@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+
+import MediaPanel from "./MediaPanel.astro";
+import DoctorCard from "@elements/DoctorCard.astro";
+
+const allDoctors = await getCollection("medicos");
+---
+<div class="k-section">
+  <MediaPanel
+    isElement
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
+    subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+  />
+  <div class="swiper mt-8">
+    <div class="swiper-wrapper">
+      {
+        allDoctors.map((doctor) => (
+          <DoctorCard
+            {...doctor}
+            class="swiper-slide"
+          />
+        ))
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+<script>
+  // Core de Swiper y estilos
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  // Módulo Navigation de Swiper y estilos
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  // Configurar Swiper
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation, Pagination], // definir los módulos a usar
+    loop: true,            // definir si los slides estarán en bucle
+    slidesPerView: 1,      // agregar número de slides para la pantalla
+    slidesPerGroup: 1,
+    spaceBetween: 40,      // separación entre slides en px
+    breakpoints: {
+    // when window width is >= 768px
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 40
+      },
+    },
+    navigation: {          // definir botones next y prev para el módulo Navigation
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
+    },
+      // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+  });
+</script>

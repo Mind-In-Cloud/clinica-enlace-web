@@ -19,11 +19,12 @@ const {
     url: '',
   },
   class: className = '',
-  classTitle = ''
+  classTitle = '',
+  isElement = false,
 } = Astro.props
 
 const mediaPanelClasses = classy([
-  'k-section',
+  !isElement && 'k-section',
   'k-media-panel',
   'grid grid-cols-4',
   className,
