@@ -11,6 +11,11 @@ const iconWrapperClasses = classy([
   'items-center',
   'mt-6'
 ]);
+
+const textClasses = classy([
+  'antialiased typo-body-m md:typo-body-xl',
+  'text-metal'
+])
 ---
 <div class="k-section">
   <MediaPanel
@@ -22,13 +27,13 @@ const iconWrapperClasses = classy([
   <div class="flex place-content-around flex-col md:flex-row items-center">
     <div {...iconWrapperClasses}>
       <Icon class="mr-4" icon={whaIcon} />
-      <div>
+      <div {...textClasses}>
         81 2721 0979
       </div>
     </div>
     <div {...iconWrapperClasses}>
       <Icon class="mr-4" icon={phone} />
-      <div>
+      <div {...textClasses}>
         81 4089 9924 <br>
         81 4089 9925
       </div>

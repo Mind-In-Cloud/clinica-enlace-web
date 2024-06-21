@@ -24,13 +24,13 @@ const Accordion = ({ title, content, startsOpen = false }) => {
   ])
 
   const titleClasses = classy([
-    'header-xs font-bold text-neutral-500',
+    'header-xs font-bold text-neutral-500 antialiased',
   ])
 
   const contentClasses = classy([
     'pb-4 pr-4 pl-8',
     'whitespace-pre-line',
-    'typo-body-m lg:typo-body-xl text-neutral-500',
+    'typo-body-m lg:typo-body-xl text-neutral-500 antialiased',
     open ? 'k-open opacity-1' : 'k-closed opacity-0 hidden',
   ])
 
