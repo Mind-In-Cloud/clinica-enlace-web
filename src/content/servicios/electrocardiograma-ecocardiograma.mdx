@@ -1,0 +1,29 @@
+---
+title: 'Electrocardiograma y Ecocardiograma'
+description: 'Electrocardiograma y ecocardiograma, diagnósticos cardíacos precisos con tecnología avanzada en clínica de corta estancia'
+seoImage: '/src/assets/images/especialidad.jpg'
+---
+
+import Accordions from '@components/Accordions.jsx'
+import MediaPanel from '@components/MediaPanel.astro'
+import headerIcon from '@icons/servicios/cardioecg.svg?raw'
+import SliderDoctors from '@components/SliderDoctors.astro'
+import ContactPanel from '@components/ContactPanel.astro'
+
+
+<MediaPanel
+  medium
+  title = {frontmatter.title}
+  icon = {headerIcon}
+  classTitle = 'font-bold'
+  subtitle = 'Ofrecemos consultas con especialistas en una variedad de áreas médicas para abordar tus necesidades de salud de manera integral. Nuestros especialistas están dedicados a proporcionarte la mejor atención médica posible, brindándote diagnósticos precisos y planes de tratamiento efectivos.
+
+  Puedes confiar en nuestro equipo para cuidar de ti con compasión y profesionalismo en cada consulta, asegurando que recibas la atención médica adecuada y personalizada que mereces. Estamos comprometidos en ayudarte a mantener tu salud y bienestar en óptimas condiciones.'
+  >
+</MediaPanel>
+<SliderDoctors
+  title="Conoce al equipo de Cardiología"
+  subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+  tag='Cardiología'
+/>
+<ContactPanel/>

@@ -1,0 +1,101 @@
+---
+title: 'Ultrasonidos'
+description: 'Ultrasonido convencional y Doppler, diagnósticos precisos con tecnología avanzada en nuestra clínica de corta estancia.'
+seoImage: '/src/assets/images/interv.jpg'
+---
+
+import Accordions from '@components/Accordions.jsx'
+import MediaPanel from '@components/MediaPanel.astro'
+import headerIcon from '@icons/servicios/cardioecg.svg?raw'
+import ContactPanel from '@components/ContactPanel.astro'
+import Map from '@components/Map.astro'
+
+
+<MediaPanel
+  medium
+  title = {frontmatter.title}
+  icon = {headerIcon}
+  classTitle = 'font-bold'
+>
+  <div slot='subtitle' >
+    <p>
+    Ofrecemos servicios de <strong>ultrasonido Doppler</strong> y <strong>ultrasonido convencional</strong> para proporcionarte diagnósticos precisos y no invasivos. Estos procedimientos te permiten obtener imágenes detalladas de tus órganos internos y vasos sanguíneos, lo que ayuda a nuestros médicos a identificar y tratar diversas condiciones médicas de manera efectiva.
+    <br/>
+      Acude a Clínica Enlace para realizar tu estudio de ultrasonido, donde nuestro equipo de expertos radiólogos se encargará de realizar un examen detallado y preciso. Una vez completado, recibirás un informe completo de los resultados, el cual será enviado directamente a tu WhatsApp personal para que puedas acceder a él de manera rápida y segura. Además, este informe será compartido automáticamente con tu médico de referencia, facilitando así una atención médica coordinada y efectiva.
+    </p>
+  </div>
+</MediaPanel>
+<div class='grid grid-cols-2 gap-x-8 k-section '>
+  <div class='col-span-2 md:col-span-1 bg-gray text-neutral-200 antialiased flex items-center flex-col p-4 md:p-12'>
+    <div class='typo-header-s font-bold text-center md:typo-header-l mb-0 md:mb-12 '>ULTRASONIDO CONVENCIONAL</div>
+    <div class='font-bold mb-3 mt-4'>
+      Abdomen y pared abdominal
+    </div>
+    <ul class='list-disc'>
+      <li class='w-fit'>Abdomen total</li>
+      <li class='w-fit'>Abdomen superior</li>
+      <li class='w-fit'>Abdomen inferior/pélvico</li>
+      <li class='w-fit'>Pared abdominal</li>
+      <li class='w-fit'>Hígado y vías biliares</li>
+      <li class='w-fit'>Inguinal bilateral</li>
+    </ul>
+    <div class='font-bold mb-3 mt-4'>
+      Órganos y Tejidos específicos
+    </div>
+    <ul class='list-disc'>
+      <li class='w-fit'>Tejidos blandos</li>
+      <li class='w-fit'>Renal</li>
+      <li class='w-fit'>Renal y vías urinarias</li>
+      <li class='w-fit'>Cuello/Tiroides</li>
+      <li class='w-fit'>Próstata suprapúbico</li>
+      <li class='w-fit'>Testicular/Escrotal</li>
+      <li class='w-fit'>Transvaginal</li>
+    </ul>
+    <div class='font-bold mb-3 mt-4'>
+      Obstétrico y De mama
+    </div>
+    <ul class='list-disc'>
+      <li class='w-fit'>Obstétrico</li>
+      <li class='w-fit'>Obstétrico 3D</li>
+      <li class='w-fit'>Genético 1er trimestre</li>
+      <li class='w-fit'>Obstétrico Anatómico</li>
+      <li class='w-fit'>De mama bilateral</li>
+    </ul>
+    <div class='font-bold mb-3 mt-4'>
+      Extremidades
+    </div>
+    <ul class='list-disc'>
+      <li class='w-fit'>Hombro</li>
+      <li class='w-fit'>Rodilla</li>
+    </ul>
+  </div>
+  <div class='col-span-2 md:col-span-1 text-gray bg-neutral-200 antialiased flex items-center flex-col p-4 md:p-12'>
+      <div class='typo-header-s font-bold text-center md:typo-header-l mb-0 md:mb-12 '>ULTRASONIDO DOPPLER</div>
+      <div class='font-bold mb-3 mt-4'>
+        Extremidades
+      </div>
+      <ul class='list-disc'>
+        <li class='w-fit'>Venoso 1 extremidad</li>
+        <li class='w-fit'>Venoso 2 extremidades</li>
+        <li class='w-fit'>Arterial 1 extremidad</li>
+        <li class='w-fit'>Arterial 2 extremidades</li>
+      </ul>
+      <div class='font-bold mb-3 mt-4'>
+        Corazón
+      </div>
+      <ul class='list-disc'>
+        <li class='w-fit'>Ecocardiograma</li>
+      </ul>
+      <div class='font-bold mb-3 mt-4'>
+        Otros
+      </div>
+      <ul class='list-disc'>
+        <li class='w-fit'>Hepático (portal esplénico)</li>
+        <li class='w-fit'>Carotideo/cuello</li>
+        <li class='w-fit'>Testicular</li>
+        <li class='w-fit'>Renal</li>
+        <li class='w-fit'>Tejidos blandos vasculares</li>
+      </ul>
+  </div>
+</div>
+<ContactPanel/>
