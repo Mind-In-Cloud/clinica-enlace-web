@@ -5,30 +5,55 @@ import MediaPanel from "./MediaPanel.astro";
 import DoctorCard from "@elements/DoctorCard.astro";
 
 const allDoctors = await getCollection("medicos");
+
+const {
+  title,
+  subtitle,
+  tag = '',
+} = Astro.props
+
+const doctorList = tag ? allDoctors.filter((doctor) => doctor.data.tags.includes(tag)) : allDoctors
+
 ---
 <div class="k-section">
   <MediaPanel
     isElement
     medium
-    title="Conoce al equipo de especialistas"
     classTitle="font-bold"
-    subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+    {title}
+    {subtitle}
   />
-  <div class="swiper mt-8">
-    <div class="swiper-wrapper">
+  {
+    doctorList.length > 2 ?
+    (
+    <div class="swiper mt-8 !px-10">
+      <div class="swiper-wrapper">
+        {
+          allDoctors.map((doctor) => (
+            <DoctorCard
+              {...doctor}
+              class="swiper-slide"
+            />
+          ))
+        }
+      </div>
+      <div class="swiper-pagination !relative mt-4"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    )
+    :
+    <div class="grid grid-cols-2">
       {
         allDoctors.map((doctor) => (
           <DoctorCard
             {...doctor}
-            class="swiper-slide"
+            class="col-span-1 md:col-span-2"
           />
         ))
       }
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
+  }
 </div>
 <script>
   // Core de Swiper y estilos
@@ -45,20 +70,20 @@ const allDoctors = await getCollection("medicos");
     loop: true,            // definir si los slides estarán en bucle
     slidesPerView: 1,      // agregar número de slides para la pantalla
     slidesPerGroup: 1,
-    spaceBetween: 40,      // separación entre slides en px
+    spaceBetween: 60,      // separación entre slides en px
     breakpoints: {
-    // when window width is >= 768px
-      768: {
+    // when window width is >= 641px
+      641: {
         slidesPerView: 2,
         slidesPerGroup: 2,
-        spaceBetween: 40
+        spaceBetween: 80
       },
     },
-    navigation: {          // definir botones next y prev para el módulo Navigation
+    navigation: {
       prevEl: ".swiper-button-prev",
       nextEl: ".swiper-button-next",
     },
-      // If we need pagination
+    // If we need pagination
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
