@@ -48,9 +48,9 @@ const ctaProps = {
   <p {...subtitleClasses}>{subtitle}</p>
   <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 2xl:gap-x-16 mt-4">
     {items.map((item: any, index : number) => {
-      let isFinal
+      let isFinal = false
 
-      if ( (items.length/2) % 2 !==0 && index === items.length - 1) {
+      if ( items.length % 2 !==0 && index === items.length - 1) {
         isFinal = true
       }
 
