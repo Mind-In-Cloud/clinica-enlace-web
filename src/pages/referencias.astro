@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import ContactForm from '@components/ContactForm.jsx';
+
+import seoImage from '@images/foto_formulario.png';
+
+const seo = {
+  title: 'Servicios',
+  description: 'Referir a un paciente como médico o paciente, fácil y rápido en nuestra clínica de intervencionismo y corta estancia',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <ContactForm/>
+</BaseLayout>

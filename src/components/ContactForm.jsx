@@ -24,8 +24,18 @@ const ContactForm = () => {
       photo here
     </div>
     <div {...contactFormWrapClasses}>
-      form here
+      <form>
+
+      </form>
     </div>
+    {/* Nombre
+Apellidos
+Correo
+Teléfono
+Estado
+¿Cómo podemos ayudarte?
+Teléfono
+Enviar */}
   </div>
 
 }

@@ -16,7 +16,7 @@ const handler: Handler = async function(event) {
     subscriberEmail: string;
     inviteeEmail: string;
   };
-
+  // https://docs.netlify.com/integrations/email-integration/#call-the-function-from-an-event
   //automatically generated snippet from the email preview
   //sends a request to an email handler for a subscribed email
   await fetch(
