@@ -1,31 +1,38 @@
 import classy from "@utils/classy"
 
+import image from '@images/foto_formulario.png'
+
 
 const ContactForm = () => {
 
 
   const contactClasses = classy([
-    'pr-8 lg:pr-36 2xl:pr-48',
+    'md:pr-36 2xl:pr-48 mb-4',
     'bg-cyan-soft',
-    'grid grid-cols-8'
+    'grid grid-cols-8',
+    'gap-y-4'
   ])
 
   const contactPhotoClasses = classy([
-    'col-span-3',
+    'col-span-8 md:col-span-3',
   ])
 
   const contactFormWrapClasses = classy([
-    'col-span-4',
-    'col-start-5'
+    'col-span-8 md:col-span-4',
+    'md:col-start-5'
   ])
 
   return <div {...contactClasses}>
     <div {...contactPhotoClasses}>
-      photo here
+      <img
+        {...image}
+        class='object-cover'
+        alt={``}
+      />
     </div>
     <div {...contactFormWrapClasses}>
       <form>
-
+a
       </form>
     </div>
     {/* Nombre
