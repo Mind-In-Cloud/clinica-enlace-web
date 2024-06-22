@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import ContactForm from '@components/ContactForm.jsx';
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/foto_formulario.png';
+import MediaPanel from '@components/MediaPanel.astro';
+
+const seo = {
+  title: 'Servicios',
+  description: 'Referir a un paciente como médico o paciente, fácil y rápido en nuestra clínica de intervencionismo y corta estancia',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    big
+    title="Refiere a un paciente"
+    classTitle="font-bold"
+  >
+  <div slot="subtitle">
+    <p class="header-s italic text-gray mb-4">“Conectando Expertise Médica: Tu Recomendación, Nuestra Excelencia”</p>
+    <p>Nuestra colaboración médica trasciende fronteras. Si eres <strong>médico</strong> y necesitas referir a tus pacientes para una atención especializada, o si eres <strong>paciente</strong> buscando cuidados excepcionales, estamos aquí para ayudarte. Nos comprometemos a brindar bienestar con nuestra experiencia y dedicación médica.</p>
+  </div>
+  </MediaPanel>
+  <ContactForm client:only/>
+  <Map/>
+</BaseLayout>
