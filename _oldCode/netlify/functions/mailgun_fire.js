@@ -25,12 +25,11 @@
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
 const mailgun = new Mailgun(formData);
-const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
+const mg = mailgun.client({username: 'api', key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY || 'key-yourkeyhere'});
 
 export default (req, context) => {
   console.log(`🚀 ~ context:`, context)
   console.log(`🚀 ~ req:`, req)
-
 
   // mg.messages.create('sandboxf3dc50b9e99d4bef823fe3a888e49e3a.mailgun.org', {
   //   from: "Mailgun Sandbox <postmaster@sandboxf3dc50b9e99d4bef823fe3a888e49e3a.mailgun.org>",
