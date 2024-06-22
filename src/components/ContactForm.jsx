@@ -87,6 +87,7 @@ const ContactForm = () => {
     <div {...contactPhotoClasses}>
       <img
         {...image}
+        src={`/.netlify/images?url=${image.src}&fm=webp`}
         class='object-cover'
         alt={``}
       />
