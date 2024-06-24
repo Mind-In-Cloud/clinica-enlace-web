@@ -75,11 +75,10 @@ const ContactForm = () => {
     'p-4'
   ])
 
-  const [ submitted , setSubmitted ] = useState(false)
+  const [ submitted , setSubmitted ] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Formulario enviado')
     let form = e.target
     let values = {}
     for ( let i = 0; i < form.elements.length; i++ ) {
@@ -89,7 +88,8 @@ const ContactForm = () => {
       }
     }
 
-    if ( !submitted ) {
+    if ( submitted === null ) {
+      setSubmitted(false)
       fetch('/.netlify/functions/triggerMail', {
         method: 'POST',
         body: JSON.stringify(values)
@@ -111,16 +111,15 @@ const ContactForm = () => {
     <div {...contactFormWrapClasses}>
       <div {...formTitleClasses}>Formulario de contacto</div>
       {
-        !submitted ?
+        submitted === null ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
-          <input {...inputClasses} name='firstName' type="text" minLength={3} maxLength={40} placeholder="Nombre" />
-          <input {...inputClasses} name='lastName'type="text" minLength={3} maxLength={40} placeholder="Apellidos" />
+          <input {...inputClasses} name='firstName' type="text" minLength={1} maxLength={40} placeholder="Nombre" />
+          <input {...inputClasses} name='lastName'type="text" minLength={1} maxLength={40} placeholder="Apellidos" />
           <input {...inputClasses} name='email' type="text" placeholder="Correo" />
-          <input {...inputClasses} name='phone' type="text" minLength={8} maxLength={14} placeholder="Teléfono"/>
+          <input {...inputClasses} name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono"/>
           <input {...input2Classes} name='state' type="text" placeholder="Estado" />
-          <textarea {...input2Classes} name='message' minLength={10} maxLength={300} placeholder="¿Cómo podemos ayudarte? (Maximo 300 caracteres)"/>
+          <textarea {...input2Classes} name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Maximo 300 caracteres)"/>
           <button
-            name = 'submitButton'
             type="submit"
             style={{minWidth: '85px'}}
             class="k-link antialiased btn btn-primary font-semibold shadow rounded-sm bg-blue text-white typo-button-s py-2 px-3 w-max h-fit justify-self-end col-span-2"
@@ -130,7 +129,11 @@ const ContactForm = () => {
         </form>
         :
         <div {...thanksClasses}>
-          Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.
+          {
+              submitted ?
+              `Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.`:
+              `Cargando, un momento por favor...`
+          }
         </div>
       }
     </div>
