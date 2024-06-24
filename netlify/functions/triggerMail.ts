@@ -24,7 +24,7 @@ const handler: Handler = async function(event) {
   // https://docs.netlify.com/integrations/email-integration/#call-the-function-from-an-event
   //automatically generated snippet from the email preview
   //sends a request to an email handler for a subscribed email
-  console.log(`🚀 ~ consthandler:Handler=function ~ process.env.NETLIFY_EMAIL_RECIPIENT:`, process.env.NETLIFY_EMAIL_RECIPIENT)
+
   const res = await fetch(
     `${process.env.URL}/.netlify/functions/emails/contactForm`,
     {

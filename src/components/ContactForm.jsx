@@ -88,17 +88,14 @@ const ContactForm = () => {
         values[e.name] = e.value
       }
     }
-    console.log(`🚀 ~ handleSubmit ~ values:`, values)
+
     if ( !submitted ) {
       fetch('/.netlify/functions/triggerMail', {
         method: 'POST',
         body: JSON.stringify(values)
-      }).then(response => {
-        console.log(`🚀 ~ handleSubmit ~ response:`, response)
-      }).catch(error => {
-        console.log(`🚀 ~ handleSubmit ~ error:`, error)
+      }).then(() => {
+        setSubmitted(true)
       })
-      // setSubmitted(true)
     }
   }
 
@@ -113,8 +110,8 @@ const ContactForm = () => {
     </div>
     <div {...contactFormWrapClasses}>
       <div {...formTitleClasses}>Formulario de contacto</div>
-      {/* {
-        !submitted ? */}
+      {
+        !submitted ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
           <input {...inputClasses} name='firstName' type="text" minLength={3} maxLength={40} placeholder="Nombre" />
           <input {...inputClasses} name='lastName'type="text" minLength={3} maxLength={40} placeholder="Apellidos" />
@@ -131,11 +128,11 @@ const ContactForm = () => {
             Enviar
           </button>
         </form>
-        {/* :
+        :
         <div {...thanksClasses}>
           Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.
         </div>
-      } */}
+      }
     </div>
   </div>
 
