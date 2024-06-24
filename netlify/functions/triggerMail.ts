@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 
 
 const handler: Handler = async function(event) {
+
   if (event.body === null) {
     return {
       statusCode: 400,
@@ -12,14 +13,19 @@ const handler: Handler = async function(event) {
   }
 
   const requestBody = JSON.parse(event.body) as {
-    subscriberName: string;
-    subscriberEmail: string;
-    inviteeEmail: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone : string;
+    state: string;
+    message: string;
   };
+
   // https://docs.netlify.com/integrations/email-integration/#call-the-function-from-an-event
   //automatically generated snippet from the email preview
   //sends a request to an email handler for a subscribed email
-  await fetch(
+  console.log(`🚀 ~ consthandler:Handler=function ~ process.env.NETLIFY_EMAIL_RECIPIENT:`, process.env.NETLIFY_EMAIL_RECIPIENT)
+  const res = await fetch(
     `${process.env.URL}/.netlify/functions/emails/contactForm`,
     {
       headers: {
@@ -27,25 +33,28 @@ const handler: Handler = async function(event) {
       },
       method: "POST",
       body: JSON.stringify({
-        from: "",
-        to: "",
-        subject: "",
-        parameters: {
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          state: "",
-          message: ""
-        },
+        from: `${process.env.NETLIFY_EMAIL_SENDER}`,
+        // what is missing is to add the proper domain to mailgun account and get this going
+        to: `${process.env.NETLIFY_EMAIL_RECIPIENT}`,
+        subject: "Clinica Enlace, contacto de: " + requestBody.firstName + " " + requestBody.lastName,
+        parameters: requestBody,
       }),
     }
   );
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify("Subscribe email sent!"),
-  };
+  if (!res.ok) {
+    return {
+      statusCode: res.status,
+      body: JSON.stringify("Failed to send email"),
+    };
+  } else {
+    return {
+      statusCode: 200,
+      body: JSON.stringify("Subscribe email sent!"),
+    };
+  }
+
+
 };
 
 export { handler };

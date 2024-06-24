@@ -71,15 +71,34 @@ const ContactForm = () => {
     'antialiased',
     'text-blue',
     'col-span-2',
-    'text-center'
+    'text-center',
+    'p-4'
   ])
 
   const [ submitted , setSubmitted ] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('Formulario enviado')
+    let form = e.target
+    let values = {}
+    for ( let i = 0; i < form.elements.length; i++ ) {
+      let e = form.elements[i];
+      if ( e.name ) {
+        values[e.name] = e.value
+      }
+    }
+    console.log(`🚀 ~ handleSubmit ~ values:`, values)
     if ( !submitted ) {
-      setSubmitted(true)
+      fetch('/.netlify/functions/triggerMail', {
+        method: 'POST',
+        body: JSON.stringify(values)
+      }).then(response => {
+        console.log(`🚀 ~ handleSubmit ~ response:`, response)
+      }).catch(error => {
+        console.log(`🚀 ~ handleSubmit ~ error:`, error)
+      })
+      // setSubmitted(true)
     }
   }
 
@@ -94,16 +113,17 @@ const ContactForm = () => {
     </div>
     <div {...contactFormWrapClasses}>
       <div {...formTitleClasses}>Formulario de contacto</div>
-      {
-        !submitted ?
+      {/* {
+        !submitted ? */}
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
-          <input {...inputClasses} type="text" minLength={3} maxLength={40} placeholder="Nombre" />
-          <input {...inputClasses} type="text" minLength={3} maxLength={40} placeholder="Apellidos" />
-          <input {...inputClasses} type="email" placeholder="Correo" />
-          <input {...inputClasses} type="tel" minLength={8} maxLength={14} placeholder="Teléfono"/>
-          <input {...input2Classes} type="text" placeholder="Estado" />
-          <textarea {...input2Classes} minLength={10} maxLength={300} placeholder="¿Cómo podemos ayudarte? (Maximo 300 caracteres)"/>
+          <input {...inputClasses} name='firstName' type="text" minLength={3} maxLength={40} placeholder="Nombre" />
+          <input {...inputClasses} name='lastName'type="text" minLength={3} maxLength={40} placeholder="Apellidos" />
+          <input {...inputClasses} name='email' type="text" placeholder="Correo" />
+          <input {...inputClasses} name='phone' type="text" minLength={8} maxLength={14} placeholder="Teléfono"/>
+          <input {...input2Classes} name='state' type="text" placeholder="Estado" />
+          <textarea {...input2Classes} name='message' minLength={10} maxLength={300} placeholder="¿Cómo podemos ayudarte? (Maximo 300 caracteres)"/>
           <button
+            name = 'submitButton'
             type="submit"
             style={{minWidth: '85px'}}
             class="k-link antialiased btn btn-primary font-semibold shadow rounded-sm bg-blue text-white typo-button-s py-2 px-3 w-max h-fit justify-self-end col-span-2"
@@ -111,11 +131,11 @@ const ContactForm = () => {
             Enviar
           </button>
         </form>
-        :
+        {/* :
         <div {...thanksClasses}>
           Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.
         </div>
-      }
+      } */}
     </div>
   </div>
 
