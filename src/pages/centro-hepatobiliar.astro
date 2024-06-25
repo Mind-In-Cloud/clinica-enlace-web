@@ -8,8 +8,11 @@ import liverYellow from '@icons/liver_yellow.svg?raw';
 
 import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
-import SliderDoctors from '@components/SliderDoctors.astro';
 import GreatList from '@components/GreatList.astro';
+import ReactSlider from '@components/SliderDoctors.jsx';
+
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos");
 
 const seo = {
   title: 'Centros de especialidad',
@@ -85,9 +88,14 @@ const seo = {
       }
     ]}
   />
-  <SliderDoctors
+  <MediaPanel
+    medium
     title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
     subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <ReactSlider client:only="preact"
+    doctors={allDoctors}
   />
   <ContactPanel/>
   <Map/>

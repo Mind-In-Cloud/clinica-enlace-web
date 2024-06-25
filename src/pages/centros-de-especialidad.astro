@@ -9,8 +9,11 @@ import liverYellow from '@icons/liver_yellow.svg?raw';
 import iconoDolor from '@icons/icono_dolor.svg?raw'
 
 import MediaPanel from '@components/MediaPanel.astro';
-import SliderDoctors from '@components/SliderDoctors.astro';
 import Linebreak from '@elements/Linebreak.astro';
+import ReactSlider from '@components/SliderDoctors.jsx';
+
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos");
 
 const seo = {
   title: 'Centros de especialidad',
@@ -49,13 +52,22 @@ const seo = {
     icon={iconoDolor}
     classTitle="mb-4 lg:mb-12"
     subtitle="En el Centro Avanzado de Manejo del Dolor, nos dedicamos a mejorar la calidad de vida de nuestros pacientes a través de un enfoque integral y personalizado para el tratamiento del dolor. Utilizamos las tecnologías más avanzadas para ofrecer soluciones efectivas y duraderas. Nuestro compromiso es proporcionar alivio y apoyo a quienes sufren de dolor crónico o agudo, permitiéndoles recuperar su bienestar y disfrutar de una vida plena."
+    cta={{
+      text: 'Conoce más',
+      url: '/centro-avanzado-de-manejo-del-dolor',
+    }}
   >
     <span slot="title">Centro Avanzado de <strong>Manejo del Dolor</strong></span>
   </MediaPanel>
   <Linebreak color="blue"/>
-  <SliderDoctors
+  <MediaPanel
+    medium
     title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
     subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <ReactSlider client:only="preact"
+    doctors={allDoctors}
   />
   <Map/>
 </BaseLayout>

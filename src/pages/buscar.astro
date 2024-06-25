@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/foto_formulario.png';
+import MediaPanel from '@components/MediaPanel.astro';
+
+import Searcher from '@utils/algolia.astro'
+
+const seo = {
+  title: 'Búsqueda',
+  description: 'Referir a un paciente como médico o paciente, fácil y rápido en nuestra clínica de intervencionismo y corta estancia',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    main
+    title="Búsqueda"
+    classTitle="font-bold mb-12"
+  />
+  <Searcher/>
+  <Map/>
+</BaseLayout>

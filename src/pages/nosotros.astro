@@ -1,0 +1,101 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+import MediaPanel from '@components/MediaPanel.astro';
+import Cabinet from '@components/Cabinet.astro';
+import Testimonials from '@components/Testimonials.astro';
+import ReactSlider from '@components/SliderDoctors.jsx';
+
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos");
+
+import seoImage from '@images/px.png';
+import compromiso from '@icons/valores/compromiso.svg?raw'
+import honestidad from '@icons/valores/2_1.svg?raw'
+import empatia from '@icons/valores/3_1.svg?raw'
+import respeto from '@icons/valores/4_1.svg?raw'
+import integridad from '@icons/valores/5_1.svg?raw'
+import tratoDigno from '@icons/valores/6_1.svg?raw'
+import servicio from '@icons/valores/7_1.svg?raw'
+
+const seo = {
+  title: 'Nosotros',
+  description: 'Conozca nuestra clínica de intervencionismo y corta estancia, dedicada a brindar atención médica avanzada y personalizada.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <iframe  class="aspect-video w-full" src="https://www.youtube-nocookie.com/embed/5OZAqjIbP_U?si=5Tuki9cImzOtchDx&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <MediaPanel
+    main
+    classTitle="mb-12"
+  >
+  <span slot="title">
+    El <strong>Enlace</strong> vital entre tu <strong>salud y tú</strong>
+  </span>
+  <div slot="subtitle">
+    Clínica Enlace fue fundada con el objetivo de brindar un centro de salud accesible para todos. Nos consideramos el <strong>enlace</strong> vital entre tu bienestar y tú, centrándonos en tu salud a través de una atención especializada en condiciones médicas. <strong>Nuestro compromiso</strong> es obtener resultados óptimos, priorizando la accesibilidad. Contamos con instalaciones de vanguardia y un equipo altamente capacitado, compuesto por especialistas con amplia experiencia en diversas áreas como cirugía general, radiología, algología, cardiología y salvamento de extremidades, entre otras. La calidad de nuestros servicios está respaldada por la mejor <strong>tecnología disponible</strong>.
+
+    En <strong>Clínica Enlace</strong>, somos líderes en la modalidad de corta estancia, lo que implica una estancia breve y enfocada en tu pronta recuperación. Esto no solo reduce el riesgo de infecciones, sino que también incrementa <strong>tu satisfacción</strong> y optimiza la <strong>eficiencia de nuestro centro</strong>.
+
+    Nuestro compromiso con <strong>tu bienestar</strong> se extiende a tu comodidad y seguridad. Aplicamos rigurosos protocolos de seguridad e higiene durante todos los procedimientos, permitiéndote recuperarte en la comodidad de tu hogar y cerca de tus seres queridos.
+  </div>
+  </MediaPanel>
+  <MediaPanel
+    small
+    title="Misión"
+    classTitle="font-bold"
+    style="green"
+    line={true}
+  >
+  <div slot="subtitle">
+    Brindar <strong>tranquilidad, dignidad</strong> y <strong>respeto a la vida</strong> de los pacientes.
+  </div>
+  </MediaPanel>
+  <Cabinet
+    title="Valores"
+    subtitle="En Clínica Enlace, nuestros valores fundamentales son la excelencia médica, la accesibilidad para todos, la seguridad del paciente y la atención centrada en el bienestar. Estos valores guían cada acción que emprendemos en nuestra búsqueda de brindar la mejor atención médica posible."
+    items={[
+      {
+        title:"Compromiso",
+        icon:compromiso,
+      },
+      {
+        title:"Honestidad",
+        icon:honestidad,
+      },
+      {
+        title:"Empatía",
+        icon:empatia,
+      },
+      {
+        title:"Respeto",
+        icon:respeto,
+      },
+      {
+        title:"Integridad",
+        icon:integridad,
+      },
+      {
+        title:"Trato digno",
+        icon:tratoDigno,
+      },
+      {
+        title:"Servicio",
+        icon:servicio,
+      },
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <ReactSlider client:only="preact"
+    doctors={allDoctors}
+  />
+  <Testimonials/>
+  <Map/>
+</BaseLayout>

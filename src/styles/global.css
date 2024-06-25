@@ -33,3 +33,22 @@ body {
   background-color: #59CCD9!important;
   opacity: 1!important;
 }
+
+:root{
+  swiper-container::part(button-prev),
+  swiper-container::part(button-next) {
+    color: #2D3648;
+  }
+  swiper-container::part(bullet-active) {
+    background-color: #59CCD9;
+    opacity: 1;
+  }
+  swiper-container::part(bullet) {
+    background-color: #59CCD9;
+    opacity: 0.3!important;
+  }
+  swiper-container::part(pagination) {
+    position: relative;
+    margin-top: 1rem
+  }
+}

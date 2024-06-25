@@ -27,7 +27,7 @@ const titleClasses = classy([
 ])
 
 const subtitleClasses = classy([
-  'k-subtitle',
+  'k-subtitle mb-4 lg:mb-8',
   style === 'blue' ? 'text-cyan' : 'text-neutral-700',
 ])
 
@@ -42,11 +42,19 @@ const ctaProps = {
   url : cta.url,
   class: 'col-span-2 md:col-span-5 w-fit place-self-center',
 }
+
+const showCaseClasses = classy([
+  "place-content-center",
+  "gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 2xl:gap-x-16 mt-4",,
+  style === 'blue' ? "grid grid-cols-2 md:grid-cols-5"
+  : 'flex flex-wrap',
+])
+
 ---
 <div {...cabinetClasses}>
   <h2 {...titleClasses}>{title}</h2>
   <p {...subtitleClasses}>{subtitle}</p>
-  <div class="grid grid-cols-2 md:grid-cols-5 place-content-center gap-x-16 gap-y-6 md:gap-x-20 xl:gap-x-40 2xl:gap-x-16 mt-4">
+  <div {...showCaseClasses}>
     {items.map((item: any, index : number) => {
       let isFinal = false
 
@@ -55,7 +63,7 @@ const ctaProps = {
       }
 
       return (
-        <div class={`flex-col items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
+        <div class={`flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
           <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
           { item.url ?
             <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold">

@@ -7,9 +7,11 @@ seoImage: '/src/assets/images/especialidad.jpg'
 import Accordions from '@components/Accordions.jsx'
 import MediaPanel from '@components/MediaPanel.astro'
 import headerIcon from '@icons/servicios/cardioecg.svg?raw'
-import SliderDoctors from '@components/SliderDoctors.astro'
 import ContactPanel from '@components/ContactPanel.astro'
+import ReactSlider from '@components/SliderDoctors.jsx';
 
+import { getCollection } from 'astro:content';
+export const allDoctors = await getCollection("medicos");
 
 <MediaPanel
   medium
@@ -21,9 +23,14 @@ import ContactPanel from '@components/ContactPanel.astro'
   Puedes confiar en nuestro equipo para cuidar de ti con compasión y profesionalismo en cada consulta, asegurando que recibas la atención médica adecuada y personalizada que mereces. Estamos comprometidos en ayudarte a mantener tu salud y bienestar en óptimas condiciones.'
   >
 </MediaPanel>
-<SliderDoctors
+<MediaPanel
+  medium
+  classTitle="font-bold"
   title="Conoce al equipo de Cardiología"
-  subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+  subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento."
+/>
+<ReactSlider client:only="preact"
+  doctors={allDoctors}
   tag='Cardiología'
 />
 <ContactPanel/>

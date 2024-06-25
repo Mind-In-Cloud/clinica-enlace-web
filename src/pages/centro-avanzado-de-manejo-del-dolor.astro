@@ -8,7 +8,10 @@ import iconoDolor from '@icons/icono_dolor.svg?raw'
 import MediaPanel from '@components/MediaPanel.astro';
 import ContactPanel from '@components/ContactPanel.astro';
 import GreatList from '@components/GreatList.astro';
-import SliderDoctors from '@components/SliderDoctors.astro';
+import ReactSlider from '@components/SliderDoctors.jsx';
+
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos");
 
 const seo = {
   title: 'Centro de Manejo del Dolor',
@@ -55,9 +58,15 @@ const seo = {
       }
     ]}
   />
-  <SliderDoctors
+  <MediaPanel
+    medium
+    classTitle="font-bold"
     title="Conoce al experto en Manejo del Dolor"
     subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+  />
+  <ReactSlider client:only="preact"
+    doctors={allDoctors}
+    tag="Algología Intervencionista"
   />
   <ContactPanel/>
   <Map/>
