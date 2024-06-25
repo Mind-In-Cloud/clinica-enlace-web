@@ -1,7 +1,7 @@
 ---
 import MediaPanel from "./MediaPanel.astro";
 
-import whaIcon from '@icons/contact/whatsapp_cian.svg?raw';
+import whaIcon from '@icons/contact/wa_turquesa.svg?raw';
 import phone from '@icons/contact/phone.svg?raw';
 import Icon from "@elements/Icon.astro";
 import classy from "@utils/classy";
@@ -9,7 +9,7 @@ import classy from "@utils/classy";
 const iconWrapperClasses = classy([
   'flex',
   'items-center',
-  'mt-6'
+  'mt-6',
 ]);
 
 const textClasses = classy([
@@ -26,13 +26,13 @@ const textClasses = classy([
   />
   <div class="flex place-content-around flex-col md:flex-row items-center">
     <div {...iconWrapperClasses}>
-      <Icon class="mr-4" icon={whaIcon} />
+      <Icon class="mr-4 max-w-8" icon={whaIcon} />
       <div {...textClasses}>
         81 2721 0979
       </div>
     </div>
     <div {...iconWrapperClasses}>
-      <Icon class="mr-4" icon={phone} />
+      <Icon class="mr-4 max-w-8" icon={phone} />
       <div {...textClasses}>
         81 4089 9924 <br>
         81 4089 9925
