@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/foto_formulario.png';
+import helpIcon from '@icons/help.svg?raw'
+import MediaPanel from '@components/MediaPanel.astro';
+import Testimonials from '@components/Testimonials.astro';
+import NearbyPlaces from '@components/NearbyPlaces.astro';
+
+const seo = {
+  title: 'Servicios',
+  description: 'Referir a un paciente como médico o paciente, fácil y rápido en nuestra clínica de intervencionismo y corta estancia',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    main
+    title="Visitantes"
+    classTitle="font-bold mb-4 lg:mb-12"
+    subtitle="Bienvenidos a Clínica Enlace, donde la excelencia en atención médica se combina con una experiencia de visita confortable. Ofrecemos para ti y tu familia tecnología de punta y un equipo médico altamente cualificado, asegurando cuidados de la más alta calidad. Para su comodidad, estamos ubicados en una zona muy céntrica y cerca de ti. A pocos pasos, encontrarás tiendas de conveniencia, farmacias y restaurantes, facilitando el acceso a todo lo que puedas necesitar durante tu visita. Además, contamos con espacio de estacionamiento y una sala de espera cómoda con Wi-Fi gratuito. Recomendamos a los acompañantes planificar su visita con antelación y consultar nuestro sitio web para obtener información actualizada sobre servicios y facilidades cercanas "
+  />
+  <MediaPanel
+    small
+    title="Preguntas frecuentes"
+    classTitle="font-bold"
+    icon={helpIcon}
+    classIcon="flex justify-center"
+  />
+  <NearbyPlaces/>
+  <Testimonials/>
+  <Map/>
+</BaseLayout>

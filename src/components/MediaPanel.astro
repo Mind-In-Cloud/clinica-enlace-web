@@ -20,6 +20,7 @@ const {
   },
   class: className = '',
   classTitle = '',
+  classIcon= '',
   isElement = false,
 } = Astro.props
 
@@ -48,6 +49,7 @@ const mediaSubtitleClasses = classy([
 const iconClasses = classy([
   'col-span-4 justify-self-center mb-8',
   bigIcon ? "w-1/2 md:w-1/4 max-w-60" : "w-1/3 md:w-1/6 max-w-32",
+  classIcon
 ])
 
 const ctaProps = {
