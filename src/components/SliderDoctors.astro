@@ -18,7 +18,7 @@ const doctorList = tag
   <MediaPanel isElement medium classTitle="font-bold" {title} {subtitle} />
   {
     doctorList.length > 2 ? (
-      <div class="swiper-doctors mt-8 !px-10">
+      <div class="swiper swiper-doctors mt-8 !px-10">
         <div class="swiper-wrapper">
           {allDoctors.map((doctor) => (
             <DoctorCard {...doctor} class="swiper-slide" />
