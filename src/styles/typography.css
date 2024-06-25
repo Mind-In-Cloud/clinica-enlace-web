@@ -151,7 +151,7 @@
   }
 
   .k-subtitle {
-    @apply typo-body-m md:typo-body-xl text-center antialiased
+    @apply typo-body-m md:typo-body-xl antialiased
   }
 }
 

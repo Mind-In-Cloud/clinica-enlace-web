@@ -5,8 +5,9 @@ import Map from '@components/Map.astro';
 
 import seoImage from '@images/foto_formulario.png';
 import MediaPanel from '@components/MediaPanel.astro';
+import Search from '@components/AlgoliaSearch.jsx';
 
-import Searcher from '@utils/algolia.astro'
+// import Searcher from '@utils/algolia.astro'
 
 const seo = {
   title: 'Búsqueda',
@@ -20,6 +21,7 @@ const seo = {
     title="Búsqueda"
     classTitle="font-bold mb-12"
   />
-  <Searcher/>
+  <!-- <Searcher/> -->
+  <Search client:only="preact"/>
   <Map/>
 </BaseLayout>

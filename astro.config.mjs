@@ -12,7 +12,7 @@ export default defineConfig({
   // todo: add your public domain
   // site: 'https://clinicaenlace.mx',
   site: 'https://clinica-enlace.netlify.app',
-  integrations: [preact(), tailwind(), sitemap(), mdx()],
+  integrations: [preact({ compat: true }), tailwind(), sitemap(), mdx()],
   output: "static",
   adapter: netlify()
 });
