@@ -11,6 +11,7 @@ const { title, subtitle, tag = "" } = Astro.props;
 const doctorList = tag
   ? allDoctors.filter((doctor) => doctor.data.tags.includes(tag))
   : allDoctors;
+// ? TODO: Update this component
 ---
 
 <div class="k-section">

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import liverYellow from '@icons/liver_yellow.svg?raw';
+
+import ContactPanel from '@components/ContactPanel.astro';
+import MediaPanel from '@components/MediaPanel.astro';
+import SliderDoctors from '@components/SliderDoctors.astro';
+import GreatList from '@components/GreatList.astro';
+
+const seo = {
+  title: 'Centros de especialidad',
+  description: 'Centros de especialidad: hepatobiliar y manejo del dolor, atención avanzada en clínica de intervencionismo y corta estancia.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    main
+    icon = {liverYellow}
+    bigIcon = {true}
+    subtitle="En el Centro Hepatobiliar de Clínica Enlace, estamos comprometidos a brindarte la excelencia en el tratamiento de enfermedades relacionadas con el hígado, páncreas y sistema biliar. Nuestro equipo de especialistas altamente capacitados y experimentados utiliza las tecnologías más avanzadas y enfoques multidisciplinarios para ofrecerte un cuidado integral y personalizado."
+  >
+    <Fragment slot="title">
+      Centro del <strong>Hígado</strong>
+      y <strong>Sistema Biliar</strong>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    style="yellow"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    title="Higado y Sistema Biliar"
+  >
+    <span slot="subtitle">El <strong>hígado</strong> y el <strong>sistema biliar</strong> desempeñan un papel crucial en la digestión y el metabolismo. En el Centro Hepatobiliar, abordamos una amplia gama de condiciones, incluyendo enfermedades hepáticas como la hepatitis, cirrosis y cáncer de hígado, así como enfermedades de las vías biliares. Nuestro enfoque multidisciplinario garantiza que cada paciente reciba un plan de tratamiento personalizado y una atención integral para abordar sus necesidades específicas.</span>
+  </MediaPanel>
+  <GreatList
+    list={[
+      {
+        title: 'Cirugía laparoscópica y convencional de vesícula',
+        subtitle: 'Extracción de la vesícula biliar mediante técnicas mínimamente invasivas o convencionales.'
+      },
+      {
+        title: 'Colangiografía transoperatoria y diagnóstica',
+        subtitle: 'Estudio de las vías biliares durante una cirugía o mediante radiografía.'
+      },
+      {
+        title: 'Paracentesis Abdominal',
+        subtitle: 'Extracción de líquido del abdomen para aliviar presión o diagnosticar enfermedades.'
+      },
+      {
+        title: 'Colangiopancreatografía Retrograda Endoscópica (CPRE)',
+        subtitle: 'Evaluación y tratamiento de las vías biliares y el páncreas mediante endoscopia.'
+      },
+      {
+        title: 'Derivación biliar intervencionista',
+        subtitle: 'Creación de un conducto alternativo para el drenaje de la bilis.'
+      },
+      {
+        title: 'Terapia de Embolización para Cáncer de Hígado (TACE, TAE, DEB-TACE)',
+        subtitle: 'Tratamiento para cáncer hepático que bloquea su suministro de sangre.'
+      },
+      {
+        title: 'Biopsia de masa hepática con patología',
+        subtitle: 'Extracción de tejido hepático para análisis patológico de posibles tumores.'
+      },
+      {
+        title: 'Colangioscopía percutánea intervencionista (SPYGLASS)',
+        subtitle: 'Examen de las vías biliares y páncreas mediante endoscopio percutáneo.'
+      },
+      {
+        title: 'Servicio de transfusión hospitalaria de sangre',
+        subtitle: 'Suministro de sangre segura y necesaria para pacientes en el hospital.'
+      },
+      {
+        title: 'Ultrasonido contrastado Hepático-Biliar',
+        subtitle: 'Imágenes de alta resolución del hígado y vías biliares con contraste.'
+      },
+      {
+        title: 'Ultrasonido convencional y Doppler Hepático-Biliar',
+        subtitle: 'Evaluación no invasiva de la estructura y función hepática y de las vías biliares.'
+      }
+    ]}
+  />
+  <SliderDoctors
+    title="Conoce al equipo de especialistas"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>

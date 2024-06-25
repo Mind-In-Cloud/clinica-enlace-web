@@ -16,7 +16,7 @@ const textDirectoryClasses = classy([
 	"typo-header-xxs",
 	"text-neutral-500",
 	"antialiased",
-	(Astro.url.pathname === "/medicos" || Astro.url.pathname === "/servicios/centros-de-especialidad" || Astro.url.pathname === "/servicios") && "font-bold",
+	(Astro.url.pathname === "/medicos" || Astro.url.pathname === "/centros-de-especialidad" || Astro.url.pathname === "/servicios") && "font-bold",
 ])
 
 const textOrientationClasses = classy([
@@ -112,7 +112,7 @@ const nonDropdownLinkClasses = classy([
 						<Link url="/medicos" header {...dropdownLinkClasses}>
 							Médicos
 						</Link>
-						<Link url="/servicios/centros-de-especialidad" header {...dropdownLinkClasses}>
+						<Link url="/centros-de-especialidad" header {...dropdownLinkClasses}>
 							Centros de Especialidad
 						</Link>
 						<Link url="/servicios" header {...dropdownLinkClasses}>

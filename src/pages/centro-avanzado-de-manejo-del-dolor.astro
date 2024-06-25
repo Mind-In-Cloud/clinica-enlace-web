@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/juancarlos_schz.png';
+import iconoDolor from '@icons/icono_dolor.svg?raw'
+import MediaPanel from '@components/MediaPanel.astro';
+import ContactPanel from '@components/ContactPanel.astro';
+import GreatList from '@components/GreatList.astro';
+import SliderDoctors from '@components/SliderDoctors.astro';
+
+const seo = {
+  title: 'Centro de Manejo del Dolor',
+  description: 'Centro avanzado de manejo del dolor, tratamientos especializados para el dolor crónico en clínica de corta estancia.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    main
+    icon={iconoDolor}
+    classTitle="mb-4 lg:mb-12"
+    subtitle="En el Centro Avanzado de Manejo del Dolor, nos dedicamos a mejorar la calidad de vida de nuestros pacientes a través de un enfoque integral y personalizado para el tratamiento del dolor. Utilizamos las tecnologías más avanzadas para ofrecer soluciones efectivas y duraderas. Nuestro compromiso es proporcionar alivio y apoyo a quienes sufren de dolor crónico o agudo, permitiéndoles recuperar su bienestar y disfrutar de una vida plena."
+  >
+    <span slot="title">Centro Avanzado de <strong>Manejo del Dolor</strong></span>
+  </MediaPanel>
+  <MediaPanel
+    small
+    style="red"
+    title="Dolor crónico"
+    classTitle="font-bold"
+  >
+    <span slot="subtitle">
+      El <strong>dolor crónico</strong> es una condición persistente que puede durar meses o incluso años, afectando significativamente la vida diaria y el bienestar emocional de quienes lo padecen. A diferencia del dolor agudo, que es una respuesta temporal a una lesión, el dolor crónico persiste más allá del tiempo normal de curación y puede ser causado por una variedad de condiciones, como artritis, fibromialgia, neuropatía y más. En el Centro Avanzado de Manejo del Dolor, comprendemos la complejidad del dolor crónico y ofrecemos tratamientos personalizados para abordar sus causas subyacentes y aliviar el sufrimiento de nuestros pacientes.
+    </span>
+  </MediaPanel>
+  <GreatList
+    list = {[
+      {
+        title: 'Bloqueos Nerviosos',
+        subtitle: 'Procedimientos que interrumpen las señales de dolor enviadas al cerebro, ofreciendo alivio a áreas específicas afectadas por el dolor crónico.'
+      },
+      {
+        title: 'Terapia con Ondas de Choque',
+        subtitle: 'Utiliza ondas acústicas para estimular la curación en áreas doloridas, especialmente en tejidos blandos y tendones, mejorando la función y reduciendo el dolor.'
+      },
+      {
+        title: 'Radiofrecuencia Ablativa',
+        subtitle: 'Técnica que destruye las terminaciones nerviosas responsables del dolor crónico mediante el uso de calor generado por ondas de radio.'
+      },
+      {
+        title: 'Manejo Farmacológico del Dolor',
+        subtitle: 'Prescripción y supervisión de medicamentos para el control del dolor, adaptados a las necesidades individuales de cada paciente.'
+      }
+    ]}
+  />
+  <SliderDoctors
+    title="Conoce al experto en Manejo del Dolor"
+    subtitle="Nuestro equipo de médicos especialistas está formado por profesionales altamente capacitados y comprometidos con la excelencia médica. Cada especialista aporta su experiencia única para brindar atención personalizada y de vanguardia. Ya sea en diagnóstico, tratamiento o cuidado preventivo, confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento"
+  />
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>
