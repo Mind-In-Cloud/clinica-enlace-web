@@ -8,6 +8,7 @@ import helpIcon from '@icons/help.svg?raw'
 import MediaPanel from '@components/MediaPanel.astro';
 import Testimonials from '@components/Testimonials.astro';
 import NearbyPlaces from '@components/NearbyPlaces.astro';
+import Accordions from '@components/Accordions.jsx';
 
 const seo = {
   title: 'Servicios',
@@ -28,6 +29,42 @@ const seo = {
     classTitle="font-bold"
     icon={helpIcon}
     classIcon="flex justify-center"
+  />
+  <Accordions client:load
+    title="Atención y horarios"
+    color="green"
+    list={[
+      {
+        title: '¿Cuáles son los horarios de atención?',
+        content: 'Nuestros horarios de atención son de Lunes a Sábado, de 7 a 10 pm.'
+      },
+      {
+        title: '¿Qué especialidades médicas ofrecen en la clínica?',
+        content: 'En Clínica Enlace las especialidades que ofrecemos para usted son: algología intervencionista, angiología, cardiología, gastroenterología, nefrología, oncología, radiología, radiología intervencionista, traumatología.'
+      },
+      {
+        title: '¿Ofrecen servicios de atención médica de urgencia?',
+        content: 'No contamos con servicio de Urgencias.'
+      },
+      {
+        title: '¿Cómo puedo programar una cita?',
+        content: 'Para programar una cita, consulta o estudio, puede enviar un WhatsApp al 81 2721 0979 y el equipo de Admisión le ayudará a concretar una fecha y hora, después de revisar la disponibilidad del médico especialista.'
+      },
+    ]}
+  />
+  <Accordions client:load
+    title="Estacionamiento y espera"
+    color="green"
+    list={[
+      {
+        title:"¿Dónde me puedo estacionar?",
+        content:"Contamos con 5 cajones de estacionamiento en nuestras instalaciones. También, la clínica se encuentra cerca de un parque con espacio disponible alrededor para estacionarse."
+      },
+      {
+        title:"¿Me puedo quedar a esperar a mi familiar si está en cirugía?",
+        content:"No es necesario quedarse a esperar a su familiar, sin embargo, la familia puede permanecer en la sala de espera. En caso de no esperar al paciente en cirugía, el médico cirujano puede proporcionar un estimado de cuánto durará el procedimiento y a qué hora pueden recoger a su familiar."
+      }
+    ]}
   />
   <NearbyPlaces/>
   <Testimonials/>
