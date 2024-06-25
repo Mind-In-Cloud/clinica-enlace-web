@@ -8,6 +8,7 @@ import helpIcon from '@icons/help.svg?raw'
 import MediaPanel from '@components/MediaPanel.astro';
 import Testimonials from '@components/Testimonials.astro';
 import Accordions from '@components/Accordions.jsx';
+import SliderDoctors from '@components/SliderDoctors.astro';
 
 const seo = {
   title: 'Pacientes',
@@ -65,7 +66,10 @@ const seo = {
       }
     ]}
   />
-  <!-- TODO : New component for sliders doctors -->
+  <SliderDoctors
+    title="Conoce al equipo de especialistas"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
   <Testimonials/>
   <Map/>
 </BaseLayout>
