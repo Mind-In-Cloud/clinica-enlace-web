@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/foto_formulario.png';
+import helpIcon from '@icons/help.svg?raw'
+import MediaPanel from '@components/MediaPanel.astro';
+import Testimonials from '@components/Testimonials.astro';
+import NearbyPlaces from '@components/NearbyPlaces.astro';
+import Accordions from '@components/Accordions.jsx';
+
+const seo = {
+  title: 'Pacientes',
+  description: 'Orientación a pacientes, información y apoyo en su visita a nuestra clínica de intervencionismo y corta estancia.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    main
+    title="Pacientes"
+    classTitle="font-bold mb-4 lg:mb-12"
+    subtitle="Bienvenidos a Clínica Enlace, donde la excelencia en atención médica se combina con una experiencia de visita confortable. Ofrecemos para ti y tu familia tecnología de punta y un equipo médico altamente cualificado, asegurando cuidados de la más alta calidad. Para su comodidad, estamos ubicados en una zona muy céntrica y cerca de ti. A pocos pasos, encontrarás tiendas de conveniencia, farmacias y restaurantes, facilitando el acceso a todo lo que puedas necesitar durante tu visita. Además, contamos con espacio de estacionamiento y una sala de espera cómoda con Wi-Fi gratuito. Recomendamos a los acompañantes planificar su visita con antelación y consultar nuestro sitio web para obtener información actualizada sobre servicios y facilidades cercanas."
+  />
+  <MediaPanel
+    small
+    title="Preguntas frecuentes"
+    classTitle="font-bold"
+    icon={helpIcon}
+    classIcon="flex justify-center"
+  />
+  <Accordions client:load
+    title="Procedimientos y cirugías"
+    color="green"
+    list={[
+      {
+        title:"¿Cuánto tiempo dura mi cirugía?",
+        content:"La duración depende del procedimiento. El médico cirujano puede brindarte un estimado de cuánto durará tu cirugía o la de tu familiar. Si tienes dudas sobre los detalles del procedimiento, ponte en contacto con nosotros para brindarte asesoría."
+      },
+      {
+        title:"¿Qué debo hacer antes de la cirugía?",
+        content:"El paciente debe llegar 10 minutos antes de su procedimiento y traer una identificación oficial. En caso de ser menor de edad, el paciente debe venir acompañado de un padre o tutor. Asimismo, debe traer sus estudios de laboratorio, estudios de imagen, recetas médicas, etc. Las indicaciones preoperatorias las define el médico cirujano a cargo del procedimiento."
+      }
+    ]}
+  />
+  <Accordions client:load
+    title="Atención y horarios"
+    color="green"
+    Titulo:  ¿Cuáles son los horarios de atención?
+Contenido: Nuestros horarios de atención son de Lunes a Sábado, de 7 a 10 pm.
+Titulo: ¿Qué especialidades médicas ofrecen en la clínica?
+Contenido: En Clínica Enlace las especialidades que ofrecemos para usted son: algología intervencionista, angiología, cardiología, gastroenterología, nefrología, oncología, radiología, radiología intervencionista, traumatología.
+Titulo: ¿Ofrecen servicios de atención médica de urgencia?
+Contenido: No contamos con servicio de Urgencias.
+Titulo: ¿Cómo puedo programar una cita?
+Contenido: Para programar una cita, consulta o estudio, puede enviar un WhatsApp al 81 2721 0979 y el equipo de Admisión le ayudará a concretar una fecha y hora, después de revisar la disponibilidad del médico especialista.
+
+    list={[
+      {
+        title:"¿Cuáles son los horarios de atención?",
+        content:"Nuestros horarios de atención son de Lunes a Sábado, de 7 a 10 pm."
+      },
+      {
+        title:"¿Qué especialidades médicas ofrecen en la clínica?",
+        content:"En Clínica Enlace las especialidades que ofrecemos para usted son: algología intervencionista, angiología, cardiología, gastroenterología, nefrología, oncología, radiología, radiología intervencionista, traumatología."
+      },
+      {
+        title:"¿Ofrecen servicios de atención médica de urgencia?",
+        content:"No contamos con servicio de Urgencias."
+      },
+      {
+        title:"¿Cómo puedo programar una cita?",
+        content:"Para programar una cita, consulta o estudio, puede enviar un WhatsApp al 81 2721 0979 y el equipo de Admisión le ayudará a concretar una fecha y hora, después de revisar la disponibilidad del médico especialista."
+      }
+    ]}
+  />
+  <!-- TODO : New component for sliders doctors -->
+  <Testimonials/>
+  <Map/>
+</BaseLayout>

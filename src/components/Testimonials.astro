@@ -88,13 +88,13 @@ const testimonials = [
   import Swiper from "swiper";
   import "swiper/css";
   // Módulo Navigation de Swiper y estilos
-  import { Navigation } from "swiper/modules";
+  import { Navigation, Pagination } from "swiper/modules";
   import "swiper/css/navigation";
   import "swiper/css/pagination";
 
   // Configurar Swiper
   const swiper = new Swiper(".swiper", {
-    modules: [Navigation], // definir los módulos a usar
+    modules: [Navigation, Pagination], // definir los módulos a usar
     loop: true, // definir si los slides estarán en bucle
     slidesPerView: 1, // agregar número de slides para la pantalla
     spaceBetween: 40, // separación entre slides en px
