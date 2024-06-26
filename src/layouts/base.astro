@@ -8,6 +8,7 @@ import seoDefault from "@images/mainPhotoDesktop.png"
 
 import '@styles/global.css';
 import '@styles/typography.css';
+import FloatingWha from '@components/FloatingWha.astro';
 
 const { seo } = Astro.props ;
 
@@ -66,6 +67,7 @@ const seoObj = {
 	<body>
 		<Header />
     <slot />
+		<FloatingWha/>
 		<Footer />
 	</body>
 </html>
