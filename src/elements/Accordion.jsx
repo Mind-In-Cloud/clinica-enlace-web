@@ -32,7 +32,7 @@ const Accordion = ( props ) => {
   ])
 
   const titleClasses = classy([
-    'header-xs font-bold text-neutral-500 antialiased',
+    'header-xs font-bold text-neutral-500 antialiased text-left',
   ])
 
   const contentClasses = classy([

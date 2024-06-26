@@ -118,7 +118,7 @@ const ContactForm = () => {
           <input {...inputClasses} name='email' type="text" placeholder="Correo" />
           <input {...inputClasses} name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono"/>
           <input {...input2Classes} name='state' type="text" placeholder="Estado" />
-          <textarea {...input2Classes} name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Maximo 300 caracteres)"/>
+          <textarea {...input2Classes} name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Máximo 500 caracteres)"/>
           <button
             type="submit"
             style={{minWidth: '85px'}}

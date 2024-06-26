@@ -1,6 +1,9 @@
 /* Everything on top of this is old and outdated  */
 body {
   background-color: #F8FAFC;
+  .target-shadow {
+    
+  }
 }
 
 @tailwind components;
