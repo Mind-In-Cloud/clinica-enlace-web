@@ -6,7 +6,7 @@ import Map from '@components/Map.astro';
 import seoImage from '@images/foto_formulario.png';
 import helpIcon from '@icons/help.svg?raw'
 import MediaPanel from '@components/MediaPanel.astro';
-import Testimonials from '@components/Testimonials.astro';
+import Testimonials from '@components/Testimonials.jsx';
 import NearbyPlaces from '@components/NearbyPlaces.astro';
 import Accordions from '@components/Accordions.jsx';
 
@@ -67,6 +67,6 @@ const seo = {
     ]}
   />
   <NearbyPlaces/>
-  <Testimonials/>
+   <Testimonials client:only="preact"/>
   <Map/>
 </BaseLayout>

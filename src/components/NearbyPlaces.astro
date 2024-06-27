@@ -105,19 +105,19 @@ const titleClasses = classy([
   <h3 {...titleClasses}>Tiendas y plazas</h3>
   <div class="grid grid-cols-2 gap-x-12 gap-y-8">
     {places1.map( place => (
-      <Place {...place} class="col-span-1"/>
+      <Place {...place} class="col-span-2 md:col-span-1"/>
     ))}
   </div>
   <h3 {...titleClasses}>Restaurantes y cafeterías</h3>
   <div class="grid grid-cols-2 gap-x-12 gap-y-8">
     {places2.map( place => (
-      <Place {...place} class="col-span-1"/>
+      <Place {...place} class="col-span-2 md:col-span-1"/>
     ))}
   </div>
   <h3 {...titleClasses}>Bancos</h3>
   <div class="grid grid-cols-2 gap-x-12 gap-y-8">
     {places3.map( place => (
-      <Place {...place} class="col-span-1"/>
+      <Place {...place} class="col-span-2 md:col-span-1"/>
     ))}
   </div>
 </div>

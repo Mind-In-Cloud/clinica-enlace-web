@@ -4,8 +4,8 @@ import BaseLayout from '@layouts/base.astro';
 import Map from '@components/Map.astro';
 import MediaPanel from '@components/MediaPanel.astro';
 import Cabinet from '@components/Cabinet.astro';
-import Testimonials from '@components/Testimonials.astro';
 import ReactSlider from '@components/SliderDoctors.jsx';
+import Testimonials from '@components/Testimonials.jsx'
 
 import { getCollection } from 'astro:content';
 const allDoctors = await getCollection("medicos");
@@ -97,6 +97,6 @@ const seo = {
   <ReactSlider client:only="preact"
     doctors={allDoctors}
   />
-  <Testimonials/>
+  <Testimonials client:only="preact"/>
   <Map/>
 </BaseLayout>

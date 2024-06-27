@@ -1,0 +1,16 @@
+---
+import Link from "@elements/Link.astro";
+
+const {
+  title,
+  url
+} = Astro.props;
+---
+<div class="k-section m-0">
+  <Link
+  nav
+  {url}
+  >
+    {title}
+  </Link>
+</div>

@@ -6,12 +6,14 @@ const {
   title,
   address1,
   address2,
-  distance
+  distance,
+  class : className = '',
 } = Astro.props
 
 const placeClasses = classy([
   'k-place',
-  'flex flex-col',
+  'flex flex-col',,
+  className
 ])
 
 ---

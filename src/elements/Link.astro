@@ -26,7 +26,7 @@ let linkClasses : { [key: string]: string } = classy([
   footer && `typo-body-m text-neutral-200 flex items-center`,
   header && `typo-header-xxs`,
   header && !color && `text-neutral-500`,
-  nav && `text-blue typo-button-s`,
+  nav && `text-gray typo-body-m lg:typo-body-l`,
   mini && `typo-button-s flex items-center`,
   ( mini || header ) && color && `text-${color}`,
   mini && !color && `text-white`,
@@ -52,7 +52,7 @@ const linkContentClasses = classy([
   wrapClasses
 ])
 
-let decoratorBgColor = nav ? '#59CCD9':
+let decoratorBgColor = nav ? '#6A8FA6':
   mini ? '#F8FAFC' :
   header ? '#3C5368' :
   footer ? '#CBD7E1' :
@@ -74,7 +74,7 @@ if ( Astro.url.pathname === url ){
 { url === '#'
   ?
   <div {...linkClasses} >
-    { nav && <span>{'<'}</span>}
+    { nav && <span class="mr-2">{'<'}</span>}
     { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
     { !footer && Boolean(icon) && <Icon icon={icon}/>}
     <span {...linkContentClasses}>
@@ -84,7 +84,7 @@ if ( Astro.url.pathname === url ){
   </div>
   :
   <a href ={ url } {...linkClasses} >
-  { nav && <span>{'<'}</span>}
+  { nav && <span class="mr-2">{'<'}</span>}
   { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
   { !footer && Boolean(icon) && <Icon icon={icon}/>}
     <span {...linkContentClasses}>

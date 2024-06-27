@@ -26,7 +26,7 @@ const bigContentClasses = classy([
     <img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`} alt='' />
   </picture>
   <div {...bigContentClasses}>
-    <h1 class="header-xxl text-cyan" >
+    <h1 class="header-xxl text-cyan k-text-shadow" >
       Tranquilidad, dignidad</br>
       y respeto a la <strong>vida</strong>.
     </h1>
@@ -44,9 +44,9 @@ const bigContentClasses = classy([
         rel='nofollow'
         target="_blank"
         href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6"
-        class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center k-decoration-under"
+        class="col-span-4 md:col-span-3 border-cyan border flex justify-start text-cyan items-center k-decoration-under address-btn"
       >
-        <Icon icon={whiteLocation} class="content-center max-h-6 max-w-6 mr-1 ml-0.5 md:mx-2"/>
+        <Icon icon={whiteLocation} class="content-center max-h-6 max-w-6 h-full mx-2"/>
         <span class="content-center antialiased typo-body-m md:typo-body-xl k-decor mr-0.5">Dirección</span>
       </a>
       <div class="col-span-4 md:col-span-6">
@@ -91,6 +91,10 @@ const bigContentClasses = classy([
     }
   }
 
+  .k-text-shadow{
+    text-shadow: -1px 1px 1px #00000080;
+  }
+
   .k-decoration-under.text-cyan {
     .k-decor:before {
         background: #C9EEF2;
@@ -122,5 +126,9 @@ const bigContentClasses = classy([
     .k-decor:before {
       width: 100%;
     }
+  }
+
+  .address-btn {
+    background-color: rgba( 0, 0, 0, 0.3);
   }
 </style>

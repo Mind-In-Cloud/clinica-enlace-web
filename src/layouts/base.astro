@@ -2,15 +2,16 @@
 import { SEO } from 'astro-seo';
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import FloatingWha from '@components/FloatingWha.astro';
+import Breadcrumbs from '@header/breadcrumbs.astro';
 
 import Favicon from "@utils/favicon.astro";
 import seoDefault from "@images/mainPhotoDesktop.png"
 
 import '@styles/global.css';
 import '@styles/typography.css';
-import FloatingWha from '@components/FloatingWha.astro';
 
-const { seo } = Astro.props ;
+const { seo, breadcrumbs = false} = Astro.props ;
 
 const {
 	title = 'Missing Title',
@@ -65,7 +66,8 @@ const seoObj = {
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
-		<Header />
+		<Header/>
+		{breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
     <slot />
 		<FloatingWha/>
 		<Footer />
