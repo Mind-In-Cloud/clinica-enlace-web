@@ -1,8 +1,8 @@
 /* Everything on top of this is old and outdated  */
 body {
   background-color: #F8FAFC;
-  .target-shadow {
-    
+  .aspect-ratio-custom {
+    aspect-ratio: 21/9
   }
 }
 

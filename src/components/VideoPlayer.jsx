@@ -13,18 +13,18 @@ const VideoPlayer = () => {
 
 
   return (
-    <div class='w-full aspect-video'>
+    <div class='k-section m-0 aspect-ratio-custom'>
       {isImageVisible ?
         <img
           {...videoImage}
           src={`/.netlify/images?url=${videoImage.src}`}
-          class="aspect-video w-full object-cover"
+          class="w-full h-full object-cover"
           onClick={handleClick}
           alt={`Imagen para activar el video`}
         />
       :
         <iframe
-          class="aspect-video w-full"
+          class="w-full h-full"
           src="https://www.youtube-nocookie.com/embed/5OZAqjIbP_U?si=5Tuki9cImzOtchDx&amp;controls=0"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
