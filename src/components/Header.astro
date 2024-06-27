@@ -3,6 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 
 import Logo from "@elements/Logo.astro"
 import DesktopMenu from '@header/HeaderMenu.astro';
+// import Breadcrumbs from '@header/breadcrumbs.astro';
 
 let linkProps : { [key: string]: string } = {
   class : "col-span-2 lg:col-span-1",
@@ -19,4 +20,5 @@ if ( Astro.url.pathname === '/' ){
   </a>
   <DesktopMenu/>
   <ViewTransitions/>
+  <!-- <Breadcrumbs/> -->
 </header>
