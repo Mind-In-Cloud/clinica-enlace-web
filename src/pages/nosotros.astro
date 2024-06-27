@@ -18,6 +18,7 @@ import respeto from '@icons/valores/4_1.svg?raw'
 import integridad from '@icons/valores/5_1.svg?raw'
 import tratoDigno from '@icons/valores/6_1.svg?raw'
 import servicio from '@icons/valores/7_1.svg?raw'
+import VideoPlayer from '@components/VideoPlayer.jsx';
 
 const seo = {
   title: 'Nosotros',
@@ -26,7 +27,7 @@ const seo = {
 }
 ---
 <BaseLayout {seo}>
-  <iframe  class="aspect-video w-full" src="https://www.youtube-nocookie.com/embed/5OZAqjIbP_U?si=5Tuki9cImzOtchDx&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <VideoPlayer client:only="preact"/>
   <MediaPanel
     main
     classTitle="mb-12"
