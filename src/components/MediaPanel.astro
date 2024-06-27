@@ -85,7 +85,7 @@ const ctaProps = {
   }
 
   { ctaProps.url &&
-    <Link {...ctaProps}>
+    <Link {...ctaProps} alt={cta.text}>
       {cta.text}
     </Link>
   }

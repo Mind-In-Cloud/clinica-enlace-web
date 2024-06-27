@@ -29,14 +29,14 @@ const linkClasses = classy([
     <div class="col-span-2 md:col-span-1">
       { links1.map((link) => (
         <div {...linkClasses} >
-          <Link url={link.url} footer> {link.text} </Link>
+          <Link url={link.url} footer alt={`Pagina de ${link.text}`}> {link.text} </Link>
         </div>
       )) }
     </div>
     <div class="col-span-2 md:col-span-1">
       { links2.map((link) => (
         <div {...linkClasses} >
-          <Link url={link.url} footer> {link.text} </Link>
+          <Link url={link.url} footer>{link.text}</Link>
         </div>
       )) }
     </div>

@@ -88,7 +88,7 @@ const nonDropdownLinkClasses = classy([
 	<MenuItems class="hidden lg:flex h-screen lg:h-auto col-span-3 lg:col-span-2 justify-end">
 		<div class="flex flex-col lg:flex-row lg:gap-5">
 			<div class="lg:content-center pt-8 lg:p-0 flex justify-between">
-				<Link header url = "/" class="content-center">
+				<Link header url = "/" class="content-center" alt="Página de Inicio">
 					Inicio
 				</Link>
 				<a class='items-center flex md:hidden' href="/busqueda">
@@ -116,13 +116,13 @@ const nonDropdownLinkClasses = classy([
 				</button>
 				<DropdownItems class="relative">
 					<div {...dropdownChildClasses}>
-						<Link url="/medicos" header {...dropdownLinkClasses}>
+						<Link url="/medicos" alt="Página de Médicos" header {...dropdownLinkClasses}>
 							Médicos
 						</Link>
-						<Link url="/centros-de-especialidad" header {...dropdownLinkClasses}>
+						<Link url="/centros-de-especialidad" alt="Página de Centros de Especialidad" header {...dropdownLinkClasses}>
 							Centros de Especialidad
 						</Link>
-						<Link url="/servicios" header {...dropdownLinkClasses}>
+						<Link url="/servicios" alt="Página de Nuestros servicios" header {...dropdownLinkClasses}>
 							Nuestros servicios
 						</Link>
 					</div>
