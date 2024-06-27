@@ -32,6 +32,7 @@ const bigContentClasses = classy([
     </h1>
     <div class="grid grid-cols-12 gap-x-4 gap-y-8 mt-4 md:mt-8">
       <a
+        aria-label="Contactanos por WhatsApp al 81 27 21 00 79"
         href="https://wa.me/+528127210979?text=Hola%2C+estoy+en+el+sitio+web+y+quisiera+pedir+informes"
         target="_blank"
         rel='nofollow'
@@ -41,6 +42,7 @@ const bigContentClasses = classy([
         <span class="content-center antialiased hidden md:block typo-body-m md:typo-body-xl k-decor mr-2">Agendar</span>
       </a>
       <a
+        aria-label="Dirección de la clínica en Google Maps"
         rel='nofollow'
         target="_blank"
         href="https://maps.app.goo.gl/k9R8dyKDTce6Jj8f6"
@@ -51,6 +53,7 @@ const bigContentClasses = classy([
       </a>
       <div class="col-span-4 md:col-span-6">
         <Link
+          alt="Llámanos al 81 27 21 09 79"
           big
           url="tel:+528127210979"
           color="red"
@@ -92,7 +95,9 @@ const bigContentClasses = classy([
   }
 
   .k-text-shadow{
-    text-shadow: -1px 1px 1px #00000080;
+    @media screen and width > 640px {
+      text-shadow: -1px 1px 1px #00000080;
+    }
   }
 
   .k-decoration-under.text-cyan {
