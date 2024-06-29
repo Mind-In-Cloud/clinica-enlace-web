@@ -1,11 +1,12 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import fetch from "node-fetch";
-
-
+import hash from "@utils/hash";
 
 const handler: Handler = async function(event : HandlerEvent) {
 
+  const hashRequest = hash(event.body);
   if (event.body === null) {
+    console.error('Error: No payload:', hashRequest )
     return {
       statusCode: 400,
       body: JSON.stringify("Payload required"),
@@ -19,7 +20,9 @@ const handler: Handler = async function(event : HandlerEvent) {
     phone : string;
     state: string;
     message: string;
-  };
+    hash: string;
+  }
+  requestBody.hash = hashRequest;
 
   // https://docs.netlify.com/integrations/email-integration/#call-the-function-from-an-event
   //automatically generated snippet from the email preview
@@ -42,13 +45,13 @@ const handler: Handler = async function(event : HandlerEvent) {
   );
 
   if (!res.ok) {
-    console.error('Error #:', res.status, 'Error Message:', res.statusText)
+    console.error('Error #: ', res.status, 'Error Message: ', res.statusText, 'ID: ', hashRequest)
     return {
       statusCode: res.status,
       body: JSON.stringify("Failed to send email"),
     };
   } else {
-    console.info('An email was sent!')
+    console.info('An email was sent!', 'ID: ', hashRequest)
     return {
       statusCode: 200,
       body: JSON.stringify("Subscribe email sent!"),

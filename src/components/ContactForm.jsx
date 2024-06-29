@@ -119,12 +119,12 @@ const ContactForm = () => {
       {
         submitted === '' ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
-          <input {...inputClasses} name='firstName' type="text" minLength={1} maxLength={40} placeholder="Nombre" />
-          <input {...inputClasses} name='lastName'type="text" minLength={1} maxLength={40} placeholder="Apellidos" />
-          <input {...inputClasses} name='email' type="text" placeholder="Correo" />
-          <input {...inputClasses} name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono"/>
+          <input {...inputClasses} required name='firstName' type="text" minLength={1} maxLength={40} placeholder="Nombre*"/>
+          <input {...inputClasses} required name='lastrequired Name'type="text" minLength={1} maxLength={40} placeholder="Apellidos*"/>
+          <input {...inputClasses} required name='email' type="text" placeholder="Correo*"/>
+          <input {...inputClasses} required name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono*"/>
           <input {...input2Classes} name='state' type="text" placeholder="Estado" />
-          <textarea {...input2Classes} name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Máximo 500 caracteres)"/>
+          <textarea {...input2Classes} required name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Máximo 500 caracteres)"/>
           <button
             type="submit"
             style={{minWidth: '85px'}}
