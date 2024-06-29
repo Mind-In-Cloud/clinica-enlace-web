@@ -2,4 +2,4 @@
 package = "@algolia/netlify-plugin-crawler"
   [plugins.inputs]
   branches = ['main']
-  customDomain = "clinicaenlace.com"
+  customDomain = "clinicaenlace.mx"
