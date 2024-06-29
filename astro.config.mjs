@@ -9,9 +9,8 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never',
-  // todo: add your public domain
-  // site: 'https://clinicaenlace.mx',
-  site: 'https://clinica-enlace.netlify.app',
+  site: 'https://clinicaenlace.mx',
+  // site: 'https://clinica-enlace.netlify.app',
   integrations: [preact({ compat: true }), tailwind(), sitemap(), mdx()],
   output: "static",
   adapter: netlify()

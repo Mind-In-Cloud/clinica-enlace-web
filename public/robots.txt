@@ -1,18 +1,6 @@
 
 User-agent: *
-Disallow: /
+Disallow:
 
-User-agent: Algolia Crawler
-Allow: /
-Disallow: /posts/
-Disallow: /posts
-Disallow: /tags/
-Disallow: /tags
-Disallow: /stylesheet
-Disallow: /stylesheet/
 
-User-agent: Seobility
-Allow: /$
-Disallow: /
-
-Sitemap: https://clinica-enlace.netlify.app/sitemap-index.xml
+Sitemap: https://clinicaenlace.mx/sitemap-index.xml
