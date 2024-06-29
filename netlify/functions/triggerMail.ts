@@ -1,9 +1,9 @@
-import type { Handler } from "@netlify/functions";
+import type { Handler, HandlerEvent } from "@netlify/functions";
 import fetch from "node-fetch";
 
 
 
-const handler: Handler = async function(event) {
+const handler: Handler = async function(event : HandlerEvent) {
 
   if (event.body === null) {
     return {
@@ -34,7 +34,6 @@ const handler: Handler = async function(event) {
       method: "POST",
       body: JSON.stringify({
         from: `${process.env.NETLIFY_EMAIL_SENDER}`,
-        // what is missing is to add the proper domain to mailgun account and get this going
         to: `${process.env.NETLIFY_EMAIL_RECIPIENT}`,
         subject: "Clinica Enlace, contacto de: " + requestBody.firstName + " " + requestBody.lastName,
         parameters: requestBody,
@@ -43,11 +42,13 @@ const handler: Handler = async function(event) {
   );
 
   if (!res.ok) {
+    console.error('Error #:', res.status, 'Error Message:', res.statusText)
     return {
       statusCode: res.status,
       body: JSON.stringify("Failed to send email"),
     };
   } else {
+    console.info('An email was sent!')
     return {
       statusCode: 200,
       body: JSON.stringify("Subscribe email sent!"),

@@ -72,10 +72,12 @@ const ContactForm = () => {
     'text-blue',
     'col-span-2',
     'text-center',
+    'whitespace-pre-line',
     'p-4'
   ])
 
-  const [ submitted , setSubmitted ] = useState(null)
+  const [ submitted , setSubmitted ] = useState('')
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -88,13 +90,17 @@ const ContactForm = () => {
       }
     }
 
-    if ( submitted === null ) {
-      setSubmitted(false)
+    if ( submitted === '' ) {
+      setSubmitted('request')
       fetch('/.netlify/functions/triggerMail', {
         method: 'POST',
         body: JSON.stringify(values)
-      }).then(() => {
-        setSubmitted(true)
+      }).then(( res ) => {
+        if ( res.ok ) {
+          setSubmitted('sent')
+        } else {
+          setSubmitted('not sent')
+        }
       })
     }
   }
@@ -111,7 +117,7 @@ const ContactForm = () => {
     <div {...contactFormWrapClasses}>
       <div {...formTitleClasses}>Formulario de contacto</div>
       {
-        submitted === null ?
+        submitted === '' ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
           <input {...inputClasses} name='firstName' type="text" minLength={1} maxLength={40} placeholder="Nombre" />
           <input {...inputClasses} name='lastName'type="text" minLength={1} maxLength={40} placeholder="Apellidos" />
@@ -130,9 +136,13 @@ const ContactForm = () => {
         :
         <div {...thanksClasses}>
           {
-              submitted ?
-              `Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.`:
-              `Cargando, un momento por favor...`
+              submitted === 'request'?
+              `Cargando, un momento por favor...` :
+              submitted === 'sent' ?
+              `Apreciamos que te pongas en contacto con nosotros, en breve nos pondremos en contacto contigo.` :
+              `Lo sentimos, ha ocurrido un error, por favor intenta de nuevo.
+
+              Si esto a sucedido en varias ocasiones, por favor contactanos por WhatsApp.`
           }
         </div>
       }
