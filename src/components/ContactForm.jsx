@@ -92,32 +92,20 @@ const ContactForm = () => {
 
     if ( submitted === '' ) {
       setSubmitted('request')
-      window.grecaptcha.enterprise.ready( async _ => {
-        await window.grecaptcha.enterprise.execute("6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3", { action: "homepage" })
-        .then(token => {
-          values = { ...values, token }
-            fetch('/.netlify/functions/triggerMail', {
-              method: 'POST',
-              body: JSON.stringify(values)
-            }).then(( res ) => {
-              if ( res.ok ) {
-                setSubmitted('sent')
-              } else {
-                setSubmitted('not sent')
-              }
-            })
-        })
+      values = { ...values }
+        fetch('/.netlify/functions/triggerMail', {
+          method: 'POST',
+          body: JSON.stringify(values)
+        }).then(( res ) => {
+          if ( res.ok ) {
+            setSubmitted('sent')
+          } else {
+            setSubmitted('not sent')
+          }
       })
     }
-  }
 
-  useEffect(() => {
-    // Add reCaptcha
-    const script = document.createElement("script")
-    script.src = "https://www.google.com/recaptcha/enterprise.js?render=6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3"
-    // script.addEventListener("load", handleLoaded)
-    document.body.appendChild(script)
-  }, [])
+  }
 
   return <div {...contactClasses}>
     <div {...contactPhotoClasses}>
