@@ -1,9 +1,9 @@
 // import Swiper JS
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
 
-import classy from '@utils/classy';
+// import classy from '@utils/classy';
 import hash from '@utils/hash';
 
 import avatarLong from "@icons/avatarlonghair.svg?raw";

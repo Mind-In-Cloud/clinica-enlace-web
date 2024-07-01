@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState } from 'preact/hooks'
 import classy from "@utils/classy"
 
 import image from '@images/foto_formulario.png'
@@ -117,21 +117,18 @@ const ContactForm = () => {
       />
     </div>
     <div {...contactFormWrapClasses}>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
       <div {...formTitleClasses}>Formulario de contacto</div>
-      <div
-        className="g-recaptcha"
-        data-sitekey="6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3"
-        data-size="invisible"
-      ></div>
       {
         submitted === '' ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
           <input {...inputClasses} required name='firstName' type="text" minLength={1} maxLength={40} placeholder="Nombre*"/>
-          <input {...inputClasses} required name='lastrequired Name'type="text" minLength={1} maxLength={40} placeholder="Apellidos*"/>
-          <input {...inputClasses} required name='email' type="text" placeholder="Correo*"/>
+          <input {...inputClasses} required name='lastName'type="text" minLength={1} maxLength={40} placeholder="Apellidos*"/>
+          <input {...inputClasses} required name='email' type="email" placeholder="Correo*"/>
           <input {...inputClasses} required name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono*"/>
           <input {...input2Classes} name='state' type="text" placeholder="Estado" />
           <textarea {...input2Classes} required name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Máximo 500 caracteres)"/>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z" name='temp'></div>
           <button
             type="submit"
             style={{minWidth: '85px'}}
