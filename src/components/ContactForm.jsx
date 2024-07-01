@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import classy from "@utils/classy"
 
 import image from '@images/foto_formulario.png'
@@ -92,18 +92,32 @@ const ContactForm = () => {
 
     if ( submitted === '' ) {
       setSubmitted('request')
-      fetch('/.netlify/functions/triggerMail', {
-        method: 'POST',
-        body: JSON.stringify(values)
-      }).then(( res ) => {
-        if ( res.ok ) {
-          setSubmitted('sent')
-        } else {
-          setSubmitted('not sent')
-        }
+      window.grecaptcha.enterprise.ready( async _ => {
+        await window.grecaptcha.enterprise.execute("6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3", { action: "homepage" })
+        .then(token => {
+          values = { ...values, token }
+            fetch('/.netlify/functions/triggerMail', {
+              method: 'POST',
+              body: JSON.stringify(values)
+            }).then(( res ) => {
+              if ( res.ok ) {
+                setSubmitted('sent')
+              } else {
+                setSubmitted('not sent')
+              }
+            })
+        })
       })
     }
   }
+
+  useEffect(() => {
+    // Add reCaptcha
+    const script = document.createElement("script")
+    script.src = "https://www.google.com/recaptcha/enterprise.js?render=6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3"
+    // script.addEventListener("load", handleLoaded)
+    document.body.appendChild(script)
+  }, [])
 
   return <div {...contactClasses}>
     <div {...contactPhotoClasses}>
@@ -116,6 +130,11 @@ const ContactForm = () => {
     </div>
     <div {...contactFormWrapClasses}>
       <div {...formTitleClasses}>Formulario de contacto</div>
+      <div
+        className="g-recaptcha"
+        data-sitekey="6LeBpv4pAAAAACNngVWBzsQT0P6-QV7CIYznOoX3"
+        data-size="invisible"
+      ></div>
       {
         submitted === '' ?
         <form onSubmit={handleSubmit} name='contact-form-clinica' {...formClasses}>
