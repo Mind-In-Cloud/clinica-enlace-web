@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@layouts/base.astro';
+import seoDefault from "@images/mainPhotoDesktop.png"
+import classy from '@utils/classy';
+
+import Socials from '../footerComponents/Socials.astro';
+import Linebreak from '@elements/Linebreak.astro';
+
+const { seo, breadcrumbs = false} = Astro.props ;
+
+const {
+	title = 'Missing Title Blog',
+	description = 'Missing Description Blog',
+	image : {
+		src,
+		width,
+		height,
+		// alt, // not used in this, needs to be defined
+		format
+	} = seoDefault
+} = seo
+
+const subtitleClasses = classy([
+	"font-bold",
+	"typo-body-m",
+	"antialiased",
+	"text-neutral-600",
+	"py-4"
+])
+
+let categories = [{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }]
+---
+<BaseLayout wha={false} {seo}>
+  <section class="k-section">
+    <div class="aspect-video">
+      a
+    </div>
+    <div class="grid grid-cols-8">
+      <div
+        class="col-span-8 italic font-medium k-body-l py-6"
+      >
+        Autor: Dr X
+      </div>
+      <div class="col-span-8 md:col-span-6">
+        <h1 class="font-bold header-s">
+          title here
+        </h1>
+        <slot name="content"/>
+      </div>
+      <div class="col-span-8 md:col-span-2 pl-4">
+				<div class="flex flex-col items-center">
+					<div> img </div>
+					<div class="typo-body-m antialiased pt-4 text-center">
+						El Dr. Tovar, médico general con vasta experiencia, ofrece cuidado integral y diagnóstico preciso para mejorar su salud.
+					</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2">Dr. Germán Tovar Fuentes</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2 pb-4">Especialidad: Cirujano General</div>
+				</div>
+				<div class="k-categories">
+					<div {...subtitleClasses}>
+						Categorías
+					</div>
+					{categories.map( (category, index) => {
+
+						const categoryClasses = classy([
+							"typo-body-m",
+							"antialiased",
+							"text-neutral-400",
+							"py-2",
+							"border-t",
+							index === categories.length - 1 && "border-b",
+							"border-neutral-400"
+						])
+
+						return (
+							<div {...categoryClasses}>
+								<a href={category.link} class="block w-full">
+									{category.title}
+								</a>
+							</div>
+						)
+
+					})}
+				</div>
+				<div class="border-b">
+					<div {...subtitleClasses}>
+						Sigue nuestras redes sociales
+					</div>
+					<Socials/>
+				</div>
+				<div class="border-b">
+					<div {...subtitleClasses}>
+						Suscribirse al blog
+					</div>
+					<div
+						class="typo-body-m antialiased text-neutral-400"
+					>
+						Mantente al día con los últimos avances y técnicas en intervencionismo médico.
+					</div>
+					<!-- TODO input field -->
+				</div>
+				<div>
+					<div {...subtitleClasses}>
+						Temas relacionados
+					</div>
+					<div
+						class="typo-body-m antialiased text-neutral-500"
+					>
+						Medicina, Salud, Tratamientos, Investigación Médica, Cuidado del Paciente, Enfermedades, Prevención
+					</div>
+				</div>
+      </div>
+			<div>
+			</div>
+    </div>
+  </section>
+</BaseLayout>

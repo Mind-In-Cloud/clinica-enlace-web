@@ -11,7 +11,7 @@ import seoDefault from "@images/mainPhotoDesktop.png"
 import '@styles/global.css';
 import '@styles/typography.css';
 
-const { seo, breadcrumbs = false} = Astro.props ;
+const { seo, breadcrumbs = false, wha = true} = Astro.props ;
 
 const {
 	title = 'Missing Title',
@@ -72,7 +72,7 @@ const seoObj = {
 		<Header/>
 		{breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
     <slot />
-		<FloatingWha/>
+		{wha && <FloatingWha/>}
 		<Footer />
 	</body>
 </html>
