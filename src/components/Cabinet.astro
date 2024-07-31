@@ -62,17 +62,31 @@ const showCaseClasses = classy([
         isFinal = true
       }
 
+      const showCaseItemClasses = classy([
+        'flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center',
+        isFinal ? 'hidden md:flex' : 'flex',
+        item.url && 'hover:cursor-pointer',
+      ])
+
       return (
-        <div class={`flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
-          <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
-          { item.url ?
-            <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold" alt={`Enlace a pagina de ${item.title}`}>
-              {item.title}
-            </Link>
-            :
+        item.url ?
+          <div {...showCaseItemClasses}>
+            <a
+              class="w-full"
+              href={item.url}
+              aria-label={`Enlace a pagina de ${item.title}`}
+            >
+              <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
+              <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold" alt={`Enlace a pagina de ${item.title}`}>
+          {item.title}
+              </Link>
+            </a>
+          </div>
+        :
+          <div {...showCaseItemClasses}>
+            <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
             <div {...itemTextClasses}>{item.title}</div>
-          }
-        </div>
+          </div>
       )
     })}
     { cta.url && <Link alt={cta.text} {...ctaProps}>{cta.text}</Link>}

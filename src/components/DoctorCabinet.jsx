@@ -44,6 +44,7 @@ export const DoctorCabinet = ({doctors = []}) => {
     'typo-body-m md:typo-body-l',
     'antialiased',
     'text-neutral-500',
+    'hover:bg-cyan',
     'py-2',
     'px-4'
   ])
