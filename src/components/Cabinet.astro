@@ -64,10 +64,7 @@ const showCaseClasses = classy([
       }
 
       const showCaseItemClasses = classy([
-<<<<<<< HEAD
         'k-cabinet-item',
-=======
->>>>>>> ba68707 (CE-104: Small updates, almost done)
         'flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center',
         isFinal ? 'hidden md:flex' : 'flex',
         item.url && 'hover:cursor-pointer',
@@ -77,7 +74,7 @@ const showCaseClasses = classy([
         item.url ?
           <div {...showCaseItemClasses}>
             <a
-              class="w-full"
+              class="w-full flex justify-center"
               href={item.url}
               aria-label={`Enlace a pagina de ${item.title}`}
             >
