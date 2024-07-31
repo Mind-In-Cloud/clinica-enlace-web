@@ -16,6 +16,7 @@ const {
 } = Astro.props
 
 const cabinetClasses = classy([
+  'k-cabinet',
   'px-8 py-12 lg:px-36 lg:py-16 2xl:px-48', //Switched to margin on all but this component
   style === 'blue' && 'bg-gray',
 ])
@@ -62,19 +63,47 @@ const showCaseClasses = classy([
         isFinal = true
       }
 
+      const showCaseItemClasses = classy([
+        'k-cabinet-item',
+        'flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center',
+        isFinal ? 'hidden md:flex' : 'flex',
+        item.url && 'hover:cursor-pointer',
+      ])
+
       return (
-        <div class={`flex-col flex-none basis-[33%] md:basis-[15%] xl:basis-[10%] items-center${isFinal ? ' hidden md:flex' : ' flex'}`}>
-          <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
-          { item.url ?
-            <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold" alt={`Enlace a pagina de ${item.title}`}>
-              {item.title}
-            </Link>
-            :
+        item.url ?
+          <div {...showCaseItemClasses}>
+            <a
+              class="w-full flex justify-center"
+              href={item.url}
+              aria-label={`Enlace a pagina de ${item.title}`}
+            >
+              <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
+              <Link url={item.url} color={style === 'blue' ? '' : 'gray'} mini class="text-center mt-4 font-semibold" alt={`Enlace a pagina de ${item.title}`}>
+          {item.title}
+              </Link>
+            </a>
+          </div>
+        :
+          <div {...showCaseItemClasses}>
+            <Icon icon={item.icon} class="max-w-32 max-h-32 w-full"/>
             <div {...itemTextClasses}>{item.title}</div>
-          }
-        </div>
+          </div>
       )
     })}
     { cta.url && <Link alt={cta.text} {...ctaProps}>{cta.text}</Link>}
   </div>
 </div>
+<style>
+  .k-cabinet {
+    .k-cabinet-item:hover {
+      :not(.k-active){
+          & .k-decoration-under {
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+</style>
