@@ -153,6 +153,10 @@
   .k-subtitle {
     @apply typo-body-m md:typo-body-xl antialiased
   }
+
+  .k-body-l {
+    @apply typo-body-m md:typo-body-l antialiased
+  }
 }
 
 @layer utilities{

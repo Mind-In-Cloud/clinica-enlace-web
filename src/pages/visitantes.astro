@@ -5,6 +5,7 @@ import Map from '@components/Map.astro';
 
 import seoImage from '@images/foto_formulario.png';
 import helpIcon from '@icons/help.svg?raw'
+import ubicacionIcon from '@icons/ubicacion.svg?raw'
 import MediaPanel from '@components/MediaPanel.astro';
 import Testimonials from '@components/Testimonials.jsx';
 import NearbyPlaces from '@components/NearbyPlaces.astro';
@@ -66,7 +67,14 @@ const seo = {
       }
     ]}
   />
+  <MediaPanel
+    small
+    title="Lugares cerca de Clínica Enlace"
+    classTitle="font-bold"
+    icon={ubicacionIcon}
+    classIcon="flex justify-center"
+  />
   <NearbyPlaces/>
-   <Testimonials client:only="preact"/>
+  <Testimonials client:only="preact"/>
   <Map/>
 </BaseLayout>
