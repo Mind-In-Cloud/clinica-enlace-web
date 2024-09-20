@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import liverB from '@icons/higado_b.svg?raw';
+import tiroidesB from '@icons/tiroides_b.svg?raw';
+import renalB from '@icons/renal_b.svg?raw';
+import ganglioB from '@icons/ganglio_b.svg?raw';
+import iconoBiopsias from '@icons/biopsia_cyan_fuerte.svg?raw';
+
+import MediaPanel from '@components/MediaPanel.astro';
+import ReactSlider from '@components/SliderDoctors.jsx';
+
+import { getCollection } from 'astro:content';
+import Tiles from '@components/Tiles.astro';
+const allDoctors = await getCollection("medicos");
+
+const seo = {
+  title: 'Biopsias',
+  description: 'Centro de Biopsias en San Nicolás, diagnóstico y tratamiento de cáncer por procedimientos ambulatorios de mínima invasión',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}
+  breadcrumbs={{
+    title:"Ir a Centros de Especialidad",
+    url:'/centros-de-especialidad'
+  }}
+>
+  <MediaPanel
+    main
+    icon={iconoBiopsias}
+    classTitle="mb-4 lg:mb-12"
+    subtitle="En el Centro de Biopsias de Clínica Enlace, combinamos experiencia médica con tecnología de vanguardia para ofrecer diagnósticos precisos y cuidados especializados. Nuestro equipo de expertos radiólogos intervencionistas se dedica a realizar biopsias de manera segura y eficaz, asegurando un enfoque personalizado para cada paciente. Confía en nosotros para brindarte la mejor atención en un entorno cómodo y profesional."
+  >
+    <span slot="title">Centros de <strong>Biopsias</strong></span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold text-left"
+    title="Biopsias"
+  >
+    <span slot="subtitle">
+      Una <strong>biopsia</strong>biopsia es un procedimiento médico en el cual se extrae una pequeña muestra de tejido para su análisis en laboratorio. Este procedimiento es fundamental para el diagnóstico preciso de diversas condiciones médicas y la <strong>detección temprana de cáncer.</strong> Gracias a la avanzada tecnología y los estudios de imagen, una biopsia puede realizarse de manera <strong>mínimamente invasiva</strong>, mejorando la precisión y reduciendo el tiempo de recuperación para el paciente.
+    </span>
+  </MediaPanel>
+  <Tiles
+    items = {[
+      {
+        text: 'Hígado >',
+        icon: liverB,
+        url: '/biopsias/biopsia-de-higado',
+        style : 'tint'
+      },
+      {
+        text: 'Tiroides >',
+        icon: tiroidesB,
+        url: '/biopsias/biopsia-de-tiroides',
+        style : 'tint'
+      },
+      {
+        text: 'Renal >',
+        icon: renalB,
+        url: '/biopsias/biopsia-renal',
+        style : 'tint'
+      },
+      {
+        text: 'Ganglio >',
+        icon: ganglioB,
+        url: '/biopsias/biopsia-de-ganglio',
+        style : 'tint'
+      },
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <ReactSlider client:only="preact"
+    doctors={allDoctors}
+  />
+  <Map/>
+</BaseLayout>

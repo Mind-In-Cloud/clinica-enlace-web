@@ -23,6 +23,14 @@ body {
   }
 }
 
+.bg-tint {
+  background-color: #4CAEB9;
+}
+
+.text-tint {
+  color: #4CAEB9;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #2D3648!important;

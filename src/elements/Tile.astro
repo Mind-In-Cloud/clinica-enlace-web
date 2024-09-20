@@ -4,6 +4,7 @@ import classy from "@utils/classy";
 import arrow from '@icons/flecha.svg?raw'
 
 const {
+  text = '',
   title = '',
   subtitle= '',
   url = '',
@@ -20,7 +21,7 @@ const tileClasses = classy([
   `bg-${style}`,
   'flex flex-col',
   'items-center',
-  'place-content-between',
+  text ? 'justify-around' : 'place-content-between',
   style === 'blue' && 'bg-gray',
   className
 ])
@@ -34,22 +35,29 @@ const titleClasses = classy([
 const subtitleClasses = classy([
   'text-xs md:typo-body-s lg:text-sm xl:typo-body-xl antialiased',
 ])
+
+const iconClasses = classy([
+  text ? 'max-w-[50%]' : 'max-w-32',
+  text ? 'max-h-[50%]': 'max-h-[33%]',
+  'w-full'
+])
 ---
 <a href={url} {...tileClasses}>
-  <Icon icon={icon} class="max-w-32 max-h-[33%] w-full"/>
-  <p {...titleClasses}>
-    <Fragment set:html={title}/>
-  </p>
-  <p {...subtitleClasses}>
-    {subtitle}
-  </p>
-  <Icon icon={arrow} class="max-h-4 xl:max-h-6 w-full"/>
+  <Icon icon={icon} {...iconClasses}/>
+  {
+    text ?
+    <p class="font-bold antialiased">{text}</p> :
+    <p {...titleClasses}>
+      <Fragment set:html={title}/>
+    </p>
+    <p {...subtitleClasses}>
+      {subtitle}
+    </p>
+    <Icon icon={arrow} class="max-h-4 xl:max-h-6 w-full"/>
+  }
 </a>
 <style>
   .aspect-tile {
     aspect-ratio: 8 / 7;
-  }
-  .bg-tint {
-    background-color: #4CAEB9;
   }
 </style>
