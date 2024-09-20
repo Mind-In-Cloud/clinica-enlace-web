@@ -5,14 +5,16 @@ import Map from '@components/Map.astro';
 
 import seoImage from '@images/colab.jpg';
 import iconoCentros from '@icons/verde/centros_esp.svg?raw'
-import liverYellow from '@icons/liver_yellow.svg?raw';
+import liverWhite from '@icons/liver_white.svg?raw';
 import iconoDolor from '@icons/icono_dolor.svg?raw'
+import iconoBiopsias from '@icons/biopsia_cian.svg?raw'
 
 import MediaPanel from '@components/MediaPanel.astro';
 import Linebreak from '@elements/Linebreak.astro';
 import ReactSlider from '@components/SliderDoctors.jsx';
 
 import { getCollection } from 'astro:content';
+import Tiles from '@components/Tiles.astro';
 const allDoctors = await getCollection("medicos");
 
 const seo = {
@@ -26,40 +28,35 @@ const seo = {
     main
     icon={iconoCentros}
     classTitle="mb-4 lg:mb-12"
-    subtitle="En la Clínica Enlace, estamos comprometidos con la excelencia médica y la innovación constante. Nuestros Centros de Especialidad son el epicentro de descubrimientos médicos y avances tecnológicos de vanguardia. Colaboramos con renombrados expertos y equipos multidisciplinarios para llevar a cabo investigaciones pioneras en una amplia gama de áreas médicas."
   >
     <span slot="title">Centros de <strong>Especialidad</strong></span>
+    <span slot="subtitle">Los centros de especialidad de Clínica Enlace cuentan con <strong>equipos multidisciplinarios</strong> de médicos expertos en condiciones específicas, brindando atención médica integral y especializada para cada paciente. Nuestros centros están diseñados para ofrecerte un tratamiento personalizado y eficaz, adaptado a tus necesidades individuales. Nos comprometemos a proporcionarte la mejor atención posible, garantizando tu comodidad y bienestar en todo momento. Con nuestros Centros de especialidad, puedes estar seguro de recibir la atención médica de la más alta calidad, enfocada en tu salud y recuperación. Nuestro objetivo es ofrecerte una experiencia de atención médica excepcional, donde te sientas cuidado y respaldado en todo momento.</span>
   </MediaPanel>
-  <MediaPanel
-    icon = {liverYellow}
-    bigIcon = {true}
-    cta = {{
-      text: 'Conoce más',
-      url: '/centro-hepatobiliar',
-    }}
-  >
-    <Fragment slot="title">
-      Centro del <strong>Hígado</strong>
-      y <strong>Sistema Biliar</strong>
-    </Fragment>
-    <Fragment slot="subtitle">
-      El Centro Hepatobiliar es un centro especializado que cuenta con los recursos y la experiencia necesarios para abordar las enfermedades del <strong>hígado</strong> y <strong>sistema biliar</strong> de manera integral. Consulta los servicios que el Centro Hepatobiliar de Clínica Enlace tiene para atenderte
-    </Fragment>
-  </MediaPanel>
-  <Linebreak color="blue"/>
-  <MediaPanel
-    main
-    icon={iconoDolor}
-    classTitle="mb-4 lg:mb-12"
-    subtitle="En el Centro Avanzado de Manejo del Dolor, nos dedicamos a mejorar la calidad de vida de nuestros pacientes a través de un enfoque integral y personalizado para el tratamiento del dolor. Utilizamos las tecnologías más avanzadas para ofrecer soluciones efectivas y duraderas. Nuestro compromiso es proporcionar alivio y apoyo a quienes sufren de dolor crónico o agudo, permitiéndoles recuperar su bienestar y disfrutar de una vida plena."
-    cta={{
-      text: 'Conoce más',
-      url: '/centro-avanzado-de-manejo-del-dolor',
-    }}
-  >
-    <span slot="title">Centro Avanzado de <strong>Manejo del Dolor</strong></span>
-  </MediaPanel>
-  <Linebreak color="blue"/>
+  <Tiles
+    items = {[
+      {
+        title: '<span>Centro del <strong>Hígado</strong></br> y <strong>Sistema Biliar</strong></span>',
+        subtitle : 'Conoce la opción de diagnóstico y tratamiento adecuada para ti',
+        icon: liverWhite,
+        url: '/centro-hepatobiliar',
+        style : 'yellow'
+      },
+      {
+        title: '<span>Centro de <strong>Biopsias</strong></span>',
+        subtitle : 'Visita para ver opciones de diagnóstico por biopsia',
+        icon: iconoBiopsias,
+        url: '/biopsias',
+        style : 'tint'
+      },
+      {
+        title: '<span>Centro avanzado de </br><strong>Manejo del Dolor</strong></span>',
+        subtitle : 'Alivio del dolor crónico con procedimientos de mínima invasión',
+        icon: iconoDolor,
+        url: '/centro-avanzado-de-manejo-del-dolor',
+        style : 'red'
+      },
+    ]}
+  />
   <MediaPanel
     medium
     title="Conoce al equipo de especialistas"

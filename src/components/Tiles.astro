@@ -1,0 +1,25 @@
+---
+import Tile from "@elements/Tile.astro"
+import classy from "@utils/classy"
+
+const {
+  items = [],
+} = Astro.props
+
+
+const tilesClasses = classy([
+  'grid grid-cols-12 md:gap-x-1',
+  'gap-y-2',
+  'md:k-section',
+])
+
+const tileClasses = classy([
+  items.length === 3 && 'col-span-12 md:col-span-4',
+  items.length === 4 && 'col-span-12 md:col-span-3'
+])
+---
+<div {...tilesClasses} >
+  {items.map((item: any, index: number) => (
+    <Tile {...item} {...tileClasses} />
+  ))}
+</div>
