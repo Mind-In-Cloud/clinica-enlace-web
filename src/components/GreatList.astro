@@ -29,7 +29,8 @@ const icons = [
 ]
 
 let {
-  list = []
+  list = [],
+  color = ''
 } = Astro.props
 
 list = list.map((item : { title: string, subtitle:string, icon: any }, index : number ) => {
@@ -54,18 +55,21 @@ const itemClasses = classy([
 
 
 const titleClasses = classy([
-  'font-bold text-green mb-4'
+  'font-bold mb-4',
+  color ? `text-${color}` : 'text-green'
 ])
 
 const subtitleClasses = classy([
   'typo-body-xl text-neutral-700'
 ])
+
+const fill = color === 'yellow' ? '#D9AC4E' : color === 'red' ? '#D97364' : ''
 ---
 <div {...sectionClasses}>
   {
     list.map((item : { title: string, subtitle:string, icon: any }) => (
         <div {...itemClasses}>
-          <Icon icon={item.icon} class="col-span-1"/>
+          <Icon icon={item.icon} class="col-span-1" fill={fill}/>
           <div class="col-span-5 break-words">
             <h5 {...titleClasses}>{item.title}</h5>
             <p {...subtitleClasses}>{item.subtitle}</p>

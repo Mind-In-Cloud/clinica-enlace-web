@@ -1,15 +1,18 @@
 ---
 import classy from "@utils/classy";
 
-const {
+let {
   icon = false,
-  class : className = ''
+  class : className = '',
+  fill = ''
 } = Astro.props;
 
 const iconClasses = classy([
   'k-icon',
   className
 ])
+const reg2 = /(#)\w+/i
+icon = fill ? icon.replace(reg2,fill) : icon;
 ---
 { Boolean(icon) &&
   <div {...iconClasses}>
