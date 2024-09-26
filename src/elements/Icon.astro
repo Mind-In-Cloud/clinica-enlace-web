@@ -11,7 +11,7 @@ const iconClasses = classy([
   'k-icon',
   className
 ])
-const reg2 = /(#)\w+/i
+const reg2 = /(#)\w+/g
 icon = fill ? icon.replace(reg2,fill) : icon;
 ---
 { Boolean(icon) &&

@@ -10,6 +10,7 @@ const {
   url = '',
   style = '',
   icon = '',
+  iconSize = '',
   class : className = '',
 } = Astro.props;
 
@@ -29,7 +30,8 @@ const tileClasses = classy([
 const titleClasses = classy([
   'md:typo-header-xxs',
   'lg:typo-header-xs',
-  'xl:typo-header-m'
+  'xl:typo-header-m',
+  'antialiased'
 ])
 
 const subtitleClasses = classy([
@@ -38,7 +40,7 @@ const subtitleClasses = classy([
 
 const iconClasses = classy([
   text ? 'max-w-[50%]' : 'max-w-32',
-  text ? 'max-h-[50%]': 'max-h-[33%]',
+  iconSize ? `md:max-h-[33%] max-h-[${iconSize}] xl:max-h-[33%]` : text ? 'max-h-[50%]': 'max-h-[33%]',
   'w-full'
 ])
 ---
