@@ -1,0 +1,112 @@
+---
+import classy from "@utils/classy"
+
+import one from '@icons/listNumbers/1.svg?raw'
+import two from '@icons/listNumbers/2.svg?raw'
+import three from '@icons/listNumbers/3.svg?raw'
+import four from '@icons/listNumbers/4.svg?raw'
+import Icon from "@elements/Icon.astro"
+
+const icons = [
+  one,
+  two,
+  three,
+  four
+]
+
+let {
+  title = '',
+  style = 'tint',
+  items = []
+} = Astro.props
+
+items = items.map((item : { title: string, subtitle:string, icon: any }, index : number ) => {
+  return {
+    ...item,
+    icon: icons[index]
+  }
+})
+
+const fill = '#59CCD9'
+
+const headerClasses = classy([
+  'header-s',
+  'font-bold',
+  'text-tint',
+  'text-center',
+  'mb-8'
+])
+
+const titleClasses = classy([
+  'header-xs',
+  'font-bold',
+  'text-tint',
+  'text-center',
+])
+
+const mobiletitleClasses = classy([
+  'header-xs',
+  'font-bold',
+  'text-tint',
+  'text-center',
+  'col-span-5'
+])
+
+const subtitleClasses = classy([
+  'k-body-l',
+  'text-justify',
+])
+
+const mobilesubtitleClasses = classy([
+  'k-body-l',
+  'text-justify',
+  'col-span-5',
+  'row-span-2'
+])
+
+const desktopHolderClasses = classy([
+  'grid-cols-4',
+  'lg:gap-4',
+  'justify-center',
+  'hidden lg:grid'
+])
+
+const mobileHolderClasses = classy([
+  'grid-cols-6',
+  'gap-4',
+  'justify-center',
+  'grid lg:hidden'
+])
+
+---
+<div class="k-section">
+  <h2 {...headerClasses}>
+    {title}
+  </h2>
+  <div {...desktopHolderClasses} >
+    { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+      return (
+        <Icon class="justify-self-center" icon={item.icon} fill={fill}/>
+      )
+    })}
+    { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+          return (
+            <div {...titleClasses}>{item.title}</div>
+          )
+        })}
+  { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+    return (
+      <div {...subtitleClasses}>{item.subtitle}</div>
+    )
+  })}
+  </div>
+  <div {...mobileHolderClasses} >
+    { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+      return (
+        <Icon class='row-span-3 col-span-1 pt-2' icon={item.icon} fill={fill}/>
+        <div {...mobiletitleClasses}>{item.title}</div>
+        <div {...mobilesubtitleClasses}>{item.subtitle}</div>
+      )
+    })}
+  </div>
+</div>

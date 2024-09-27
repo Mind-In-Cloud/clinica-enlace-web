@@ -20,6 +20,7 @@ const {
   },
   class: className = '',
   classTitle = '',
+  classSubtitle = '',
   classIcon= '',
   isElement = false,
 } = Astro.props
@@ -32,19 +33,20 @@ const mediaPanelClasses = classy([
 ])
 
 const mediaTitleClasses = classy([
-  !small && !medium && 'header-l text-center',
-  medium && 'header-m text-center',
-  small && 'header-s text-center',
+  !small && !medium && 'header-l',
+  medium && 'header-m',
+  small && 'header-s',
   `text-${style}`,
   'col-span-4',
   'my-4 xl:my-6',
-  classTitle
+  classTitle ? classTitle : 'text-center',
 ])
 
 const mediaSubtitleClasses = classy([
-  'k-subtitle text-center',
+  'k-subtitle',
   'col-span-4',
-  'text-neutral-700 whitespace-pre-line'
+  'text-neutral-700 whitespace-pre-line',
+  classSubtitle ? classSubtitle : 'text-center',
 ])
 
 const iconClasses = classy([

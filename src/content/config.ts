@@ -25,6 +25,7 @@ const medicosCollection = defineCollection({
     info: z.string(),
     photo: z.string(),
     especialidad: z.string(),
+    centros: z.array(z.string()),
     tags: z.array(z.string())
   })
 });
