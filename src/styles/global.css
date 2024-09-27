@@ -31,11 +31,6 @@ body {
   color: #4CAEB9;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #2D3648!important;
-}
-
 .swiper-pagination-bullet {
   background-color: #59CCD9!important;
   opacity: 0.3!important;
@@ -48,7 +43,7 @@ body {
 :root{
   swiper-container::part(button-prev),
   swiper-container::part(button-next) {
-    color: #2D3648;
+    color: #59CCD9;
   }
   swiper-container::part(bullet-active) {
     background-color: #59CCD9;
