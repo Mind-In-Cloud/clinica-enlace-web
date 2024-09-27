@@ -106,11 +106,17 @@ const mobileHolderClasses = classy([
   })}
   </div>
   <div {...mobileHolderClasses} >
-    { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+    { items.map(( item: { title: string, htmlSubtitle:string, subtitle:string, icon: string } ) => {
       return (
         <Icon class='row-span-3 col-span-1 pt-2' icon={item.icon} fill={fill}/>
         <div {...mobiletitleClasses}>{item.title}</div>
-        <div {...mobilesubtitleClasses}>{item.subtitle}</div>
+        <div {...mobilesubtitleClasses}>
+        {item.htmlSubtitle ?
+            <Fragment set:html={item.htmlSubtitle}/>
+          :
+            <Fragment>{item.subtitle}</Fragment>
+          }
+        </div>
       )
     })}
   </div>
