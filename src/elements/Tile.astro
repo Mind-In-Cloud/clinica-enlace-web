@@ -19,6 +19,7 @@ const tileClasses = classy([
   'p-4 xl:p-4 2xl:p-8',
   'text-white',
   'text-center',
+  'aspect-tile',
   `bg-${style}`,
   'flex flex-col',
   'items-center',
@@ -65,6 +66,11 @@ const iconClasses = classy([
       &:hover {
         transform: scale(1.1);
       }
+    }
+  }
+  .aspect-tile {
+    @media screen and (max-width: 767px) {
+      aspect-ratio: 8 / 7;
     }
   }
 </style>
