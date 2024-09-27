@@ -11,7 +11,9 @@ import GreatList from '@components/GreatList.astro';
 import ReactSlider from '@components/SliderDoctors.jsx';
 
 import { getCollection } from 'astro:content';
-const allDoctors = await getCollection("medicos");
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-dolor");
+});
 
 const seo = {
   title: 'Centro de Manejo del Dolor',

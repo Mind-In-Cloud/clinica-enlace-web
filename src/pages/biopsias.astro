@@ -15,7 +15,9 @@ import ReactSlider from '@components/SliderDoctors.jsx';
 
 import { getCollection } from 'astro:content';
 import Tiles from '@components/Tiles.astro';
-const allDoctors = await getCollection("medicos");
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-biopsias");
+});
 
 const seo = {
   title: 'Biopsias',
