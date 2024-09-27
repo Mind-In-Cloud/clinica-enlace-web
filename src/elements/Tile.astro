@@ -19,7 +19,6 @@ const tileClasses = classy([
   'p-4 xl:p-4 2xl:p-8',
   'text-white',
   'text-center',
-  'aspect-tile',
   `bg-${style}`,
   'flex flex-col',
   'items-center',
@@ -30,7 +29,7 @@ const tileClasses = classy([
 
 const titleClasses = classy([
   'typo-header-s',
-  'lg:typo-header-xs',
+  'md:typo-header-xs',
   'xl:typo-header-m',
   'antialiased'
 ])
@@ -67,8 +66,5 @@ const iconClasses = classy([
         transform: scale(1.1);
       }
     }
-  }
-  .aspect-tile {
-    aspect-ratio: 8 / 7;
   }
 </style>
