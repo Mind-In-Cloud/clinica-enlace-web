@@ -15,6 +15,7 @@ const {
 } = Astro.props;
 
 const tileClasses = classy([
+  'k-tile',
   'p-4 xl:p-8',
   'text-white',
   'text-center',
@@ -24,6 +25,7 @@ const tileClasses = classy([
   'items-center',
   text ? 'justify-around' : 'place-content-between',
   style === 'blue' && 'bg-gray',
+  'hover:scale-110',
   className
 ])
 
@@ -59,6 +61,9 @@ const iconClasses = classy([
   }
 </a>
 <style>
+  .k-tile {
+    transition: all 200ms ease
+  }
   .aspect-tile {
     aspect-ratio: 8 / 7;
   }
