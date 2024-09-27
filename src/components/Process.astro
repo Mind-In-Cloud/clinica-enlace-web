@@ -16,7 +16,6 @@ const icons = [
 
 let {
   title = '',
-  style = 'tint',
   items = []
 } = Astro.props
 
@@ -66,7 +65,7 @@ const mobilesubtitleClasses = classy([
 
 const desktopHolderClasses = classy([
   'grid-cols-4',
-  'lg:gap-4',
+  'lg:gap-4 xl:gap-x-8',
   'justify-center',
   'hidden lg:grid'
 ])
@@ -94,9 +93,15 @@ const mobileHolderClasses = classy([
             <div {...titleClasses}>{item.title}</div>
           )
         })}
-  { items.map(( item: { title: string, subtitle:string, icon: string } ) => {
+  { items.map(( item: { htmlSubtitle: string, subtitle:string } ) => {
     return (
-      <div {...subtitleClasses}>{item.subtitle}</div>
+      <div {...subtitleClasses}>
+        {item.htmlSubtitle ?
+          <Fragment set:html={item.htmlSubtitle}/>
+        :
+          <Fragment>{item.subtitle}</Fragment>
+        }
+      </div>
     )
   })}
   </div>

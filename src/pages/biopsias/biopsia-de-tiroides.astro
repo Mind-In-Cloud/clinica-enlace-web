@@ -4,7 +4,7 @@ import BaseLayout from '@layouts/base.astro';
 import Map from '@components/Map.astro';
 
 import seoImage from '@images/colab.jpg';
-import iconoCentros from '@icons/biopsiahigado.svg?raw'
+import iconoCentros from '@icons/biopsiatiroides.svg?raw'
 
 import MediaPanel from '@components/MediaPanel.astro';
 import DoctorCabinet from "@components/DoctorCabinet.jsx";
@@ -17,8 +17,8 @@ const allDoctors = await getCollection("medicos", ({data}) => {
 });
 
 const seo = {
-  title: 'Biopsia de Hígado',
-  description: 'Biopsia de hígado para diagnóstico de cáncer en Nuevo León: Procedimientos seguros con especialistas en San Nicolás y área metropolitana.',
+  title: 'Biopsia de Tiroides',
+  description: 'Biopsia de hígado para diagnóstico de cáncer en Nuevo León: Procedimientos seguros con especialistas en San Nicolás y área metropolitana',
   image: seoImage,
 }
 ---
@@ -33,7 +33,7 @@ const seo = {
     icon={iconoCentros}
     classTitle="mb-4 lg:mb-12 text-center"
   >
-    <span slot="title">Biopsia de <strong>Hígado</strong></span>
+    <span slot="title">Biopsia de <strong>Tiroides</strong></span>
     <span slot="subtitle">En el Centro de Biopsias, nos especializamos en cubrir todo el proceso de diagnóstico, desde la toma de muestra hasta entregar a ti y a tu médico tratante los hallazgos.</span>
   </MediaPanel>
   <MediaPanel
@@ -41,20 +41,10 @@ const seo = {
     small
     classTitle="mb-4 lg:mb-12 font-bold text-left"
     classSubtitle="text-left"
-    title="¿Para qué sirve la biopsia de hígado?"
+    title="¿Para qué sirve la biopsia de tiroides?"
   >
     <span slot="subtitle">
-      <span>La <strong>biopsia de hígado</strong> es un procedimiento diagnóstico ambulatorio, el cual permite a los médicos obtener una muestra de tejido hepático, que luego se analiza para detectar enfermedades como:
-      </span>
-      <ul class="p-6 list-disc">
-        <li class="pb-2">Algunos tipos de cáncer</li>
-        <li class="pb-2">Cirrosis</li>
-        <li class="pb-2">Hepatitis</li>
-        <li class="pb-2">Esteatosis hepática (“grasa en el hígado”)</li>
-        <li>Otras afecciones hepáticas</li>
-      </ul>
-      <span>Este procedimiento es crucial para determinar la causa de problemas hepáticos y para decidir el mejor tratamiento a seguir.
-      </span>
+      La <strong>biopsia de tiroides</strong> es un procedimiento de mínima invasión, el cual se recomienda realizar a nódulos tiroideos de aspecto sospechoso, con el fin de determinar si son benignos o malignos.
     </span>
   </MediaPanel>
   <MediaPanel
@@ -65,7 +55,7 @@ const seo = {
     title="Valoración clínica"
   >
     <span slot="subtitle">
-      Antes de realizar una biopsia de hígado, recomendamos una valoración clínica integral a través de un <strong>enfoque multidisciplinario</strong>, en el que participan médicos de diversas especialidades. Esta evaluación inicial nos permite revisar tu historial médico, abordar cualquier inquietud y planificar el procedimiento de manera segura y eficaz.
+      Antes de realizar una biopsia de tiroides, recomendamos una valoración clínica integral a través de un <strong>enfoque multidisciplinario</strong>, en el que participan médicos de diversas especialidades. Esta evaluación inicial nos permite revisar tu historial médico, abordar cualquier inquietud y planificar el procedimiento de manera segura y eficaz.
     </span>
   </MediaPanel>
   <MediaPanel
@@ -76,11 +66,9 @@ const seo = {
     title="Tipos de biopsias"
   >
     <span slot="subtitle">
-      <p>Ofrecemos diferentes tipos de biopsias, cada una adaptada a las necesidades específicas de nuestros pacientes. Nuestro equipo de radiólogos intervencionistas, en colaboración con tu médico, determinarán cuál es la opción más adecuada para ti.</p>
+      <p>Por lo general, el método para realizar la biopsia tiroidea se conoce como <strong>“BAAF”</strong> (biopsia por aspiración con aguja fina), con una aguja de muy pequeño grosor, se extrae el material necesario para su posterior análisis.</p>
 
-      <p class="py-4">Por lo general, el método de biopsia se realiza mediante agujas de corte <strong>“Trucut”</strong>, las cuales tienen un diámetro menor a 5mm, y utilizando ultrasonido, el médico dirige la aguja hacia el área a tomar la muestra.</p>
-
-      <p>La biopsia de hígado también puede realizarse mediante <strong>laparoscopía.</strong></p>
+      <p class="pt-4">Nuestro equipo de radiólogos intervencionistas, en colaboración con tu médico tratante, te asesorará sobre cuál es la opción más adecuada para ti.</p>
     </span>
   </MediaPanel>
   <MediaPanel
@@ -91,9 +79,9 @@ const seo = {
     title="Opciones de anestesia"
   >
     <span slot="subtitle">
-      <p>Antes del procedimiento, discutiremos contigo las opciones de anestesia para asegurarnos de que te sientas cómodo.</p>
-      <p class="py-3">La biopsia Trucut de hígado suele realizarse <strong>con sedación</strong>, mientras que la biopsia laparoscópica de hígado se realiza con <strong></strong>anestesia general</strong>.</p>
-      <p>Cualquier cambio se decidirá junto con el médico anestesiólogo, siempre pensando en tu bienestar.</p>
+      <p>La biopsia por aspiración con aguja fina (<strong>BAAF</strong>) se realiza en la gran mayoría de las ocasiones bajo <strong>anestesia local</strong> (anestesia inyectada en el área donde se realizará el procedimiento).</p>
+
+      <p class="pt-3">En algunos casos, el médico necesitará realizar el procedimiento bajo sedación, dependiendo de las características del paciente.</p>
     </span>
   </MediaPanel>
   <Process
@@ -109,7 +97,7 @@ const seo = {
       },
       {
         title: 'Toma de muestra',
-        subtitle: 'El radiólogo intervencionista utilizará una aguja Trucut, guiado por ultrasonido, para obtener varias muestras del tejido de interés.'
+        htmlSubtitle: '<p>El radiólogo intervencionista utilizará una aguja de fino calibre para obtener la muestra del tejido necesario.</p><p class="py-4"><strong>Patología transoperatoria:</strong></p></br><p>Durante el procedimiento, un patólogo examinará la muestra bajo el microscopio para evaluar si es adecuada para acercarnos a un diagnóstico. Este análisis ayuda a reducir la probabilidad de que sea necesario repetir el procedimiento.</p>'
       },
       {
         title : 'Post-procedimiento',
