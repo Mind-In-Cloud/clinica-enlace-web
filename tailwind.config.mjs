@@ -13,6 +13,9 @@ export default {
 			white: '#F8FAFC',
 		},
 		extend: {
+			future: {
+				hoverOnlyWhenSupported: true,
+			},
 			fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
