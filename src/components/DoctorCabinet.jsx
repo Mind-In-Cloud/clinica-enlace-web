@@ -5,7 +5,7 @@ import DoctorCard from '@elements/DoctorCard.jsx'
 import classy from '@utils/classy';
 import hash from '@utils/hash';
 
-export const DoctorCabinet = ({doctors = []}) => {
+export const DoctorCabinet = ({doctors = [], dropdown = true , centros = ''}) => {
 
   const [ shownDoctors, setShownDoctors ] = useState(doctors);
   const [ activeTag, setActiveTag ] = useState('Especialidad');
@@ -69,41 +69,43 @@ export const DoctorCabinet = ({doctors = []}) => {
 
   return (
     <div {...doctorCabClasses} >
-      <div {...filterWrapClasses } >
-        <button {...filterClasses} id='k-filter' onClick={handleFilterClick}>
-          <div>{activeTag}</div>
-          <div class={`k-icon max-w-4 self-center ml-2${isOpen ? ' rotate-180' : ''}`}>
-            <svg width="100%" height="100%" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.88 0.560058L8 6.66672L14.12 0.560059L16 2.44006L8 10.4401L-8.21774e-08 2.44006L1.88 0.560058Z" fill="#8CA6BC"/>
-            </svg>
+      { dropdown &&
+        <div {...filterWrapClasses } >
+          <button {...filterClasses} id='k-filter' onClick={handleFilterClick}>
+            <div>{activeTag}</div>
+            <div class={`k-icon max-w-4 self-center ml-2${isOpen ? ' rotate-180' : ''}`}>
+              <svg width="100%" height="100%" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.88 0.560058L8 6.66672L14.12 0.560059L16 2.44006L8 10.4401L-8.21774e-08 2.44006L1.88 0.560058Z" fill="#8CA6BC"/>
+              </svg>
+            </div>
+          </button>
+          <div class={`flex-col absolute ${isOpen ? ' flex' : ' hidden'}`}>
+            {
+              tags.map((tag, index) => {
+                return tag !== activeTag && tag === 'Especialidad' ?
+                  <button
+                    {...filterOptionsClasses}
+                    onClick={() => handleTagClick('Especialidad')}
+                    key={`${index}  + tag`}
+                  >
+                    Todas
+                  </button>
+                :
+                  tag !== activeTag ?
+                  <button
+                    {...filterOptionsClasses}
+                    onClick={() => handleTagClick(tag)}
+                    key={`${index}  + tag not especialidad`}
+                  >
+                    {tag}
+                  </button>
+                :
+                  null
+              })
+            }
           </div>
-        </button>
-        <div class={`flex-col absolute ${isOpen ? ' flex' : ' hidden'}`}>
-          {
-            tags.map((tag, index) => {
-              return tag !== activeTag && tag === 'Especialidad' ?
-                <button
-                  {...filterOptionsClasses}
-                  onClick={() => handleTagClick('Especialidad')}
-                  key={`${index}  + tag`}
-                >
-                  Todas
-                </button>
-              :
-                tag !== activeTag ?
-                <button
-                  {...filterOptionsClasses}
-                  onClick={() => handleTagClick(tag)}
-                  key={`${index}  + tag not especialidad`}
-                >
-                  {tag}
-                </button>
-              :
-                null
-            })
-          }
         </div>
-      </div>
+      }
       { shownDoctors.map((doctor, index) => (
         <DoctorCard {...doctor} class="col-span-1" loading={index > 4 ? 'lazy' : 'eager'} key={hash(doctor,index)}/>
       ))}

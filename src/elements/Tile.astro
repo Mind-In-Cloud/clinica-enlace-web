@@ -1,0 +1,76 @@
+---
+import Icon from "@elements/Icon.astro"
+import classy from "@utils/classy";
+import arrow from '@icons/flecha.svg?raw'
+
+const {
+  text = '',
+  title = '',
+  subtitle= '',
+  url = '',
+  style = '',
+  icon = '',
+  iconSize = '',
+  class : className = '',
+} = Astro.props;
+
+const tileClasses = classy([
+  'k-tile',
+  'p-4 xl:p-4 2xl:p-8',
+  'text-white',
+  'text-center',
+  'aspect-tile',
+  `bg-${style}`,
+  'flex flex-col',
+  'items-center',
+  text ? 'justify-around' : 'place-content-between',
+  style === 'blue' && 'bg-gray',
+  className
+])
+
+const titleClasses = classy([
+  'typo-header-s',
+  'md:typo-header-xs',
+  'xl:typo-header-m',
+  'antialiased'
+])
+
+const subtitleClasses = classy([
+  'typo-body-l md:typo-body-s lg:text-sm xl:typo-body-xl antialiased',
+])
+
+const iconClasses = classy([
+  text ? 'max-w-[50%]' : 'max-w-32',
+  iconSize ? `md:max-h-[33%] max-h-[${iconSize}] xl:max-h-[33%]` : text ? 'max-h-[50%]': 'max-h-[33%]',
+  'w-full'
+])
+---
+<a href={url} {...tileClasses}>
+  <Icon icon={icon} {...iconClasses}/>
+  {
+    text ?
+    <p class="font-bold antialiased">{text}</p> :
+    <p {...titleClasses}>
+      <Fragment set:html={title}/>
+    </p>
+    <p {...subtitleClasses}>
+      {subtitle}
+    </p>
+    <Icon icon={arrow} class="max-h-4 xl:max-h-6 w-full"/>
+  }
+</a>
+<style>
+  .k-tile {
+    transition: all 200ms ease;
+    @media screen and (min-width: 768px) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .aspect-tile {
+    @media screen and (max-width: 767px) {
+      aspect-ratio: 8 / 7;
+    }
+  }
+</style>

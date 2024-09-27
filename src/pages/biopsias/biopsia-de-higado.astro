@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import iconoCentros from '@icons/biopsiahigado.svg?raw'
+
+import MediaPanel from '@components/MediaPanel.astro';
+import DoctorCabinet from "@components/DoctorCabinet.jsx";
+
+import { getCollection } from 'astro:content';
+import Process from '@components/Process.astro';
+import ContactPanel from '@components/ContactPanel.astro';
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-biopsias");
+});
+
+const seo = {
+  title: 'Biopsia de Hígado',
+  description: 'Biopsia de hígado para diagnóstico de cáncer en Nuevo León: Procedimientos seguros con especialistas en San Nicolás y área metropolitana.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}
+  breadcrumbs={{
+    title:"Ir a Biopsias",
+    url:'/biopsias'
+  }}
+>
+  <MediaPanel
+    main
+    icon={iconoCentros}
+    classTitle="mb-4 lg:mb-12 text-center"
+  >
+    <span slot="title">Biopsia de <strong>Hígado</strong></span>
+    <span slot="subtitle">En el Centro de Biopsias, nos especializamos en cubrir todo el proceso de diagnóstico, desde la toma de muestra hasta entregar a ti y a tu médico tratante los hallazgos.</span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="¿Para qué sirve la biopsia de hígado?"
+  >
+    <span slot="subtitle">
+      <span>La <strong>biopsia de hígado</strong> es un procedimiento diagnóstico ambulatorio, el cual permite a los médicos obtener una muestra de tejido hepático, que luego se analiza para detectar enfermedades como:
+      </span>
+      <ul class="p-6 list-disc">
+        <li class="pb-2">Algunos tipos de cáncer</li>
+        <li class="pb-2">Cirrosis</li>
+        <li class="pb-2">Hepatitis</li>
+        <li class="pb-2">Esteatosis hepática (“grasa en el hígado”)</li>
+        <li>Otras afecciones hepáticas</li>
+      </ul>
+      <span>Este procedimiento es crucial para determinar la causa de problemas hepáticos y para decidir el mejor tratamiento a seguir.
+      </span>
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="Valoración clínica"
+  >
+    <span slot="subtitle">
+      Antes de realizar una biopsia de hígado, recomendamos una valoración clínica integral a través de un <strong>enfoque multidisciplinario</strong>, en el que participan médicos de diversas especialidades. Esta evaluación inicial nos permite revisar tu historial médico, abordar cualquier inquietud y planificar el procedimiento de manera segura y eficaz.
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="Tipos de biopsias"
+  >
+    <span slot="subtitle">
+      <p>Ofrecemos diferentes tipos de biopsias, cada una adaptada a las necesidades específicas de nuestros pacientes. Nuestro equipo de radiólogos intervencionistas, en colaboración con tu médico, determinarán cuál es la opción más adecuada para ti.</p>
+
+      <p class="py-4">Por lo general, el método de biopsia se realiza mediante agujas de corte <strong>“Trucut”</strong>, las cuales tienen un diámetro menor a 5mm, y utilizando ultrasonido, el médico dirige la aguja hacia el área a tomar la muestra.</p>
+
+      <p>La biopsia de hígado también puede realizarse mediante <strong>laparoscopía.</strong></p>
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="Opciones de anestesia"
+  >
+    <span slot="subtitle">
+      <p>Antes del procedimiento, discutiremos contigo las opciones de anestesia para asegurarnos de que te sientas cómodo.</p>
+      <p class="py-3">La biopsia Trucut de hígado suele realizarse <strong>con sedación</strong>, mientras que la biopsia laparoscópica de hígado se realiza con <strong></strong>anestesia general</strong>.</p>
+      <p>Cualquier cambio se decidirá junto con el médico anestesiólogo, siempre pensando en tu bienestar.</p>
+    </span>
+  </MediaPanel>
+  <Process
+    title = 'Procedimiento de la biopsia'
+    items = {[
+      {
+        title: 'Valoración clínica',
+        subtitle: 'Esta evaluación inicial nos permite conocer tu historial médico, discutir cualquier preocupación que tengas y planificar el procedimiento de manera segura y eficaz, así como el tipo de biopsia más adecuado para ti.'
+      },
+      {
+        title: 'Preparación del paciente',
+        subtitle: 'El personal de enfermería te preparará en el área del procedimiento antes de la biopsia.'
+      },
+      {
+        title: 'Toma de muestra',
+        subtitle: 'El radiólogo intervencionista utilizará una aguja Trucut, guiado por ultrasonido, para obtener varias muestras del tejido de interés.'
+      },
+      {
+        title : 'Post-procedimiento',
+        subtitle : 'Te proporcionaremos instrucciones claras sobre el cuidado postoperatorio y programaremos una cita de seguimiento para revisar los resultados y planificar los próximos pasos.'
+      }
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold text-center"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <DoctorCabinet doctors={allDoctors} dropdown={false} client:load/>
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>

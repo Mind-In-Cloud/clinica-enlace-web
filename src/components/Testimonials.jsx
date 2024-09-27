@@ -73,7 +73,7 @@ const Testimonials = () => {
         testimonials.map((testimonial, index) => {
           return (
             <swiper-slide key={hash(index, testimonial)} class='!grid !grid-cols-8 !gap-4 self-center'>
-              <div class="col-span-8 content-center md:col-start-2 md:col-span-1 md:items-center lg:flex lg:justify-center" dangerouslySetInnerHTML={{__html:testimonial.avatar}}/>
+              <div class="col-span-8 content-center md:col-start-1 md:col-span-2 lg:col-start-1 md:items-center lg:flex justify-self-center md:justify-center" dangerouslySetInnerHTML={{__html:testimonial.avatar}}/>
               <div class="col-span-6 col-start-2 grid grid-cols-8 md:col-span-6 md:col-start-3 md:col-end-8">
                 <p class="typo-body-l md:typo-body-xxl col-span-8 text-justify italic text-neutral-500 antialiased">
                   {testimonial.review}

@@ -10,7 +10,7 @@ body {
 
 @layer components {
   .k-section{
-    @apply px-8 my-12 lg:px-36 lg:my-16 2xl:px-48;
+    @apply px-8 my-12 lg:px-20 lg:my-16 2xl:px-48;
   }
 }
 
@@ -23,9 +23,12 @@ body {
   }
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #2D3648!important;
+.bg-tint {
+  background-color: #4CAEB9;
+}
+
+.text-tint {
+  color: #4CAEB9;
 }
 
 .swiper-pagination-bullet {
@@ -40,7 +43,7 @@ body {
 :root{
   swiper-container::part(button-prev),
   swiper-container::part(button-next) {
-    color: #2D3648;
+    color: #59CCD9;
   }
   swiper-container::part(bullet-active) {
     background-color: #59CCD9;

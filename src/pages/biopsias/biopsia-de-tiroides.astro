@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import iconoCentros from '@icons/biopsiatiroides.svg?raw'
+
+import MediaPanel from '@components/MediaPanel.astro';
+import DoctorCabinet from "@components/DoctorCabinet.jsx";
+
+import { getCollection } from 'astro:content';
+import Process from '@components/Process.astro';
+import ContactPanel from '@components/ContactPanel.astro';
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-biopsias");
+});
+
+const seo = {
+  title: 'Biopsia de Tiroides',
+  description: 'Biopsia de tiroides para diagnóstico de cáncer en Nuevo León: Procedimientos seguros con especialistas en San Nicolás y área metropolitana',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}
+  breadcrumbs={{
+    title:"Ir a Biopsias",
+    url:'/biopsias'
+  }}
+>
+  <MediaPanel
+    main
+    icon={iconoCentros}
+    classTitle="mb-4 lg:mb-8 text-center"
+  >
+    <span slot="title">Biopsia de <strong>Tiroides</strong></span>
+    <span slot="subtitle">En el Centro de Biopsias, nos especializamos en cubrir todo el proceso de diagnóstico, desde la toma de muestra hasta entregar a ti y a tu médico tratante los hallazgos.</span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-8 font-bold"
+    classSubtitle="text-left"
+    title="¿Para qué sirve la biopsia de tiroides?"
+  >
+    <span slot="subtitle">
+      La <strong>biopsia de tiroides</strong> es un procedimiento de mínima invasión, el cual se recomienda realizar a nódulos tiroideos de aspecto sospechoso, con el fin de determinar si son benignos o malignos.
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-8 font-bold"
+    classSubtitle="text-left"
+    title="Valoración clínica"
+  >
+    <span slot="subtitle">
+      Antes de realizar una biopsia de tiroides, recomendamos una valoración clínica integral a través de un <strong>enfoque multidisciplinario</strong>, en el que participan médicos de diversas especialidades. Esta evaluación inicial nos permite revisar tu historial médico, abordar cualquier inquietud y planificar el procedimiento de manera segura y eficaz.
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-8 font-bold"
+    classSubtitle="text-left"
+    title="Tipos de biopsias"
+  >
+    <span slot="subtitle">
+      <p>Por lo general, el método para realizar la biopsia tiroidea se conoce como <strong>“BAAF”</strong> (biopsia por aspiración con aguja fina), con una aguja de muy pequeño grosor, se extrae el material necesario para su posterior análisis.</p>
+
+      <p class="pt-4">Nuestro equipo de radiólogos intervencionistas, en colaboración con tu médico tratante, te asesorará sobre cuál es la opción más adecuada para ti.</p>
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-8 font-bold"
+    classSubtitle="text-left"
+    title="Opciones de anestesia"
+  >
+    <span slot="subtitle">
+      <p>La biopsia por aspiración con aguja fina (<strong>BAAF</strong>) se realiza en la gran mayoría de las ocasiones bajo <strong>anestesia local</strong> (anestesia inyectada en el área donde se realizará el procedimiento).</p>
+
+      <p class="pt-3">En algunos casos, el médico necesitará realizar el procedimiento bajo sedación, dependiendo de las características del paciente.</p>
+    </span>
+  </MediaPanel>
+  <Process
+    title = 'Procedimiento de la biopsia'
+    items = {[
+      {
+        title: 'Valoración clínica',
+        subtitle: 'Esta evaluación inicial nos permite conocer tu historial médico, discutir cualquier preocupación que tengas y planificar el procedimiento de manera segura y eficaz, así como el tipo de biopsia más adecuado para ti.'
+      },
+      {
+        title: 'Preparación del paciente',
+        subtitle: 'El personal de enfermería te preparará en el área del procedimiento antes de la biopsia.'
+      },
+      {
+        title: 'Toma de muestra',
+        htmlSubtitle: '<p>El radiólogo intervencionista utilizará una aguja de fino calibre para obtener la muestra del tejido necesario.</p>'
+      },
+      {
+        title : 'Post-procedimiento',
+        subtitle : 'Te proporcionaremos instrucciones claras sobre el cuidado postoperatorio y programaremos una cita de seguimiento para revisar los resultados y planificar los próximos pasos.'
+      }
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold text-center"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <DoctorCabinet doctors={allDoctors} dropdown={false} client:load/>
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>
