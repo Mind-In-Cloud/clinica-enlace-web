@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/base.astro';
 import seoDefault from "@images/mainPhotoDesktop.png"
 
+import { Image } from 'astro:assets'
 import Socials from '../footerComponents/Socials.astro';
 import Linebreak from '@elements/Linebreak.astro';
 
@@ -14,6 +15,7 @@ const {
 	title : authorName = 'Missing Name',
 	blog: authorDescription = 'Missing Description',
 	especialidad = 'Missing Especialidad',
+	photo : authorPhoto = ''
 } = author
 
 const {
@@ -36,8 +38,8 @@ const subtitleClasses = classy([
 ])
 
 const mobileImg = await loadImage(images.mobile)
-console.log(`🚀 ~ mobileImg:`, mobileImg)
 const desktopImg = await loadImage(images.desktop)
+const authorImg = await loadImage(authorPhoto)
 
 // TODO : I think categories will be created as a data type too
 let categories = [
@@ -69,14 +71,20 @@ let categories = [
 					<slot/>
 				</div>
       </div>
-      <div class="col-span-8 md:col-span-2 pl-4">
+      <div class="col-span-8 md:col-span-2 md:pl-4">
 				<div class="flex flex-col items-center">
-					<div> imgplaceholder </div>
-					<div class="typo-body-m antialiased pt-4 text-center">
+					<div style="clip-path: circle()">
+						<Image
+						src={authorImg}
+						format='webp'
+						alt=`Foto de ${title}`
+						/>
+					</div>
+					<div class="typo-body-m antialiased mt-4 text-center">
 						{authorDescription}
 					</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2">{authorName}</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2 pb-4">Especialidad: {especialidad}</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 my-4">{authorName}</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 mt-2 mb-4">Especialidad: {especialidad}</div>
 				</div>
 				<div class="k-categories">
 					<div {...subtitleClasses}>
