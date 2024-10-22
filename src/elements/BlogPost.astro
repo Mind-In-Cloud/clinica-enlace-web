@@ -1,6 +1,50 @@
 ---
-const { url, title } =  Astro.props
+import classy from "@utils/classy"
+import Link from '@elements/Link.astro'
+
+const {
+  slug = '',
+  data = {},
+} =  Astro.props
+// console.log(`🚀 ~ Astro.props:`, Astro.props)
+
+const {
+  categorias
+} = data
+
+const articleClasses = classy([
+  'k-article',
+  'bg-cyan',
+  'grid grid-cols-8',
+  'p-4 lg:p-8',
+  'mb-4'
+])
 ---
-<li>
-  <a href={ url } >{ title }</a>
-</li>
+<div {...articleClasses} >
+  <div class="col-span-8 md:col-span-3">
+    imageplaceholder
+  </div>
+  <div class="col-span-8 md:col-span-5 grid grid-cols-8">
+    <a
+      href={`/blog/${categorias[0]}`.toLowerCase()}
+      class="k-link k-body-l text-[#4A5468] underline col-span-4"
+    >
+      {categorias[0]}
+    </a>
+    <span
+      class="k-link k-body-l text-[#4A5468] col-span-4 text-right"
+    >
+      {categorias[0]}
+    </span>
+    <div class="col-span-8">c</div>
+    <div class="col-span-4">a</div>
+    <div class="col-span-4 flex justify-end">
+      <Link
+        url={`/blog/${slug}`}
+        color="metal"
+      >
+        Leer
+      </Link>
+    </div>
+  </div>
+</div>

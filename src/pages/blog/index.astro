@@ -6,11 +6,11 @@ import MediaPanel from "@components/MediaPanel.astro";
 import BlogPost from '@elements/BlogPost.astro';
 
 // const allPosts = await Astro.glob('../pages/posts/*.md'); // old
-const allPosts = await getCollection('blogs');
-// const pageTitle = "Blog";
+const allBlog = await getCollection('blogs');
 // for second part of proyect : https://docs.astro.build/en/tutorials/add-content-collections/
 
 import seoImage from '@images/mainPhotoBig.jpg'
+import BlogSidebar from '@components/blogSidebar.astro';
 
 // const pageTitle = "Inicio";
 const seo = {
@@ -22,7 +22,7 @@ const seo = {
 }
 
 ---
-<BaseLayout {seo}>
+<BaseLayout {seo} wha={false}>
   <MediaPanel
     title="Blog"
     subtitle="Descubre, aprende y avanza con nuestro blog especializado en intervencionismo médico. Encuentra artículos informativos sobre los últimos avances y técnicas. Utiliza el buscador para acceder a guías detalladas y consejos prácticos."
@@ -31,14 +31,18 @@ const seo = {
   />
   <MediaPanel
     title="Artículos recientes"
-    classTitle="font-bold"
+    classTitle="font-bold text-neutral-500"
     medium
   />
-  <!-- TODO: remove these -->
-	<ul>
-		{ allPosts.map( post =>
-			// <BlogPost url={post.url} title={post.frontmatter.title} />
-			<BlogPost url={`/blog/${post.slug}`} title={post.data.title} />
-		)}
-	</ul>
+  <div class="k-section grid grid-cols-8 gap-x-10 px-0 md:px-8">
+    <div class="col-span-8 md:col-span-6">
+      { allBlog.map( post =>
+        // <BlogPost url={post.url} title={post.frontmatter.title} />
+        <BlogPost { ...post } />
+      )}
+    </div>
+    <div class="col-span-8 md:col-span-2">
+      <BlogSidebar/>
+    </div>
+  </div>
 </BaseLayout>

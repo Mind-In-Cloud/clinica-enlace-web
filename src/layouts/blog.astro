@@ -3,8 +3,7 @@ import BaseLayout from '@layouts/base.astro';
 import seoDefault from "@images/mainPhotoDesktop.png"
 
 import { Image } from 'astro:assets'
-import Socials from '../footerComponents/Socials.astro';
-import Linebreak from '@elements/Linebreak.astro';
+import BlogSidebar from '@components/blogSidebar.astro';
 
 import classy from '@utils/classy';
 import { loadImage } from '@utils/ImageDynamic';
@@ -86,49 +85,7 @@ let categories = [
 					<div class="font-bold typo-body-m antialiased text-neutral-600 my-4">{authorName}</div>
 					<div class="font-bold typo-body-m antialiased text-neutral-600 mt-2 mb-4">Especialidad: {especialidad}</div>
 				</div>
-				<div class="k-categories">
-					<div {...subtitleClasses}>
-						Categorías
-					</div>
-					{categories.map( (category, index) => {
-
-						const categoryClasses = classy([
-							"typo-body-m",
-							"antialiased",
-							"text-neutral-400",
-							"py-2",
-							"border-t",
-							index === categories.length - 1 && "border-b",
-							"border-neutral-400"
-						])
-
-						return (
-							<div {...categoryClasses}>
-								<a href={category.link} class="block w-full">
-									{category.title}
-								</a>
-							</div>
-						)
-
-					})}
-				</div>
-				<div class="border-b">
-					<div {...subtitleClasses}>
-						Sigue nuestras redes sociales
-					</div>
-					<Socials/>
-				</div>
-				<div class="border-b">
-					<div {...subtitleClasses}>
-						Suscribirse al blog
-					</div>
-					<div
-						class="typo-body-m antialiased text-neutral-400"
-					>
-						Mantente al día con los últimos avances y técnicas en intervencionismo médico.
-					</div>
-					<!-- TODO input field -->
-				</div>
+				<BlogSidebar/>
 				<div>
 					<div {...subtitleClasses}>
 						Temas relacionados
