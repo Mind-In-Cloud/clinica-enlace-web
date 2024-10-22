@@ -23,6 +23,7 @@ const {
   seoImage = '',
   seoDescription = '',
   author = { slug: '' },
+  mainImageXL= '',
 } = blog.data
 
 const authorInfo = await getEntry('medicos', `${author}`)
@@ -36,6 +37,10 @@ const seo = {
 ---
 <BlogLayout
   {seo}
+  images = {{
+    mobile: seoImage,
+    desktop: mainImageXL
+  }}
   author = { authorInfo?.data }
   breadcrumbs={{
     title:"Volver a Blog",

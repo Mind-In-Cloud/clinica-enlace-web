@@ -52,7 +52,6 @@ const blogCollection = defineCollection({
     categorias: z.array(z.string()),
     related: z.array(z.string()),
     mainImageDesktop: z.string(),
-    mainImageMobile: z.string(),
   })
 });
 

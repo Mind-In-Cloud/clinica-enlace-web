@@ -16,7 +16,6 @@
       "@icons/*": ["src/assets/icons/*"],
       "@footer/*": ["src/footerComponents/*"],
       "@header/*": ["src/headerComponents/*"],
-      // "@assets/*": ["src/assets/*"]
     }
   }
 }

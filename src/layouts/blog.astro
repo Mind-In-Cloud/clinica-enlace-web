@@ -1,12 +1,14 @@
 ---
 import BaseLayout from '@layouts/base.astro';
 import seoDefault from "@images/mainPhotoDesktop.png"
-import classy from '@utils/classy';
 
 import Socials from '../footerComponents/Socials.astro';
 import Linebreak from '@elements/Linebreak.astro';
 
-const { seo, breadcrumbs = false, author = {}} = Astro.props ;
+import classy from '@utils/classy';
+import { loadImage } from '@utils/ImageDynamic';
+
+const { seo, breadcrumbs = false, author = {}, images = {}} = Astro.props ;
 
 const {
 	title : authorName = 'Missing Name',
@@ -33,9 +35,13 @@ const subtitleClasses = classy([
 	"py-4"
 ])
 
+const mobileImg = await loadImage(images.mobile)
+console.log(`🚀 ~ mobileImg:`, mobileImg)
+const desktopImg = await loadImage(images.desktop)
+
 // TODO : I think categories will be created as a data type too
 let categories = [
-	{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }
+	{ title: 'Intervencionismo', link: '/blog/intervencionismo' }
 ]
 ---
 <BaseLayout
@@ -43,10 +49,12 @@ let categories = [
 	{seo}
 	{breadcrumbs}
 >
+	<picture class="k-hero-image">
+		<source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
+		<source {...desktopImg} media="(min-width: 768px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
+		<img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`} alt=''/>
+	</picture>
   <section class="k-section mt-0">
-    <div class="aspect-video">
-      mainimagehere
-    </div>
     <div class="grid grid-cols-8">
       <div
         class="col-span-8 italic font-medium k-body-l py-6"
