@@ -6,7 +6,13 @@ import classy from '@utils/classy';
 import Socials from '../footerComponents/Socials.astro';
 import Linebreak from '@elements/Linebreak.astro';
 
-const { seo, breadcrumbs = false} = Astro.props ;
+const { seo, breadcrumbs = false, author = {}} = Astro.props ;
+
+const {
+	title : authorName = 'Missing Name',
+	blog: authorDescription = 'Missing Description',
+	especialidad = 'Missing Especialidad',
+} = author
 
 const {
 	title = 'Missing Title Blog',
@@ -15,7 +21,6 @@ const {
 		src,
 		width,
 		height,
-		// alt, // not used in this, needs to be defined
 		format
 	} = seoDefault
 } = seo
@@ -28,33 +33,40 @@ const subtitleClasses = classy([
 	"py-4"
 ])
 
-let categories = [{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }]
+// TODO : I think categories will be created as a data type too
+let categories = [
+	{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }
+]
 ---
-<BaseLayout wha={false} {seo}>
+<BaseLayout
+	wha={false}
+	{seo}
+	{breadcrumbs}
+>
   <section class="k-section">
     <div class="aspect-video">
-      a
+      mainimagehere
     </div>
     <div class="grid grid-cols-8">
       <div
         class="col-span-8 italic font-medium k-body-l py-6"
       >
-        Autor: Dr X
+        Autor: {authorName}
       </div>
       <div class="col-span-8 md:col-span-6">
         <h1 class="font-bold header-s">
-          title here
+          {title}
         </h1>
-        <slot name="content"/>
+        <slot/>
       </div>
       <div class="col-span-8 md:col-span-2 pl-4">
 				<div class="flex flex-col items-center">
-					<div> img </div>
+					<div> imgplaceholder </div>
 					<div class="typo-body-m antialiased pt-4 text-center">
-						El Dr. Tovar, médico general con vasta experiencia, ofrece cuidado integral y diagnóstico preciso para mejorar su salud.
+						{authorDescription}
 					</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2">Dr. Germán Tovar Fuentes</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2 pb-4">Especialidad: Cirujano General</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2">{authorName}</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2 pb-4">Especialidad: {especialidad}</div>
 				</div>
 				<div class="k-categories">
 					<div {...subtitleClasses}>

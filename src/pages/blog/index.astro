@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/base.astro';
+
+import MediaPanel from "@components/MediaPanel.astro";
+import BlogPost from '@elements/BlogPost.astro';
+
+// const allPosts = await Astro.glob('../pages/posts/*.md'); // old
+const allPosts = await getCollection('blogs');
+// const pageTitle = "Blog";
+// for second part of proyect : https://docs.astro.build/en/tutorials/add-content-collections/
+
+import seoImage from '@images/mainPhotoBig.jpg'
+
+// const pageTitle = "Inicio";
+const seo = {
+  title: 'Blog',
+  description: 'This is the blog page',
+  image: seoImage,
+  // image: '@assets/images/her.jpg',
+  // url: '/',
+}
+
+---
+<BaseLayout {seo}>
+  <MediaPanel
+    title="Blog"
+    subtitle="Descubre, aprende y avanza con nuestro blog especializado en intervencionismo médico. Encuentra artículos informativos sobre los últimos avances y técnicas. Utiliza el buscador para acceder a guías detalladas y consejos prácticos."
+    classTitle="font-bold"
+    main
+  />
+  <MediaPanel
+    title="Artículos recientes"
+    classTitle="font-bold"
+    medium
+  />
+  <!-- TODO: remove these -->
+	<ul>
+		{ allPosts.map( post =>
+			// <BlogPost url={post.url} title={post.frontmatter.title} />
+			<BlogPost url={`/blog/${post.slug}`} title={post.data.title} />
+		)}
+	</ul>
+</BaseLayout>

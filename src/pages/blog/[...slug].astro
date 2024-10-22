@@ -1,0 +1,46 @@
+---
+import BlogLayout from '@layouts/blog.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+import Map from '@components/Map.astro';
+// import MediaPanel from '@components/MediaPanel.astro';
+// import Doctor from '@components/Doctor.astro';
+import { loadImage } from '@utils/ImageDynamic';
+
+export async function getStaticPaths() {
+  const allBlogs = await getCollection("blogs");
+
+  return allBlogs.map( blog  => ({
+    params: { slug: blog.slug },
+    props: { blog }
+  }))
+}
+const { blog } = Astro.props;
+const { Content } = await blog.render()
+
+const {
+  title = '',
+  seoImage = '',
+  seoDescription = '',
+  author = { slug: '' },
+} = blog.data
+
+const authorInfo = await getEntry('medicos', `${author}`)
+const imageTemp = await loadImage(seoImage)
+
+const seo = {
+  title : title,
+  description: seoDescription,
+  image : imageTemp,
+}
+---
+<BlogLayout
+  {seo}
+  author = { authorInfo?.data }
+  breadcrumbs={{
+    title:"Volver a Blog",
+    url:'/blog'
+  }}
+>
+  <Content/>
+</BlogLayout>
