@@ -147,7 +147,7 @@
   }
 
   .header-xs {
-    @apply typo-header-xs md:typo-header-s antialiased;
+    @apply typo-header-xs lg:typo-header-s antialiased;
   }
 
   .k-subtitle {
@@ -156,6 +156,14 @@
 
   .k-body-l {
     @apply typo-body-m md:typo-body-l antialiased
+  }
+
+  .k-body-m {
+    @apply typo-body-s lg:typo-body-m antialiased
+  }
+
+  .k-body-s {
+    @apply typo-body-s antialiased
   }
 }
 

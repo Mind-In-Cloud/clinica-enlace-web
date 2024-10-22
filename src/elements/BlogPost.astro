@@ -1,50 +1,95 @@
 ---
-import classy from "@utils/classy"
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets'
+import { format } from "@formkit/tempo"
+
 import Link from '@elements/Link.astro'
+
+import classy from "@utils/classy"
+import { loadImage } from '@utils/ImageDynamic';
 
 const {
   slug = '',
   data = {},
 } =  Astro.props
-// console.log(`🚀 ~ Astro.props:`, Astro.props)
 
 const {
-  categorias
+  categorias,
+  pubDate,
+  summary,
+  title,
+  author,
+  seoImage
 } = data
+
+const authorInfo = await getEntry('medicos', `${author}`) || { data : { title : '' }}
+const image = await loadImage(seoImage)
+
+const {
+  title : name = ''
+} = authorInfo.data
 
 const articleClasses = classy([
   'k-article',
   'bg-cyan',
-  'grid grid-cols-8',
+  'grid grid-cols-8 gap-x-6 gap-y-4',
   'p-4 lg:p-8',
-  'mb-4'
+  'mb-4',
+  'text-[#4A5468]'
 ])
 ---
 <div {...articleClasses} >
-  <div class="col-span-8 md:col-span-3">
-    imageplaceholder
+  <div class="col-span-8 md:col-span-3 blog-post-image-container">
+    <Image
+      {...image}
+      format='webp'
+      alt=`Foto de ${title}`
+      class="blog-post-image"
+    />
   </div>
   <div class="col-span-8 md:col-span-5 grid grid-cols-8">
     <a
       href={`/blog/${categorias[0]}`.toLowerCase()}
-      class="k-link k-body-l text-[#4A5468] underline col-span-4"
+      class="k-link k-body-m underline col-span-4"
     >
       {categorias[0]}
     </a>
     <span
-      class="k-link k-body-l text-[#4A5468] col-span-4 text-right"
+      class="k-link k-body-m col-span-4 text-right"
     >
-      {categorias[0]}
+      {format(pubDate,'long', 'es')}
     </span>
-    <div class="col-span-8">c</div>
-    <div class="col-span-4">a</div>
-    <div class="col-span-4 flex justify-end">
+    <div class="col-span-8">
+      <h2 class="header-xs xl:header-s text-neutral-600 font-bold mb-4 xl:mb-8">{title}</h2>
+      <p class="k-body-m xl:k-subtitle">{summary}</p>
+    </div>
+    <div class="col-span-6 k-body-s flex flex-wrap content-center italic">Autor: {name}</div>
+    <div class="col-span-2 flex justify-end items-center">
       <Link
         url={`/blog/${slug}`}
         color="metal"
+        class="h-fit"
       >
         Leer
       </Link>
     </div>
   </div>
 </div>
+<style>
+.blog-post-image-container {
+  position: relative;
+}
+
+.blog-post-image-container::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.blog-post-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
