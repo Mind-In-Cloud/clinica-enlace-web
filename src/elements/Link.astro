@@ -96,28 +96,8 @@ if ( Astro.url.pathname === url ){
 }
 <style define:vars={{decoratorBgColor}}>
   .k-link-content-wrapper.k-decoration-under {
-    position: relative;
     &:before {
-      position: absolute;
-      content: "";
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
       background: var(--decoratorBgColor);
-      transition: width 200ms ease;
     }
-  }
-
-  :not(.k-active){
-      & .k-decoration-under:hover{
-      &:before {
-        width: 100%;
-      }
-    }
-  }
-
-  & .shadow {
-    box-shadow: 4px 4px 4px 2px #2D3E4E33;
   }
 </style>
