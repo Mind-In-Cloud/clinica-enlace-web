@@ -285,3 +285,16 @@ body {
   line-height: 28px;
   letter-spacing: 0.01em;
 }
+
+.k-blog-content {
+  @apply text-neutral-700 antialiased;
+  h2 {
+    @apply header-xs font-bold text-neutral-500 mt-8;
+  }
+  p {
+    @apply my-4;
+  }
+  ul {
+    @apply list-disc list-inside;
+  }
+}
