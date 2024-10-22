@@ -58,3 +58,9 @@ body {
     margin-top: 1rem
   }
 }
+
+.k-blog-image {
+  img {
+    width: 100%;
+  }
+}

@@ -51,10 +51,10 @@ let categories = [
 	{seo}
 	{breadcrumbs}
 >
-	<picture class="k-hero-image">
+	<picture class="k-blog-image">
 		<source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
 		<source {...desktopImg} media="(min-width: 768px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
-		<img src={`/.netlify/images?url=${mobileImg.src}&fm=webp`} alt='' width="100%"/>
+		<img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`}/>
 	</picture>
   <section class="k-section mt-0">
     <div class="grid grid-cols-8">
