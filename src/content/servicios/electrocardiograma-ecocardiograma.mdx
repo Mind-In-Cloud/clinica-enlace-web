@@ -18,10 +18,12 @@ export const allDoctors = await getCollection("medicos");
   title = {frontmatter.title}
   icon = {headerIcon}
   classTitle = 'font-bold'
-  subtitle = 'Ofrecemos consultas con especialistas en una variedad de áreas médicas para abordar tus necesidades de salud de manera integral. Nuestros especialistas están dedicados a proporcionarte la mejor atención médica posible, brindándote diagnósticos precisos y planes de tratamiento efectivos.
-
-  Puedes confiar en nuestro equipo para cuidar de ti con compasión y profesionalismo en cada consulta, asegurando que recibas la atención médica adecuada y personalizada que mereces. Estamos comprometidos en ayudarte a mantener tu salud y bienestar en óptimas condiciones.'
-  >
+>
+  <div slot='subtitle'>
+    <p>Ofrecemos consultas con especialistas en una variedad de áreas médicas para abordar tus necesidades de salud de manera integral. Nuestros especialistas están dedicados a proporcionarte la mejor atención médica posible, brindándote diagnósticos precisos y planes de tratamiento efectivos.</p>
+    <br/>
+    <p>Puedes confiar en nuestro equipo para cuidar de ti con compasión y profesionalismo en cada consulta, asegurando que recibas la atención médica adecuada y personalizada que mereces. Estamos comprometidos en ayudarte a mantener tu salud y bienestar en óptimas condiciones.</p>
+  </div>
 </MediaPanel>
 <MediaPanel
   medium

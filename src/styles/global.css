@@ -59,6 +59,12 @@ body {
   }
 }
 
+.k-blog-image {
+  img {
+    width: 100%;
+  }
+}
+
 .k-link-content-wrapper.k-decoration-under {
   position: relative;
   &:before {
