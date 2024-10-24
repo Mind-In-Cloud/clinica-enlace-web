@@ -5,7 +5,7 @@ import DoctorCard from '@elements/DoctorCard.jsx'
 import classy from '@utils/classy';
 import hash from '@utils/hash';
 
-export const DoctorCabinet = ({doctors = [], dropdown = true , centros = ''}) => {
+export const DoctorCabinet = ({doctors = [{}], dropdown = true }) => {
 
   const [ shownDoctors, setShownDoctors ] = useState(doctors);
   const [ activeTag, setActiveTag ] = useState('Especialidad');

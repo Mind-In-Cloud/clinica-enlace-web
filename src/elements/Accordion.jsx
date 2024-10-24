@@ -8,6 +8,7 @@ const Accordion = ( props ) => {
   const {
     title,
     content,
+    htmlContent = '',
     startsOpen = false,
     color = '',
     final = false,
@@ -81,8 +82,8 @@ const Accordion = ( props ) => {
           </div>
         }
       </button>
-      <div {...contentClasses}>
-        {content}
+      <div {...contentClasses}
+        dangerouslySetInnerHTML={{ __html: htmlContent || content}}>
       </div>
     </div>
   );
