@@ -9,7 +9,7 @@ import liverYellow from '@icons/liver_yellow.svg?raw';
 import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
 import GreatList from '@components/GreatList.astro';
-import ReactSlider from '@components/SliderDoctors.jsx';
+import DoctorCabinet from '@components/DoctorCabinet';
 
 import { getCollection } from 'astro:content';
 const allDoctors = await getCollection("medicos", ({data}) => {
@@ -100,7 +100,9 @@ const seo = {
     classTitle="font-bold"
     subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
   />
-  <ReactSlider client:only="preact"
+  <DoctorCabinet
+    client:load
+    dropdown={false}
     doctors={allDoctors}
   />
   <ContactPanel/>

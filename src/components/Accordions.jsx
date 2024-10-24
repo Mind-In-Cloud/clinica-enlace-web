@@ -28,6 +28,7 @@ const Accordions = ( props ) => {
           color={color}
           title={item.title}
           content={item.content}
+          htmlContent={item.htmlContent}
           final = { index === list.length - 1}
         />
       ))}

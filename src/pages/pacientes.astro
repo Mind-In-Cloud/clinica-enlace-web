@@ -42,8 +42,18 @@ const seo = {
         content:"La duración depende del procedimiento. El médico cirujano puede brindarte un estimado de cuánto durará tu cirugía o la de tu familiar. Si tienes dudas sobre los detalles del procedimiento, ponte en contacto con nosotros para brindarte asesoría."
       },
       {
-        title:"¿Qué debo hacer antes de la cirugía?",
-        content:"El paciente debe llegar 10 minutos antes de su procedimiento y traer una identificación oficial. En caso de ser menor de edad, el paciente debe venir acompañado de un padre o tutor. Asimismo, debe traer sus estudios de laboratorio, estudios de imagen, recetas médicas, etc. Las indicaciones preoperatorias las define el médico cirujano a cargo del procedimiento."
+        title:"¿Qué debo saber previo a mi cirugía?",
+        htmlContent: `<span>Es muy importante que sigas estas recomendaciones bajo la guía de tu médico tratante, ya que cada persona y tratamiento son únicos. Aquí te compartimos algunas indicaciones básicas:</span><ul class="list-disc px-6">
+  <li>Llega <strong>una hora antes</strong> de tu cirugía. Por ejemplo, si tu procedimiento es a las 8:00 am, deberás presentarte a las 7:00 am, ya que iniciaremos con el llenado del expediente clínico previo a la cirugía. (<strong>No olvides traer una identificación oficial</strong>)</li>
+  <li>Mantén un <strong>ayuno de 8 horas</strong> antes de la cirugía. No consumas alimentos ni bebidas. Si tu médico te indica tomar algún medicamento, como para la hipertensión o diabetes, hazlo solo con la mínima cantidad de agua necesaria para tragar la pastilla, pero <strong>no para saciar la sed</strong>. Recuerda mencionarle al equipo de enfermería si tomaste algo o si por error consumiste alimentos o bebidas.</li>
+  <li>Si tienes <strong>más de 40 años</strong>, por protocolo se requiere de una valoración y estudios pre-operatorios para medir el riesgo quirúrgico. Estos pueden ser estudios básicos de laboratorio, electrocardiograma y una valoración clínica por un médico especialista. Tu médico te dará las indicaciones correspondientes para programar tu cirugía con base en los resultados obtenidos.</li>
+  <li>Los <strong>estudios básicos</strong> que debes realizar son Biometría Hemática, Química Sanguínea de 24 elementos, TP y TTP. Dependiendo del diagnóstico, podrían requerir análisis adicionales, como Amilasa o Antígeno Prostático, según lo determine tu médico. (Estos estudios <strong>no</strong> son exclusivos para pacientes mayores de 40 años)</li>
+  <li>El día del procedimiento, <strong>trae todos tus estudios de laboratorio e imágenes</strong> (como TAC, ultrasonido, radiografías, resonancias, PET, etc.). Nosotros nos encargaremos de organizarlos para el equipo médico.</li>
+  <li><strong>Evita traer joyas</strong> y no uses cremas, desodorantes ni maquillaje. Si tienes uñas de acrílico, largas o esmaltadas, por seguridad, retírate al menos el esmalte y las uñas de los dos dedos índices.</li>
+  <li>La noche antes, <strong>cena saludable</strong> evitando grasas, y asegúrate de hidratarte bien. Solo cuida respetar el ayuno de 8 horas.</li>
+  <li><strong>Ven acompañado</strong> de un familiar, especialmente si eres menor de edad o no tienes las facultades para para recibir y llenar información oficial, ya que este fungirá como responsable legal. Adicionalmente, debes considerar que no podrás conducir después de tu procedimiento.</li>
+  <li>Usa <strong>ropa y calzado cómodos</strong> que puedas quitar y poner fácilmente, preferiblemente algo con lo que no necesites cambiarte al llegar a casa.</li>
+</ul>`
       }
     ]}
   />
@@ -53,15 +63,32 @@ const seo = {
     list={[
       {
         title:"¿Cuáles son los horarios de atención?",
-        content:"Nuestros horarios de atención son de Lunes a Sábado, de 7 a 10 pm."
+        content: `Nuestro horario de atención es de <strong>lunes a sábado, de 7:00 am a 10:00 pm</strong>. Por el momento, <strong>los domingos no abrimos</strong>.`
       },
       {
         title:"¿Qué especialidades médicas ofrecen en la clínica?",
-        content:"En Clínica Enlace las especialidades que ofrecemos para usted son: algología intervencionista, angiología, cardiología, gastroenterología, nefrología, oncología, radiología, radiología intervencionista, traumatología."
-      },
-      {
-        title:"¿Ofrecen servicios de atención médica de urgencia?",
-        content:"No contamos con servicio de Urgencias."
+        htmlContent:`<span>En Clínica Enlace las especialidades que ofrecemos son:
+        </span>
+        <ul class="list-disc px-6" style="line-height: 1em">
+          <li class="pb-2">Cirugía general</li>
+          <li class="pb-2">Gastroenterología</li>
+          <li class="pb-2">Cardiología</li>
+          <li class="pb-2">Oncología</li>
+          <li class="pb-2">Radiología</li>
+          <li class="pb-2">Algología intervencionista</li>
+          <li class="pb-2">Angiología</li>
+          <li class="pb-2">Radiología intervencionista</li>
+          <li class="pb-2">Nefrología</li>
+          <li class="pb-2">Traumatología (especialidad en columna)</li>
+        </ul>
+        <a class='k-link flex leading-4' href='/servicios/consulta-con-especialidades'>
+          <span
+            class='k-link-content-wrapper k-decoration-under'
+            style="--decoratorBgColor: #CBD7E1;"
+          >
+          Ver más sobre especialidades >
+          </span>
+        </a>`
       },
       {
         title:"¿Cómo puedo programar una cita?",
