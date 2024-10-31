@@ -1,9 +1,8 @@
 ---
 import classy from '@utils/classy';
 import Socials from '../footerComponents/Socials.astro';
+import { getCollection } from 'astro:content';
 
-// const { categories = [] } = Astro.props;
-// TODO recieve these
 const subtitleClasses = classy([
 	"font-bold",
 	"typo-body-m",
@@ -12,16 +11,13 @@ const subtitleClasses = classy([
 	"py-4"
 ])
 
-// TODO : I think categories will be created as a data type too
-let categories = [
-	{ title: 'Intervencionismo', link: '/blog/intervencionismo' }
-]
+const allCategories = await getCollection("categorias");
 ---
 <div class="k-categories mx-8 md:mx-0">
   <div {...subtitleClasses}>
     Categorías
   </div>
-  {categories.map( (category, index) => {
+  {allCategories.map( (category, index) => {
 
     const categoryClasses = classy([
       "typo-body-m",
@@ -29,14 +25,14 @@ let categories = [
       "text-neutral-400",
       "py-2",
       "border-t",
-      index === categories.length - 1 && "border-b",
+      index === allCategories.length - 1 && "border-b",
       "border-neutral-400"
     ])
 
     return (
       <div {...categoryClasses}>
-        <a href={category.link} class="block w-full">
-          {category.title}
+        <a href={`/blog/${category.slug}`} class="block w-full">
+          {category.data.title}
         </a>
       </div>
     )

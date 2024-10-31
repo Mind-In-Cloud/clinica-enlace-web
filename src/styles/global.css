@@ -59,7 +59,7 @@ body {
   }
 }
 
-.k-blog-image {
+.k-blog-image, .k-category-image {
   img {
     width: 100%;
   }

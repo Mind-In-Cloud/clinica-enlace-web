@@ -23,6 +23,12 @@ const {
 } = data
 
 const authorInfo = await getEntry('medicos', `${author}`) || { data : { title : '' }}
+const {
+  data : {
+    title : categoryTitle = '',
+  },
+  slug : categorySlug = ''
+} = await getEntry('categorias', `${categorias[0]}`) || { data : { title : '' }}
 const image = await loadImage(seoImage)
 
 const {
@@ -49,10 +55,10 @@ const articleClasses = classy([
   </div>
   <div class="col-span-8 md:col-span-5 grid grid-cols-8">
     <a
-      href={`/blog/${categorias[0]}`.toLowerCase()}
+      href={`/blog/${categorySlug}`.toLowerCase()}
       class="k-link k-body-m underline col-span-4"
     >
-      {categorias[0]}
+      {categoryTitle}
     </a>
     <span
       class="k-link k-body-m col-span-4 text-right"

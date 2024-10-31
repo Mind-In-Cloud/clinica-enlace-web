@@ -1,0 +1,47 @@
+---
+import CategoryLayout from '@layouts/category.astro';
+import { getCollection } from 'astro:content';
+
+import { loadImage } from '@utils/ImageDynamic';
+
+export async function getStaticPaths() {
+  const allCategories = await getCollection("categorias");
+
+  return allCategories.map( category  => ({
+    params: { slug: category.slug },
+    props: { category }
+  }))
+}
+const { category } = Astro.props;
+const { Content } = await category.render()
+
+const {
+  data : {
+    title = '',
+    subtitle = '',
+    seoDescription = '',
+    seoImage = '',
+  },
+  slug: categoryName = ''
+} = category
+
+const imageTemp = await loadImage(seoImage)
+
+const seo = {
+  title : title,
+  description: seoDescription,
+  image : imageTemp,
+}
+---
+<CategoryLayout
+  {seo}
+  image = {seoImage},
+  breadcrumbs={{
+    title:"Volver a Blog",
+    url:'/blog'
+  }}
+  {subtitle}
+  {categoryName}
+>
+  <Content/>
+</CategoryLayout>

@@ -1,18 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
+
 import BaseLayout from '@layouts/base.astro';
 
 import MediaPanel from "@components/MediaPanel.astro";
 import BlogPost from '@elements/BlogPost.astro';
 
-// const allPosts = await Astro.glob('../pages/posts/*.md'); // old
 const allBlog = await getCollection('blogs');
-// for second part of proyect : https://docs.astro.build/en/tutorials/add-content-collections/
 
 import seoImage from '@images/mainPhotoBig.jpg'
 import BlogSidebar from '@components/blogSidebar.astro';
 
-// const pageTitle = "Inicio";
 const seo = {
   title: 'Blog',
   description: 'This is the blog page',
@@ -37,7 +35,6 @@ const seo = {
   <div class="k-section grid grid-cols-8 gap-x-10 px-0 md:px-8">
     <div class="col-span-8 md:col-span-6">
       { allBlog.map( post =>
-        // <BlogPost url={post.url} title={post.frontmatter.title} />
         <BlogPost { ...post } />
       )}
     </div>
