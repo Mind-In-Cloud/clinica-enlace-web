@@ -19,13 +19,6 @@ const {
 
 const {
 	title = 'Missing Title Blog',
-	description = 'Missing Description Blog',
-	image : {
-		src,
-		width,
-		height,
-		format
-	} = seoDefault
 } = seo
 
 const subtitleClasses = classy([
@@ -39,11 +32,6 @@ const subtitleClasses = classy([
 const mobileImg = await loadImage(images.mobile)
 const desktopImg = await loadImage(images.desktop)
 const authorImg = await loadImage(authorPhoto)
-
-// TODO : I think categories will be created as a data type too
-let categories = [
-	{ title: 'Intervencionismo', link: '/blog/intervencionismo' }
-]
 ---
 <BaseLayout
 	wha={false}
