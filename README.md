@@ -1,5 +1,55 @@
 # clinica-enlace-web
 Clinica Enlace web
+
+## Generar Blogs nuevos
+Para generar blogs nuevos hay ciertos prerequisitos:
+1. Tener las categorias que se van a usar generadas
+1. Que el autor tenga la seccion de blog en su informacion
+
+Los blogs se crean dentro del directorio src/content/blogs
+
+Ya cumplidos podemos iniciar a crear un blog nuevo:
+Notas:
+ - 'blogBase' hace referencia a 'toma-de-biopsias-y-radiologia-intervencionista.mdx' que es el primer blog disponible
+ - 'blogNuevo' hace referencia el blog nuevo que se estara creando
+1. Usando blogBase de ejemplo podemos generar mas blogs simplemente copiando el archivo y poniendolo en el directorio de la categoria correspondiente ( ex: src/content/blogs/catNueva/blogNuevo.mdx )
+1. Hacemos los pasos para subir los cambios
+
+## Generar nuevas categorias
+Notas:
+ - 'catBase' hace referencia a 'diagnostico-y-prevencion' que es la primer categoria disponible
+ - 'catNueva' hace referencia a la categoria nueva que se estara creando
+ - **Importante**: catNueva debe compartir el nombre en tres lugares:
+    1. src/content/categorias/**catNueva**.mdx
+    1. src/content/blogs/**catNueva**/ ( este es un directorio )
+    1. src/pages/blog/**catNueva**.astro
+    - Los tres se deben llamar igual ( catNueva en el caso del ejemplo, si es un archivo solo cambia la extension del archivo )
+    - Asi como se llame asi, se llamara dentro del blog que lleve esta categoria ( ver el blogBase para ejemplos )
+
+Dentro de la carpeta 'src/content/categorias':
+1. Copiamos el archivo de la categoria que ya tenemos para usarlo de base
+1. Actualizamos los campos como sea necesario
+    - Nota: La seccion debajo de los '---' se utilizara como el resumen que se ubica bajo la imagen de la categoria
+
+Dentro de la carpeta 'src/pages/blog':
+1. Dentro del directorio de src/pages/blog/ copiamos el archivo que se llama como nuestra catBase.astro, le actualizamos el nombre para que sea catNueva.astro
+    - Abrimos el archivo y cambiamos la parte que dice 'diagnostico-y-prevencion' por carNueva ( en el archivo viene el ejemplo tambien)
+
+1. Hacemos los pasos para subir los cambios
+
+## Actualizar informacion de doctor
+1. El doctor que sea el autor debera tener la seccion de 'blog' en su archivo
+    - Tomar de ejemplo el dr-asdrubal-baylon, que es autor de el primer blog
+1. Hacemos los pasos para subir los cambios
+
+
+## Notas
+
+- Puedes añadir imagenes en el directorio src/assets/images
+
+## Pasos para subir los cambios
+
+---
 <!--
 # Astro Starter Kit: Minimal
 -->
