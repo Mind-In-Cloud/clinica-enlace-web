@@ -305,4 +305,7 @@ body {
   ul {
     @apply list-disc list-inside;
   }
+  a {
+    text-decoration: underline;
+  }
 }
