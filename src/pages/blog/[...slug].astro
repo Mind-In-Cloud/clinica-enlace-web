@@ -21,7 +21,15 @@ const {
   seoDescription = '',
   author = { slug: '' },
   mainImageXL= '',
+  categorias = []
 } = blog.data
+
+const {
+  data : {
+    title : categoryTitle = '',
+  },
+  slug : categorySlug = ''
+} = await getEntry('categorias', `${categorias[0]}`) || { data : { title : '' }, slug : '' }
 
 const authorInfo = await getEntry('medicos', `${author}`)
 const imageTemp = await loadImage(seoImage)
@@ -40,8 +48,8 @@ const seo = {
   }}
   author = { authorInfo?.data }
   breadcrumbs={{
-    title:"Volver a Blog",
-    url:'/blog'
+    title: `Volver a ${categoryTitle}`,
+    url: `/blog/${categorySlug}`
   }}
 >
   <Content/>

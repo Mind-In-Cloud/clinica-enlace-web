@@ -23,12 +23,14 @@ const {
 } = data
 
 const authorInfo = await getEntry('medicos', `${author}`) || { data : { title : '' }}
+
 const {
   data : {
     title : categoryTitle = '',
   },
   slug : categorySlug = ''
-} = await getEntry('categorias', `${categorias[0]}`) || { data : { title : '' }}
+} = await getEntry('categorias', `${categorias[0]}`) || { data : { title : '' }, slug : '' }
+
 const image = await loadImage(seoImage)
 
 const {

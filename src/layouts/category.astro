@@ -51,7 +51,7 @@ const allBlogsInCategory = await getCollection("blogs", ({data}) => {
       <h1 class="font-bold header-s text-center text-white k-category-shadow">
         {title}
       </h1>
-      <h2 class="header-xs text-white k-category-shadow">
+      <h2 class="header-xs text-white k-category-shadow text-center">
         {subtitle}
       </h2>
     </div>
@@ -65,13 +65,13 @@ const allBlogsInCategory = await getCollection("blogs", ({data}) => {
       classTitle="font-bold text-neutral-500"
       medium
     />
-    <div class="grid grid-cols-8">
+    <div class="grid grid-cols-8 gap-x-4 lg:gap-x-8">
       <div class="col-span-8 md:col-span-6">
         {allBlogsInCategory.map( post =>
           <BlogPost { ...post } />
         )}
       </div>
-      <div class="col-span-8 md:col-span-2 md:pl-4">
+      <div class="col-span-8 md:col-span-2">
         <BlogSidebar/>
       </div>
     </div>
