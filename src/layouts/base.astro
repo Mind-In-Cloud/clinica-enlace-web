@@ -22,19 +22,27 @@ const {
 		height,
 		// alt, // not used in this, needs to be defined
 		format
-	} = seoDefault
+	} = seoDefault,
+	canonical = ''
 } = seo
 
 const seoImageUrl = `${new URL(src, Astro.url)}`
 
-const seoObj = {
+let urlOverride = '' // if you want to override the url, mostly for categories
+if ( canonical !== '' ){
+	urlOverride = `${Astro.site}${canonical}`
+}
+
+let seoObj = {
 	title : `${title} | Clínica Enlace`,
 	description,
+	canonical : urlOverride,
 	openGraph: {
 		basic: {
 			title: `${title} | Clínica Enlace`,
 			type: "website",
 			image: seoImageUrl,
+			url : urlOverride
 		},
 		optional: {
 			description: description
