@@ -13,7 +13,7 @@ const subtitleClasses = classy([
 
 const allCategories = await getCollection("categorias");
 ---
-<div class="k-categories mx-8 md:mx-0">
+<div class="k-categories">
   <div {...subtitleClasses}>
     Categorías
   </div>
@@ -39,13 +39,14 @@ const allCategories = await getCollection("categorias");
 
   })}
 </div>
-<div class="border-b mx-8 md:mx-0">
+<div class="border-b">
   <div {...subtitleClasses}>
     Sigue nuestras redes sociales
   </div>
   <Socials/>
 </div>
-<div class="mx-8 md:mx-0">
+<!-- <div class="">
+ TODO input field in react i guess
   <div {...subtitleClasses}>
     Suscribirse al blog
   </div>
@@ -54,5 +55,4 @@ const allCategories = await getCollection("categorias");
   >
     Mantente al día con los últimos avances y técnicas en intervencionismo médico.
   </div>
-  <!-- TODO input field in react i guess -->
-</div>
+</div> -->

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/base.astro';
-import seoDefault from "@images/mainPhotoDesktop.png"
 
 import { Image } from 'astro:assets'
 import BlogSidebar from '@components/blogSidebar.astro';
@@ -51,7 +50,7 @@ const authorImg = await loadImage(authorPhoto)
         Autor: {authorName}
       </div>
       <div class="col-span-8 md:col-span-6">
-        <h1 class="font-bold header-s antialiased">
+        <h1 class="font-bold header-l md:header-s antialiased">
           {title}
         </h1>
         <div class='k-blog-content'>

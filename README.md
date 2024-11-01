@@ -49,14 +49,19 @@ Dentro de la carpeta 'src/pages/blog':
 
 ## Pasos para subir los cambios
 
+### Primero que nada ( si nunca haz subido cambios )
 1. Instalar [git for windows](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
   <!-- - Este ya incluye [git-credential-manager](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) -->
-1.Una vez instalado necesitaras hacer unos comandos en la terminal, reemplazando el nombre y correo por los tuyos ( tu nombre y tu correo de github )
+Una vez instalado necesitaras hacer unos comandos en la terminal, reemplazando el nombre y correo por los tuyos ( tu nombre y tu correo de github )
 ```
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
+ git config --global user.name "John Doe"
+ git config --global user.email johndoe@example.com
 ```
 
+Importar el proyecto:
+```
+ git clone (url de arriba)
+```
 
 # Desarrollo de la app
 ---
