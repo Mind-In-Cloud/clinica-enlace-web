@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/base.astro';
+
+import MediaPanel from "@components/MediaPanel.astro";
+import BlogPost from '@elements/BlogPost.astro';
+
+const allBlog = await getCollection('blogs');
+
+import seoImage from '@images/mainPhotoBig.jpg'
+import BlogSidebar from '@components/blogSidebar.astro';
+
+const seo = {
+  title: 'Blog',
+  description: 'Explora nuestro blog con información confiable sobre biopsias, ultrasonidos y atención hepatobiliar. Conoce diagnósticos y tratamientos de la mano de expertos.',
+  image: seoImage,
+  // image: '@assets/images/her.jpg',
+  // url: '/',
+}
+
+---
+<BaseLayout {seo} wha={false}>
+  <MediaPanel
+    title="Blog"
+    subtitle="Descubre, aprende y avanza con nuestro blog especializado en intervencionismo médico. Encuentra artículos informativos sobre los últimos avances y técnicas. Utiliza el buscador para acceder a guías detalladas y consejos prácticos."
+    classTitle="font-bold"
+    main
+  />
+  <MediaPanel
+    title="Artículos recientes"
+    classTitle="font-bold text-neutral-500"
+    medium
+  />
+  <div class="k-section grid grid-cols-8 gap-x-10 px-0 md:px-8">
+    <div class="col-span-8 md:col-span-6">
+      { allBlog.map( post =>
+        <BlogPost { ...post } />
+      )}
+    </div>
+    <div class="col-span-8 md:col-span-2">
+      <BlogSidebar/>
+    </div>
+  </div>
+</BaseLayout>

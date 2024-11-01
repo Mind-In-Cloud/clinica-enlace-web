@@ -1,0 +1,58 @@
+---
+import classy from '@utils/classy';
+import Socials from '../footerComponents/Socials.astro';
+import { getCollection } from 'astro:content';
+
+const subtitleClasses = classy([
+	"font-bold",
+	"typo-body-m",
+	"antialiased",
+	"text-neutral-600",
+	"py-4"
+])
+
+const allCategories = await getCollection("categorias");
+---
+<div class="k-categories">
+  <div {...subtitleClasses}>
+    Categorías
+  </div>
+  {allCategories.map( (category, index) => {
+
+    const categoryClasses = classy([
+      "typo-body-m",
+      "antialiased",
+      "text-neutral-400",
+      "py-2",
+      "border-t",
+      index === allCategories.length - 1 && "border-b",
+      "border-neutral-400"
+    ])
+
+    return (
+      <div {...categoryClasses}>
+        <a href={`/blog/${category.slug}`} class="block w-full">
+          {category.data.title}
+        </a>
+      </div>
+    )
+
+  })}
+</div>
+<div class="border-b">
+  <div {...subtitleClasses}>
+    Sigue nuestras redes sociales
+  </div>
+  <Socials/>
+</div>
+<!-- <div class="">
+ TODO input field in react i guess
+  <div {...subtitleClasses}>
+    Suscribirse al blog
+  </div>
+  <div
+    class="typo-body-m antialiased text-neutral-400"
+  >
+    Mantente al día con los últimos avances y técnicas en intervencionismo médico.
+  </div>
+</div> -->

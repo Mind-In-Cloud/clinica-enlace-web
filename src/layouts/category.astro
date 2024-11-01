@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/base.astro';
+import seoDefault from "@images/mainPhotoDesktop.png"
+
+import BlogPost from '@elements/BlogPost.astro';
+import MediaPanel from "@components/MediaPanel.astro";
+import BlogSidebar from '@components/blogSidebar.astro';
+
+import { loadImage } from '@utils/ImageDynamic';
+
+const {
+  seo,
+  breadcrumbs = false,
+  images = {},
+  subtitle = 'Missing Subtitle',
+  categoryName = 'Missing Category Name'
+} = Astro.props ;
+
+const {
+	title = 'Missing Title Category',
+} = seo
+
+const desktopImg = await loadImage(images.desktop)
+const mobileImg = await loadImage(images.mobile)
+
+const allBlogsInCategory = await getCollection("blogs", ({data}) => {
+  return data.categorias.includes(categoryName);
+});
+
+---
+<BaseLayout
+	wha={false}
+	{seo}
+	{breadcrumbs}
+>
+  <div class="k-category-main relative bg-[#000000]">
+    <picture class="k-category-image">
+      <source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
+      <source {...desktopImg} media="(min-width: 768px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
+      <img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`}/>
+    </picture>
+    <div class="k-category-text">
+      <h1 class="font-bold header-s text-center text-white k-category-shadow">
+        {title}
+      </h1>
+      <h2 class="header-xs text-white k-category-shadow text-center">
+        {subtitle}
+      </h2>
+    </div>
+  </div>
+  <section class="k-section mt-0 gap-x-10 px-0 md:px-8">
+    <div class="k-subtitle text-neutral-700 my-4 md:my-10 text-center">
+      <slot/>
+    </div>
+    <MediaPanel
+      title="Artículos"
+      classTitle="font-bold text-neutral-500"
+      medium
+    />
+    <div class="grid grid-cols-8 gap-x-4 lg:gap-x-8">
+      <div class="col-span-8 md:col-span-6">
+        {allBlogsInCategory.map( post =>
+          <BlogPost { ...post } />
+        )}
+      </div>
+      <div class="col-span-8 md:col-span-2">
+        <BlogSidebar/>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .k-category-text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .k-category-shadow {
+    filter: drop-shadow(0px 4px 4px rgb(0 0 0 /0.75));
+  }
+</style>

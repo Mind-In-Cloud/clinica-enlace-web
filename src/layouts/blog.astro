@@ -1,23 +1,23 @@
 ---
 import BaseLayout from '@layouts/base.astro';
-import seoDefault from "@images/mainPhotoDesktop.png"
+
+import { Image } from 'astro:assets'
+import BlogSidebar from '@components/blogSidebar.astro';
+
 import classy from '@utils/classy';
+import { loadImage } from '@utils/ImageDynamic';
 
-import Socials from '../footerComponents/Socials.astro';
-import Linebreak from '@elements/Linebreak.astro';
+const { seo, breadcrumbs = false, author = {}, images = {}} = Astro.props ;
 
-const { seo, breadcrumbs = false} = Astro.props ;
+const {
+	title : authorName = 'Missing Name',
+	blog: authorDescription = 'Missing Description',
+	especialidad = 'Missing Especialidad',
+	photo : authorPhoto = ''
+} = author
 
 const {
 	title = 'Missing Title Blog',
-	description = 'Missing Description Blog',
-	image : {
-		src,
-		width,
-		height,
-		// alt, // not used in this, needs to be defined
-		format
-	} = seoDefault
 } = seo
 
 const subtitleClasses = classy([
@@ -28,77 +28,51 @@ const subtitleClasses = classy([
 	"py-4"
 ])
 
-let categories = [{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }]
+const mobileImg = await loadImage(images.mobile)
+const desktopImg = await loadImage(images.desktop)
+const authorImg = await loadImage(authorPhoto)
 ---
-<BaseLayout wha={false} {seo}>
-  <section class="k-section">
-    <div class="aspect-video">
-      a
-    </div>
+<BaseLayout
+	wha={false}
+	{seo}
+	{breadcrumbs}
+>
+	<picture class="k-blog-image">
+		<source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
+		<source {...desktopImg} media="(min-width: 768px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
+		<img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`}/>
+	</picture>
+  <section class="k-section mt-0">
     <div class="grid grid-cols-8">
       <div
         class="col-span-8 italic font-medium k-body-l py-6"
       >
-        Autor: Dr X
+        Autor: {authorName}
       </div>
       <div class="col-span-8 md:col-span-6">
-        <h1 class="font-bold header-s">
-          title here
+        <h1 class="font-bold header-l md:header-s antialiased">
+          {title}
         </h1>
-        <slot name="content"/>
+        <div class='k-blog-content'>
+					<slot/>
+				</div>
       </div>
-      <div class="col-span-8 md:col-span-2 pl-4">
+      <div class="col-span-8 md:col-span-2 md:pl-4">
 				<div class="flex flex-col items-center">
-					<div> img </div>
-					<div class="typo-body-m antialiased pt-4 text-center">
-						El Dr. Tovar, médico general con vasta experiencia, ofrece cuidado integral y diagnóstico preciso para mejorar su salud.
+					<div style="clip-path: circle()">
+						<Image
+							src={authorImg}
+							format='webp'
+							alt=`Foto de ${title}`
+						/>
 					</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2">Dr. Germán Tovar Fuentes</div>
-					<div class="font-bold typo-body-m antialiased text-neutral-600 pt-2 pb-4">Especialidad: Cirujano General</div>
+					<div class="typo-body-m antialiased mt-4 text-center">
+						{authorDescription}
+					</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 my-4">{authorName}</div>
+					<div class="font-bold typo-body-m antialiased text-neutral-600 mt-2 mb-4">Especialidad: {especialidad}</div>
 				</div>
-				<div class="k-categories">
-					<div {...subtitleClasses}>
-						Categorías
-					</div>
-					{categories.map( (category, index) => {
-
-						const categoryClasses = classy([
-							"typo-body-m",
-							"antialiased",
-							"text-neutral-400",
-							"py-2",
-							"border-t",
-							index === categories.length - 1 && "border-b",
-							"border-neutral-400"
-						])
-
-						return (
-							<div {...categoryClasses}>
-								<a href={category.link} class="block w-full">
-									{category.title}
-								</a>
-							</div>
-						)
-
-					})}
-				</div>
-				<div class="border-b">
-					<div {...subtitleClasses}>
-						Sigue nuestras redes sociales
-					</div>
-					<Socials/>
-				</div>
-				<div class="border-b">
-					<div {...subtitleClasses}>
-						Suscribirse al blog
-					</div>
-					<div
-						class="typo-body-m antialiased text-neutral-400"
-					>
-						Mantente al día con los últimos avances y técnicas en intervencionismo médico.
-					</div>
-					<!-- TODO input field -->
-				</div>
+				<BlogSidebar/>
 				<div>
 					<div {...subtitleClasses}>
 						Temas relacionados
@@ -110,8 +84,6 @@ let categories = [{ title: 'Intervencionismo', link: '/blogs/intervencionismo' }
 					</div>
 				</div>
       </div>
-			<div>
-			</div>
     </div>
   </section>
 </BaseLayout>
