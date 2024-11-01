@@ -13,17 +13,17 @@ import { loadImage } from '@utils/ImageDynamic';
 const {
   seo,
   breadcrumbs = false,
-  image = {},
+  images = {},
   subtitle = 'Missing Subtitle',
   categoryName = 'Missing Category Name'
 } = Astro.props ;
 
 const {
 	title = 'Missing Title Category',
-  canonical = ''
 } = seo
 
-const desktopImg = await loadImage(image)
+const desktopImg = await loadImage(images.desktop)
+const mobileImg = await loadImage(images.mobile)
 
 const allBlogsInCategory = await getCollection("blogs", ({data}) => {
   return data.categorias.includes(categoryName);
@@ -37,9 +37,9 @@ const allBlogsInCategory = await getCollection("blogs", ({data}) => {
 >
   <div class="k-category-main relative bg-[#000000]">
     <picture class="k-category-image">
-      <!-- TODO: Copy from blog, need mobile image -->
+      <source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
       <source {...desktopImg} media="(min-width: 768px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
-      <img {...desktopImg} src={`/.netlify/images?url=${desktopImg.src}&fm=webp`}/>
+      <img {...mobileImg} src={`/.netlify/images?url=${mobileImg.src}&fm=webp`}/>
     </picture>
     <div class="k-category-text">
       <h1 class="font-bold header-s text-center text-white k-category-shadow">

@@ -36,7 +36,7 @@ const blogCollection = defineCollection({
     author: reference('medicos'),
     categorias: z.array(reference('categorias')),
     related: z.array(z.string()),
-    mainImageDesktop: z.string(),
+    mainImage: z.string(),
   })
 });
 
@@ -47,6 +47,7 @@ const categoriasCollection = defineCollection({
     subtitle: z.string(),
     seoImage: z.string(),
     seoDescription: z.string(),
+    mainImage: z.string(),
   })
 });
 

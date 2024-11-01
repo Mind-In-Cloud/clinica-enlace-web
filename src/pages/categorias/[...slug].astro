@@ -21,6 +21,7 @@ const {
     subtitle = '',
     seoDescription = '',
     seoImage = '',
+    mainImage= '',
   },
   slug: categoryName = ''
 } = category
@@ -36,7 +37,10 @@ const seo = {
 ---
 <CategoryLayout
   {seo}
-  image = {seoImage},
+  images = {{
+    mobile: seoImage,
+    desktop: mainImage
+  }},
   breadcrumbs={{
     title:"Volver a Blog",
     url:'/blog'
