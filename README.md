@@ -63,6 +63,38 @@ Importar el proyecto:
  git clone (url de arriba)
 ```
 
+### Guardar cambios:
+
+1. Crear una branch nueva en git
+
+```
+ git checkout -b blogNuevo
+```
+
+Hacer los cambios necesarios y añadir los archivos que se necesitan
+
+1. Añadir los archivos a git
+
+```
+ git add .
+```
+
+1. Guardar los cambios y anotar el cambio ( con descripcion de
+ ejemplo:)
+
+```
+ git commit -am 'Blog 2 creado'
+```
+
+1. Enviar los cambios a git
+
+```
+git push
+```
+
+1. Continuamos en github creando un pull request en la seccion de Pull Request
+1. Una vez que los checks pasen el contenido saldra a produccion picandole al boton de squash and merge
+
 # Desarrollo de la app
 ---
 <!--
