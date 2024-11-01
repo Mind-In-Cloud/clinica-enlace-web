@@ -63,6 +63,12 @@ Importar el proyecto:
  git clone (url de arriba)
 ```
 
+### Antes de los cambios:
+1. Actualizamos el repositorio local, asegurandonos primero que estamos en main:
+```
+git checkout main && git pull
+```
+
 ### Guardar cambios:
 
 1. Crear una branch nueva en git
@@ -94,6 +100,11 @@ git push
 
 1. Continuamos en github creando un pull request en la seccion de Pull Request
 1. Una vez que los checks pasen el contenido saldra a produccion picandole al boton de squash and merge
+
+1. **Importante**: Tenemos que volver a la rama principal al final
+```
+ git checkout main && git pull
+```
 
 # Desarrollo de la app
 ---
