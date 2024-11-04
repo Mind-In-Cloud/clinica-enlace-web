@@ -3,15 +3,30 @@ import Link from "@elements/Link.astro";
 
 const {
   title,
-  url
+  url,
+  links = []
 } = Astro.props;
 ---
 <div class="k-section m-0">
-  <Link
-    nav
-    {url}
-    alt={title}
-  >
-    {title}
-  </Link>
+  { links.length > 0 ? links.map( (link: { url: string; title: string; })  => {
+    const {
+      url,
+      title
+    } = link;
+    return (
+      <Link
+        nav
+        {url}
+      >
+        {title}
+      </Link>
+    )
+  }) :
+    <Link
+      nav
+      {url}
+    >
+      {title}
+    </Link>
+  }
 </div>

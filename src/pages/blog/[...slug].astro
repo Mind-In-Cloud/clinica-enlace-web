@@ -48,8 +48,10 @@ const seo = {
   }}
   author = { authorInfo?.data }
   breadcrumbs={{
-    title: `Volver a ${categoryTitle}`,
-    url: `/blog/${categorySlug}`
+    links: [
+      { url: '/blog', title: 'Blog' },
+      { url: `/blog/${categorySlug}`, title: categoryTitle },
+    ]
   }}
 >
   <Content/>
