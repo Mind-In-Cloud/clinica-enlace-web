@@ -2,7 +2,6 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import fetch from "node-fetch";
 import hash from "@utils/hash";
 
-
 const handler: Handler = async function(event : HandlerEvent) {
 
   const hashRequest = hash(event.body);
@@ -22,6 +21,7 @@ const handler: Handler = async function(event : HandlerEvent) {
     hash: string;
     'cf-turnstile-response': string;
   }
+  console.log(`🚀 ~ requestBody ~ requestBody:`, requestBody)
 
   requestBody.hash = hashRequest;
   const ip = eventHeaders["client-ip"] ;
