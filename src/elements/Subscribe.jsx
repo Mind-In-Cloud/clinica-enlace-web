@@ -104,7 +104,7 @@ const Subscribe = () => {
           </p>
           <div { ...wrapperClasses }>
             <input {...inputClasses} required name='email' type="email" placeholder={'Suscribirse al blog'}/>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z" name="sub"></div>
             <button
               type="submit"
               style={{minWidth: '85px'}}
