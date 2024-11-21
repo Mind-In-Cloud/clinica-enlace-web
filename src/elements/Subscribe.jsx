@@ -66,6 +66,7 @@ const Subscribe = () => {
         values[e.name] = e.value
       }
     }
+    console.log(`🚀 ~ handleSubmit ~ values:`, JSON.parse(JSON.stringify(values)))
 
     if ( submitted === '' ) {
       setSubmitted('request')
@@ -105,7 +106,7 @@ const Subscribe = () => {
           </p>
           <div { ...wrapperClasses }>
             <input {...inputClasses} required name='email' type="email" placeholder={'Suscribirse al blog'}/>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z" name="temp"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z" name='temp'></div>
             <button
               type="submit"
               style={{minWidth: '85px'}}
