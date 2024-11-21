@@ -26,6 +26,7 @@ const handler: Handler = async function(event : HandlerEvent) {
     hash: string;
     'cf-turnstile-response': string;
   }
+  console.log(`🚀 ~ requestBody ~ requestBody:`, requestBody)
 
   requestBody.hash = hashRequest;
   const ip = eventHeaders["client-ip"] ;
