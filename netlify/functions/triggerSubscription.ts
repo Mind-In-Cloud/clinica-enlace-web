@@ -2,6 +2,7 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import fetch from "node-fetch";
 import hash from "@utils/hash";
 
+
 const handler: Handler = async function(event : HandlerEvent) {
 
   const hashRequest = hash(event.body);
@@ -17,12 +18,7 @@ const handler: Handler = async function(event : HandlerEvent) {
   const eventHeaders = event.headers
 
   const requestBody = JSON.parse(event.body) as {
-    firstName: string;
-    lastName: string;
     email: string;
-    phone : string;
-    state: string;
-    message: string;
     hash: string;
     'cf-turnstile-response': string;
   }
@@ -67,20 +63,20 @@ const handler: Handler = async function(event : HandlerEvent) {
         body: JSON.stringify({
           from: `${process.env.NETLIFY_EMAIL_SENDER}`,
           to: `${process.env.NETLIFY_EMAIL_RECIPIENT}`,
-          subject: "Clinica Enlace, contacto de: " + requestBody.firstName + " " + requestBody.lastName,
+          subject: "Clinica Enlace, subscripcion:" + requestBody.email,
           parameters: requestBody,
         }),
       }
     );
 
     if ( res.ok ) {
-      console.info('An email was sent!', 'ID: ', hashRequest, ' Status: ', res.status, ' Message: ', res.statusText)
+      console.info('An subscription email was sent!', 'ID: ', hashRequest, ' Status: ', res.status, ' Message: ', res.statusText)
       return {
         statusCode: res.status,
-        body: JSON.stringify("Contact email sent!"),
+        body: JSON.stringify("Subscription email sent!"),
       };
     } else {
-      console.error('Error Email Not Sent: ', 'ID: ', hashRequest ,' Status: ', res.status, ' Error Message: ', res.statusText, )
+      console.error('Error subscription Email Not Sent: ', 'ID: ', hashRequest ,' Status: ', res.status, ' Error Message: ', res.statusText, )
       return {
         statusCode: res.status,
         body: JSON.stringify("Failed to send email"),
@@ -88,7 +84,7 @@ const handler: Handler = async function(event : HandlerEvent) {
     }
 
   } else {
-    console.error('Error: Challenge failed ID:', hashRequest, ' Error Message: ', outcome['error-codes'], ' Full Response: ', outcome )
+    console.error('Error subscription: Challenge failed ID:', hashRequest, ' Error Message: ', outcome['error-codes'], ' Full Response: ', outcome )
     return {
       statusCode: 400,
       body: JSON.stringify("Challenge failed, ID: ", hashRequest),

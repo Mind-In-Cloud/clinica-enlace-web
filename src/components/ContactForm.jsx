@@ -3,9 +3,7 @@ import classy from "@utils/classy"
 
 import image from '@images/foto_formulario.png'
 
-
 const ContactForm = () => {
-
 
   const contactClasses = classy([
     'mb-4',
@@ -104,7 +102,6 @@ const ContactForm = () => {
           }
       })
     }
-
   }
 
   return <div {...contactClasses}>
@@ -128,7 +125,7 @@ const ContactForm = () => {
           <input {...inputClasses} required name='phone' type="tel" minLength={7} maxLength={14} placeholder="Teléfono*"/>
           <input {...input2Classes} name='state' type="text" placeholder="Estado" />
           <textarea {...input2Classes} required name='message' minLength={5} maxLength={500} placeholder="¿Cómo podemos ayudarte? (Máximo 500 caracteres)"/>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z" name='temp'></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAd_zMBJ4BjMqg8z"></div>
           <button
             type="submit"
             style={{minWidth: '85px'}}
