@@ -54,7 +54,7 @@ const handler: Handler = async function(event : HandlerEvent) {
     // automatically generated snippet from the email preview
     // sends a request to an email handler for a subscribed email
     const res = await fetch(
-      `${process.env.URL}/.netlify/functions/emails/subscriptionForm`,
+      `${process.env.URL}/.netlify/functions/emails/contactForm`,
       {
         headers: {
           "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
@@ -63,7 +63,7 @@ const handler: Handler = async function(event : HandlerEvent) {
         body: JSON.stringify({
           from: `${process.env.NETLIFY_EMAIL_SENDER}`,
           to: `${process.env.NETLIFY_EMAIL_RECIPIENT}`,
-          subject: "Clinica Enlace, subscripcion:" + requestBody.email,
+          subject: "Clinica Enlace, suscripcion nueva",
           parameters: requestBody,
         }),
       }
@@ -76,7 +76,7 @@ const handler: Handler = async function(event : HandlerEvent) {
         body: JSON.stringify("Subscription email sent!"),
       };
     } else {
-      console.error('Error subscription Email Not Sent: ', 'ID: ', hashRequest ,' Status: ', res.status, ' Error Message: ', res.statusText, )
+      console.error('Error subscription Email Not Sent: ', 'ID: ', hashRequest ,' Status: ', res.status, ' Error Message: ', res.statusText, 'res: ', res )
       return {
         statusCode: res.status,
         body: JSON.stringify("Failed to send email"),

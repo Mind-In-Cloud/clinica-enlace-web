@@ -87,7 +87,6 @@ const ContactForm = () => {
         values[e.name] = e.value
       }
     }
-    console.log(`🚀 ~ handleSubmit ~ values:`, JSON.parse(JSON.stringify(values)))
 
     if ( submitted === '' ) {
       setSubmitted('request')
