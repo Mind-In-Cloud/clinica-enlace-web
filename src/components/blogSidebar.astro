@@ -1,7 +1,10 @@
 ---
-import classy from '@utils/classy';
-import Socials from '../footerComponents/Socials.astro';
 import { getCollection } from 'astro:content';
+
+import Socials from '../footerComponents/Socials.astro';
+import Subscribe from '@elements/Subscribe.jsx';
+
+import classy from '@utils/classy';
 
 const subtitleClasses = classy([
 	"font-bold",
@@ -45,14 +48,4 @@ const allCategories = await getCollection("categorias");
   </div>
   <Socials/>
 </div>
-<!-- <div class="">
- TODO input field in react i guess
-  <div {...subtitleClasses}>
-    Suscribirse al blog
-  </div>
-  <div
-    class="typo-body-m antialiased text-neutral-400"
-  >
-    Mantente al día con los últimos avances y técnicas en intervencionismo médico.
-  </div>
-</div> -->
+<Subscribe client:load/>
