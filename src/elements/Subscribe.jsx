@@ -121,8 +121,8 @@ const Subscribe = () => {
               submitted === 'request'?
               `Cargando, un momento por favor...` :
               submitted === 'sent' ?
-              `nice` :
-              `failure`
+              `¡Suscripción exitosa!` :
+              `Algo salió mal. Por favor intenta de nuevo.`
           }
         </div>
       }
