@@ -70,10 +70,11 @@ const Subscribe = () => {
     if ( submitted === '' ) {
       setSubmitted('request')
       values = { ...values }
-        fetch('/.netlify/functions/triggerSubscription.ts', {
+        fetch('/.netlify/functions/triggerSubscription', {
           method: 'POST',
           body: JSON.stringify(values)
         }).then(( res ) => {
+          console.log(`🚀 ~ handleSubmit ~ res:`, res)
           if ( res.ok ) {
             setSubmitted('sent')
           } else {
