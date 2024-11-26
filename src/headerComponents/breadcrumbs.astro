@@ -4,11 +4,12 @@ import Link from "@elements/Link.astro";
 const {
   title,
   url,
-  links = []
+  links = [],
+  blog = false
 } = Astro.props;
 ---
 <div class="k-section m-0">
-  { links.length > 0 ? links.map( (link: { url: string; title: string; })  => {
+  { links.length > 0 ? links.map(( link: { url: string; title: string; active : boolean ;} , index : number )  => {
     const {
       url,
       title
@@ -16,7 +17,9 @@ const {
     return (
       <Link
         nav
+        {blog}
         {url}
+        class = { index === 1 ? '' : 'hidden md:inline'  }
       >
         {title}
       </Link>

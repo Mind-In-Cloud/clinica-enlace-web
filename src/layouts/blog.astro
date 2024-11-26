@@ -35,7 +35,7 @@ const authorImg = await loadImage(authorPhoto)
 <BaseLayout
 	wha={false}
 	{seo}
-	{breadcrumbs}
+	breadcrumbs = {{...breadcrumbs, blog: true}}
 >
 	<picture class="k-blog-image">
 		<source {...mobileImg} media="(max-width: 767px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />

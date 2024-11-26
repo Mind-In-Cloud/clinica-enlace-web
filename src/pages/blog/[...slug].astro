@@ -17,6 +17,7 @@ const { blog } = Astro.props;
 const { Content } = await blog.render()
 
 const {
+  slug = '',
   title = '',
   seoImage = '',
   seoDescription = '',
@@ -52,6 +53,7 @@ const seo = {
     links: [
       { url: '/blog', title: 'Blog' },
       { url: `/blog/${categorySlug}`, title: categoryTitle },
+      { url: `#`, title: title , active : true}
     ]
   }}
 >
