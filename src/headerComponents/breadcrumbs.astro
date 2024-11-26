@@ -17,6 +17,7 @@ const {
     return (
       <Link
         nav
+        navChevron = { index !== 0 }
         {blog}
         {url}
         class = { index === 1 ? '' : 'hidden md:inline'  }
