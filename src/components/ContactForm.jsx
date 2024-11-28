@@ -3,9 +3,7 @@ import classy from "@utils/classy"
 
 import image from '@images/foto_formulario.png'
 
-
 const ContactForm = () => {
-
 
   const contactClasses = classy([
     'mb-4',
@@ -104,7 +102,6 @@ const ContactForm = () => {
           }
       })
     }
-
   }
 
   return <div {...contactClasses}>
