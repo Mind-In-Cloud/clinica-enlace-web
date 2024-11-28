@@ -1,9 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '@layouts/base.astro';
 
 import BigHero from '@components/BigHero.astro';
 import Cabinet from '@components/Cabinet.astro';
 import MediaPanel from '@components/MediaPanel.astro';
+import Testimonials from '@components/Testimonials.jsx';
+import BlogPost from '@elements/BlogPost.astro';
 
 import seoImage from '@images/mainPhotoDesktop.png'
 import liverYellow from '@icons/liver_yellow.svg?raw';
@@ -13,9 +17,11 @@ import third from '@icons/blue/1_2.svg?raw';
 import fourth from '@icons/blue/4_2.svg?raw';
 import fifth from '@icons/blue/cardio.svg?raw';
 
-import Testimonials from '@components/Testimonials.jsx';
+const allBlogs = await getCollection("blogs");
 
-// const pageTitle = "Inicio";
+const newestBlog = allBlogs.reduce((a, b) => a.data.pubDate > b.data.pubDate ? a : b)
+
+
 const seo = {
   title: 'Inicio',
   description: 'Clínica Enlace, centro de salud de intervencionismo y corta estancia',
@@ -76,5 +82,6 @@ const seo = {
       El Centro Hepatobiliar Corta Estancia es un centro especializado que cuenta con los recursos y la experiencia necesarios para abordar las enfermedades del hígado y sistema biliar en modalidad <strong>corta estancia</strong>. Consulta los servicios que el Centro Hepatobiliar Corta Estancia de Clínica Enlace tiene para atenderte.
     </Fragment>
   </MediaPanel>
-   <Testimonials client:only="preact"/>
+  <BlogPost { ...newestBlog } />
+  <Testimonials client:only="preact"/>
 </BaseLayout>

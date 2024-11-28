@@ -85,8 +85,7 @@ Hacer los cambios necesarios y añadir los archivos que se necesitan
  git add .
 ```
 
-1. Guardar los cambios y anotar el cambio ( con descripcion de
- ejemplo:)
+1. Guardar los cambios y anotar el cambio ( con descripcion de ejemplo:)
 
 ```
  git commit -am 'Blog 2 creado'
