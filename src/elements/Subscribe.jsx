@@ -109,12 +109,11 @@ const Subscribe = () => {
               <button
                 type="submit"
                 style={{ minWidth: '85px' }}
-                class="k-link btn btn-primary bg-neutral-400 text-white py-2 px-3 w-max h-fit justify-self-end col-span-1"
+                class="k-link btn btn-primary bg-neutral-400 text-white py-2 px-3 w-max h-fit justify-self-end col-span-1 flex justify-center"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.00762 18.7143L20 11.8571L4.00762 5L4 10.3333L15.4286 11.8571L4 13.381L4.00762 18.7143Z" fill="#F8FAFC" />
                 </svg>
-
               </button>
             </div>
           </form>
