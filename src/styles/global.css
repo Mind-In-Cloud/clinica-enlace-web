@@ -80,7 +80,7 @@ body {
 }
 
 :not(.k-active){
-    & .k-decoration-under:hover{
+    & .k-decoration-under:hover, .nav-under{
     &:before {
       width: 100%;
     }

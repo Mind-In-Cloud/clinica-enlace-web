@@ -4,8 +4,10 @@ import classy from '@utils/classy'
 import footerTriangle from "@icons/footerTriangle.svg?raw"
 
 import Icon from "@elements/Icon.astro"
+import { fade } from 'astro:transitions'
 
 const {
+  blog = false,
   url,
   alt = '',
   color = '',
@@ -15,6 +17,7 @@ const {
   icon = false,
   header = false,
   nav = false,
+  navChevron = true,
   footer = false,
   wrapClasses = '',
   class : className = '',
@@ -41,7 +44,7 @@ let linkClasses : { [key: string]: string } = classy([
   isButton && color !== 'invert' && 'shadow',
   isButton && 'font-semibold typo-button-s',
   !big && isButton &&  'typo-button-s',
-  big ? 'typo-button-l py-3 px-4' : 'py-2 px-3',
+  big ? 'typo-button-l py-3 px-4' : blog ? 'mr-1' : 'py-2 px-3',
   className
 ])
 
@@ -50,6 +53,7 @@ const linkContentClasses = classy([
   !isButton && url !== '#' && 'k-decoration-under',
   color === 'cyan' && 'k-decoration-under',
   footer && 'ml-3.5',
+  nav && ' nav-under',
   wrapClasses
 ])
 
@@ -75,7 +79,7 @@ if ( Astro.url.pathname === url ){
 { url === '#'
   ?
   <div {...linkClasses} >
-    { nav && <span class="mr-2">{'<'}</span>}
+    { nav && navChevron && <span class="mr-2">{blog ? '>' : '<'}</span>}
     { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
     { !footer && Boolean(icon) && <Icon icon={icon}/>}
     <span {...linkContentClasses}>
@@ -85,7 +89,7 @@ if ( Astro.url.pathname === url ){
   </div>
   :
   <a href ={ url } {...linkClasses} aria-label={alt} >
-  { nav && <span class="mr-2">{'<'}</span>}
+  { nav && navChevron && <span class="mr-2">{blog ? '>' : '<'}</span>}
   { footer && !Boolean(icon) && <Icon icon={footerTriangle}/>}
   { !footer && Boolean(icon) && <Icon icon={icon}/>}
     <span {...linkContentClasses}>

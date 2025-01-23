@@ -85,8 +85,7 @@ Hacer los cambios necesarios y añadir los archivos que se necesitan
  git add .
 ```
 
-1. Guardar los cambios y anotar el cambio ( con descripcion de
- ejemplo:)
+1. Guardar los cambios y anotar el cambio ( con descripcion de ejemplo:)
 
 ```
  git commit -am 'Blog 2 creado'
@@ -104,6 +103,39 @@ git push
 1. **Importante**: Tenemos que volver a la rama principal al final
 ```
  git checkout main && git pull
+```
+
+## Volver a produccion
+
+Cuando los cambios ya esten en produccion necesitamos regresar al estado de 'produccion', para esto:
+
+1. Ya le picaste al boton verde de Merge
+1. Sale el aviso morado de Merged
+
+Entonces hay que hacer estos pasos:
+
+Esto nos devolvera a la rama original, la que esta en produccion, pero aun no veremos los cambios
+
+```
+git checkout main
+```
+
+Asi que la tenemos que actualizar con:
+
+```
+git pull
+```
+
+Y revisaremos que estemos al dia:
+
+```
+git status
+```
+
+Debe salir un aviso que dice:
+```
+On branch main
+Your branch is up to date with 'origin/main'.
 ```
 
 # Desarrollo de la app

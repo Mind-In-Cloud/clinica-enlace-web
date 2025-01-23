@@ -1,6 +1,7 @@
 ---
-import BlogLayout from '@layouts/blog.astro';
 import { getCollection, getEntry } from 'astro:content';
+
+import BlogLayout from '@layouts/blog.astro';
 
 import { loadImage } from '@utils/ImageDynamic';
 
@@ -16,6 +17,7 @@ const { blog } = Astro.props;
 const { Content } = await blog.render()
 
 const {
+  slug = '',
   title = '',
   seoImage = '',
   seoDescription = '',
@@ -48,8 +50,11 @@ const seo = {
   }}
   author = { authorInfo?.data }
   breadcrumbs={{
-    title: `Volver a ${categoryTitle}`,
-    url: `/blog/${categorySlug}`
+    links: [
+      { url: '/blog', title: 'Blog' },
+      { url: `/blog/${categorySlug}`, title: categoryTitle },
+      { url: `#`, title: title , active : true}
+    ]
   }}
 >
   <Content/>
