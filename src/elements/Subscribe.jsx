@@ -127,7 +127,6 @@ const Subscribe = () => {
                     <p>
                       Algo salió mal. Por favor intenta de nuevo.
                     </p>
-                    <button>
                     <button
                       type="submit"
                       style={{ minWidth: '85px' }}
@@ -135,7 +134,6 @@ const Subscribe = () => {
                       onClick={() => setSubmitted('')}
                     >
                       Reintentar
-                    </button>
                     </button>
                   </div>
             }
