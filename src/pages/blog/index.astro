@@ -7,6 +7,13 @@ import MediaPanel from "@components/MediaPanel.astro";
 import BlogPost from '@elements/BlogPost.astro';
 
 const allBlog = await getCollection('blogs');
+console.log(`🚀 ~ allBlog:`, allBlog)
+
+const allBlogsSorted = allBlog.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+console.log(`🚀 ~ allBlogsSorted ~ allBlogsSorted:`, allBlogsSorted)
 
 import seoImage from '@images/mainPhotoBig.jpg'
 import BlogSidebar from '@components/blogSidebar.astro';
