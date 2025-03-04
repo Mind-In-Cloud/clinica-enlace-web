@@ -74,7 +74,6 @@ const Subscribe = () => {
         method: 'POST',
         body: JSON.stringify(values)
       }).then((res) => {
-        console.log(`🚀 ~ handleSubmit ~ res:`, res)
         if (res.ok) {
           setSubmitted('sent')
         } else {
@@ -124,7 +123,21 @@ const Subscribe = () => {
                 `Cargando, un momento por favor...` :
                 submitted === 'sent' ?
                   `¡Suscripción exitosa!` :
-                  `Algo salió mal. Por favor intenta de nuevo.`
+                  <div>
+                    <p>
+                      Algo salió mal. Por favor intenta de nuevo.
+                    </p>
+                    <button>
+                    <button
+                      type="submit"
+                      style={{ minWidth: '85px' }}
+                      class="k-link btn btn-primary bg-neutral-400 text-white py-1 px-2 w-max h-fit justify-self-end col-span-1 flex justify-center"
+                      onClick={() => setSubmitted('')}
+                    >
+                      Reintentar
+                    </button>
+                    </button>
+                  </div>
             }
           </div>
       }

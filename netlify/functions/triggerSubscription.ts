@@ -62,7 +62,7 @@ const handler: Handler = async function(event : HandlerEvent) {
         method: "POST",
         body: JSON.stringify({
           from: `${process.env.NETLIFY_EMAIL_SENDER}`,
-          to: `${process.env.NETLIFY_EMAIL_RECIPIENT}`,
+          to: `${process.env.NETLIFY_EMAIL_RECIPIENT_SUBSCRIPTION}`,
           subject: "Clinica Enlace, suscripcion nueva",
           parameters: requestBody,
         }),
