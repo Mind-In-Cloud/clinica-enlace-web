@@ -8,6 +8,10 @@ import BlogPost from '@elements/BlogPost.astro';
 
 const allBlog = await getCollection('blogs');
 
+allBlog.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
 import seoImage from '@images/mainPhotoBig.jpg'
 import BlogSidebar from '@components/blogSidebar.astro';
 

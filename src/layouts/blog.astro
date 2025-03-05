@@ -7,7 +7,7 @@ import BlogSidebar from '@components/blogSidebar.astro';
 import classy from '@utils/classy';
 import { loadImage } from '@utils/ImageDynamic';
 
-const { seo, breadcrumbs = false, author = {}, images = {}} = Astro.props ;
+const { seo, breadcrumbs = false, author = {}, images = {}, related = [] } = Astro.props ;
 
 const {
 	title : authorName = 'Missing Name',
@@ -80,7 +80,7 @@ const authorImg = await loadImage(authorPhoto)
 					<div
 						class="typo-body-m antialiased text-neutral-500"
 					>
-						Medicina, Salud, Tratamientos, Investigación Médica, Cuidado del Paciente, Enfermedades, Prevención
+						{related.map((item: string, index: number) => index == related.length - 1 ? item : `${item}, `)}
 					</div>
 				</div>
       </div>
