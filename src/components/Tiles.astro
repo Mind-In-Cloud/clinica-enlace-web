@@ -6,6 +6,16 @@ const {
   items = [],
 } = Astro.props
 
+let itemsTops = []
+let itemsBottoms = []
+
+if ( items.length === 5 ){
+  itemsTops = items.slice(0,3)
+  itemsBottoms = items.slice(3,5)
+}
+
+console.log('top', itemsTops.length)
+console.log('bottom',itemsBottoms.length)
 
 const tilesClasses = classy([
   'grid grid-cols-12',
@@ -16,12 +26,60 @@ const tilesClasses = classy([
 ])
 
 const tileClasses = classy([
-  items.length === 3 && 'col-span-12 md:col-span-4',
-  items.length === 4 && 'col-span-6 md:col-span-3'
+  items.length === 3 ? 'col-span-12 md:col-span-4' : 'col-span-6 md:col-span-3'
+])
+
+const mobileTilesClasses = classy([
+  'grid grid-cols-12',
+  'gap-x-2',
+  items.length === 3 ? 'md:gap-x-1' : 'md:gap-x-4',
+  'gap-y-2',
+  'md:k-section',
+  'md:hidden',
+])
+
+const fiveTilesClasses = classy([
+  'flex-row justify-center place-content-around',
+  'md:k-section my-4',
+  'hidden md:flex',
+])
+
+const flexTileClasses = classy([
+  'basis-1/4',
+  'mx-2'
 ])
 ---
-<div {...tilesClasses} >
-  {items.map(( item: any ) => (
-    <Tile {...item} {...tileClasses} />
-  ))}
-</div>
+{ items.length < 5 &&
+  <div {...tilesClasses} >
+    {
+      items.map(( item: any ) => (
+        <Tile {...item} {...tileClasses} />
+      ))
+    }
+  </div>
+}
+{ // section for 5 items
+  items.length === 5 &&
+  <div {...fiveTilesClasses} >
+    {
+      itemsTops.map(( item: any ) => (
+        <Tile {...item} {...flexTileClasses} />
+      ))
+    }
+  </div>
+  <div {...fiveTilesClasses} >
+    {
+      itemsBottoms.map(( item: any ) => (
+        <Tile {...item} {...flexTileClasses} />
+      ))
+    }
+  </div>
+}
+{ // Mobile
+  items.length === 5 &&
+  <div {...mobileTilesClasses} >
+    {items.map(( item: any ) => (
+      <Tile {...item} {...tileClasses} />
+    ))}
+  </div>
+}

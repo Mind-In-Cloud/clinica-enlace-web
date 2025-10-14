@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218 218" fill="none">
+<g clip-path="url(#clip0_6625_204)">
+<path d="M109 218C169.199 218 218 169.199 218 109C218 48.801 169.199 0 109 0C48.801 0 0 48.801 0 109C0 169.199 48.801 218 109 218Z" fill="#59CCD9"/>
+<path d="M110.5 45.5C140.287 45.5 164.5 69.8643 164.5 100C164.5 130.136 140.287 154.5 110.5 154.5C80.7127 154.5 56.5 130.136 56.5 100C56.5 69.8643 80.7127 45.5 110.5 45.5Z" stroke="white" stroke-width="9"/>
+<path d="M110.5 116C116.851 116 122 110.851 122 104.5C122 98.1487 116.851 93 110.5 93C104.149 93 99 98.1487 99 104.5C99 110.851 104.149 116 110.5 116Z" fill="white"/>
+<path d="M186 41H31V88H186V41Z" fill="#59CCD9"/>
+</g>
+<defs>
+<clipPath id="clip0_6625_204">
+<rect width="218" height="218" fill="white"/>
+</clipPath>
+</defs>
+</svg>
