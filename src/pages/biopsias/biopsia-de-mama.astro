@@ -1,0 +1,122 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import iconoCentros from '@icons/biopsiaganglio.svg?raw'
+
+import MediaPanel from '@components/MediaPanel.astro';
+import DoctorCabinet from "@components/DoctorCabinet.jsx";
+
+import { getCollection } from 'astro:content';
+import Process from '@components/Process.astro';
+import ContactPanel from '@components/ContactPanel.astro';
+
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-biopsias");
+});
+
+const seo = {
+  title: 'Biopsia de Mama',
+  description: 'Biopsia de mama para diagnóstico de cáncer en Nuevo León: Procedimientos seguros con especialistas en San Nicolás y área metropolitana.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo}
+  breadcrumbs={{
+    title:"Ir a Biopsias",
+    url:'/biopsias'
+  }}
+>
+  <MediaPanel
+    main
+    icon={iconoCentros}
+    classTitle="mb-4 lg:mb-12"
+  >
+    <span slot="title">Biopsia de <strong>Mama</strong></span>
+    <span slot="subtitle">En el Centro de Biopsias, nos especializamos en cubrir todo el proceso de diagnóstico, desde la toma de muestra hasta entregarte a ti y a tu médico tratante los resultados.</span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="¿Para qué sirve la biopsia de mama?"
+  >
+    <span slot="subtitle">
+      <span>
+      La <strong>biopsia de mama</strong> es un procedimiento de mínima invasión, el cual se recomienda realizar cuando tu radiólogo de mama detecta un hallazgo sospechoso. Este procedimiento sirve para determinar si este hallazgo es maligno o benigno.
+      </span>
+      <span>La toma de biopsia es crucial para determinar el mejor tratamiento a seguir.</span>
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="Valoración clínica"
+  >
+    <span slot="subtitle">
+      Antes de realizar una biopsia de mama, recomendamos una valoración clínica integral a través de un <strong>enfoque multidisciplinario</strong>, en el que participa un médico radiólogo con alta especialidad en imagen e intervención en mama, así como otros especialistas que ponen a tu disposición su conocimiento y trayectoria. Esta evaluación inicial nos permite revisar tu historial médico, estudios previos, abordar cualquier inquietud que tengas y permite planificar el procedimiento de manera segura y eficaz.
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold"
+    classSubtitle="text-left"
+    title="Tipos de biopsias"
+  >
+    <span slot="subtitle">
+      <p>
+        Ofrecemos diferentes tipos de biopsias, cada una adaptada a las necesidades específicas de nuestros pacientes. Nuestro equipo de radiólogos intervencionistas, en colaboración con tu médico, determinarán cuál es la opción más adecuada para ti.
+      </p>
+      <p class="mt-4">
+        Por lo general, el método de biopsia se realiza mediante agujas de corte  “<strong>Trucut</strong>”, las cuales tienen un diámetro menor a 5mm. Utilizando ultrasonido, el médico dirige la aguja hacia el área a tomar la muestra, reduciendo el riesgo de dañar las estructuras adyacentes.
+      </p>
+    </span>
+  </MediaPanel>
+  <MediaPanel
+    style="tint"
+    small
+    classTitle="mb-4 lg:mb-12 font-bold text-left"
+    classSubtitle="text-left"
+    title="Opciones de anestesia"
+  >
+  <span slot="subtitle">
+    La biopsia Trucut de mama es realizada <strong>con anestesia local</strong>. Antes del procedimiento, discutiremos contigo todos los detalles y dudas que tengas para asegurar tu comodidad y seguridad.
+  </span>
+  </MediaPanel>
+  <Process
+    title = 'Procedimiento de la biopsia'
+    items = {[
+      {
+        title: 'Valoración clínica',
+        subtitle: 'Esta evaluación inicial nos permite conocer tu historial médico, discutir cualquier preocupación que tengas y planificar el procedimiento de manera segura y eficaz.'
+      },
+      {
+        title: 'Preparación del paciente',
+        subtitle: 'El personal de enfermería te preparará en el área del procedimiento antes de la biopsia.'
+      },
+      {
+        title: 'Toma de muestra',
+        htmlSubtitle: 'El radiólogo de mama utilizará una aguja Trucut, guiado por ultrasonido, para obtener varias muestras del tejido de interés.'
+      },
+      {
+        title : 'Post-procedimiento',
+        subtitle : 'Te proporcionaremos instrucciones claras sobre el cuidado postbiopsia y programaremos una cita de seguimiento para revisar los resultados y planificar los próximos pasos.'
+      }
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold text-center"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <DoctorCabinet doctors={allDoctors} dropdown={false} client:load/>
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>
