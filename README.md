@@ -180,9 +180,23 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
-Using PNPM not NPM
+Package manager: PNPM
 
-You can develop doing:
+### Recommended
+if using [NVM use COREPACK](https://github.com/pnpm/pnpm/issues/4839#issuecomment-2920351141)
+```
+corepack enable
+```
+
+Using [PNPM](https://pnpm.io/installation) not NPM
+
+Then you are ready to install the project + netlify:
+```
+pnpm install && pnpm install -g netlify-cli
+```
+
+Now you can develop doing:
+
 
 ```
 netlify dev
