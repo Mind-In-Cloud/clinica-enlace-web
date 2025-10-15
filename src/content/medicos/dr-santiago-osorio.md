@@ -6,6 +6,10 @@ info: 'El Dr. Santiago Osorio es un radiólogo altamente capacitado con una sól
 blog: 'Dr. Osorio, médico especialista en radiología, experto en diagnósticos por imagen.'
 photo: '/src/assets/images/dr_osorio2.png'
 especialidad: 'Radiología'
-centros: ['centro-hepatobiliar', 'centro-biopsias']
+centros: [
+  {center: 'hepatobiliar', priority: 0},
+  {center : 'biopsias', priority: 0},
+  {center : 'mama', priority: 0}
+]
 tags: ['Radiología']
 ---

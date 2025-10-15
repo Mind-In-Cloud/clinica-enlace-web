@@ -6,6 +6,10 @@ info: 'El Dr. Guerrero es un radiólogo dedicado a proporcionar diagnósticos pr
 blog: 'El Dr. Jorge Guerrero, médico especialista en radiología, se dedica a proporcionar diagnósticos precisos y detallados que son fundamentales para el tratamiento efectivo de sus pacientes.'
 photo: '/src/assets/images/dr_guerrero.png'
 especialidad: 'Radiología'
-centros: ['centro-hepatobiliar', 'centro-biopsias']
+centros: [
+  {center: 'hepatobiliar', priority: 0},
+  {center : 'biopsias', priority: 0},
+  {center : 'mama', priority: 0}
+]
 tags: ['Radiología']
 ---

@@ -6,6 +6,9 @@ info: 'El Dr. Samuel López es un médico radiólogo con una alta especialidad e
 blog: 'Dr. Samuel López, médico especialista en radiología, imagen e intervención en mama.'
 photo: '/src/assets/images/dr_samuel.png'
 especialidad: 'Radiología, Imagen e Intervención en Mama'
-centros: ['centro-biopsias']
+centros: [
+  {center : 'biopsias', priority: 0},
+  {center : 'mama', priority: 1}
+]
 tags: ['Radiología']
 ---
