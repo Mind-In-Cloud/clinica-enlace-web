@@ -29,6 +29,9 @@ const allBlogsInCategory = await getCollection("blogs", ({data}) => {
   return data.categorias.includes(categoryName);
 });
 
+allBlogsInCategory.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
 ---
 <BaseLayout
 	wha={false}
