@@ -10,6 +10,7 @@ const {
   url = '',
   style = '',
   icon = '',
+  iconClass = '',
   iconSize = '',
   class : className = '',
 } = Astro.props;
@@ -42,7 +43,8 @@ const subtitleClasses = classy([
 const iconClasses = classy([
   text ? 'max-w-[50%]' : 'max-w-32',
   iconSize ? `md:max-h-[33%] max-h-[${iconSize}] xl:max-h-[33%]` : text ? 'max-h-[50%]': 'max-h-[33%]',
-  'w-full'
+  'w-full',
+  iconClass
 ])
 ---
 <a href={url} {...tileClasses}>

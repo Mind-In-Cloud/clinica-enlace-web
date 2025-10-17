@@ -14,21 +14,19 @@ import Process from '@components/Process.astro';
 import ContactPanel from '@components/ContactPanel.astro';
 
 const allDoctors = await getCollection("medicos", ({data}) => {
-  if ( data?.centros ) {
-    if (data.centros.some((
+  if ( data?.centros?.some((
       center: { center: string; priority: number; }
     ) => center.center === "mama" )) {
       return data
-    }
   }
 });
 
 allDoctors.sort((a, b) => {
   const objA = a.data.centros?.find( (centro : { center: string; priority: number}) => centro.center === "mama")
-  const priorityA = objA?.priority;
+  const priorityA = objA?.priority || Infinity
   const objB = b.data.centros?.find( (centro : { center: string; priority: number}) => centro.center === "mama")
-  const priorityB = objB?.priority;
-  return priorityB - priorityA;
+  const priorityB = objB?.priority || Infinity
+  return priorityB - priorityA
 });
 
 const seo = {
