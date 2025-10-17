@@ -8,6 +8,7 @@ import liverB from '@icons/higado_b.svg?raw';
 import tiroidesB from '@icons/tiroides_b.svg?raw';
 import renalB from '@icons/renal_b.svg?raw';
 import ganglioB from '@icons/ganglio_b.svg?raw';
+import mamaB from '@icons/mamaB.svg?raw';
 import iconoBiopsias from '@icons/biopsia_cyan_fuerte.svg?raw';
 
 import DoctorCabinet from '@components/DoctorCabinet';
@@ -15,8 +16,15 @@ import MediaPanel from '@components/MediaPanel.astro';
 
 import { getCollection } from 'astro:content';
 import Tiles from '@components/Tiles.astro';
+
 const allDoctors = await getCollection("medicos", ({data}) => {
-  return data.centros.includes("centro-biopsias");
+  if ( data?.centros ) {
+    if (data.centros.some((
+      center: { center: string; priority: number; }
+    ) => center.center === "biopsias" )) {
+      return data
+    }
+  }
 });
 
 const seo = {
@@ -74,6 +82,13 @@ const seo = {
         icon: ganglioB,
         url: '/biopsias/biopsia-de-ganglio',
         style : 'tint'
+      },
+      {
+        text: 'Mama >',
+        icon: mamaB,
+        url: '/biopsias/biopsia-de-mama',
+        style : 'tint',
+        iconClass: 'p-4'
       },
     ]}
   />

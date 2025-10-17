@@ -12,8 +12,15 @@ import DoctorCabinet from "@components/DoctorCabinet.jsx";
 import { getCollection } from 'astro:content';
 import Process from '@components/Process.astro';
 import ContactPanel from '@components/ContactPanel.astro';
+
 const allDoctors = await getCollection("medicos", ({data}) => {
-  return data.centros.includes("centro-biopsias");
+  if ( data?.centros ) {
+    if (data.centros.some((
+      center: { center: string; priority: number; }
+    ) => center.center === "biopsias" )) {
+      return data
+    }
+  }
 });
 
 const seo = {

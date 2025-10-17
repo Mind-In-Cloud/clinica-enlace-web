@@ -6,6 +6,10 @@ info: ' El Dr. Baylón es un especialista en radiología intervencionista, compr
 blog: 'El Dr. Asdrúbal Baylón, radiólogo intervencionista, destaca por su precisión y seguridad en procedimientos mínimamente invasivos y diagnóstico avanzado.'
 photo: '/src/assets/images/dr_baylon.png'
 especialidad: 'Radiología intervencionista'
-centros: ['centro-hepatobiliar', 'centro-biopsias']
+centros: [
+  {center: 'hepatobiliar', priority: 0},
+  {center : 'biopsias', priority: 0},
+  {center : 'mama', priority: 0}
+]
 tags: ['Radiología']
 ---
