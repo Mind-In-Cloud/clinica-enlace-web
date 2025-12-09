@@ -1,3 +1,4 @@
+---
 title: 'Dr. Roberto Guerrero'
 description: 'Médico especialista en gastroenterología, diagnóstico y tratamiento de enfermedades del sistema digestivo y endoscopía digestiva.'
 seoImage: '/src/assets/images/colab.jpg'
@@ -6,3 +7,4 @@ photo: '/src/assets/images/dricon.png'
 especialidad: 'Gastroenterología'
 centros: ['centro-hepatobiliar']
 tags: ['Gastroenterología']
+---
