@@ -13,5 +13,8 @@ export default defineConfig({
   // site: 'https://clinica-enlace.netlify.app',
   integrations: [preact({ compat: true }), tailwind(), sitemap(), mdx()],
   output: "static",
-  adapter: netlify()
+  adapter: netlify(),
+  experimental: {
+    csp: false
+  }
 });
