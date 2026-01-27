@@ -5,6 +5,7 @@ import Map from '@components/Map.astro';
 
 import seoImage from '@images/colab.jpg';
 import vesiculaYellow from '@icons/vesicula_amarillo.svg?raw';
+import cirujanosImg from '@images/cirujanos.jpg'
 
 import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
@@ -42,6 +43,10 @@ const seo = {
     title="Cirugía de Vesícula por Laparoscopía"
     classTitle="text-yellow"
     lineFinal
+    image = {{
+      source : cirujanosImg,
+      alt : 'Cirujanos de Clínica Enlace'
+    }}
   >
   <div slot="subtitle">
     <p class="header-s italic text-gray xl:mt-6">
