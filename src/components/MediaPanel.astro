@@ -12,6 +12,7 @@ const {
   small = false,
   medium = false,
   line = false,
+  lineFinal= false,
   icon = '',
   bigIcon = false,
   cta = {
@@ -91,5 +92,8 @@ const ctaProps = {
     <Link {...ctaProps} alt={cta.text}>
       {cta.text}
     </Link>
+  }
+  {
+    lineFinal && <Linebreak class="col-span-4 mt-8" color={style} isElement/>
   }
 </div>

@@ -5,7 +5,7 @@ import Map from '@components/Map.astro';
 
 import seoImage from '@images/colab.jpg';
 import iconoCentros from '@icons/verde/centros_esp.svg?raw'
-import liverWhite from '@icons/liver_white.svg?raw';
+import vesiculaBlanco from '@icons/vesicula_blanco.svg?raw';
 import iconoDolor from '@icons/white_pain.svg?raw'
 import iconoBiopsias from '@icons/biopsia_cian.svg?raw'
 
@@ -14,6 +14,7 @@ import DoctorCabinet from '@components/DoctorCabinet';
 
 import { getCollection } from 'astro:content';
 import Tiles from '@components/Tiles.astro';
+
 const allDoctors = await getCollection("medicos", ({data}) => {
   return data.centros.includes("centros-biopsia") || data.centros.includes("centro-hepatobiliar") || data.centros.includes("centro-dolor");
 });
@@ -36,11 +37,11 @@ const seo = {
   <Tiles
     items = {[
       {
-        title: '<span>Centro del <strong>Hígado</strong></br> y <strong>Sistema Biliar</strong></span>',
+        title: '<span>Centro de<strong>Vesícula</strong></br> y <strong>Sistema Biliar</strong></span>',
         subtitle : 'Conoce la opción de diagnóstico y tratamiento adecuada para ti',
-        icon: liverWhite,
+        icon: vesiculaBlanco,
         iconSize : '25%',
-        url: '/centro-hepatobiliar',
+        url: '/centro-de-vesicula-y-sistema-biliar',
         style : 'yellow'
       },
       {
