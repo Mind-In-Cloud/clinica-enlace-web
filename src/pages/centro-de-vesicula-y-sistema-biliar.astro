@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@layouts/base.astro';
+
+import Map from '@components/Map.astro';
+
+import seoImage from '@images/colab.jpg';
+import vesiculaYellow from '@icons/vesicula_amarillo.svg?raw';
+
+import ContactPanel from '@components/ContactPanel.astro';
+import MediaPanel from '@components/MediaPanel.astro';
+import GreatList from '@components/GreatList.astro';
+import DoctorCabinet from '@components/DoctorCabinet';
+
+import { getCollection } from 'astro:content';
+const allDoctors = await getCollection("medicos", ({data}) => {
+  return data.centros.includes("centro-hepatobiliar");
+});
+
+
+const seo = {
+  title: 'Centro de Vesícula y Sistema Biliar',
+  description: 'Centro de Vesícula y Sistema Biliar, diagnóstico y tratamiento avanzado de enfermedades biliares en clínica de corta estancia.',
+  image: seoImage,
+}
+---
+<BaseLayout {seo} breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad'}}>
+  <MediaPanel
+    main
+    icon = {vesiculaYellow}
+    bigIcon = {true}
+  >
+    <Fragment slot="title">
+      Centro de <strong>Vesícula</strong>
+      y <strong>Sistema Biliar</strong>
+    </Fragment>
+    <Fragment slot="subtitle">
+      En el Centro de <strong>Vesícula</strong> y <strong>Sistema Biliar</strong> de Clínica Enlace, nos especializamos en la atención integral de las enfermedades de la vesícula y las vías biliares. Nuestro equipo de especialistas altamente capacitados y experimentados utiliza las tecnologías más avanzadas y enfoques multidisciplinarios para ofrecerte un cuidado integral y personalizado.
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    style="yellow"
+    title="Cirugía de Vesícula por Laparoscopía"
+    classTitle="text-yellow"
+    lineFinal
+  >
+  <div slot="subtitle">
+    <p class="header-s italic text-gray xl:mt-6">
+      “TRANSFORMAMOS LA EXPERIENCIA DEL PACIENTE”
+    </p>
+    <p>
+      En <strong>Clínica Enlace</strong> contamos con la experiencia, infraestructura y enfoque clínico necesarios para realizar la cirugía de vesícula por laparoscopía de manera segura, eficiente y humana.
+    </p>
+    <p>
+      Nuestro modelo de corta estancia permite una recuperación más rápida y cómoda, mientras que la contención de costos se logra mediante procesos estandarizados y un uso responsable de recursos, sin comprometer la calidad médica. Cada paciente recibe atención con un alto nivel de tranquilidad y acompañamiento, respaldado por un equipo multidisciplinario que realiza una revisión integral antes, durante y después del procedimiento, garantizando resultados confiables y una experiencia de atención completa.
+    </p>
+  </div>
+  </MediaPanel>
+  <MediaPanel
+    title="Catálogo de Procedimientos"
+    classTitle="mb-12 text-yellow"
+  >
+  <p slot="subtitle">
+    La <strong>vesícula</strong> y el <strong>sistema biliar</strong> desempeñan un papel fundamental en la digestión y el equilibrio del organismo. En el <strong>Centro de Vesícula y Sistema Biliar</strong> de Clínica Enlace, ofrecemos una atención integral basada en la evaluación especializada, el trabajo coordinado de un equipo multidisciplinario y el uso de tecnología médica avanzada. Nuestro enfoque permite brindar diagnósticos precisos y planes de atención personalizados, priorizando la seguridad, la eficiencia clínica y la tranquilidad del paciente en cada etapa de su atención.
+  </p>
+  </MediaPanel>
+  <GreatList
+    color="yellow"
+    list={[
+      {
+        title: 'Cirugía laparoscópica y convencional de vesícula',
+        subtitle: 'Extracción de la vesícula biliar mediante técnicas mínimamente invasivas o convencionales.'
+      },
+      {
+        title: 'Colangiografía transoperatoria y diagnóstica',
+        subtitle: 'Estudio de las vías biliares durante una cirugía o mediante radiografía.'
+      },
+      {
+        title: 'Paracentesis Abdominal',
+        subtitle: 'Extracción de líquido del abdomen para aliviar presión o diagnosticar enfermedades.'
+      },
+      {
+        title: 'Colangiopancreatografía Retrógrada Endoscópica (CPRE)',
+        subtitle: 'Evaluación y tratamiento de las vías biliares y el páncreas mediante endoscopia.'
+      },
+      {
+        title: 'Derivación biliar intervencionista',
+        subtitle: 'Creación de un conducto alternativo para el drenaje de la bilis.'
+      },
+      {
+        title: 'Terapia de Embolización para Cáncer de Hígado (TACE, TAE, DEB-TACE)',
+        subtitle: 'Tratamiento para cáncer de hígado.'
+      },
+      {
+        title: 'Biopsia hepática',
+        subtitle: 'Extracción de tejido hepático para análisis patológico'
+      },
+      {
+        title: 'Colangioscopía percutánea intervencionista (SPYGLASS)',
+        subtitle: 'Examen de las vías biliares y páncreas mediante endoscopio percutáneo.'
+      },
+      {
+        title: 'Servicio de transfusión hospitalaria de sangre',
+        subtitle: 'Suministro de sangre segura y necesaria para pacientes en el hospital.'
+      },
+      {
+        title: 'Ultrasonido contrastado Hepático-Biliar',
+        subtitle: 'Imágenes de alta resolución del hígado y vías biliares con contraste.'
+      },
+      {
+        title: 'Ultrasonido convencional y Doppler Hepático-Biliar',
+        subtitle: 'Evaluación no invasiva de la estructura y función hepática y de las vías biliares.'
+      }
+    ]}
+  />
+  <MediaPanel
+    medium
+    title="Conoce al equipo de especialistas"
+    classTitle="font-bold"
+    subtitle="Nuestro equipo de médicos especialistas altamente capacitados está comprometido con la excelencia médica. Cada especialista aporta su experiencia única para brindarle atención personalizada y de vanguardia. Confíe en nuestros expertos para cuidar su salud y bienestar con dedicación y conocimiento en diagnóstico, tratamiento y cuidado preventivo."
+  />
+  <DoctorCabinet
+    client:load
+    dropdown={false}
+    doctors={allDoctors}
+  />
+  <ContactPanel/>
+  <Map/>
+</BaseLayout>
