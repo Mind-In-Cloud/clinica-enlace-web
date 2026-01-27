@@ -4,7 +4,8 @@ import BaseLayout from '@layouts/base.astro';
 import Map from '@components/Map.astro';
 
 import seoImage from '@images/colab.jpg';
-import liverYellow from '@icons/liver_yellow.svg?raw';
+import vesiculaYellow from '@icons/vesicula_amarillo.svg?raw';
+import cirujanosImg from '@images/cirujanos.jpg'
 
 import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
@@ -18,32 +19,54 @@ const allDoctors = await getCollection("medicos", ({data}) => {
 
 
 const seo = {
-  title: 'Centros de especialidad',
-  description: 'Centros de especialidad: hepatobiliar y manejo del dolor, atención avanzada en clínica de intervencionismo y corta estancia.',
+  title: 'Centro de Vesícula y Sistema Biliar',
+  description: 'Centro de Vesícula y Sistema Biliar, diagnóstico y tratamiento avanzado de enfermedades biliares en clínica de corta estancia.',
   image: seoImage,
 }
 ---
 <BaseLayout {seo} breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad'}}>
   <MediaPanel
     main
-    icon = {liverYellow}
+    icon = {vesiculaYellow}
     bigIcon = {true}
   >
     <Fragment slot="title">
-      Centro del <strong>Hígado</strong>
+      Centro de <strong>Vesícula</strong>
       y <strong>Sistema Biliar</strong>
     </Fragment>
     <Fragment slot="subtitle">
-      En el Centro Hepatobiliar de Clínica Enlace, estamos comprometidos a brindarte la excelencia en el tratamiento de enfermedades relacionadas con el <strong>hígado y sistema biliar</strong>. Nuestro equipo de especialistas altamente capacitados y experimentados utiliza las tecnologías más avanzadas y enfoques multidisciplinarios para ofrecerte un cuidado integral y personalizado.
+      En el Centro de <strong>Vesícula</strong> y <strong>Sistema Biliar</strong> de Clínica Enlace, nos especializamos en la atención integral de las enfermedades de la vesícula y las vías biliares. Nuestro equipo de especialistas altamente capacitados y experimentados utiliza las tecnologías más avanzadas y enfoques multidisciplinarios para ofrecerte un cuidado integral y personalizado.
     </Fragment>
   </MediaPanel>
   <MediaPanel
     style="yellow"
-    small
-    classTitle="mb-4 lg:mb-12 font-bold"
-    title="Hígado y Sistema Biliar"
+    title="Cirugía de Vesícula por Laparoscopía"
+    classTitle="text-yellow"
+    lineFinal
+    image = {{
+      source : cirujanosImg,
+      alt : 'Cirujanos de Clínica Enlace'
+    }}
   >
-    <span slot="subtitle">El <strong>hígado</strong> y el <strong>sistema biliar</strong> desempeñan un papel crucial en la digestión y el metabolismo. En el Centro Hepatobiliar, abordamos una amplia gama de condiciones, incluyendo enfermedades hepáticas como la hepatitis, cirrosis y cáncer de hígado, así como enfermedades de las vías biliares. Nuestro enfoque multidisciplinario garantiza que cada paciente reciba un plan de tratamiento personalizado y una atención integral para abordar sus necesidades específicas.</span>
+  <div slot="subtitle">
+    <p class="header-s italic text-gray xl:mt-6">
+      “TRANSFORMAMOS LA EXPERIENCIA DEL PACIENTE”
+    </p>
+    <p>
+      En <strong>Clínica Enlace</strong> contamos con la experiencia, infraestructura y enfoque clínico necesarios para realizar la cirugía de vesícula por laparoscopía de manera segura, eficiente y humana.
+    </p>
+    <p>
+      Nuestro modelo de corta estancia permite una recuperación más rápida y cómoda, mientras que la contención de costos se logra mediante procesos estandarizados y un uso responsable de recursos, sin comprometer la calidad médica. Cada paciente recibe atención con un alto nivel de tranquilidad y acompañamiento, respaldado por un equipo multidisciplinario que realiza una revisión integral antes, durante y después del procedimiento, garantizando resultados confiables y una experiencia de atención completa.
+    </p>
+  </div>
+  </MediaPanel>
+  <MediaPanel
+    title="Catálogo de Procedimientos"
+    classTitle="mb-12 text-yellow"
+  >
+  <p slot="subtitle">
+    La <strong>vesícula</strong> y el <strong>sistema biliar</strong> desempeñan un papel fundamental en la digestión y el equilibrio del organismo. En el <strong>Centro de Vesícula y Sistema Biliar</strong> de Clínica Enlace, ofrecemos una atención integral basada en la evaluación especializada, el trabajo coordinado de un equipo multidisciplinario y el uso de tecnología médica avanzada. Nuestro enfoque permite brindar diagnósticos precisos y planes de atención personalizados, priorizando la seguridad, la eficiencia clínica y la tranquilidad del paciente en cada etapa de su atención.
+  </p>
   </MediaPanel>
   <GreatList
     color="yellow"
