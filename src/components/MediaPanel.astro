@@ -9,6 +9,7 @@ import Icon from "@elements/Icon.astro"
 const {
   style = 'gray',
   main = false,
+  headerOnly = false,
   title = '',
   subtitle = '',
   small = false,
@@ -95,11 +96,11 @@ const ctaProps = {
   { subtitle ?
     <p {...mediaSubtitleClasses}>{subtitle}</p>
   :
+    !headerOnly &&
     <div {...mediaSubtitleClasses}>
       <slot name="subtitle"/>
     </div>
   }
-
   { ctaProps.url &&
     <Link {...ctaProps} alt={cta.text}>
       {cta.text}
