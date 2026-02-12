@@ -11,12 +11,17 @@ import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
 import GreatList from '@components/GreatList.astro';
 import DoctorCabinet from '@components/DoctorCabinet';
+import SidePanel from '@components/SidePanel.astro';
 
 import { getCollection } from 'astro:content';
-const allDoctors = await getCollection("medicos", ({data}) => {
-  return data.centros.includes("centro-hepatobiliar");
-});
 
+const allDoctors = await getCollection("medicos", ({data}) => {
+  if (!Array.isArray(data.centros)) return false;
+  return data.centros.some(c =>
+    typeof c === 'object' &&
+    (c.center === 'hepatobiliar')
+  );
+});
 
 const seo = {
   title: 'Centro de Vesícula y Sistema Biliar',
@@ -39,19 +44,40 @@ const seo = {
     </Fragment>
   </MediaPanel>
   <MediaPanel
-    style="yellow"
     title="Cirugía de Vesícula por Laparoscopía"
-    classTitle="text-yellow"
-    lineFinal
+    classTitle="text-yellow font-bold"
+    headerOnly
+  >
+  <!-- <div slot="subtitle">
+    <!-- <p class="header-s italic text-gray xl:mt-6">
+
+    </p>
+  </div> -->
+  </MediaPanel>
+  <SidePanel
+    class="mt-[-3rem] mb-[-3rem]"
     image = {{
       source : cirujanosImg,
       alt : 'Cirujanos de Clínica Enlace'
     }}
   >
+    <div class="tracking-[0.25rem]" slot="title">
+      <p>
+        TRANSFORMAMOS LA
+      </p>
+      <p>
+        EXPERIENCIA DEL
+      </p>
+      <p>
+        <strong>PACIENTE</strong>.
+      </p>
+    </div>
+  </SidePanel>
+  <MediaPanel
+    style="yellow"
+    lineFinal
+  >
   <div slot="subtitle">
-    <p class="header-s italic text-gray xl:mt-6">
-      “TRANSFORMAMOS LA EXPERIENCIA DEL PACIENTE”
-    </p>
     <p>
       En <strong>Clínica Enlace</strong> contamos con la experiencia, infraestructura y enfoque clínico necesarios para realizar la cirugía de vesícula por laparoscopía de manera segura, eficiente y humana.
     </p>

@@ -8,7 +8,6 @@ import ReactSlider from '@components/SliderDoctors.jsx';
 import Testimonials from '@components/Testimonials.jsx'
 
 import { getCollection } from 'astro:content';
-const allDoctors = await getCollection("medicos");
 
 import seoImage from '@images/px.png';
 import compromiso from '@icons/valores/compromiso.svg?raw'
@@ -25,6 +24,9 @@ const seo = {
   description: 'Conozca nuestra clínica de intervencionismo y corta estancia, dedicada a brindar atención médica avanzada y personalizada.',
   image: seoImage,
 }
+
+const allDoctors = await getCollection("medicos");
+
 ---
 <BaseLayout {seo}>
   <VideoPlayer client:only="preact"/>
