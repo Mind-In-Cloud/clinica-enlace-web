@@ -17,7 +17,7 @@ const allDoctors = await getCollection("medicos", ({data}) => {
   if (!Array.isArray(data.centros)) return false;
   return data.centros.some(c =>
     typeof c === 'object' &&
-    (c.center === "centro-dolor")
+    (c.center === "dolor")
   );
 });
 
