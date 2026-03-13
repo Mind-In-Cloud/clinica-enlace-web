@@ -11,13 +11,15 @@ import Accordions from '@components/Accordions.jsx';
 import ReactSlider from '@components/SliderDoctors.jsx';
 
 import { getCollection } from 'astro:content';
-const allDoctors = await getCollection("medicos");
 
 const seo = {
   title: 'Pacientes',
   description: 'Orientación a pacientes, información y apoyo en su visita a nuestra clínica de intervencionismo y corta estancia.',
   image: seoImage,
 }
+
+const allDoctors = await getCollection("medicos");
+
 ---
 <BaseLayout {seo}>
   <MediaPanel

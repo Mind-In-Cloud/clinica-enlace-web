@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro:assets'
+
+import classy from "@utils/classy";
+
+const {
+  isElement = false,
+  class: className = '',
+  image = {
+    source: '',
+    alt: ''
+  }
+} = Astro.props
+
+const sideClasses = classy([
+  !isElement && 'k-section',
+  'k-side-panel',
+  'grid grid-cols-2',
+  className
+]);
+
+const leftClasses= classy([
+  "col-span-full",
+  "lg:col-span-1",
+  "header-l",
+  "lg:header-s",
+  "text-gray",
+  "xl:mt-6",
+  "text-center",
+  "content-center",
+  "mt-[2rem]",
+  "lg:mt-0"
+])
+
+
+const rightClasses= classy([
+  "col-span-full",
+  "lg:col-span-1",
+  "order-first",
+  "lg:order-last"
+])
+
+---
+<div
+  {...sideClasses}
+>
+  <div {...leftClasses}>
+    <slot name="title">
+  </div>
+  <div {...rightClasses}>
+    <Picture src={image.source} layout="constrained" alt={image.alt}/>
+  </div>
+</div>

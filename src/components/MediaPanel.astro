@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets'
+
 import Link from "@elements/Link.astro"
 import Linebreak from "@elements/Linebreak.astro"
 import classy from "@utils/classy"
@@ -7,12 +9,18 @@ import Icon from "@elements/Icon.astro"
 const {
   style = 'gray',
   main = false,
+  headerOnly = false,
   title = '',
   subtitle = '',
   small = false,
   medium = false,
   line = false,
+  lineFinal= false,
   icon = '',
+  image = {
+    source : false,
+    alt: ''
+  },
   bigIcon = false,
   cta = {
     text: 'cta',
@@ -67,6 +75,12 @@ const ctaProps = {
   { icon &&
     <Icon icon={icon} {...iconClasses }/>
   }
+  {
+    image.source && <div class="hidden md:block md:col-span-1 "></div>
+    <div class="col-span-4 md:col-span-2">
+      <Picture src={image.source} layout="constrained" alt={image.alt}/>
+    </div><div class="hidden md:block md:col-span-1"></div>
+  }
   { main ?
     <h1 {...mediaTitleClasses}>
       { title ? title : <slot name="title"/> }
@@ -82,14 +96,17 @@ const ctaProps = {
   { subtitle ?
     <p {...mediaSubtitleClasses}>{subtitle}</p>
   :
+    !headerOnly &&
     <div {...mediaSubtitleClasses}>
       <slot name="subtitle"/>
     </div>
   }
-
   { ctaProps.url &&
     <Link {...ctaProps} alt={cta.text}>
       {cta.text}
     </Link>
+  }
+  {
+    lineFinal && <Linebreak class="col-span-4 mt-8" color={style} isElement/>
   }
 </div>

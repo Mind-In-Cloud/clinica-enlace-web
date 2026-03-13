@@ -13,5 +13,11 @@ export default defineConfig({
   // site: 'https://clinica-enlace.netlify.app',
   integrations: [preact({ compat: true }), tailwind(), sitemap(), mdx()],
   output: "static",
-  adapter: netlify()
+  adapter: netlify(),
+  redirects: {
+    "/centro-hepatobiliar": {
+      status: 301,
+      destination: "/centro-de-vesicula-y-sistema-biliar",
+    },
+  }
 });
