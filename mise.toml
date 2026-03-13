@@ -1,0 +1,6 @@
+[tools]
+biome = "latest"
+hk = "latest"
+node = "24.13"
+pkl = "latest"
+pnpm = "10"
