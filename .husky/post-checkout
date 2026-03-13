@@ -1,0 +1,19 @@
+#!/bin/sh
+# Git post-checkout hook: stash changes and pull main when creating a new branch
+
+# If a new branch is created ($3 is 1)
+if [ "$3" = "1" ]; then
+  echo "[post-checkout hook] New branch detected. Stashing changes and pulling from main..."
+  STASH_OUTPUT=$(git stash)
+  git pull origin main
+  if echo "$STASH_OUTPUT" | grep -qv 'No local changes to save'; then
+    echo "[post-checkout hook] Popping stashed changes..."
+    git stash pop
+  fi
+fi
+
+# If switching to main branch (regardless of new branch creation)
+if [ "$2" = "refs/heads/main" ]; then
+  echo "[post-checkout hook] Switched to main branch. Pulling latest from origin/main..."
+  git pull origin main
+fi
