@@ -1,4 +1,0 @@
-[tools]
-biome = "latest"
-node = "24.13"
-pnpm = "10"
