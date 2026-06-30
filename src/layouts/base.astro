@@ -11,7 +11,7 @@ import seoDefault from "@images/mainPhotoDesktop.png"
 import '@styles/global.css';
 import '@styles/typography.css';
 
-const { seo, breadcrumbs = false, wha = true} = Astro.props ;
+const { seo, breadcrumbs = false, wha = true, isIframe = false } = Astro.props ;
 
 const {
 	title = 'Missing Title',
@@ -23,7 +23,7 @@ const {
 		// alt, // not used in this, needs to be defined
 		format
 	} = seoDefault,
-	canonical = ''
+	canonical = '',
 } = seo
 
 const seoImageUrl = `${new URL(src, Astro.url)}`
@@ -94,10 +94,10 @@ let seoObj = {
 		<!-- End Meta Pixel Code -->
 	</head>
 	<body>
-		<Header/>
-		{breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
+		{ !isIframe && <Header/> }
+		{ !isIframe && breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
     <slot />
 		{wha && <FloatingWha/>}
-		<Footer />
+		{ !isIframe && <Footer />}
 	</body>
 </html>
