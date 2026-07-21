@@ -6,5 +6,6 @@ info: 'Escribimos información relevante para resolver las dudas más frecuentes
 photo: '/src/assets/images/dricon.png'
 especialidad: 'Otras'
 centros: []
+blog: 'Escribimos la información más relevante para resolver las dudas más frecuentes de nuestros pacientes.'
 tags: ['Otras']
 ---
