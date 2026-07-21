@@ -12,6 +12,11 @@ body {
   .k-section{
     @apply px-8 my-12 lg:px-20 lg:my-16 2xl:px-48;
   }
+  .k-alone {
+    .k-section {
+      @apply px-8 my-12 lg:px-40 lg:my-16 2xl:px-80;
+    }
+  }
 }
 
 .k-doctor-card {
@@ -93,4 +98,18 @@ body {
 
 .k-input-email {
   outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-block-start: 144px;
+}
+
+.k-footer-vesicula {
+  picture {
+    display: contents;
+  }
+  source {
+    display: none;
+  }
 }

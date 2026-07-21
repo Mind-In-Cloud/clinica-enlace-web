@@ -1,37 +1,426 @@
 ---
-import BaseLayout from '@layouts/base.astro';
+import { Picture } from 'astro:assets';
 
-import Map from '@components/Map.astro';
+import Vesicula from '@layouts/vesicula.astro';
 
 import seoImage from '@images/colab.jpg';
-import vesiculaYellow from '@icons/vesicula_amarillo.svg?raw';
-import cirujanosImg from '@images/cirujanos.jpg'
+import abdomen_info from '@images/abdomen_info.png'
+import cirujanos_vesicula from '@images/cirujanos_vesicula.jpg'
+import sobre_nosotros from '@images/sobre_nosotros.jpg'
 
-import ContactPanel from '@components/ContactPanel.astro';
 import MediaPanel from '@components/MediaPanel.astro';
-import GreatList from '@components/GreatList.astro';
-import DoctorCabinet from '@components/DoctorCabinet';
-import SidePanel from '@components/SidePanel.astro';
-
-import { getCollection } from 'astro:content';
-
-const allDoctors = await getCollection("medicos", ({data}) => {
-  if (!Array.isArray(data.centros)) return false;
-  return data.centros.some(c =>
-    typeof c === 'object' &&
-    (c.center === 'hepatobiliar')
-  );
-});
+import Linebreak from '@elements/Linebreak.astro';
 
 const seo = {
-  title: 'Centro de Vesícula y Sistema Biliar',
-  description: 'Centro de Vesícula y Sistema Biliar, diagnóstico y tratamiento avanzado de enfermedades biliares en clínica de corta estancia.',
+  title: 'Vesícula y Vías biliares: Síntomas y procedimientos',
+  description: '¿Crees que es la vesícula? Conoce los síntomas de una condición en la vesícula y principales procedimientos. Cirugía de vesícula y CPRE en Monterrey.',
   image: seoImage,
 }
 ---
-<BaseLayout {seo} breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad'}} isIframe={true}>
-  <iframe
-    src="https://vesiculaysistemabiliar.webflow.io/"
-    title="Centro de Vesícula y Sistema Biliar" style="width:100%; height:100vh; border:none;"
-  ></iframe>
-</BaseLayout>
+<Vesicula {seo} breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad'}} isIframe={true}>
+  <MediaPanel
+    align="left"
+    title="Síntomas de una condición en la vesícula"
+    classTitle="text-nblack font-bold header-s"
+    id="sintomas"
+  >
+    <Fragment slot="subtitle">
+      <p class="k-body-l">
+        La vesícula y el sistema biliar participan en la digestión, especialmente en el procesamiento de grasas. Cuando presentan alteraciones, pueden generar síntomas que con frecuencia se confunden con gastritis u otros problemas digestivos.
+      </p>
+      <p class="my-4 font-bold k-body-l">Síntomas más comunes:</p>
+      <ul class="list-disc list-inside font-bold ml-6 k-body-l">
+        <li class="mb-2 underline text-npurple">
+          <a href="#dolor-abdominal">Dolor en la parte superior derecha del abdomen</a>
+        </li>
+        <li class="mb-2">Náuseas o vómitos frecuentes</li>
+        <li class="mb-2">Molestias después de comer alimentos grasos</li>
+        <li class="mb-2">Fiebre o escalofríos (en caso de infección)</li>
+        <li class="mb-2">Coloración amarilla en piel y ojos (ictericia)</li>
+      </ul>
+      <p class="k-body-l">Identificar la causa correcta es el primer paso para resolver el problema.</p>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    id="dolor-abdominal"
+    align="left"
+    title="Dolor abdominal superior derecho"
+    classTitle="text-nblack font-bold header-s"
+  >
+    <Fragment slot="subtitle">
+      <div class="grid grid-cols-12 k-body-l">
+        <div class="col-span-12 md:col-span-8">
+          <p class="mb-4">
+            El <strong>dolor abdominal</strong> provocado por una condición en la vesícula puede variar en intensidad, duración y localización. Identificar el tipo de dolor ayuda a orientar el diagnóstico.
+          </p>
+          <h3 class="header-xs text-npurple font-bold mb-6">Tipos de dolor abdominal que pueden relacionarse con la vesícula</h3>
+          <ul class="list-disc list-inside ml-6">
+            <li class="mb-2">Dolor súbito después de comer</li>
+            <li class="mb-2">Dolor que dura más de 30 minutos</li>
+            <li class="mb-2">Dolor que despierta por la noche</li>
+            <li class="mb-2">Dolor que se irradia a la espalda o al hombro derecho</li>
+            <li class="mb-2">Dolor acompañado de náuseas</li>
+          </ul>
+          <Linebreak class="my-6" color="[#EEE]" isElement/>
+          <h3 class="header-xs text-npurple font-bold">¿Cómo identificar si mi dolor abdominal podría ser la vesícula?</h3>
+          <p>
+            El dolor de origen biliar suele localizarse en el cuadrante superior derecho del abdomen, justo debajo de las costillas. Puede irradiarse hacia la espalda o el hombro derecho y suele aparecer después de comer. <strong>No todos los dolores en esta zona son vesícula. Por eso es importante una valoración médica que permita diferenciar la causa.</strong>
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4">
+          <p class="bg-[#f0f0f0] header-xs text-center rounded-b-3xl">
+            El dolor de vesícula se ubica en el cuadrante SUPERIOR DERECHO
+          </p>
+          <Picture
+            src={abdomen_info}
+            alt="Ilustración de abdomen mostrando ubicacion del dolor del lado derecho, debajo de las costillas"
+          />
+        </div>
+      </div>
+    </Fragment>
+  </MediaPanel>
+  <div class="k-section">
+    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/5OZAqjIbP_U?si=BRMPimYCEGZpYmp0" title="Video Clinica Enlace" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <MediaPanel
+    id="estudios-diagnosticos"
+    align="left"
+    title="Estudios que identifican los problemas de la vesícula y vías biliares"
+    classTitle="text-nblack font-bold header-s"
+    subtitle="Existen estudios que permiten visualizar la vesícula e identificar sus afecciones."
+  >
+    <Fragment slot="subtitle">
+      <!-- TODO -->
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    align="left"
+    title="Me detectaron piedras en la vesícula, ¿qué sigue?"
+    classTitle="!mb-0 text-nblack font-bold header-s"
+  >
+    <Fragment slot="subtitle">
+      <p class="k-body-l">
+        Recibir un diagnóstico puede generar dudas. No todos los casos requieren cirugía inmediata. La decisión depende de los síntomas, el riesgo de complicaciones y la evaluación médica integral.
+      </p>
+      <p class="k-body-l">
+        Una vez que tu médico te ha detectado la presencia de piedras en la vesícula, procederá a buscar la mejor manera de intervenir la enfermedad. En algunos casos seleccionados pueden considerarse tratamientos farmacológicos, aunque la cirugía es el tratamiento definitivo cuando existen síntomas recurrentes o complicaciones.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">Mi médico me recomendó operarme de la vesícula</h3>
+      <p class="k-body-l">
+        La cirugía de vesícula es un procedimiento muy recomendado para eliminar las piedras en las vesículas. Actualmente se realiza por laparoscopía, una técnica mínimamente invasiva en la cual el médico trabaja a través de dos orificios en el abdomen.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        Mi médico me recetó un tratamiento farmacológico
+      </h3>
+      <p class="k-body-l">
+        Hay ocasiones en las que una cirugía no es viable en un paciente, ya sea por sus características, riesgo o edad. En estos casos, el médico podría optar por recetar medicamentos que disuelvan las piedras en la vesícula. Existen medicamentos como el ursodiol (tabletas), cuya función es la disolución de las piedras vesiculares. Estos tratamientos farmacológicos duran algunos meses hasta que surgan efecto, ya que su funcionamiento es gradual.
+      </p>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    align="center"
+    classTitle=""
+    classSubtitle="bg-[#EEE] p-5 l:p-40 text-center flex flex-col items-center justify-center">
+    <Fragment slot="subtitle">
+      <h2>¿Te identificas con alguno de estos síntomas?</h2>
+      <p
+        class="header-xs pb-6 text-[#717274]"
+      >
+        Dolor en la parte superior derecha del abdomen, náuseas o vómitos frecuentes, molestia después de comer alimentos grasos, inflamación abdominal persistente, dolor que se irradia hacia la espalda.
+      </p>
+      <h2>Podría ser tu vesícula.</h2>
+      <a
+        class="k-button bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end"
+        target="_blank"
+        href="https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula"
+      >AGENDA TU VALORACIÓN</a>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    id="cirugia-de-vesicula"
+    align="left"
+    title="¿Qué es la cirugía de vesícula?"
+    classTitle="!mb-0 text-nblack font-bold header-s"
+    classSubtitle="k-body-l flex flex-col"
+  >
+    <Fragment slot="subtitle">
+      <p class="pb-4">
+        La <strong>cirugía de vesícula</strong> o <strong>colecistectomía</strong> es la extracción quirúrgica de la vesícula biliar. Actualmente se realiza mediante laparoscopía, una técnica de mínima invasión que utiliza pequeñas incisiones y una cámara para visualizar el interior del abdomen. Este procedimiento permite:
+      </p>
+      <ul class="list-disc list-inside ml-6">
+        <li class="mb-2">Recuperación más rápida</li>
+        <li class="mb-2">Menos dolor postoperatorio</li>
+        <li class="mb-2">Estancia hospitalaria corta</li>
+        <li class="mb-2">Retorno temprano a actividades cotidianas</li>
+      </ul>
+      <p>
+        La cirugía se indica cuando los síntomas son recurrentes, existe inflamación o riesgo de complicaciones.
+      </p>
+      <a
+        href="https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula" target="_blank"
+        class="k-button k-body-m bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end uppercase leading-1 md:!leading-[0] mt-2">
+        Agendar valoración prequirúrgica
+      </a>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    id="enfermedades"
+    align="left"
+    title="Enfermedades frecuentes de la vesícula"
+    classTitle="!mb-0 text-nblack font-bold header-s"
+    classSubtitle="k-body-l"
+  >
+    <Fragment slot="subtitle">
+      <p>
+        Existen distintas condiciones que pueden afectar la vesícula y el sistema biliar:
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">Piedras en la vesícula (colelitiasis)</h3>
+      <p>
+        Se forman depósitos sólidos dentro de la vesícula. Pueden no causar síntomas inicialmente, pero cuando obstruyen la salida de bilis pueden provocar dolor intenso.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Colecistitis
+      </h3>
+      <p>
+        Inflamación de la vesícula, generalmente asociada a obstrucción por piedras. Puede acompañarse de fiebre y dolor persistente.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Obstrucción de la vía biliar
+      </h3>
+      <p class="leading-[1]">
+        Puede provocar ictericia (coloración amarilla), dolor y alteraciones en estudios de laboratorio.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Otras condiciones del sistema biliar
+      </h3>
+      <p>
+        En algunos casos, los síntomas pueden deberse a una combinación de las condiciones anteriores o a problemas más complejos en la vesícula, las vías biliares o el hígado.
+      </p>
+      <p>
+        Como muchas de estas enfermedades pueden sentirse de forma muy similar, es importante realizar una evaluación multidisciplinaria. Para ello, un equipo de especialistas puede ayudarte a encontrar la causa exacta y definir el mejor tratamiento para ti, ya que no siempre la cirugía es necesaria desde el inicio.
+      </p>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    id="prepararse"
+    align="left"
+    title="Preparación para tu cirugía de vesícula"
+    classTitle="text-nblack font-bold header-s"
+  >
+    <Fragment slot="subtitle">
+      <!-- TODO -->
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        Costos de la cirugía
+      </h3>
+      <p>
+        Cada cirugía de vesícula es diferente, y el costo depende del diagnóstico específico y la complejidad del caso. Aunque en algunos pacientes se trata únicamente de piedras en la vesícula, en otros puede haber condiciones adicionales que requieren un enfoque distinto. Para ofrecerte un tratamiento adecuado, seguro y sin costos inesperados, es fundamental realizar una valoración previa con el cirujano. Esto permite definir con precisión el procedimiento que necesitas y brindarte un presupuesto claro, personalizado y acorde a tu situación.
+      </p>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    align="left"
+    title="Me quitaron la vesícula pero aún tengo dolor y/o ictericia"
+    class="!mb-1"
+    classTitle="!mb-0 text-nblack font-bold header-s"
+    classSubtitle="k-body-l"
+  >
+    <Fragment slot="subtitle">
+      <p>
+        En algunos casos, retirar la vesícula (colecistectomía) no resuelve completamente el problema, ya que pueden existir condiciones adicionales en las vías biliares o el páncreas.
+        <br/>
+‍        Si después de la cirugía presentas síntomas como:
+      </p>
+      <ul class="list-disc list-inside font-bold ml-6 k-body-l pt-4">
+        <li class="mb-2">Dolor abdominal persistente
+        </li>
+        <li class="mb-2">Colaboración amarillenta en piel y ojos (ictericia)</li>
+        <li class="mb-2">Náuseas o malestar digestivo</li>
+      </ul>
+      <p>
+        Es importante continuar con un protocolo de evaluación para identificar la causa y brindar el tratamiento adecuado.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">Valoración y ultrasonido</h3>
+      <p>
+        Se realiza una consulta clínica para evaluar tus síntomas, antecedentes y evolución posterior a la cirugía. El ultrasonido abdominal permite identificar dilatación de las vías biliares, presencia de litos residuales (piedras) o alteraciones en hígado y páncreas.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Tomografía (TAC)
+      </h3>
+      <p class="leading-[1]">
+        Proporciona imágenes más detalladas del abdomen. Es útil para detectar complicaciones como inflamación, infecciones, colecciones o alteraciones que no siempre son visibles en el ultrasonido.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Colangioresonancia
+      </h3>
+      <p>
+        Es un estudio especializado que permite visualizar con precisión las vías biliares y el conducto pancreático sin necesidad de procedimientos invasivos. Ayuda a identificar obstrucciones, piedras retenidas o estrechamientos.
+      </p>
+      <h3 class="header-xs text-npurple font-bold">
+        Estudios de laboratorio
+      </h3>
+      <p class="leading-[1]">
+        Se solicitan análisis de sangre para evaluar el funcionamiento del hígado, páncreas y la coagulación:
+      </p>
+      <ul class="list-disc list-inside font-bold ml-6 k-body-l pt-4">
+        <li class="mb-2">PFH (Perfil hepático / pruebas biliares)</li>
+        <li class="mb-2">BH (Biometría hemática)</li>
+        <li class="mb-2">Amilasa y lipasa (función pancreática)</li>
+        <li class="mb-2">TP/TTP (tiempos de coagulación)</li>
+      </ul>
+      <p>
+        Estos estudios ayudan a obtener un buen diagnóstico y orientar el tratamiento.
+      </p>
+      <p class="font-bold">
+        Persistir con síntomas después de una cirugía de vesícula no es normal y debe evaluarse. Un diagnóstico oportuno permite resolver el problema de forma segura y evitar complicaciones.
+      </p>
+    </Fragment>
+  </MediaPanel>‍
+  <MediaPanel
+    align="left"
+    class="!mt-1"
+    classSubtitle="bg-[#F6F6E5] p-2 l:p-40 text-left flex flex-col items-center justify-center">
+    <Fragment slot="subtitle">
+      <h2 class="font-bold">¿Necesitas orientación sobre tu caso?<br/>Habla con un coordinador.</h2>
+      <p
+        class="pb-6 px-2"
+      >
+        Si sospechas que padeces de una condición en la vesícula, saber por dónde empezar puede resultar confuso. Da click en el siguiente botón para conversar con alguien sobre tu caso clínico, que te ayude a decidir por dónde comenzar.
+      </p>
+      <a
+        class="k-button bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end uppercase"
+        target="_blank"
+        href="https://wa.me/+528127210979?text=Estoy+en+el+sitio+webhttps://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula"
+      >contacta a un coordinador</a>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    id="dolor-abdominal"
+    align="left"
+  >
+    <Fragment slot="subtitle">
+      <div class="grid grid-cols-12 k-body-l">
+        <div class="col-span-12 md:col-span-6 border-t-[#EEE] border-2 border-solid border-x-red/0 border-b-green/0 pr-4 flex flex-col justify-center">
+          <div class="text-[#E59A98] typo-header-xs font-bold my-4">SERVICIOS</div>
+          <h2 class="header-s font-bold mb-6">Enfermedades de la Vesícula y Vía Biliar</h2>
+          <ul class="list-['-_'] list-inside ml-6">
+            <li class="mb-2">Cirugía de vesícula por laparoscopía</li>
+            <li class="mb-2">Ultrasonido de abdomen total</li>
+            <li class="mb-2">Ultrasonido de abdomen superior</li>
+            <li class="mb-2">Paracentesis abdominal</li>
+            <li class="mb-2">Colangiografía transoperatoria</li>
+            <li class="mb-2">Colangiopancreatografía Retrógrada Endoscópica (CPRE)</li>
+          </ul>
+        </div>
+        <div class="col-span-12 md:col-span-6">
+          <Picture
+            src={cirujanos_vesicula}
+            alt="Cirujanos de Clínica Enlace realizando cirugía de vesícula"
+          />
+        </div>
+      </div>
+    </Fragment>
+  </MediaPanel>
+  <MediaPanel
+    align="left"
+    title="Colangiopancreatografía Retrógrada Endoscópica (CPRE)"
+    classTitle="!mb-0 text-nblack font-bold header-s"
+    classSubtitle="k-body-l flex flex-col"
+  >
+    <Fragment slot="subtitle">
+      <p class="">
+        Cuando el problema no está en la vesícula, sino en los conductos que transportan la bilis, la <strong>Colangiopancreatografía Retrógrada Endoscópica (CPRE)</strong> es uno de los procedimientos más efectivos para resolverlo. En el Centro de Vesícula y Sistema Biliar la realizamos dentro de nuestra propia unidad, con equipo y personal especializado.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Qué es una CPRE y para qué sirve?
+      </h3>
+      <p class="">
+        La CPRE es un procedimiento endoscópico que permite revisar y tratar las vías biliares y el conducto pancreático sin necesidad de cirugía abierta. Combina un endoscopio (una sonda flexible con cámara que se introduce por la boca) con imágenes de rayos X, lo que permite ver el interior de los conductos y actuar sobre ellos en el mismo momento. A diferencia de los estudios que solo toman imágenes, la CPRE es además terapéutica: en el mismo procedimiento puede resolver el problema que origina los síntomas.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Para qué sirve una CPRE?
+      </h3>
+      <p class="">
+        Principalmente para:
+      </p>
+      <ul class="list-disc list-inside ml-6 k-body-l pt-4">
+        <li class="mb-2">Extraer piedras atrapadas en la vía biliar (coledocolitiasis)</li>
+        <li class="mb-2">Liberar obstrucciones que impiden el paso normal de la bilis</li>
+        <li class="mb-2">Tratar la ictericia (coloración amarilla en piel y ojos) provocada por una obstrucción biliar</li>
+        <li class="mb-2">Colocar prótesis (stents) cuando existe un estrechamiento del conducto</li>
+        <li class="mb-2">Resolver fugas de bilis posteriores a una cirugía</li>
+      </ul>
+      <p class="font-bold mt-4">
+        💡 La CPRE suele indicarse cuando la piedra o la obstrucción se localiza en la vía biliar, no dentro de la vesícula.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Cuándo se necesita una CPRE?
+      </h3>
+      <p>
+        Tu médico puede recomendar una CPRE cuando los estudios, como el ultrasonido de abdomen, muestran una piedra o una obstrucción en la vía biliar. También es frecuente en pacientes que ya fueron operados de la vesícula y continúan con dolor o ictericia (coloración amarilla en piel u ojos), ya que en algunos casos quedan piedras retenidas en los conductos. Es una herramienta clave dentro de la valoración integral del sistema biliar, porque permite tratar el origen del problema y prevenir complicaciones.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿La CPRE es una operación?
+      </h3>
+      <p>
+        Es una de las dudas más frecuentes. La CPRE no es una operación convencional: no requiere cortes ni incisiones en el abdomen, porque se realiza por vía endoscópica, a través de la boca. Por eso seconsidera un procedimiento mínimamente invasivo. Se lleva a cabo con sedación, de modo que el paciente está dormido durante el procedimiento. Esto la convierte en una alternativa más cómoda y de recuperación más rápida frente a una cirugía abierta de la vía biliar.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Dónde se realiza la CPRE?
+      </h3>
+      <p>
+        La CPRE debe realizarse en una unidad con el equipo adecuado y personal especializado, ya que combina endoscopía e imagen en tiempo real. En el Centro de Vesícula y Sistema Biliar, en San Nicolás de los Garza (Monterrey), la realizamos dentro de nuestra propia unidad, como parte de nuestro modelo de atención integral del sistema biliar. Esto significa que, desde la valoración hasta el tratamiento, tu caso se atiende de forma coordinada y con seguimiento, sin necesidad de acudir a distintos lugares.
+      </p>
+      <a
+        class="k-button bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end uppercase"
+        target="_blank"
+        href="https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+informaci%C3%B3n+sobre+una+CPRE"
+      >Quiero informacion sobre una CPRE</a>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Cuánto es el tiempo de recuperación de una CPRE?
+      </h3>
+      <p>
+        La recuperación de una CPRE suele ser rápida. Después del procedimiento, el paciente permanece algunas horas en observación mientras pasa el efecto de la sedación. La mayoría de las personas retoma sus actividades cotidianas en uno o dos días. Durante las primeras horas se recomienda una dieta ligera y seguir las indicaciones del especialista.
+      </p>
+      <p>
+        Como todo procedimiento médico, la CPRE tiene riesgos que tu especialista evaluará y te explicará en la valoración previa, para realizarla con la mayor seguridad posible.
+      </p>
+      <p class="font-bold">
+        💡 Cada caso es diferente: el tiempo exacto de recuperación depende del motivo por el que se realizó la CPRE y de la situación de cada paciente.
+      </p>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        ¿Tienes dudas sobre si necesitas una CPRE?
+      </h3>
+      <p>
+        Si presentas una obstrucción biliar, ictericia o continúas con síntomas después de una cirugía de vesícula, podemos orientarte. Habla con un coordinador para revisar tu caso y conocer el siguiente paso.
+      </p>
+      <a
+        class="k-button bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end uppercase"
+        target="_blank"
+        href="https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+que+un+coordinador+revise+mi+caso+de+CPRE"
+      >Contacta a un coordinador</a>
+    </Fragment>
+  </MediaPanel>
+    <MediaPanel
+    id="dolor-abdominal"
+    align="left"
+  >
+    <Fragment slot="subtitle">
+      <div class="grid grid-cols-12 k-body-l">
+        <div class="col-span-12 md:col-span-7">
+          <Picture
+            src={sobre_nosotros}
+            alt="Doctores de Clínica Enlace"
+          />
+          </div>
+        <div class="col-span-12 md:col-span-5 pl-4 flex flex-col justify-center">
+          <div class="text-[#E59A98] k-body-m font-bold my-2 uppercase">Sobre nosotros</div>
+          <h2 class="header-s font-bold mb-2">Unidad de Práctica Integrada</h2>
+          <p>
+            Nuestro modelo reúne experiencia médica, diagnóstico preciso y un abordaje coordinado para ofrecer una valoración clara, decisiones bien fundamentadas y tratamientos adecuados a cada paciente. Creemos en la atención integral, donde cada paso, desde la primera consulta hasta el seguimiento, se realiza con criterio clínico y enfoque humano.
+          </p>
+        </div>
+      </div>
+    </Fragment>
+  </MediaPanel>
+  <h1 class="text-white">Vesícula y Vías biliares</h1>
+</Vesicula>

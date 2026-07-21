@@ -199,12 +199,12 @@
 
 .typo-header-s, h5 {
   font-size: 24px;
-  line-height: 34px;
+  line-height: 28px;
 }
 
 .typo-header-xs {
   font-size: 20px;
-  line-height: 28px;
+  line-height: 24px;
 }
 
 .typo-header-xxs {
@@ -226,19 +226,19 @@
 
 .typo-body-l {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 24px;
   letter-spacing: -0.01em;
 }
 
 .typo-body-m {
   font-size: 14px;
-  line-height: 21px;
+  line-height: 28px;
   letter-spacing: -0.01em;
 }
 
 .typo-body-s {
   font-size: 12px;
-  line-height: 18px;
+  line-height: 16px;
 }
 
 .typo-body-bold-xl {
@@ -254,12 +254,12 @@
 
 .typo-body-bold-m {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 28px;
 }
 
 .typo-body-bold-s {
   font-size: 14px;
-  line-height: 21px;
+  line-height: 28px;
   letter-spacing: -0.01em;
 }
 
@@ -308,4 +308,9 @@ body {
   a {
     text-decoration: underline;
   }
+}
+
+.k-n-h2{
+  color: #1A1B1F;
+  font-weight: bold;
 }

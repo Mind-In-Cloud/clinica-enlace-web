@@ -1,0 +1,18 @@
+---
+import { Picture } from 'astro:assets'
+
+import classy from "@utils/classy";
+
+import logo from "@icons/vesicula/Logo_CVSB.png"
+
+const {
+  class : className = '',
+} = Astro.props
+
+const logoClasses = classy([
+  "size-auto",
+  "max-h-24",
+  className
+])
+---
+<Picture src={logo} alt="Logo de Clínica Enlace centro de vesicula" {...logoClasses}/>

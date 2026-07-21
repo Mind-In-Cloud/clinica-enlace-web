@@ -1,0 +1,103 @@
+---
+import { SEO } from 'astro-seo';
+import Header from "@components/HeaderVesicula.astro";
+import Footer from "@components/FooterVesicula.astro";
+import FloatingWha from '@components/FloatingWha.astro';
+import Breadcrumbs from '@header/breadcrumbs.astro';
+
+import Favicon from "@utils/favicon.astro";
+import seoDefault from "@images/mainPhotoDesktop.png"
+
+import '@styles/global.css';
+import '@styles/typography.css';
+
+const { seo, breadcrumbs = false, wha = true, isIframe = false } = Astro.props ;
+
+const {
+	title = 'Missing Title',
+	description = 'Missing Description',
+	image : {
+		src,
+		width,
+		height,
+		// alt, // not used in this, needs to be defined
+		format
+	} = seoDefault,
+	canonical = '',
+} = seo
+
+const seoImageUrl = `${new URL(src, Astro.url)}`
+
+let urlOverride = '' // if you want to override the url, mostly for categories
+if ( canonical !== '' ){
+	urlOverride = `${Astro.site}${canonical}`
+}
+
+let seoObj = {
+	title : `${title} | Clínica Enlace`,
+	description,
+	canonical : urlOverride,
+	openGraph: {
+		basic: {
+			title: `${title} | Clínica Enlace`,
+			type: "website",
+			image: seoImageUrl,
+			url : urlOverride
+		},
+		optional: {
+			description: description
+		},
+		image: {
+			width,
+			height,
+			type: `image/${format}`,
+			// alt
+		}
+	},
+	twitter: {
+		// creator: "@jonasmerlins1"
+		title,
+		description,
+		image: seoImageUrl
+	},
+	// article:{ these options are there for when articles are introduced
+	// 	publishedTime: "2022-01-01T00:00:00Z",
+	// 	modifiedTime: "2022-01-01T00:00:
+	// }
+}
+---
+
+<html lang="es">
+	<head>
+		<SEO {...seoObj}/>
+		<Favicon/>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<!-- Meta Pixel Code -->
+		<script is:inline>
+			!function(f,b,e,v,n,t,s)
+			{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)}(window, document,'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+			fbq('init', '470693049793581');
+			fbq('track', 'PageView');
+		</script>
+		<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=470693049793581&ev=PageView&noscript=1"
+		/></noscript>
+		<!-- End Meta Pixel Code -->
+	</head>
+	<body class="k-alone">
+		{ isIframe && <Header/> }
+		{ isIframe && breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
+    <slot />
+		{wha && <FloatingWha/>}
+		{ isIframe && <Footer />}
+	</body>
+</html>
