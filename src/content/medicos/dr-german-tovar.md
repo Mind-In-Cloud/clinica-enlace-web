@@ -6,9 +6,9 @@ info: 'El cuidado del paciente es la principal prioridad del Dr. Germán Tovar, 
 photo: '/src/assets/images/german_tovar.png'
 especialidad: 'Cirugía General'
 centros: [
-  {center: 'hepatobiliar', priority: 0},
-  {center : 'biopsias', priority: 0},
-  {center : 'mama', priority: 0}
+  {center: 'hepatobiliar', priority: 1},
+  {center: 'biopsias', priority: 1},
+  {center: 'mama', priority: 0}
 ]
 tags: ['Cirugía General']
 ---
