@@ -11,6 +11,7 @@ import sobre_nosotros from '@images/sobre_nosotros.jpg'
 import BigHero from '@components/BigVesicula.astro';
 import MediaPanel from '@components/MediaPanel.astro';
 import Linebreak from '@elements/Linebreak.astro';
+import Column from '@components/Column.astro';
 
 const seo = {
   title: 'Vesícula y Vías biliares: Síntomas y procedimientos',
@@ -97,11 +98,79 @@ const seo = {
     title="Estudios que identifican los problemas de la vesícula y vías biliares"
     classTitle="text-nblack font-bold header-s"
     classSubtitle="k-body-l"
-    subtitle="Existen estudios que permiten visualizar la vesícula e identificar sus afecciones."
+    subtitle=""
   >
-    <Fragment slot="subtitle">
-      <!-- TODO -->
-    </Fragment>
+    <div slot="subtitle" class="grid grid-cols-3 gap-4">
+      <p class="k-body-l col-span-3">
+        Existen estudios que permiten visualizar la vesícula e identificar sus afecciones.
+      </p>
+      <Column
+        title="Consulta de valoración médica"
+        class="col-span-1"
+        cta={{
+          text:"Agendar",
+          href:"https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula"
+        }}
+      >
+        <div slot="content" class="flex flex-col">
+          <span class="k-body-l font-bold bg-npurple rounded-full p-4 text-white mt-4 text-center !leading-[1px] w-fit px-8 self-center">
+            1ra valoración
+          </span>
+          <p>
+            Es el primer paso. Durante la consulta, el médico evalúa tus síntomas, localización del dolor, antecedentes médicos y factores de riesgo.
+          </p>
+          <p>
+            A través de la exploración física y el interrogatorio dirigido, se determina si el cuadro clínico sugiere un problema en la vesícula u otra afección digestiva.
+          </p>
+          <p class="font-bold">
+            💡 Ideal cuando presentas dolor abdominal, náuseas o molestias recurrentes y aún no tienes estudios previos.
+          </p>
+        </div>
+      </Column>
+      <Column
+        title="Ultrasonido de abdomen superior"
+        class="col-span-1"
+        cta={{
+          text:"Saber más",
+          href:"https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+un+ultrasonido+de+abdomen+superior"
+        }}
+      >
+        <div slot="content" class="flex flex-col">
+          <p>
+            El ultrasonido o eco de abdomen superior es el estudio inicial más utilizado cuando se sospecha un problema en la vesícula.
+          </p>
+          <p>
+            Utiliza ondas de sonido (no radiación) para visualizar la vesícula biliar, el hígado y los conductos biliares. Permite detectar la presencia de piedras, inflamación o alteraciones en la vía biliar. Es indoloro, no invasivo y suele realizarse en pocos minutos.
+          </p>
+          <p class="font-bold">
+            💡 Se recomienda cuando el dolor se localiza en la parte superior derecha del abdomen o se sospechan cálculos biliares.
+          </p>
+        </div>
+      </Column>
+      <Column
+        title="Ultrasonido de abdomen total"
+        class="col-span-1"
+        cta={{
+          text:"Saber más",
+          href:"https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula"
+        }}
+      >
+        <div slot="content" class="flex flex-col">
+          <p>
+            Evalúa no solo la vesícula, sino también hígado, páncreas, riñones, bazo y otras estructuras abdominales.
+          </p>
+          <p>
+            Es útil cuando los síntomas no son completamente claros o cuando se desea descartar otras causas de dolor abdominal.
+          </p>
+          <p>
+            También es un estudio no invasivo y seguro.
+          </p>
+          <p class="font-bold">
+            💡 Se solicita cuando se necesita una evaluación más amplia del abdomen para descartar otras afecciones.
+          </p>
+        </div>
+      </Column>
+    </div>
   </MediaPanel>
   <MediaPanel
     align="left"
@@ -218,13 +287,68 @@ const seo = {
     classTitle="text-nblack font-bold header-s"
   >
     <Fragment slot="subtitle">
-      <!-- TODO -->
       <h3 class="header-xs text-npurple font-bold mt-4">
         Costos de la cirugía
       </h3>
       <p class="k-body-l">
         Cada cirugía de vesícula es diferente, y el costo depende del diagnóstico específico y la complejidad del caso. Aunque en algunos pacientes se trata únicamente de piedras en la vesícula, en otros puede haber condiciones adicionales que requieren un enfoque distinto. Para ofrecerte un tratamiento adecuado, seguro y sin costos inesperados, es fundamental realizar una valoración previa con el cirujano. Esto permite definir con precisión el procedimiento que necesitas y brindarte un presupuesto claro, personalizado y acorde a tu situación.
       </p>
+      <div class="grid grid-cols-3 gap-4 mt-8 k-body-l">
+        <Column
+          color="npurple"
+          title="30 días antes"
+          class="col-span-1"
+          cta={{
+            text:"Agendar ahora",
+            href:"https://wa.me/+528127210979?text=Estoy+en+el+sitio+web+y+quiero+agendar+una+valoracion+para+cirugia+de+vesicula"
+          }}
+        >
+        <div slot="content" class="flex flex-col">
+          <p>
+            Agenda tu valoración con un cirujano general para confirmar diagnóstico, evaluar estudios y planificar el procedimiento.
+          </p>
+          <p>
+            Resuelve todas tus dudas e inquietudes en la misma consulta.
+          </p>
+        </div>
+      </Column>
+      <Column
+        color="npurple"
+        title="7 días antes"
+        class="col-span-1"
+        cta={{
+          text:"Descargar la guía pre-cirugía",
+          href:""
+        }}
+      >
+        <div slot="content" class="flex flex-col">
+          <p>
+            Revisión preoperatoria, estudios de laboratorio y ajustes médicos si es necesario.
+          </p>
+          <p>
+            Descarga la siguiente guía con una lista de aspectos que debes tener preparados previo a tu cirugía, para asegurar la eficiencia de tu visita.
+          </p>
+        </div>
+      </Column>
+      <Column
+        color="npurple"
+        title="1 días antes"
+        class="col-span-1"
+        cta={{
+          text:"Descargar la guía pre-cirugía",
+          href:""
+        }}
+      >
+        <div slot="content" class="flex flex-col">
+          <p>
+            Indicaciones específicas sobre ayuno y preparación. Siempre contarás con acompañamiento de un coordinador que resolverá tus dudas.
+          </p>
+          <p>
+            Descarga la siguiente guía con una lista de aspectos que debes tener preparados previo a tu cirugía, para asegurar la eficiencia de tu visita.
+          </p>
+        </div>
+      </Column>
+      </div>
     </Fragment>
   </MediaPanel>
   <MediaPanel

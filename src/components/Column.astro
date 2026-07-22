@@ -1,0 +1,42 @@
+---
+import classy from "@utils/classy.js";
+
+const {
+  title,
+  cta = {
+    text : '',
+    href : ''
+  },
+  color = 'ngreendark',
+  class: className = ''
+} = Astro.props;
+
+const titleClasses = classy([
+  'k-header-s',
+  'text-white',
+  'rounded-b-2xl',
+  'font-bold',
+  'text-center',
+  'leading-[1]',
+  'p-4',
+  `bg-${color}`,
+  className
+])
+---
+<div class="k-column-ves flex flex-col justify-between">
+  <h3
+    {...titleClasses}
+  >
+    { title }
+  </h3>
+  <slot name="content"/>
+  {
+    cta.href && cta.text &&
+    <a
+      href={cta.href}
+      class="k-column-ves-cta uppercase text-white text-center bg-ngreen px-6 py-4 mt-4 self-end"
+    >
+      { cta.text }
+    </a> || <div></div>
+  }
+</div>
