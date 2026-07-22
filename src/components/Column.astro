@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 
 const titleClasses = classy([
-  'k-header-s',
+  'header-s',
   'text-white',
   'rounded-b-2xl',
   'font-bold',
@@ -20,10 +20,17 @@ const titleClasses = classy([
   'leading-[1]',
   'p-4',
   `bg-${color}`,
+])
+
+const columnClasses = classy([
+  'k-column-ves',
+  'flex',
+  'flex-col',
+  'justify-between',
   className
 ])
 ---
-<div class="k-column-ves flex flex-col justify-between">
+<div {...columnClasses}>
   <h3
     {...titleClasses}
   >
@@ -33,6 +40,8 @@ const titleClasses = classy([
   {
     cta.href && cta.text &&
     <a
+      target="_blank"
+      rel="nofollow"
       href={cta.href}
       class="k-column-ves-cta uppercase text-white text-center bg-ngreen px-6 py-4 mt-4 self-end"
     >

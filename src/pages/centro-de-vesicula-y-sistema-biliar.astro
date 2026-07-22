@@ -99,7 +99,7 @@ const seo = {
     classTitle="text-nblack font-bold header-s"
     classSubtitle="k-body-l"
   >
-    <div slot="subtitle" class="grid grid-cols-1 m:grid-cols-3 gap-4">
+    <div slot="subtitle" class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <p class="k-body-l col-span-1 md:col-span-3">
         Existen estudios que permiten visualizar la vesícula e identificar sus afecciones.
       </p>
@@ -200,13 +200,13 @@ const seo = {
     classTitle=""
     classSubtitle="bg-[#EEE] p-5 l:p-40 text-center flex flex-col items-center justify-center">
     <Fragment slot="subtitle">
-      <h2>¿Te identificas con alguno de estos síntomas?</h2>
+      <h2 class="header-xxl">¿Te identificas con alguno de estos síntomas?</h2>
       <p
         class="header-xs pb-6 text-[#717274]"
       >
         Dolor en la parte superior derecha del abdomen, náuseas o vómitos frecuentes, molestia después de comer alimentos grasos, inflamación abdominal persistente, dolor que se irradia hacia la espalda.
       </p>
-      <h2>Podría ser tu vesícula.</h2>
+      <h2 class="header-xxl">Podría ser tu vesícula.</h2>
       <a
         class="k-button bg-ngreen text-white hover:bg-nblack ease-in-out duration-300 p-5 self-end"
         target="_blank"
@@ -286,13 +286,7 @@ const seo = {
     classTitle="text-nblack font-bold header-s"
   >
     <Fragment slot="subtitle">
-      <h3 class="header-xs text-npurple font-bold mt-4">
-        Costos de la cirugía
-      </h3>
-      <p class="k-body-l">
-        Cada cirugía de vesícula es diferente, y el costo depende del diagnóstico específico y la complejidad del caso. Aunque en algunos pacientes se trata únicamente de piedras en la vesícula, en otros puede haber condiciones adicionales que requieren un enfoque distinto. Para ofrecerte un tratamiento adecuado, seguro y sin costos inesperados, es fundamental realizar una valoración previa con el cirujano. Esto permite definir con precisión el procedimiento que necesitas y brindarte un presupuesto claro, personalizado y acorde a tu situación.
-      </p>
-      <div class="grid grid-cols-1 m:grid-cols-3 gap-4 mt-8 k-body-l">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 k-body-l">
         <Column
           color="npurple"
           title="30 días antes"
@@ -331,7 +325,7 @@ const seo = {
       </Column>
       <Column
         color="npurple"
-        title="1 días antes"
+        title="1 día antes"
         class="col-span-1"
         cta={{
           text:"Descargar la guía pre-cirugía",
@@ -348,6 +342,12 @@ const seo = {
         </div>
       </Column>
       </div>
+      <h3 class="header-xs text-npurple font-bold mt-4">
+        Costos de la cirugía
+      </h3>
+      <p class="k-body-l">
+        Cada cirugía de vesícula es diferente, y el costo depende del diagnóstico específico y la complejidad del caso. Aunque en algunos pacientes se trata únicamente de piedras en la vesícula, en otros puede haber condiciones adicionales que requieren un enfoque distinto. Para ofrecerte un tratamiento adecuado, seguro y sin costos inesperados, es fundamental realizar una valoración previa con el cirujano. Esto permite definir con precisión el procedimiento que necesitas y brindarte un presupuesto claro, personalizado y acorde a tu situación.
+      </p>
     </Fragment>
   </MediaPanel>
   <MediaPanel
@@ -413,7 +413,7 @@ const seo = {
     class="!mt-1"
     classSubtitle="bg-[#F6F6E5] p-2 l:p-40 text-left flex flex-col items-center justify-center">
     <Fragment slot="subtitle">
-      <h2 class="font-bold">¿Necesitas orientación sobre tu caso?<br/>Habla con un coordinador.</h2>
+      <h2 class="font-bold header-l">¿Necesitas orientación sobre tu caso?<br/>Habla con un coordinador.</h2>
       <p
         class="pb-6 px-2"
       >

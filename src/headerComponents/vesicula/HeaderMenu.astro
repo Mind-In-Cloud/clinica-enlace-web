@@ -14,11 +14,12 @@ const classes = classy([
 	"text-[#47484E]",
 	"hover:text-nblack",
 	"ease-in-out duration-300",
-	"leading-[1.2]"
+	"leading-[1.2]",
+	"py-4"
 ])
 ---
 <Astronav closeOnClick>
-	<div class="lg:hidden flex items-center justify-end col-start-3 col-end-4">
+	<div class="lg:hidden flex items-center justify-end col-span-1">
 		<MenuIcon class="w-4 h-4 text-gray-800" >
 			<OpenIcon>
 				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +36,8 @@ const classes = classy([
 			</CloseIcon>
 		</MenuIcon>
 	</div>
-	<MenuItems class="hidden lg:flex h-screen lg:h-auto col-span-3 lg:col-span-2 justify-end">
-		<div class="flex flex-col lg:flex-row lg:gap-5 k-body-m text-center items-center montserrat-bold">
+	<MenuItems class="hidden lg:flex h-screen lg:h-auto col-start-1 lg:col-start-3 col-end-7 justify-end">
+		<div class="flex flex-col lg:flex-row lg:gap-4 k-body-m text-center montserrat-bold items-stretch">
 			<a {...classes} href="#sintomas" class='text-center lg:content-center pt-8 lg:p-0'>
 				Sintomas
 			</a>
