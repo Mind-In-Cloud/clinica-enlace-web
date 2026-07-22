@@ -8,6 +8,7 @@ import abdomen_info from '@images/abdomen_info.png'
 import cirujanos_vesicula from '@images/cirujanos_vesicula.jpg'
 import sobre_nosotros from '@images/sobre_nosotros.jpg'
 
+import BigHero from '@components/BigVesicula.astro';
 import MediaPanel from '@components/MediaPanel.astro';
 import Linebreak from '@elements/Linebreak.astro';
 
@@ -16,8 +17,16 @@ const seo = {
   description: '¿Crees que es la vesícula? Conoce los síntomas de una condición en la vesícula y principales procedimientos. Cirugía de vesícula y CPRE en Monterrey.',
   image: seoImage,
 }
+
 ---
-<Vesicula {seo} breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad'}} isIframe={true}>
+<Vesicula
+  {seo}
+  breadcrumbs={{title:"Ir a Centros de Especialidad", url:'/centros-de-especialidad', class:"!m-0"}}
+  isIframe={true}
+  wha={true}
+  top={true}
+  >
+  <BigHero/>
   <MediaPanel
     align="left"
     title="Síntomas de una condición en la vesícula"

@@ -1,8 +1,11 @@
 ---
 import { SEO } from 'astro-seo';
+import { Font } from "astro:assets"
+
 import Header from "@components/HeaderVesicula.astro";
 import Footer from "@components/FooterVesicula.astro";
 import FloatingWha from '@components/FloatingWha.astro';
+import FloatingTop from '@components/FloatingTop.astro';
 import Breadcrumbs from '@header/breadcrumbs.astro';
 
 import Favicon from "@utils/favicon.astro";
@@ -11,7 +14,13 @@ import seoDefault from "@images/mainPhotoDesktop.png"
 import '@styles/global.css';
 import '@styles/typography.css';
 
-const { seo, breadcrumbs = false, wha = true, isIframe = false } = Astro.props ;
+const {
+	breadcrumbs = false,
+	isIframe = false,
+	seo,
+	wha = true,
+	top = false
+} = Astro.props ;
 
 const {
 	title = 'Missing Title',
@@ -71,6 +80,8 @@ let seoObj = {
 	<head>
 		<SEO {...seoObj}/>
 		<Favicon/>
+		<Font cssVariable="--font-open-sans"/>
+		<Font cssVariable="--font-montserrat"/>
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -98,6 +109,7 @@ let seoObj = {
 		{ isIframe && breadcrumbs && <Breadcrumbs {...breadcrumbs}/> }
     <slot />
 		{wha && <FloatingWha/>}
+		{top && <FloatingTop/>}
 		{ isIframe && <Footer />}
 	</body>
 </html>

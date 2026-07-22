@@ -1,14 +1,24 @@
 ---
 import Link from "@elements/Link.astro";
 
+import classy from "@utils/classy"
+
 const {
   title,
   url,
   links = [],
-  blog = false
+  blog = false,
+  class: className = '',
 } = Astro.props;
+
+const breadcrumbsClasses = classy([
+  "k-breadcrumbs",
+  "k-section",
+  "m-0",
+  className
+]);
 ---
-<div class="k-section m-0">
+<div {...breadcrumbsClasses}>
   { links.length > 0 ? links.map(( link: { url: string; title: string; active : boolean ;} , index : number )  => {
     const {
       url,
