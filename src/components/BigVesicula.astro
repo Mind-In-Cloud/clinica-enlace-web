@@ -10,7 +10,7 @@ const bigContentClasses = classy([
   'absolute', // Positioning classes for big hero only
 ])
 ---
-<div class="k-hero-vesicula relative z-20 px-12 bg-white" role="main" id="main">
+<div class="k-hero-vesicula relative z-20" role="main" id="main">
   <picture class="k-hero-image">
     <source media="(max-width: 768px)" srcset={`/.netlify/images?url=${mobileImg.src}&fm=webp`} />
     <source media="(min-width: 1024px) and (max-width: 1279px)" srcset={`/.netlify/images?url=${desktopImg.src}&fm=webp`} />
@@ -19,7 +19,7 @@ const bigContentClasses = classy([
   </picture>
   <div {...bigContentClasses}>
     <div class="md:w-[60%] justify-self-center text-white text-center" >
-      <h1 class="header-xxl px-4">
+      <h1 class="header-m md:header-xxl px-4">
         Unidad de Práctica Integrada para el Diagnóstico y Tratamiento de Enfermedades de <strong class="text-ngreen">Vesícula y Sistema Biliar</strong>
       </h1>
       <div
