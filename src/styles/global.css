@@ -12,6 +12,18 @@ body {
   .k-section{
     @apply px-8 my-12 lg:px-20 lg:my-16 2xl:px-48;
   }
+  .k-alone {
+
+    font-family: "Open Sans", sans-serif;
+
+    .k-section {
+      @apply px-8 my-12 lg:px-40 lg:my-16 2xl:px-80;
+    }
+
+    header {
+      font-family: var(--font-montserrat)!important;
+    }
+  }
 }
 
 .k-doctor-card {
@@ -93,4 +105,18 @@ body {
 
 .k-input-email {
   outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-block-start: 172px;
+}
+
+.k-footer-vesicula {
+  picture {
+    display: contents;
+  }
+  source {
+    display: none;
+  }
 }

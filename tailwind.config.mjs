@@ -38,7 +38,11 @@ export default {
 					400: '#7191AD',
 					300: '#A4B9CB',
 					200: '#CBD7E1',
-				}
+				},
+				ngreen: '#CACF6D',
+				ngreendark : '#B5BB44',
+				nblack: '#1A1B1F',
+				npurple: '#7464D9',
 			}
 		},
 	},

@@ -5,6 +5,7 @@ import Link from "@elements/Link.astro"
 import Linebreak from "@elements/Linebreak.astro"
 import classy from "@utils/classy"
 import Icon from "@elements/Icon.astro"
+import type { ACTION_ERROR_CODES } from 'astro:actions'
 
 const {
   style = 'gray',
@@ -31,6 +32,8 @@ const {
   classSubtitle = '',
   classIcon= '',
   isElement = false,
+  align='center',
+  ...addProps
 } = Astro.props
 
 const mediaPanelClasses = classy([
@@ -47,7 +50,7 @@ const mediaTitleClasses = classy([
   `text-${style}`,
   'col-span-4',
   'my-4 xl:my-6',
-  'text-center',
+  `text-${align}`,
   classTitle,
 ])
 
@@ -55,7 +58,7 @@ const mediaSubtitleClasses = classy([
   'k-subtitle',
   'col-span-4',
   'text-neutral-700 whitespace-pre-line',
-  classSubtitle ? classSubtitle : 'text-center',
+  classSubtitle ? classSubtitle : `text-${align}`,
 ])
 
 const iconClasses = classy([
@@ -71,7 +74,7 @@ const ctaProps = {
   style === 'green' ? 'metal' : style,
 }
 ---
-<div {...mediaPanelClasses}>
+<div {...mediaPanelClasses} {...addProps}>
   { icon &&
     <Icon icon={icon} {...iconClasses }/>
   }

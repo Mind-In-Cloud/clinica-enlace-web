@@ -1,0 +1,41 @@
+---
+import { Picture } from 'astro:assets'
+
+import classy from "@utils/classy";
+
+import logo from "@icons/vesicula/Logo_CVSB_blanco.png"
+
+
+const footerClasses = classy([
+  "k-footer-vesicula",
+  "grid grid-cols-1 md:grid-cols-6",
+  "gap-y-8 md:gap-y-8 md:gap-x-10",
+  "px-8 pb-9 lg:px-36 pt-16 lg:pt-10",
+  "bg-npurple text-white",
+]);
+---
+<footer
+  {...footerClasses}
+>
+  <Picture
+    class="col-span-1 md:col-span-2"
+    src={logo}
+    alt="Logo de Centro de la Vesicula en Clinica Enlace"
+  />
+  <div class="col-span-1 md:col-span-4 k-body-m">
+    <h2 class="header-s">
+      Contacto
+    </h2>
+    <p>
+      <strong>Teléfono:</strong> 81 2721 0979
+    </p>
+    <p>
+    <strong>Dirección:</strong> Jesús Solís 1626, Col. La Nogalera, 66417, San Nicolás de los Garza, N.L.
+    </p>
+    <a
+      class="underline"
+      href="https://wa.me/+528127210979?text=Hola%2C+estoy+en+el+sitio+web+y+quisiera+pedir+informes"
+    >Escríbenos por WhatsApp
+    </a>
+  </div>
+</footer>

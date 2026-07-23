@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
@@ -19,5 +19,5 @@ export default defineConfig({
       status: 301,
       destination: "/centro-de-vesicula-y-sistema-biliar",
     },
-  }
+  },
 });
